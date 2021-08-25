@@ -149,7 +149,6 @@ namespace ufo
         Expr &a = assumptions[i];
         a = simplifyBool(a);
       }
-
       if (bnd == -1) bnd = mergingIts; // default val
       for (int i = 0; i < bnd; i++)
       {
@@ -574,10 +573,13 @@ namespace ufo
         }
 
         // TODO: proper matching
-        if (isOpX<IMPL>(subgoal) && u.implies(subgoal->left(), assm))
+        if (isOpX<IMPL>(subgoal))
         {
-          result.push_back(subgoal->right());
-          return true;
+          if (u.implies(subgoal->left(), assm))
+          {
+            result.push_back(subgoal->right());
+            return true;
+          }
         }
         if (isOpX<ITE>(subgoal))
         {
@@ -614,13 +616,12 @@ namespace ufo
             return true;
           }
         }
-
         if (isOp<ComparissonOp>(assm))
         {
           Expr res = replaceAll(subgoal, assm, mk<TRUE>(efac));
           res = replaceAll(res, mkNeg(assm), mk<FALSE>(efac));
           Expr tmp = reBuildCmpSym(assm, assm->left(), assm->right());
-          assert(u.isEquiv(assm, tmp));
+          assert((bool)u.isEquiv(assm, tmp));
           res = replaceAll(res, tmp, mk<TRUE>(efac));
           res = replaceAll(res, mkNeg(tmp), mk<FALSE>(efac));
           if (res != subgoal)
@@ -1414,7 +1415,6 @@ namespace ufo
       for (int i = 1; i < indConstructor->arity() - 1; i++)
       {
         // TODO: make sure the name is unique
-
         Expr s;
         Expr singleCons = NULL;
         for (auto & a : constructors)
@@ -1473,7 +1473,6 @@ namespace ufo
         // always add symmetric IH?
         insertSymmetricAssumption(a);
       }
-
       // prove the inductive step
       Expr indConsApp = bind::fapp(indConstructor, args);
       Expr indSubgoal = replaceAll(goalQF, bind::fapp(typeDecl), indConsApp);
@@ -1486,7 +1485,6 @@ namespace ufo
 
       eliminateEqualities(indSubgoal);
       if (mergeAssumptions()) return true;
-
       splitAssumptions();
       if (verbose) outs() << "Inductive step:  " << * indSubgoal << "\n{\n";
       rewriteHistory.clear();
@@ -1495,7 +1493,7 @@ namespace ufo
       bool indres = simpleSMTcheck(indSubgoal);
       if (indres)
       {
-        if (verbose) outs() << "  proven trivially by Z3\n}\n";
+        if (verbose) outs() << "  proven trivially\n}\n";
         return true;
       }
       else
@@ -1744,7 +1742,7 @@ namespace ufo
     bool simpleSMTcheck(Expr goal)
     {
       if (!useZ3) return false;
-      return u.implies(conjoin(assumptions, efac), goal);
+      return (bool)u.implies(conjoin(assumptions, efac), goal);
     }
   };
 
