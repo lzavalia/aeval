@@ -4858,6 +4858,62 @@ namespace ufo
     return rhs;
   }
 
+  void getSubterms(Expr e, ExprVector& t)
+  {
+    if (isOpX<FAPP>(e) || isOp<NumericOp>(e) || isOp<BoolOp>(e))
+      t.push_back(e);
+    for (unsigned i = 0; i < e->arity(); i++)
+      getSubterms(e->arg(i), t);
+  }
+
+  void getCommonSubterms(Expr e, map<Expr, int>& occs)
+  {
+    ExprVector t;
+    getSubterms(e, t);
+    for (auto & e : t) occs[e]++;
+  }
+
+  int countFuns(Expr e)
+  {
+    map<Expr, int> occs;
+    getCommonSubterms(e, occs);
+    ExprSet funs;
+    for (auto & m : occs)
+      if (isOpX<FAPP>(m.first) && m.first->left()->arity() > 2)
+        funs.insert(m.first->left());
+    return funs.size();
+  }
+
+  int getMonotDegree(Expr e, Expr f)
+  {
+    if (isOpX<FAPP>(e) && e->left() == f)
+    {
+      int max = 0;
+      for (unsigned i = 0; i < e->arity(); i++)
+      {
+        int curMax = getMonotDegree(e->arg(i), f);
+        if (curMax > max) max = curMax;
+      }
+      return max + 1;
+    }
+    return 0;
+  }
+
+  int getMonotDegree(Expr e)
+  {
+    int res;
+    map<Expr, int> occs;
+    getCommonSubterms(e, occs);
+    int max = 0;
+    for (auto & m : occs)
+      if (isOpX<FAPP>(m.first))
+      {
+        int curMax = getMonotDegree(m.first, m.first->left());
+        if (curMax > max) max = curMax;
+      }
+    return max;
+  }
+
   Expr static createQuantifiedFormulaRestr (Expr def, ExprVector& vars, bool forall = true)
   {
     if (vars.empty()) return def;

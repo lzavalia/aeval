@@ -34,14 +34,15 @@ namespace ufo
     bool verbose;
     int sp = 2;
     int glob_ind = 0;
+    int lev = 0;
     bool useZ3 = false;
     unsigned to;
     ExprVector blockedAssms;
 
     public:
 
-    ADTSolver(Expr _goal, ExprVector& _assumptions, ExprVector& _constructors, int _maxDepth = 5, int _maxGrow = 3, int _mergingIts = 3, int _earlySplit = 1, bool _verbose = false, bool _useZ3 = true, unsigned _to = 1000) :
-        goal(_goal), assumptions(_assumptions), constructors(_constructors), efac(_goal->getFactory()), u(_goal->getFactory(), _to), maxDepth(_maxDepth), maxGrow(_maxGrow), mergingIts(_mergingIts), earlySplit(_earlySplit), verbose(_verbose), useZ3(_useZ3), to (_to)
+    ADTSolver(Expr _goal, ExprVector& _assumptions, ExprVector& _constructors, int _glob_ind = 0, int _lev = 0, int _maxDepth = 5, int _maxGrow = 3, int _mergingIts = 3, int _earlySplit = 1, bool _verbose = false, bool _useZ3 = true, unsigned _to = 1000) :
+        goal(_goal), assumptions(_assumptions), constructors(_constructors), glob_ind(_glob_ind), lev(_lev), efac(_goal->getFactory()), u(_goal->getFactory(), _to), maxDepth(_maxDepth), maxGrow(_maxGrow), mergingIts(_mergingIts), earlySplit(_earlySplit), verbose(_verbose), useZ3(_useZ3), to (_to)
     {
       // for convenience, rename assumptions (to have unique quantified variables)
       renameAssumptions();
@@ -978,15 +979,37 @@ namespace ufo
             rewriteSequence.pop_back();
           }
 
-          if (subgoal != exp)
+          if (subgoal != exp && lev < 2 /* max meta-induction level, hardcoded for now */)
           {
-            // nested induction
-            auto assumptionsTmp = assumptions;
-            ADTSolver sol (exp, assumptionsTmp, constructors, maxDepth, maxGrow, mergingIts, earlySplit, false, useZ3, to);
-            if (sol.solveNoind(false))
+            map<Expr, int> occs;
+            getCommonSubterms(exp, occs);   // get common subterms in `exp` to further replace by fresh symbols
+            auto it = occs.begin();
+            for (int i = 0; i < occs.size() + 1; i++)
             {
-              if (verbose) if (exp) outs () << string(sp, ' ')  << "proven by induction: " << *exp << "\n";
-              return true;
+              Expr expGen = exp;
+              if (it != occs.end()) // try generalizing based on the current subterm from occs
+              {
+                expGen = generalizeGoal(exp, it->first, it->second);
+                ++it;
+                if (expGen == NULL) continue;
+              }
+              else
+              {
+                // if nothing worked, try to prove it as is (exactly once, but if not very large)
+                if (getMonotDegree(expGen) > 2 || countFuns(expGen) > 3) //  hand-selected heuristics
+                  continue;
+              }
+
+              auto assumptionsTmp = assumptions;
+              // nested induction
+              ADTSolver sol (expGen, assumptionsTmp, constructors, glob_ind, lev+1,
+                             maxDepth, maxGrow, mergingIts, earlySplit, false, useZ3, to);
+
+              if (sol.solveNoind(false))
+              {
+                if (verbose) if (exp) outs () << string(sp, ' ')  << "proven by induction: " << *expGen << "\n";
+                return true;
+              }
             }
           }
           // backtrack:
@@ -994,6 +1017,24 @@ namespace ufo
         }
       }
       return false;
+    }
+
+    // a particular heuristic, to be extended
+    Expr generalizeGoal(Expr e, Expr subterm, int occs /* how often `subterm` occurs in `e` */)
+    {
+      if (occs < 2) return NULL;                          // `subterm` should occur at least twice
+      if (subterm->arity() == 0) return NULL;             // it should not be a constant
+      if (isOpX<FAPP>(subterm) &&
+          subterm->left()->arity() == 2) return NULL;     // it should not be a variable
+      Expr expGen = e;
+      Expr s = bind::mkConst(mkTerm<string> ("_w_" + to_string(glob_ind), efac), typeOf(subterm));
+      glob_ind++;                                         // create a fresh symmbol
+      expGen = replaceAll(expGen, subterm, s);
+      if (!emptyIntersect(expGen, subterm)) return NULL;  // there should not be any leftovers after replacement
+      int cnt = countFuns(expGen);                        // check the result
+      if (cnt == 0 || cnt > 3) return NULL;
+      if (getMonotDegree(expGen) > 2) return NULL;        // if it is still "too complex", scratch it
+      return expGen;
     }
 
     bool proveByContradiction (Expr subgoal)
@@ -1776,7 +1817,7 @@ namespace ufo
       return;
     }
 
-    ADTSolver sol (goal, assumptions, constructors, maxDepth, maxGrow, mergingIts, earlySplit, verbose, useZ3, to);
+    ADTSolver sol (goal, assumptions, constructors, 0, 0, maxDepth, maxGrow, mergingIts, earlySplit, verbose, useZ3, to);
     if (isOpX<FORALL>(goal)) sol.solve();
     else sol.solveNoind();
   }
