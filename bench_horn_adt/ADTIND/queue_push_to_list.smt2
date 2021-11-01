@@ -40,10 +40,11 @@
 (assert (forall ((x Lst) (y Lst) (q Queue) (z Lst) (a Lst)) 
 	(=> (and (qrev y z) (append x z a)) (queue-to-lst (queue x y) a))))
 ; extra lemmas
-(assert (forall ((xs Lst) (ys Lst) (zs Lst) (rs Lst) (ts Lst) (us Lst))
-	(=> (and (append xs ys rs) (append ys zs ts) (append xs ts us)) (append rs zs us))))
-(assert (forall ((x Lst) (a Lst) (y Lst) (z Lst)) 
-	(=> (and (rev2 x nil y) (append y a z)) (rev2 x a z))))
+(assert (forall ((xs Lst) (ys Lst) (zs Lst) (rs Lst) (ts Lst) (us Lst) (vs Lst))
+	(=> (and (append xs ys rs) (append ys zs ts) (append xs ts us) (append rs zs vs) (not (= vs us))) false)))
+(assert (forall ((x Lst) (a Lst) (y Lst) (z Lst) (r Lst)) 
+	(=> (and (rev2 x nil y) (append y a z) (rev2 x a r) (not (= z r))) false)))
+
 (assert (forall ((q Queue) (n Int) (x Lst) (y Lst) (p Queue) (z Lst)) 
 	(=> (and (queue-to-lst q x) (append x (cons n nil) y) (qpush q n p) (queue-to-lst p z) (not (= y z))) 
 		false)))

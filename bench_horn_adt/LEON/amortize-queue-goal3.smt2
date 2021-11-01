@@ -22,13 +22,6 @@
 (assert (forall ((xs Lst) (ys Lst))
     (=> (qreva xs nil ys) (qrev xs ys))))
 
-; proven
-(assert (forall ((xs Lst) (lx Int) (ys Lst) (ly Int) (zs Lst) (lz Int))
-       (=> (and (len xs lx) (len ys ly) (append xs ys zs) (len zs lz)) (= (+ lx ly) lz)))) ; G-amortize-queue-1
-
-(assert (forall ((x Lst) (y Lst) (z Lst) (lx Int) (ly Int) (lz Int)) 
-	(=> (and (qreva x y z) (len z lz) (len x lx) (len y ly)) (= lz (+ lx ly))))) ; G-amortize-queue-2 
-
 ; conjecture
 (assert (forall ((x Lst) (lx Int) (y Lst) (ly Int))
        (=> (and (qrev x y) (len x lx) (len y ly) (not (= lx ly))) false))) ; G-amortize-queue-3

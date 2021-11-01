@@ -16,11 +16,12 @@
 (assert (forall ((xs Lst) (ys Lst) (zs Lst) (rs Lst) (x Int) (ts Lst)) 
 	(=> (and (= xs (cons x ys)) (= zs (cons x ts)) (rev2 ys zs rs)) (rev2 xs ts rs))))
 
+
 ; extra lemmas
-(assert (forall ((xs Lst) (ys Lst) (rs Lst) (zs Lst) ) 
-	(=> (and (rev2 xs nil zs) (append zs ys rs)) (rev2 xs ys rs))))
-(assert (forall ((xs Lst) (ys Lst) (zs Lst) (lx Int) (ly Int)) 
-	(=> (and (append xs ys zs) (len xs lx) (len ys ly)) (len zs (+ lx ly)))))
+(assert (forall ((xs Lst) (ys Lst) (zs Lst) (lx Int) (ly Int) (lz Int)) 
+	(=> (and (append xs ys zs) (len xs lx) (len ys ly) (len zs lz) (not (= lz (+ lx ly)))) false)))
+(assert (forall ((xs Lst) (ys Lst) (rs Lst) (zs Lst) (vs Lst) ) 
+	(=> (and (rev2 xs nil zs) (append zs ys rs) (rev2 xs ys vs) (not (= vs rs))) false)))
 
 (assert (forall ((xs Lst) (ys Lst) (lx Int) (ly Int)) 
 	(=> (and (rev2 xs nil ys) (len xs lx) (len ys ly) (not (= lx ly))) false)))

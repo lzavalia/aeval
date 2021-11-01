@@ -40,7 +40,7 @@
 
 ; extra lemma
 (assert (forall ((x Lst) (y Lst) (q Queue) (lx Int) (ly Int) (lq Int)) 
-	(=> (and (len x lx) (len y ly) (amortizeQueue x y q) (qlen q lq)) (= lq (+ lx ly)))))
+	(=> (and (len x lx) (len y ly) (amortizeQueue x y q) (qlen q lq) (not (= lq (+ lx ly)))) false)))
 
 (assert (forall ((q Queue) (n Int) (p Queue) (lp Int) (lq Int)) 
 	(=> (and (qpush q n p) (qlen p lp) (qlen q lq) (not (= lp (+ 1 lq)))) false)))

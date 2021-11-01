@@ -36,7 +36,7 @@
 
 ; extra lemma
 (assert (forall ((x Lst) (n Int) (y Lst) (lx Int) (ly Int)) 
-	(=> (and (butlast (cons n x) y)) (len y ly) (len x lx) (= lx ly))))
+	(=> (and (butlast (cons n x) y) (len y ly) (len x lx) (not (= lx ly))) false)))
 
 (assert (forall ((q Queue) (n Int) (p Queue) (lp Int) (lq Int)) 
 	(=> (and (isNotEmpty q true) (isAmortized q true) (qpopback q p) (qlen p lp) (qlen q lq) 

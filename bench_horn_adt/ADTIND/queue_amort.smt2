@@ -32,7 +32,8 @@
 	(=> (and (len x lx) (len y ly) (<= ly lx)) (isAmortized (queue x y) true))))
 
 ; extra lemma
-(assert (forall ((x Lst) (lx Int)) (=> (len x lx) (<= 0 lx))))
+(assert (forall ((l Int) (xs Lst))
+       (=> (and (len xs l) (not (>= l 0))) false)))
 
 (assert (forall ((x Lst) (y Lst) (q Queue)) 
 	(=> (and (amortizeQueue x y q) (not (isAmortized q true))) false)))

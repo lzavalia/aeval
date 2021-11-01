@@ -11,17 +11,18 @@
 	(=> (and (= m (node x l r)) (size l sl) (size r sr)) (size m (+ 1 (+ sl sr))))))
 
 (assert (forall ((i Int)) (insert leaf i (node i leaf leaf))))
-(assert (forall ((r Tree) (l Tree) (d Int) (i Int) (x Tree) (m Tree)) 
-	(=> (and (insert r i x) (< d i) (= m (node d l x))) (insert (node d l r) i m))))
-(assert (forall ((r Tree) (l Tree) (d Int) (i Int) (y Tree) (m Tree)) 
-	(=> (and (insert l i y) (>= d i) (= m (node d y r))) (insert (node d l r) i m))))
+
+(assert (forall ((r Tree) (l Tree) (d Int) (i Int) (x Tree) (y Tree) (m Tree)) 
+	(=> (and (insert r i x) (insert l i y) 
+		(= m (ite (< d i) (node d l x) (node d y r)))) (insert (node d l r) i m))))
 
 (assert (forall ((x Tree)) (insert-all x nil x)))
 (assert (forall ((x Tree) (n Int) (ls Lst) (xs Lst) (z Tree) (y Tree)) 
 	(=> (and (insert-all x ls y) (= xs (cons n ls)) (insert y n z)) (insert-all x xs z))))
 
 ;extra lemmas
-(assert (forall ((t Tree) (n Int) (st Int) (x Tree)) (=> (and (size t st) (insert t n x)) (size x (+ 1 st)))))
+(assert (forall ((t Tree) (n Int) (st Int) (x Tree) (sx Int)) 
+	(=> (and (size t st) (insert t n x) (size x sx) (not (= sx (+ 1 st)))) false)))
 
 (assert (forall ((l Lst) (t Tree) (i Int) (x Tree) (m Int) (n Int))
 	(=> (and (size t n) (insert t i x) (size x m) (not (= m (+ 1 n)))) false)))

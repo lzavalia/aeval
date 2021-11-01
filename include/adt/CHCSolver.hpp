@@ -15,6 +15,7 @@ namespace ufo
     ExprFactory &efac;
     ExprSet &adts;
 
+    // Keep the current return values
     std::map<Expr,int> values_inds;
     ExprVector &constructors;
     ExprVector &assumptions;
@@ -25,6 +26,13 @@ namespace ufo
     int number_decls;
     bool givePriority = false;
     bool ignoreBaseVar = false;
+
+    map<Expr, Expr> baseConstructors;
+    map<Expr, Expr> indConstructors;
+
+    map<Expr, Expr> baseDefinitions;
+    map<Expr, Expr> indDefinitions;
+    map<Expr, Expr> interpretations;
 
   public:
     CHCSolver(ExprVector& _constructors, ExprSet& _adts, ExprFactory &_efac, ExprSet &_decls, ExprVector &_assms, vector<HornRuleExt> &_chcs, bool _nonadtPriority = false, bool _ignoreBase = false) :
@@ -46,9 +54,12 @@ namespace ufo
       return app;
     }
 
-    void createLeftConjs(HornRuleExt chc, ExprVector & cnj) {
+    void replaceDeclsInLeftPart(HornRuleExt chc, ExprVector & cnj) {
       for (int i = 0; i < chc.srcRelations.size(); i++) {
         if (decls.find(chc.srcRelations[i]) != decls.end()) {
+          // as we don't allow mutual recursion and decls are sorted, 
+          // we suppose that srcRelations doesn't contain predicates with unknown definition
+          // TODO: should check the assumption above 
           int ind = values_inds[chc.srcRelations[i]->left()];
           Expr app = createNewApp(chc, i, ind);
           Expr def = mk<EQ>(app, chc.srcVars[i][ind]);
@@ -61,76 +72,59 @@ namespace ufo
       }
     }
 
-    bool findMatchingFromBodyElement(HornRuleExt chc, Expr body_elem, ExprMap &matching) {
-      if (body_elem->left()->arity() == 1
-          && std::find(chc.dstVars.begin(), chc.dstVars.end(), body_elem->left()) != chc.dstVars.end()) {
-        matching[body_elem->left()] = body_elem->right();
-        return true;
-      }
-      else if (body_elem->right()->arity() == 1
-          && std::find(chc.dstVars.begin(), chc.dstVars.end(), body_elem->right()) != chc.dstVars.end()) {
-        matching[body_elem->right()] = body_elem->left();
-        return true;
-      }
+    bool findMatchingFromElement(HornRuleExt chc, Expr elem, ExprMap &matching) {
+      if (!chc.isQuery) {
+        if (elem->left()->arity() == 1
+            && std::find(chc.dstVars.begin(), chc.dstVars.end(), elem->left()) != chc.dstVars.end()) {
+          matching[elem->left()] = elem->right();
+          return true;
+        }
+        else if (elem->right()->arity() == 1
+            && std::find(chc.dstVars.begin(), chc.dstVars.end(), elem->right()) != chc.dstVars.end()) {
+          matching[elem->right()] = elem->left();
+          return true;
+        }
         for (auto & v : chc.dstVars) {
-          Expr ineq = ineqSimplifier(v, body_elem);
+          Expr ineq = ineqSimplifier(v, elem);
           if (ineq->left() == v) {
             matching[ineq->left()] = ineq->right();
             return true;
           }
         }
-        if ((body_elem->left()->arity() == 1) && !(isConsctructor(bind::fname(body_elem->left())))) {
-            matching[body_elem->left()] = body_elem->right();
-            return true;
-        }
-        else if ((body_elem->right()->arity() == 1) && !(isConsctructor(bind::fname(body_elem->right())))) {
-            matching[body_elem->right()] = body_elem->left();
-            return true;
-        }
+      }
+      if ((elem->left()->arity() == 1) && !(isConstructor(bind::fname(elem->left())))) {
+          matching[elem->left()] = elem->right();
+          return true;
+      }
+      else if ((elem->right()->arity() == 1) && !(isConstructor(bind::fname(elem->right())))) {
+          matching[elem->right()] = elem->left();
+          return true;
+      }
       return false;
     }
 
-    // find possible substitutions from body (add to cnj otherwise)
-    void findMatchingFromBody(HornRuleExt chc, ExprMap &matching, ExprVector &cnj) {
-      if (chc.body->arity() > 1 && !findMatchingFromBodyElement(chc, chc.body, matching)) {
-        for(int j = 0; j < chc.body->arity(); ++j) {
-          Expr body_elem = chc.body->arg(j);
-          if (!isOpX<EQ>(body_elem) || !findMatchingFromBodyElement(chc, body_elem, matching)) {
-            cnj.push_back(body_elem);
+    bool findMatchingFromRule(HornRuleExt chc, ExprMap &matching, Expr rule) {
+      if (isOpX<IMPL>(rule)) {
+        rule = rule->left();
+      }
+      if (isOpX<AND>(rule)) {
+        for(int j = 0; j < rule->arity(); ++j) {
+          Expr elem = rule->arg(j);
+          if (isOpX<EQ>(elem) && findMatchingFromElement(chc, elem, matching)) {
+            return true;
           }
         }
       }
       else {
-        if (!isOpX<EQ>(chc.body) || findMatchingFromBodyElement(chc, chc.body, matching)) {
-          cnj.push_back(chc.body);
+        if (isOpX<EQ>(rule) && findMatchingFromElement(chc, rule, matching)) {
+          return true;
         }
       }
+      return false;
     }
 
-    bool isConsctructor(Expr elem) {
+    bool isConstructor(Expr elem) {
       return std::find(constructors.begin(), constructors.end(), elem) != constructors.end();
-    }
-
-    void findMatchingFromLeftSideElem(Expr elem, ExprMap &matching) {
-      if (isOpX<EQ>(elem)) {
-        if (elem->left()->arity() == 1 && !(isConsctructor(bind::fname (elem->left())))) {
-          matching[elem->left()] = elem->right();
-        }
-        else if (elem->right()->arity() == 1 && !(isConsctructor(bind::fname (elem->right())))) {
-          matching[elem->right()] = elem->left();
-        }
-      }
-    }
-
-    void findMatchingFromLeftSide(Expr left, ExprMap &matching) {
-      if (isOpX<AND>(left)) {
-        for (int i = 0; i < left->arity(); ++i) {
-          findMatchingFromLeftSideElem(left->arg(i), matching);
-        }
-      }
-      else {
-        findMatchingFromLeftSideElem(left, matching);
-      }
     }
 
     Expr createDestination(HornRuleExt chc) {
@@ -150,40 +144,129 @@ namespace ufo
       return destination;
     }
 
-    bool createQueries() {
-      // creating assumptions
+    Expr convertToFunction(HornRuleExt chc) {
+      ExprVector cnj;
+      ExprMap matching;
+      Expr destination = bind::fapp (chc.dstRelation, chc.dstVars);
+      if (decls.find(chc.dstRelation) != decls.end()) {
+        destination = createDestination(chc);
+        interpretations[chc.dstRelation] = destination;
+      }
+      replaceDeclsInLeftPart(chc, cnj);
+      cnj.push_back(chc.body);
+      Expr asmpt = mk<IMPL>(conjoin(cnj, efac), destination);
+      while (!isOpX<EQ>(asmpt) && findMatchingFromRule(chc, matching, asmpt)) {
+        asmpt = replaceAll(asmpt, matching);
+        asmpt = simplifyBool(asmpt);
+        matching.clear();
+      }
+      asmpt = simplifyArithm(asmpt);
+      if (asmpt->arity() > 0) {
+        asmpt = createQuantifiedFormula(asmpt, constructors);
+      }
+      return asmpt;
+    }
+
+    bool createAndCheckDefinition(Expr &decl) {
+      ExprVector current_assumptions = assumptions;
       for (auto & chc : chcs) {
-        if (!chc.isQuery) {
-          ExprVector cnj;
-          ExprMap matching;
-          createLeftConjs(chc, cnj);
-          findMatchingFromBody(chc, matching, cnj);
-          Expr destination = bind::fapp (chc.dstRelation, chc.dstVars);
-          int ind;
-          if (decls.find(chc.dstRelation) != decls.end()) {
-            destination = createDestination(chc);
-          }
-          Expr asmpt = mk<IMPL>(conjoin(cnj, efac), destination);
-          asmpt = replaceAll(asmpt, matching);
+        if (chc.dstRelation == decl && chc.isFact) {
+          for (int i = 0; i < chc.dstVars.size(); ++i) {
+            // inductive variable should be an adt
+            if (adts.find(bind::typeOf(chc.dstVars[i])) != adts.end()) {
+              Expr baseConstructor = baseConstructors[bind::typeOf(chc.dstVars[i])];
+              int baseConstructorArity = baseConstructor->arity() - 1;
+              for(int j = 0; j < chc.body->arity(); ++j) {
+                Expr body_elem = chc.body->arg(j);
+                if (isOpX<EQ>(body_elem)) {
+                  if ((body_elem->left() == chc.dstVars[i] && body_elem->right()->arity() == baseConstructorArity) ||
+                    (body_elem->right() == chc.dstVars[i] && body_elem->left()->arity() == baseConstructorArity)) {
+                    
+                    Expr base_asmpt = convertToFunction(chc);
+                    baseDefinitions[decl] = base_asmpt;
 
-          // trying substitute equalities from left side to the right one
-          matching.clear();
-          Expr left = asmpt->left();
-          findMatchingFromLeftSide(left, matching);
+                    Expr indConstructor = indConstructors[bind::typeOf(chc.dstVars[i])];
+                    if (indConstructor == NULL) {
+                      assumptions.push_back(base_asmpt);
+                      return true;
+                    }
+                    int indConstructorArity = indConstructor->arity() - 1;
+                    ExprVector lemmas;
 
-          // outs() << *asmpt << "\n";
-          asmpt = replaceAll(asmpt, matching);
-          asmpt = simplifyArithm(asmpt);
-          asmpt = simplifyBool(asmpt);
-          if (asmpt->arity() > 0) {
-            asmpt = createQuantifiedFormula(asmpt, constructors);
+                    // we should check that this variable is inductive in inductive rule
+                    for (auto & ind_chc : chcs) {
+                      if (ind_chc.dstRelation == decl && !ind_chc.isFact) {
+                        for (int k = 0; k < ind_chc.srcRelations.size(); ++k) {
+                          if (ind_chc.srcRelations[k] == decl) {
+                            Expr elem = ind_chc.body;
+                            bool shouldBeChecked = false;
+                            if (isOpX<EQ>(elem)) {
+                              if ((elem->left() == ind_chc.dstVars[i] && elem->right()->arity() == indConstructorArity) ||
+                                  (elem->right() == ind_chc.dstVars[i] && elem->left()->arity() == indConstructorArity)) {
+                                shouldBeChecked = true;
+                              }
+                            }
+                            else {
+                              for(int m = 0; m < ind_chc.body->arity(); ++m) {
+                                Expr ind_body_elem = ind_chc.body->arg(m);
+                                if (isOpX<EQ>(ind_body_elem)) {
+                                  // TODO: add comparison of src vars with conctructor
+                                  if ((ind_body_elem->left() == ind_chc.dstVars[i] && ind_body_elem->right()->arity() == indConstructorArity) ||
+                                    (ind_body_elem->right() == ind_chc.dstVars[i] && ind_body_elem->left()->arity() == indConstructorArity)) {
+                                    shouldBeChecked = true;
+                                  }
+                                }
+                              }
+                            }
+                            if (shouldBeChecked) {
+                              Expr ind_asmpt = convertToFunction(ind_chc);
+                              indDefinitions[decl] =  ind_asmpt;
+                              bool foundRecursiveDefinition = true;
+                              // We should check that for all rules (including non-definitive) this definition is correct
+                              for (auto & rule : chcs) {
+                                if (rule.dstRelation == decl) {
+                                  Expr goal = convertToFunction(rule);
+                                  current_assumptions.clear();
+                                  current_assumptions = assumptions;
+                                  current_assumptions.push_back(baseDefinitions[decl]);
+                                  current_assumptions.push_back(indDefinitions[decl]);
+                                  if (!prove (current_assumptions, goal)) {
+                                    foundRecursiveDefinition = false;
+                                    break;
+                                  }
+                                  else {
+                                    lemmas.push_back(goal);
+                                  }
+                                }
+                              }
+                              if (foundRecursiveDefinition == true) {
+                                for (auto & lemma : lemmas) {
+                                  assumptions.push_back(lemma);
+                                }
+                                return true;
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
-          // outs() << "new assumption: " << *asmpt << "\n";
-          assumptions.push_back(asmpt);
         }
       }
+      return false;
+    }
 
-      // creating queries for ADT-ind
+    bool createAndCheckInterpretations() {
+      // creating assumptions
+      for (auto & decl : ordered_decls) {
+        createAndCheckDefinition(decl);
+      }
+
+      // creating goals for ADT-ind from CHC-queries
       for (auto & chc : chcs) {
         if (chc.isQuery) {
           Expr destination;
@@ -191,11 +274,12 @@ namespace ufo
           ExprMap matching;
           if (chc.body->arity() > 1) {
             for(int j = 0; j < chc.body->arity(); ++j) {
-              if (isOpX<NEG>(chc.body->arg(j))) {
-                destination = mkNeg(chc.body->arg(j));
+              Expr body_elem = chc.body->arg(j);
+              if (isOpX<NEG>(body_elem)) {
+                destination = mkNeg(body_elem);
               }
               else {
-                cnj.push_back(chc.body->arg(j));
+                cnj.push_back(body_elem);
               }
             }
           }
@@ -215,94 +299,34 @@ namespace ufo
             types.push_back(bind::typeOf(destination->arg(ind + 1)));
             Expr rel = bind::fdecl (efac.mkTerm(destination->left()->left()->op()), types);
             Expr baseApp = bind::fapp (rel, newVars);
-            // outs() << "DESTINATION " << *destination <<" " << destination->arity() << ind<<  "\n"; 
             destination = mk<EQ>(baseApp, destination->arg(ind + 1));
-            // outs() << *destination << "\n";
-          }
-          
-          for (int i = 0; i < chc.srcRelations.size(); i++) {
-            if (decls.find(chc.srcRelations[i]) != decls.end()) {
-              int ind = values_inds[chc.srcRelations[i]->left()];
-              Expr app = createNewApp(chc, i, ind);
-              matching[chc.srcVars[i][ind]] = app;
-            }
-            else {
-               Expr tmp = bind::fapp (chc.srcRelations[i], chc.srcVars[i]);
-               cnj.push_back(tmp);
-            }
           }
 
-          Expr goal = replaceAll(mk<IMPL>(conjoin(cnj, efac), destination), matching);
-          matching.clear();
-          Expr left = goal->left();
-
-          // outs() << "GOAL: \n";
-          // outs() << *goal << "\n";
-          // findMatchingFromLeftSide(left, matching);
-          // goal = replaceAll(goal, matching);
-          // goal = simplifyBool(goal);
-          // matching.clear();          
-
-          // outs() << "GOAL: \n";
-          // outs() << *goal << "\n";
-          // findMatchingFromLeftSide(goal->left(), matching);
-          // goal = replaceAll(goal, matching);
-          // goal = simplifyBool(goal);
-          // matching.clear();
-
-          // outs() << "GOAL: \n";
-          // outs() << *goal << "\n";
-          findMatchingFromLeftSide(goal->left(), matching);
-          goal = replaceAll(goal, matching);
-//          goal = simplifyArithm(goal);
-          goal = simplifyBool(goal);
-          // if (goal->arity() > 0) { 
-          //   goal = createQuantifiedFormula(goal, constructors); 
-          // }          
+          replaceDeclsInLeftPart(chc, cnj);
+          Expr goal = mk<IMPL>(conjoin(cnj, efac), destination);
+          while (!isOpX<EQ>(goal) && findMatchingFromRule(chc, matching, goal)) {
+            goal = replaceAll(goal, matching);
+            goal = simplifyBool(goal);
+            matching.clear();
+          }
           ExprVector current_assumptions = assumptions;
-          // outs() << "assumptions:\n";
-          // for (auto & a : current_assumptions) {
-          //   outs() << *a << "\n";
-          // } 
-          // outs() << "goal: \n";
-          // outs() << *goal << "\n";
+          goal = createQuantifiedFormula(goal, constructors);
+          // Check if the goal may be proved in current interpretations
           if (!prove (current_assumptions, goal)) {
-            // outs() << "CANT PROVE" << *goal << "\n";
             return false;
           }
           else {
             assumptions.push_back(goal);
           }
         }
-        else {
-          ExprVector cnj;
-          ExprMap matching;
-          createLeftConjs(chc, cnj);
-          findMatchingFromBody(chc, matching, cnj);
-          Expr destination = bind::fapp (chc.dstRelation, chc.dstVars);
-          ExprVector vars = chc.dstVars;
-          if (decls.find(chc.dstRelation) != decls.end()) {
-            destination = createDestination(chc);
-          }
-          Expr goal = mk<IMPL>(conjoin(cnj, efac), destination);
-          goal = replaceAll(goal, matching);
-          goal = simplifyArithm(goal);
-          goal = simplifyBool(goal);
-          ExprVector current_assumptions = assumptions;
-          // outs() << "assumptions:\n";
-          // for (auto & a : current_assumptions) {
-          //   outs() << *a << "\n";
-          // } 
-          // outs() << "goal: \n";
-          // outs() << *goal << "\n";
-          if (!prove (current_assumptions, goal)) {
-            // outs() << "CANT PROVE\n";
-            return false;
-          }
-        }
+      }
+      for (auto & decl : ordered_decls) {
+        outs() << interpretations[decl] << "\n";
+        outs() << baseDefinitions[decl] << "\n";
+        outs() << indDefinitions[decl] << "\n";
       }
       return true;
-    }
+  }
 
     int baseVar(Expr &decl) {
       for (auto & chc : chcs) {
@@ -318,25 +342,32 @@ namespace ufo
                   }
                 }
               }
-            }       
+            }
           }
         }
       }
       return -1;
     }
 
-    void orderDecls(Expr decl, ExprSet &cur_decls) {
+    // result is written to ordered_decls
+    // cur_decls is used to find the mutual recursion
+    bool orderDecls(Expr decl, ExprSet &cur_decls) {
+      // Already contains this decl
       if (std::find(ordered_decls.begin(), ordered_decls.end(), decl) != ordered_decls.end())
-        return;
+        return true;
       cur_decls.insert(decl);
       for (auto & chc : chcs) {
         if (chc.dstRelation == decl && !chc.isFact) {
           for (int i = 0; i < chc.srcRelations.size(); i++) {
+            // if the src symbol is already in ordered_decls do nothing
             if (chc.srcRelations[i] != decl && std::find(ordered_decls.begin(), ordered_decls.end(), chc.srcRelations[i]) == ordered_decls.end()) {
+              // there is a mutual recursion, for now we cannot handle this
               if (cur_decls.find(chc.srcRelations[i]) != cur_decls.end()) {
-                ordered_decls.push_back(chc.srcRelations[i]);
+                outs () << "could not order predicates -- mutual recursion is not supported\n";
+                return false;
               }
               else {
+                // current predicate depends on another, so we need to push this another predicate earlier
                 orderDecls(chc.srcRelations[i], cur_decls);
               }
             }
@@ -344,7 +375,7 @@ namespace ufo
         }
       }
       ordered_decls.push_back(decl);
-      
+      return true;
     }
 
     // Get indexes in right order and remove the base index
@@ -387,13 +418,43 @@ namespace ufo
       }
     }
 
-    bool returnValues(int idx, ExprVector &decls, std::map<Expr,int> &buf) {
-      if (idx >= decls.size()) {
+    void setConstructors() {
+      for (auto & a : constructors) {
+        Expr type = a->last();
+        bool ind = false;
+        for (int i = 0; i < a->arity() - 1; i++)
+        {
+          if (a->last() == a->arg(i))
+          {
+            ind = true;
+            if (indConstructors[type] != NULL && indConstructors[type] != a)
+            {
+              outs () << "Several inductive constructors are not supported\n";
+              exit(1);
+            }
+            indConstructors[type] = a;
+          }
+        }
+        if (!ind)
+        {
+          if (baseConstructors[type] != NULL && baseConstructors[type] != a)
+          {
+            outs () << "Several base constructors are not supported\n";
+            exit(1);
+          }
+          baseConstructors[type] = a;
+        } 
+      }
+    }
+
+    bool findInterpretations(int idx, std::map<Expr,int> &buf) {
+      if (idx >= ordered_decls.size()) {
         values_inds = buf;
         assumptions.clear();
-        return createQueries();
+        return createAndCheckInterpretations();
       }
-      Expr cur = decls[idx];
+      // Get the possible version of return variables
+      Expr cur = ordered_decls[idx];
       for (auto & chc : chcs) {
         if (chc.dstRelation == cur) {
           size_t vars_size = chc.dstRelation->arity();
@@ -408,7 +469,7 @@ namespace ufo
           for (int i = idxs.size() - 1; i >= 0; --i) {
             buf[chc.dstRelation->left()] = idxs[i];
             // outs() << *chc.dstRelation->left() << " " << idxs[i] << "\n";
-            if (returnValues(idx + 1, decls, buf))
+            if (findInterpretations(idx + 1, buf))
               return true;
           }
           break;
@@ -418,64 +479,16 @@ namespace ufo
     }
 
     bool solve() {
-      // find the return value for uninterpreted symbols (keep it in values_inds map)
-      int index = 0;
+      // Order current uninterpreted predicate symbols
       for (auto & decl: decls) {
         // outs() << *decl << "\n";
         ExprSet cur_decls;
-        orderDecls(decl, cur_decls);
+        if (!orderDecls(decl, cur_decls))
+          return false;
       }
+      setConstructors();
       std::map<Expr,int> buf;
-      return returnValues(0, ordered_decls, buf);
-      // for (auto & decl: decls) {
-      //     if (decl->arity() <= 3) {
-      //         continue;
-      //     }
-      //       for (auto & chc : chcs) {
-      //         if (chc.dstRelation == decl && !chc.isFact) {
-      //           // TODO: think about return value when there are only adt vars
-      //           // std::vector<size_t> adt_inds;
-      //           size_t vars_size = chc.dstRelation->arity();
-      //           // bool found = false;
-      //           // for (size_t i = vars_size - 2; i > 0; --i) {
-      //           //   bool is_adt = false;
-      //           //   for (auto & adt : adts) {
-      //           //     if ((*chc.dstRelation)[i] == adt) {
-      //           //       is_adt = true;
-      //           //       adt_inds.push_back(i - 1);
-      //           //       break;
-      //           //     }
-      //           //   }
-      //           //   if (!is_adt) {
-      //           //     values_inds[chc.dstRelation->left()] = i - 1;
-      //           //     found = true;
-      //           //     break;
-      //           //   }
-      //           // }
-      //           // if (!found) {
-      //           //   for (int i = 0; i < chc.srcRelations.size(); i++) {
-      //           //     if (chc.srcRelations[i] == decl) {
-      //           //       for (int j = 0; j < adt_inds.size(); ++j) {
-      //           //         size_t ind = adt_inds[j];
-      //           //         Expr eq1 = mk<EQ>(chc.srcVars[0][ind], chc.dstVars[ind]);
-      //           //         Expr eq2 = mk<EQ>(chc.dstVars[ind], chc.srcVars[0][ind]);
-      //           //         if (!contains(chc.body, eq1) && !contains(chc.body, eq2)) {
-      //           //           values_inds[chc.dstRelation->left()] = ind;
-      //           //           found = true;
-      //           //           break;
-      //           //         }
-      //           //       }
-      //           //       break;
-      //           //     }
-      //           //   }
-      //           // }
-      //           // if (!found) {
-      //           values_inds[chc.dstRelation->left()] = vars_size - 3;
-      //           // }
-      //           break;
-      //       }
-      //   }
-      // }
+      return findInterpretations(0, buf);
     }
 
     bool solveArr(){
@@ -541,7 +554,7 @@ namespace ufo
       return true;
     }
 
-    bool checkCHC(HornRuleExt& hr, bool print = false){
+    bool checkCHC(HornRuleExt& hr, bool print = false) {
       ExprVector assms = assumptions;
       Expr goal = hr.isQuery ? mk<FALSE>(efac) : bind::fapp (hr.dstRelation, hr.dstVars);
       for (int i = 0; i < hr.srcRelations.size(); i++){
@@ -553,7 +566,7 @@ namespace ufo
 
     bool prove (ExprVector& lemmas, Expr fla, int rounds = 2, bool print = false)
     {
-      ADTSolver sol (fla, lemmas, constructors, 5, 2, 3, 1, print); // last false is for verbosity
+      ADTSolver sol (fla, lemmas, constructors); // last false is for verbosity
       return isOpX<FORALL>(fla) ? sol.solve() : sol.solveNoind(rounds);
     }
   };
@@ -565,10 +578,9 @@ namespace ufo
     CHCs ruleManager(efac, z3);
     ExprSet adts;
     ruleManager.parse(smt_file);
-   // ruleManager.print();
+    // ruleManager.print();
 
     ExprVector constructors;
-    ExprVector assumptions;
 
     ExprSet& decls = ruleManager.decls;
 
@@ -577,7 +589,7 @@ namespace ufo
       adts.insert(a->last());
     }
 
-    CHCSolver sol (constructors, adts, efac, decls, ruleManager.extras, ruleManager.chcs, 
+    CHCSolver sol (constructors, adts, efac, decls, ruleManager.extras, ruleManager.chcs,
       givePriorityNonAdt, ignoreBaseVar);
     bool res = containsOp<ARRAY_TY>(conjoin(decls, efac)) ? sol.solveArr() : sol.solve();
     outs () << (res ? "sat\n" : "unknown\n");

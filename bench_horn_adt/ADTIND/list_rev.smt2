@@ -12,9 +12,13 @@
 	(=> (and (= xs (cons x ys)) (rev ys rs) (append rs (cons x nil) ts)) (rev xs ts))))
 
 ; extra lemmas
-(assert (forall ((xs Lst) (ys Lst) (zs Lst) (us Lst) (rs Lst) (ts Lst)) 
-	(=> (and (append xs ys zs) (rev ys rs) (rev xs ts) (append rs ts us)) (rev zs us))))
+(assert (forall ((xs Lst) (ys Lst) (zs Lst) (rs Lst) (ts Lst) (us Lst) (ws Lst))
+       (=> (and (append ys zs rs) (append xs ys ts) (append xs rs us) (append ts zs ws) (not (= us ws))) false)))
+(assert (forall ((xs Lst) (ys Lst)) (=> (and (append xs nil ys) (not (= xs ys))) false)))
+(assert (forall ((xs Lst) (ys Lst) (zs Lst) (us Lst) (rs Lst) (ts Lst) (vs Lst))
+    (=> (and (append xs ys zs) (rev ys rs) (rev xs ts) (append rs ts us) (rev zs vs) (not (= us vs))) false)))
 
 (assert (forall ((xs Lst) (ys Lst) (zs Lst)) (=> (and (rev xs ys) (rev ys zs) (not (= xs zs))) false)))
 
 (check-sat)
+(assert (forall ((x Int) (y Int)) (=> (> x y) (max x y x))))

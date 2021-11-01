@@ -11,11 +11,6 @@
 (assert (forall ((xs Lst) (x Int) (ys Lst) (rs Lst) (ts Lst)) 
 	(=> (and (= xs (cons x ys)) (rev ys rs) (append rs (cons x nil) ts)) (rev xs ts))))
 
-; extra lemmas
-(assert (forall ((xs Lst) (ys Lst)) (append xs nil xs)))
-(assert (forall ((xs Lst) (ys Lst) (zs Lst) (rs Lst) (ts Lst) (us Lst))
-	(=> (and (append xs ys rs) (append ys zs ts) (append xs ts us)) (append rs zs us))))
-
 (assert (forall ((xs Lst) (ys Lst) (zs Lst) (rs Lst) (ts Lst) (us Lst) (ws Lst)) 
 	(=> (and (append xs ys zs) (rev zs rs) (rev ys ts) (rev xs us) (append ts us ws) (not (= rs ws))) false)))
 

@@ -33,9 +33,9 @@
 
 ; extra lemmas
 (assert (forall ((xs Lst) (ys Lst) (lx Int) (ly Int)) 
-	(=> (and (rev2 xs nil ys) (len xs lx) (len ys ly)) (= ly lx))))
+	(=> (and (rev2 xs nil ys) (len xs lx) (len ys ly) (not (= ly lx))) false)))
 (assert (forall ((x Lst) (y Lst) (z Lst) (lx Int) (ly Int) (lz Int))
-	(=> (and (append x y z) (len x lx) (len y ly) (len z lz)) (= lz (+ lx ly)))))
+	(=> (and (append x y z) (len x lx) (len y ly) (len z lz) (not (= lz (+ lx ly)))) false)))
 
 (assert (forall ((x Lst) (y Lst) (q Queue) (lx Int) (ly Int) (lq Int)) 
 	(=> (and (amortizeQueue x y q) (qlen q lq) (len x lx) (len y ly) (not (= lq (+ lx ly)))) false)))
