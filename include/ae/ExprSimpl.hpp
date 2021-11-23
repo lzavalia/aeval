@@ -4616,44 +4616,48 @@ namespace ufo
     if (toRepeat) simplifyPropagate(cnj);
   }
 
-  void getLiterals (Expr exp, ExprSet& lits)
+  void getLiterals (Expr exp, ExprSet& lits, bool splitEqs = true)
   {
     ExprFactory& efac = exp->getFactory();
-    if (isOpX<EQ>(exp) && isNumeric(exp->left()) && !containsOp<MOD>(exp))
+    if (isOp<ComparissonOp>(exp) && !splitEqs)
     {
-      getLiterals(mk<GEQ>(exp->left(), exp->right()), lits);
-      getLiterals(mk<LEQ>(exp->left(), exp->right()), lits);
+      lits.insert(exp);
+    }
+    else if (isOpX<EQ>(exp) && isNumeric(exp->left()) && !containsOp<MOD>(exp))
+    {
+      getLiterals(mk<GEQ>(exp->left(), exp->right()), lits, splitEqs);
+      getLiterals(mk<LEQ>(exp->left(), exp->right()), lits, splitEqs);
     }
     else if (isOpX<NEQ>(exp) && isNumeric(exp->left()) && !containsOp<MOD>(exp))
     {
-      getLiterals(mk<GT>(exp->left(), exp->right()), lits);
-      getLiterals(mk<LT>(exp->left(), exp->right()), lits);
+      getLiterals(mk<GT>(exp->left(), exp->right()), lits, splitEqs);
+      getLiterals(mk<LT>(exp->left(), exp->right()), lits, splitEqs);
     }
     else if ((isOpX<EQ>(exp) || isOpX<NEQ>(exp) || isOpX<XOR>(exp)) && isBoolean(exp->left()))
     {
-      getLiterals(exp->left(), lits);
-      getLiterals(exp->right(), lits);
-      getLiterals(mkNeg(exp->left()), lits);
-      getLiterals(mkNeg(exp->right()), lits);
+      getLiterals(exp->left(), lits, splitEqs);
+      getLiterals(exp->right(), lits, splitEqs);
+      getLiterals(mkNeg(exp->left()), lits, splitEqs);
+      getLiterals(mkNeg(exp->right()), lits, splitEqs);
     }
     else if (isOpX<NEG>(exp))
     {
-      if (bind::isBoolConst(exp->left()))
+      if (bind::isBoolConst(exp->left()) || isOpX<FAPP>(exp->left()))
         lits.insert(exp);
       else
-        getLiterals(mkNeg(exp->left()), lits);
+        getLiterals(mkNeg(exp->left()), lits, splitEqs);
     }
     else if (isOpX<IMPL>(exp))
     {
-      getLiterals(mkNeg(exp->left()), lits);
-      getLiterals(exp->right(), lits);
+      getLiterals(mkNeg(exp->left()), lits, splitEqs);
+      getLiterals(exp->right(), lits, splitEqs);
     }
     else if (isOpX<IFF>(exp))
     {
-      getLiterals(mkNeg(exp->left()), lits);
-      getLiterals(exp->right(), lits);
-      getLiterals(mkNeg(exp->right()), lits);
-      getLiterals(exp->left(), lits);
+      getLiterals(mkNeg(exp->left()), lits, splitEqs);
+      getLiterals(exp->right(), lits, splitEqs);
+      getLiterals(mkNeg(exp->right()), lits, splitEqs);
+      getLiterals(exp->left(), lits, splitEqs);
     }
     else if (bind::typeOf(exp) == mk<BOOL_TY>(efac) &&
         !containsOp<AND>(exp) && !containsOp<OR>(exp))
@@ -4663,7 +4667,7 @@ namespace ufo
         exp = rewriteDivConstraints(exp);
         exp = rewriteModConstraints(exp);
         if (isOpX<AND>(exp) || isOpX<OR>(exp))
-          getLiterals(exp, lits);
+          getLiterals(exp, lits, splitEqs);
         else lits.insert(exp);
       }
       else lits.insert(exp);
@@ -4671,7 +4675,7 @@ namespace ufo
     else if (isOpX<AND>(exp) || isOpX<OR>(exp))
     {
       for (int i = 0; i < exp->arity(); i++)
-        getLiterals(exp->arg(i), lits);
+        getLiterals(exp->arg(i), lits, splitEqs);
     }
     else if (!isOpX<TRUE>(exp) && !isOpX<FALSE>(exp))
     {
@@ -4936,17 +4940,32 @@ namespace ufo
     return createQuantifiedFormulaRestr(def, vars);
   }
 
-  void pprint(Expr exp, int inden = 0, bool upper = true)
+  void pprint(Expr exp, int inden, bool upper);
+
+  template<typename Range> static void pprint(Range& exprs, int inden = 0)
+  {
+    for (auto it = exprs.begin(); it != exprs.end(); ++it)
+    {
+      pprint(*it, inden, false);
+      outs() << (inden > 0 ? "\n" :
+        (std::next(it) != exprs.end()) ? ", " : "");
+    }
+  }
+
+  inline void pprint(Expr exp, int inden = 0, bool upper = true)
   {
     ExprSet flas;
     if (isOpX<FORALL>(exp) || isOpX<EXISTS>(exp))
     {
       outs() << string(inden, ' ') << (isOpX<FORALL>(exp) ? "[forall (" : "[exists (");
       int i = 0;
-      for (; i < exp->arity() - 1; i++) outs () << fapp(exp->arg(i)) << " ";
+      for (; i < exp->arity() - 1; i++)
+        outs () << fapp(exp->arg(i)) <<
+          (i < exp->arity() - 2 ? " " : "");
       outs () << ")\n";
       pprint(exp->arg(i), inden + 2, false);
-      outs () << "]\n";
+      outs () << "]";
+      if (upper) outs() << "\n";
       return;
     }
     else if (isOpX<AND>(exp))
@@ -4964,20 +4983,10 @@ namespace ufo
       outs () << string(inden, ' ') << "[!\n";
       flas.insert(exp->left());
     }
-    else if (isOpX<IMPL>(exp))
-    {
-      outs () << string(inden, ' ') << "[=>\n";
-      flas.insert(exp->left());
-      flas.insert(exp->right());
-    }
     if (flas.empty()) outs () << string(inden, ' ') << exp;
     else
     {
-      for (auto & a : flas)
-      {
-        pprint(a, inden + 2, false);
-        outs() << "\n";
-      }
+      pprint(flas, inden + 2);
       outs () << string(inden, ' ') << "]";
     }
     if (upper) outs() << "\n";
@@ -4985,4 +4994,3 @@ namespace ufo
 }
 
 #endif
-

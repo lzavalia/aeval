@@ -15,7 +15,5 @@
 ; extra lemmas
 (assert (forall ((x Lst) (a Lst)) (= (rev2 x a) (append (rev2 x nil) a))))
 
-; needs just "--ind 3,5,6,7"
-
 (assert (not (forall ((x Lst)) (= (rev2 x nil) (rev x)))))
 (check-sat)

@@ -31,8 +31,7 @@
 (declare-fun queue-to-lst (Queue) Lst)
 (assert (forall ((x Lst) (y Lst)) (= (queue-to-lst (queue x y)) (append x (qrev y)))))
 
-; extra lemmas
-(assert (forall ((x Lst) (y Lst) (z Lst)) (= (append (append x y) z) (append x (append y z)))))
+; extra lemma
 (assert (forall ((x Lst) (a Lst)) (= (rev2 x a) (append (rev2 x nil) a))))
 
 (assert (not (forall ((q Queue) (n Int)) (= (append (queue-to-lst q) (cons n nil)) (queue-to-lst (qpush q n))))))

@@ -27,8 +27,5 @@
 (declare-fun isEmpty (Queue) Bool)
 (assert (forall ((x Lst) (y Lst)) (= (isEmpty (queue x y)) (and (= x nil) (= y nil)))))
 
-; extra lemma
-(assert (forall ((x Lst) (n Int)) (= (len (butlast (cons n x))) (len x))))
-
 (assert (not (forall ((q Queue) (n Int)) (=> (and (isAmortized q) (not (isEmpty q))) (= (+ 1 (qlen (qpopback q))) (qlen q))))))
 (check-sat)

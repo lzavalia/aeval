@@ -38,11 +38,12 @@ namespace ufo
     bool useZ3 = false;
     unsigned to;
     ExprVector blockedAssms;
+    int nestedLevel;
 
     public:
 
-    ADTSolver(Expr _goal, ExprVector& _assumptions, ExprVector& _constructors, int _glob_ind = 0, int _lev = 0, int _maxDepth = 5, int _maxGrow = 3, int _mergingIts = 3, int _earlySplit = 1, bool _verbose = false, bool _useZ3 = true, unsigned _to = 1000) :
-        goal(_goal), assumptions(_assumptions), constructors(_constructors), glob_ind(_glob_ind), lev(_lev), efac(_goal->getFactory()), u(_goal->getFactory(), _to), maxDepth(_maxDepth), maxGrow(_maxGrow), mergingIts(_mergingIts), earlySplit(_earlySplit), verbose(_verbose), useZ3(_useZ3), to (_to)
+    ADTSolver(Expr _goal, ExprVector& _assumptions, ExprVector& _constructors, int _glob_ind = 0, int _lev = 0, int _maxDepth = 5, int _maxGrow = 3, int _mergingIts = 3, int _earlySplit = 1, bool _verbose = false, bool _useZ3 = true, unsigned _to = 1000, unsigned _l = 0) :
+        goal(_goal), assumptions(_assumptions), constructors(_constructors), glob_ind(_glob_ind), lev(_lev), efac(_goal->getFactory()), u(_goal->getFactory(), _to), maxDepth(_maxDepth), maxGrow(_maxGrow), mergingIts(_mergingIts), earlySplit(_earlySplit), verbose(_verbose), useZ3(_useZ3), to (_to), nestedLevel(_l)
     {
       // for convenience, rename assumptions (to have unique quantified variables)
       renameAssumptions();
@@ -83,8 +84,12 @@ namespace ufo
     bool simplifyGoal()
     {
       Expr goalQF = goal->last();
-      goalQF = liftITEs(goalQF);
-      goalQF = u.simplifyITE(goalQF);   // TODO: more simplification passes
+      if (containsOp<ITE>(goalQF)) // TODO: support IMPL/IFF
+      {
+        ExprVector disjs, vars;
+        u.flatten(goalQF, disjs, false, vars, [](Expr a, ExprVector& b){return a;});
+        goalQF = simplifyBool(disjoin(disjs, efac));
+      }
       if (u.isEquiv(goalQF, mk<TRUE>(efac))) return true;
 
       ExprVector args;
@@ -102,14 +107,14 @@ namespace ufo
       return false;
     }
 
-    bool findAssmOccurs(Expr e, Expr eq)
+    bool findAssmOccurs(Expr goal, Expr e, Expr eq)
     {
       for (auto a : assumptions)
       {
         if (a == eq) continue;
         if (contains(a, e)) return true;
       }
-      return false;
+      return (contains(goal, e));
     }
 
     void eliminateEqualities(Expr& goal)
@@ -121,10 +126,10 @@ namespace ufo
         if (isOpX<EQ>(a))
         {
           ExprMap repls;
-          if (findAssmOccurs(a->left(), a) > 0 && a->left()->arity() == 1
+          if (findAssmOccurs(goal, a->left(), a) > 0 && a->left()->arity() == 1
               && !contains (a->right(), a->left()))
             repls[a->left()] = a->right();
-          else if (findAssmOccurs(a->right(), a) > 0 && a->right()->arity() == 1
+          else if (findAssmOccurs(goal, a->right(), a) > 0 && a->right()->arity() == 1
               && !contains (a->left(), a->right()))
             repls[a->right()] = a->left();
 
@@ -337,7 +342,7 @@ namespace ufo
                 }
               }
               if (!args.empty()) repl = createQuantifiedFormulaRestr(repl, args, false);
-  
+
               result.push_back(repl);
               return true;
             }
@@ -417,7 +422,7 @@ namespace ufo
               replaced = replaceAll(subgoal, auxRepl, mk<TRUE>(efac));
             }
 
-            if (subgoal != replaced) 
+            if (subgoal != replaced)
             {
               result.push_back(replaced);
               return true;
@@ -464,11 +469,11 @@ namespace ufo
           if (findMatching (assmQF->left(), subgoal->left(), args, matching))
           {
             repl = replaceAll(assmQF, matching);
-            if (fwd && !u.isSat(repl, subgoal)) 
+            if (fwd && !u.isSat(repl, subgoal))
             {
               result.push_back(mk<FALSE>(efac));
               return true;
-            }            
+            }
             if (fwd)
             {
               if (((isOpX<LEQ>(repl) && isOpX<GEQ>(subgoal)) || (isOpX<GEQ>(repl) && isOpX<LEQ>(subgoal))) &&
@@ -805,7 +810,6 @@ namespace ufo
         while (subgoals.size() > 0)
         {
           int subgoalsSize = subgoals.size();
-          bool res = true;
           int part = 1;
           for (auto it = subgoals.begin(); it != subgoals.end();)
           {
@@ -816,22 +820,31 @@ namespace ufo
               part++;
             }
 
-            auto rewriteHistoryTmp = rewriteHistory;
-            auto rewriteSequenceTmp = rewriteSequence;
-            auto assumptionsTmp = assumptions;
-
-            if (verbose) outs() << string(sp, ' ') << "{\n";
-            sp += 2;
-            res &= rewriteAssumptions(s);   // recursive call
-            sp -= 2;
-            if (verbose) outs() << string(sp, ' ') << "}\n";
-
-            rewriteHistory = rewriteHistoryTmp;
-            rewriteSequence = rewriteSequenceTmp;
-            assumptions = assumptionsTmp;
-            if (res)
+            bool tmpres = simpleSMTcheck(s);
+            if (tmpres)
             {
-              outs () << string(sp, ' ') << "adding " << *s << " to assumptions\n";
+              if (verbose) outs() << string(sp, ' ') << "{\n" << string(sp+2, ' ') <<
+                "  proven trivially (with Z3)\n" << string(sp, ' ') << "}\n";
+            }
+            else
+            {
+              auto rewriteHistoryTmp = rewriteHistory;
+              auto rewriteSequenceTmp = rewriteSequence;
+              auto assumptionsTmp = assumptions;
+
+              if (verbose) outs() << string(sp, ' ') << "{\n";
+              sp += 2;
+              tmpres= rewriteAssumptions(s);   // recursive call
+              sp -= 2;
+              if (verbose) outs() << string(sp, ' ') << "}\n";
+
+              rewriteHistory = rewriteHistoryTmp;
+              rewriteSequence = rewriteSequenceTmp;
+              assumptions = assumptionsTmp;
+            }
+            if (tmpres)
+            {
+              if (verbose) outs () << string(sp, ' ') << "adding " << *s << " to assumptions\n";
               assumptions.push_back(s);
               it = subgoals.erase(it);
             }
@@ -1284,9 +1297,7 @@ namespace ufo
       }
     }
 
-    // preprocessing of the main goal:
-    //   - classify constructors for all ADTs that appear in the goal
-    //   - replace all non-inductive ADTs
+    // preprocessing of the main goal
     void unfoldGoal()
     {
       ExprVector goalArgs;
@@ -1294,6 +1305,7 @@ namespace ufo
       bool toRebuild = false;
       for (int i = 0; i < goal->arity() - 1; i++)
       {
+        //   - classify constructors for all ADTs that appear in the goal
         Expr type = goal->arg(i)->last();
         for (auto & a : constructors)
         {
@@ -1308,7 +1320,7 @@ namespace ufo
                 if (indConstructors[type] != NULL && indConstructors[type] != a)
                 {
                   outs () << "Several inductive constructors are not supported\n";
-                  exit(0);
+                  exit(1);
                 }
                 indConstructors[type] = a;
               }
@@ -1318,12 +1330,14 @@ namespace ufo
               if (baseConstructors[type] != NULL && baseConstructors[type] != a)
               {
                 outs () << "Several base constructors are not supported\n";
-                exit(0);
+                exit(1);
               }
               baseConstructors[type] = a;
             }
           }
         }
+
+        //   - replace all non-inductive ADTs
         if (baseConstructors[type] != NULL && indConstructors[type] == NULL)
         {
           toRebuild = true;
@@ -1333,7 +1347,7 @@ namespace ufo
           {
             // TODO: make sure the name is unique
             Expr s = bind::mkConst(mkTerm<string>
-                         ("_b_" + to_string(goalArgs.size()), efac),
+                         ("_b_" + to_string(glob_ind++), efac),
                          baseConstructors[type]->arg(i));
             goalArgs.push_back(s->last());
             args.push_back(s);
@@ -1347,12 +1361,40 @@ namespace ufo
         }
       }
 
+      // classify functions; TODO: avoid repetitions
+
+      map<Expr, int> occs;
+      getCommonSubterms(conjoin(assumptions, efac), occs);
+      ExprSet funs;
+      for (auto & m : occs)
+        if (isOpX<FAPP>(m.first) && m.first->left()->arity() > 2 &&
+          find(constructors.begin(), constructors.end(), m.first->left()) == constructors.end())
+            funs.insert(m.first->left());
+
+      for (auto & f : funs)
+      {
+        ExprVector assmsWith;
+        for (auto & a : assumptions)
+          if (contains(a, f))
+            assmsWith.push_back(a);
+
+        if (assmsWith.size() != 1) continue;
+        // replace all non-recursive functions
+
+        ExprVector result;
+        if (useAssumption(unfoldedGoalQF, assmsWith[0], result, true))
+        {
+          unfoldedGoalQF = result[0];
+          toRebuild = true;
+        }
+      }
+
       if (toRebuild)
       {
         goalArgs.push_back(unfoldedGoalQF);
         goal = mknary<FORALL>(goalArgs);
 
-        // continue recursively, because newly introduced vars may again need unfolding
+        // continue recursively, because newly introduced vars/funs may again need unfolding
         unfoldGoal();
       }
     }
@@ -1699,11 +1741,12 @@ namespace ufo
       {
         if (simpleSMTcheck(goal))
         {
-          outs () << "Proved\n";
+          if (verbose) outs () << "Proved (with Z3)\n";
           return true;
         }
-        auto assumptionsTmp = assumptions;
+        splitAssumptions();
         eliminateEqualities(goal);
+        auto assumptionsTmp = assumptions;
         mergeAssumptions(rounds);
         eliminateEqualities(goal);
         printAssumptions();
@@ -1818,8 +1861,8 @@ namespace ufo
     }
 
     ADTSolver sol (goal, assumptions, constructors, 0, 0, maxDepth, maxGrow, mergingIts, earlySplit, verbose, useZ3, to);
-    if (isOpX<FORALL>(goal)) sol.solve();
-    else sol.solveNoind();
+    bool res = isOpX<FORALL>(goal) ? sol.solve() : sol.solveNoind();
+    outs () << (res ? "unsat\n" : "sat\n");
   }
 }
 
