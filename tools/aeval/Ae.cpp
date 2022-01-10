@@ -30,6 +30,21 @@ bool getBoolValue(const char * opt, bool defValue, int argc, char ** argv)
   return defValue;
 }
 
+int getIntValue(const char * opt, int defValue, int argc, char ** argv)
+{
+  for (int i = 1; i < argc-1; i++)
+  {
+    if (strcmp(argv[i], opt) == 0)
+    {
+      char* p;
+      int num = strtol(argv[i+1], &p, 10);
+      if (*p) return 1;      // if used w/o arg, return boolean
+      else return num;
+    }
+  }
+  return defValue;
+}
+
 char * getSmtFileName(int num, int argc, char ** argv)
 {
   int num1 = 1;
@@ -71,9 +86,9 @@ int main (int argc, char ** argv)
   bool skol = getBoolValue("--skol", false, argc, argv);
   bool compact = getBoolValue("--compact", false, argc, argv);
   bool opt = getBoolValue("--opt", false, argc, argv);
-  bool debug = getBoolValue("--debug", false, argc, argv);
+  int debug = getIntValue("--debug", 0, argc, argv);
   bool split = !getBoolValue("--merge", false, argc, argv);
-
+  
   Expr s, t = NULL;
   auto name = getSmtFileName(1, argc, argv);
   if (name == NULL)

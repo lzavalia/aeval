@@ -38,12 +38,12 @@ namespace ufo
     set<int> bestIndexes; // for compaction
     map<Expr, ExprVector> skolemConstraints;
     bool skol;
-    bool debug;
+    int debug;
     unsigned fresh_var_ind;
 
   public:
 
-    AeValSolver (Expr _s, Expr _t, ExprSet &_v, bool _debug, bool _skol) :
+    AeValSolver (Expr _s, Expr _t, ExprSet &_v, int _debug, bool _skol) :
       s(_s), t(_t), v(_v),
       efac(s->getFactory()),
       z3(efac),
@@ -132,17 +132,6 @@ namespace ufo
 
         ZSolver<EZ3>::Model m = smt.getModel();
 
-        if (debug && false)
-        {
-          outs() << "\nmodel " << partitioning_size << ":\n";
-          for (auto &exp: stVars)
-          {
-            if (exp != m.eval(exp))
-              outs() << "[" << *exp << "=" << *m.eval(exp) << "],";
-          }
-          outs() <<"\n";
-        }
-
         getMBPandSkolem(m);
         smt.pop();
         smt.assertExpr(boolop::lneg(projections.back()));
@@ -176,6 +165,25 @@ namespace ufo
         u.getTrueLiterals(pr, m, lits, false);
         pr = z3_qe_model_project_skolem (z3, m, exp, conjoin(lits, efac), map);
         if (m.eval(exp) != exp) modelMap[exp] = mk<EQ>(exp, m.eval(exp));
+
+        if (debug >= 2)
+        {
+          outs() << "\nmodel " << partitioning_size << ":\n";
+          for (auto &exp: stVars)
+          {
+            if (exp != m.eval(exp)) {
+              outs() << "[" << *exp << "=" << *m.eval(exp) << "],";
+            }
+          }
+          outs() <<"\n";
+          outs() << "model map: \n";
+          for(auto& m: modelMap) {
+            pprint(m.second, 2);
+          }
+          outs() << "projection:\n";
+          pprint(pr, 2);
+        }
+
         for (auto it = lits.begin(); it != lits.end(); ){
           if (contains(*it, exp)) ++it;
           else it = lits.erase(it);
@@ -423,7 +431,7 @@ namespace ufo
      */
     Expr getAssignmentForVar(Expr var, Expr exp)
     {
-      if (debug)
+      if (debug >= 3)
       {
         outs () << "getAssignmentForVar " << *var << " in:\n";
         pprint(exp);
@@ -839,7 +847,7 @@ namespace ufo
 
     void searchDownwards(set<int> &indexes, Expr var, ExprVector& skol)
     {
-      if (debug)
+      if (debug >= 3)
       {
         outs () << "searchDownwards for " << *var << ": [[ indexes: ";
         for (auto i : indexes) outs() << i << ", ";
@@ -856,6 +864,12 @@ namespace ufo
         pre.insert(projections[i]);
         post.insert(skol[i]);
       }
+      if(debug >= 3) {
+        outs() << "Pre set:\n";
+        pprint(pre);
+        outs() << "Post set:\n";
+        pprint(post);
+      }
       AeValSolver ae(disjoin(pre, efac), conjoin(post, efac), quant, false, false);
 
       if (!ae.solve())
@@ -866,6 +880,7 @@ namespace ufo
       else
       {
         Expr subs = ae.getValidSubset(false);
+        if(debug >= 3) outs() << "subset: " << subs << "\n";
         if (isOpX<FALSE>(subs))
         {
 //          for (int j : indexes)
@@ -911,7 +926,7 @@ namespace ufo
 
     void searchUpwards(set<int> &indexes, Expr var, ExprVector& skol)
     {
-      if (debug)
+      if (debug >= 3)
       {
         outs () << "searchUpwards for " << *var << ": [[ indexes: ";
         for (auto i : indexes) outs() << i << ", ";
@@ -926,6 +941,12 @@ namespace ufo
         pre.insert(projections[i]);
         post.insert(skol[i]);
       }
+        if(debug >= 3) {
+          outs() << "Pre set:\n";
+          pprint(pre);
+          outs() << "Post set:\n";
+          pprint(post);
+        }
       AeValSolver ae(disjoin(pre, efac), conjoin(post, efac), quant, false, false);
 
       if (!ae.solve())
@@ -1160,7 +1181,7 @@ namespace ufo
   /**
    * Simple wrapper
    */
-  inline void aeSolveAndSkolemize(Expr s, Expr t, bool skol, bool debug, bool opt, bool compact, bool split)
+  inline void aeSolveAndSkolemize(Expr s, Expr t, bool skol, int debug, bool opt, bool compact, bool split)
   {
     ExprSet fa_qvars, ex_qvars;
     ExprFactory& efac = s->getFactory();
@@ -1187,6 +1208,11 @@ namespace ufo
     s = convertIntsToReals<DIV>(s);
     t = convertIntsToReals<DIV>(t);
 
+    if(debug >= 3) {
+      outs() << "s part: " << s << "\n";
+      outs() << "t part: " << t << "\n";
+    }
+
     Expr t_orig = t;
     if (opt)
     {
@@ -1197,7 +1223,12 @@ namespace ufo
       t = conjoin(cnjs, efac);
       t = simpleQE(t, ex_qvars);
       t = simplifyBool(t);
+      if(debug >= 5) {
+        outs() << "t part simplified: " << t << "\n";
+      }
     }
+
+
 
     AeValSolver ae(s, t, ex_qvars, debug, skol);
 
