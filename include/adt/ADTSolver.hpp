@@ -36,16 +36,19 @@ namespace ufo
     int glob_ind = 0;
     int lev = 0;
     bool useZ3 = false;
+    bool checkLemma = false; //the knowledge scheme heuristic should not be used recursively
     unsigned to;
     ExprVector blockedAssms;
+    ExprSet knowledgeScheme;
     int nestedLevel;
 
     public:
 
-    ADTSolver(Expr _goal, ExprVector& _assumptions, ExprVector& _constructors, int _glob_ind = 0, int _lev = 0, int _maxDepth = 5, int _maxGrow = 3, int _mergingIts = 3, int _earlySplit = 1, bool _verbose = false, bool _useZ3 = true, unsigned _to = 1000, unsigned _l = 0) :
-        goal(_goal), assumptions(_assumptions), constructors(_constructors), glob_ind(_glob_ind), lev(_lev), efac(_goal->getFactory()), u(_goal->getFactory(), _to), maxDepth(_maxDepth), maxGrow(_maxGrow), mergingIts(_mergingIts), earlySplit(_earlySplit), verbose(_verbose), useZ3(_useZ3), to (_to), nestedLevel(_l)
+    ADTSolver(Expr _goal, ExprVector& _assumptions, ExprVector& _constructors, int _glob_ind = 0, int _lev = 0, int _maxDepth = 5, int _maxGrow = 3, int _mergingIts = 3, int _earlySplit = 1, bool _verbose = true, bool _useZ3 = true, bool _checkLemma = false, unsigned _to = 1000, unsigned _l = 0) :
+        goal(_goal), assumptions(_assumptions), constructors(_constructors), glob_ind(_glob_ind), lev(_lev), efac(_goal->getFactory()), u(_goal->getFactory(), _to), maxDepth(_maxDepth), maxGrow(_maxGrow), mergingIts(_mergingIts), earlySplit(_earlySplit), verbose(_verbose), useZ3(_useZ3), checkLemma(_checkLemma), to(_to), nestedLevel(_l)
     {
       // for convenience, rename assumptions (to have unique quantified variables)
+      AlgebraicAnalysis();
       renameAssumptions();
     }
 
@@ -253,6 +256,7 @@ namespace ufo
     {
       if (isOpX<FORALL>(assm))
       {
+        //outs () << "   >> " << assm << ",  " << subgoal << "\n";
         ExprMap matching;
         ExprVector args;
         for (int i = 0; i < assm->arity() - 1; i++) args.push_back(bind::fapp(assm->arg(i)));
@@ -267,7 +271,6 @@ namespace ufo
           else assmQF = assmQF->right();
           isImpl = true;
         }
-
         if (isOpX<ITE>(assmQF))
         {
           int res = -1;
@@ -1016,7 +1019,7 @@ namespace ufo
               auto assumptionsTmp = assumptions;
               // nested induction
               ADTSolver sol (expGen, assumptionsTmp, constructors, glob_ind, lev+1,
-                             maxDepth, maxGrow, mergingIts, earlySplit, false, useZ3, to);
+                             maxDepth, maxGrow, mergingIts, earlySplit, false, useZ3, checkLemma, to);
 
               if (sol.solveNoind(false))
               {
@@ -1025,6 +1028,8 @@ namespace ufo
               }
             }
           }
+          //consult knowledge scheme
+          consultKnowledgeScheme(subgoal);
           // backtrack:
           if (verbose) outs () << string(sp, ' ') << "backtrack to: " << *subgoal << "\n";
         }
@@ -1048,6 +1053,381 @@ namespace ufo
       if (cnt == 0 || cnt > 3) return NULL;
       if (getMonotDegree(expGen) > 2) return NULL;        // if it is still "too complex", scratch it
       return expGen;
+    }
+
+    //MISC HEURISTIC
+    /*void ADTToInt() {
+      ExprSet fdecls;
+      for (auto a : assumptions) {
+        getFDECLs(fdecls, a);
+      }
+      for (auto f : fdecls) {
+        if (f->arity() == 3 && isOpX<INT_TY>(f->last())) {
+          
+        }
+      }
+    }*/
+
+    //KNOWLEDGE SCHEME HEURISTIC
+    void AlgebraicAnalysis()
+    {
+      //if (checkLemma == true) {return;}
+      ExprSet fdecls;
+      for (auto a : assumptions)
+      {
+        getFDECLs(fdecls, a);
+      }
+      buildKnowledgeScheme(fdecls);
+      printKnowledgeScheme();
+    }
+
+    void getFDECLs(ExprSet & set_i, const Expr & expr_i)
+    {
+      if (expr_i == NULL) return;
+      else {
+        if (isOpX<FDECL>(expr_i) && expr_i->arity() > 2)
+        {
+          set_i.insert(expr_i);
+        }
+        getFDECLs(set_i, expr_i->right());
+        getFDECLs(set_i, expr_i->left());
+      }
+    }
+
+    void consultKnowledgeScheme(Expr newGoal) {
+      //see if useAssumption works with newGoal and current KS entry
+      //if it does recursively check lemma with recursive adt-ind call
+      //otherwise move to the next KS entry
+      //if (checkLemma == true) {return;}
+      for (auto ks : knowledgeScheme)
+      {
+        outs() << "CURRENT SUBGOAL " << newGoal << "\n";
+        outs() << "NOW TESTING " << ks << "\n";
+        ExprVector results;
+        useAssumption(newGoal, ks, results);
+        if (results.empty()) {outs() << "USE ASSUMPTION FAILED\n\n"; }
+        else {
+          outs() << "USE ASSUMPTION PASSED\n\n";
+          ADTSolver sol (ks, assumptions, constructors, glob_ind, lev+1,
+                         maxDepth, maxGrow, mergingIts, earlySplit, true, useZ3, true, to);
+          if (sol.solve()) {
+            outs() << "   >> lemma holds\n\n";
+            assumptions.push_back(ks);
+          }
+          else {
+            outs() << "   >> lemma does not hold\n\n";
+          }
+        }
+      }
+    }
+
+    //failed rewrite
+    /*void unfoldFAPPS(Expr newGoal, Expr & result) {
+
+      if (newGoal == NULL) {return;}
+      map<Expr, Expr> candidateFAPPS;
+      Expr newResult;
+      getCandidateFAPPS(candidateFAPPS, newGoal);
+      // gradually rewrite function applications to SSA form
+      for (auto it = candidateFAPPS.begin(); it != candidateFAPPS.end(); it++)
+      {
+        Expr newTerm = mk<EQ>((*it).first, (*it).second);
+        Expr newValues = replaceAll(newGoal, (*it).second, (*it).first);
+        newResult = mk<AND>(newTerm, newValues);
+        //outs() << "\tNEW RESULT " << newResult << endl;
+      }
+      if (newResult == NULL) {result = newGoal;}
+      unfoldFAPPS(newResult, result);
+    }
+
+    void getCandidateFAPPS(map<Expr, Expr> & candidates, Expr newGoal)
+    {
+      if (newGoal == NULL)
+      {
+        return;
+      }
+      if (isOpX<FAPP>(newGoal))
+      {
+        if (newGoal->arity() > 1)
+        {
+          bool candidateFound = true;
+          for (int i = 1; i < newGoal->arity(); i++) {
+            if (isOpX<FAPP>(newGoal->arg(i)) && newGoal->arg(i)->arity() == 1)
+            {continue;}
+            else {candidateFound = candidateFound && false;}
+          }
+          if (candidateFound == true) {
+            Expr newVal = bind::mkConst(mkTerm<string>("_t_" + to_string(glob_ind), efac), typeOf(newGoal));
+            glob_ind++;
+            candidates.emplace(newVal, newGoal);
+          }
+        }
+      }
+      for (int i = 1; i < newGoal->arity(); i++)
+      {
+        getCandidateFAPPS(candidates, newGoal->arg(i));
+      }
+    }*/
+
+    void buildKnowledgeScheme(ExprSet & fdecls)
+    {
+      ExprVector arity1FDECLs;
+      ExprVector arity2FDECLs;
+      for (auto it = fdecls.begin(); it != fdecls.end(); it++)
+      {
+        //analyze functions with arity 1
+        if ((*it)->arity() == 3)
+        {
+          //TEST FOR POSITIVE DEFINITIVENESS
+          if (isOpX<INT_TY>((*it)->last()))
+          {
+            Expr fappArg = bind::mkConst(mkTerm<string>("_qv_" + to_string(glob_ind), efac), (*it)->arg(1));
+            glob_ind++;
+            Expr fapp0 = mk<FAPP>((*it), fappArg);
+            // Expr geq = mk<GEQ>(fapp0, bind::mkConst(mkTerm<int>(0, efac), (*it)->last()));
+            Expr geq = mk<LEQ>(mkMPZ(0, efac), fapp0);
+            Expr forallArg = fappArg->last(); // mk<FDECL>(fappArg, (*it)->arg(1));
+            Expr forall0 = mk<FORALL>(forallArg, geq);
+            knowledgeScheme.insert(forall0);
+          }
+          //TEST FOR IDEMPOTENCY
+          if ((*it)->arg(1) == (*it)->arg(2))
+          {
+            Expr fappArg = bind::mkConst(mkTerm<string>("_qv_" + to_string(glob_ind), efac), (*it)->last());
+            glob_ind++;
+            Expr fapp0 = mk<FAPP>((*it), mk<FAPP>((*it), fappArg));
+            Expr forall0 = mk<FORALL>(mk<FDECL>(fappArg, (*it)->last()), mk<EQ>(fapp0, fappArg));
+            knowledgeScheme.insert(forall0);
+          }
+          arity1FDECLs.push_back((*it));
+        }
+        //analyze functions with arity 2
+        if ((*it)->arity() == 4)
+        {
+          //TEST FOR COMMUTATIVITY
+          if ((*it)->arg(1) == (*it)->arg(2))
+          {
+            ExprVector forallArgs;
+            ExprVector fappArgs;
+            //make 2 new quantified variables
+            Expr arg1 = bind::mkConst(mkTerm<string>("_qv_" + to_string(glob_ind), efac), (*it)->right());
+            glob_ind++;
+            Expr arg2 = bind::mkConst(mkTerm<string>("_qv_" + to_string(glob_ind), efac), (*it)->right());
+            glob_ind++;
+            //add quantified typed variables
+            forallArgs.push_back(mk<FDECL>(arg1, (*it)->right()));
+            forallArgs.push_back(mk<FDECL>(arg2, (*it)->right()));
+            //build lhs
+            fappArgs.push_back((*it));
+            fappArgs.push_back(arg1);
+            fappArgs.push_back(arg2); Expr fapp1 = mknary<FAPP>(fappArgs);
+            fappArgs.clear();
+            //build rhs
+            fappArgs.push_back((*it));
+            fappArgs.push_back(arg2);
+            fappArgs.push_back(arg1);
+            Expr fapp2 = mknary<FAPP>(fappArgs);
+            fappArgs.clear();
+            //build logic statement
+            forallArgs.push_back(mk<EQ>(fapp1, fapp2));
+            knowledgeScheme.insert(mknary<FORALL>(forallArgs));
+          }
+          //TEST FOR ASSOCIATIVITY
+          if ((*it)->arg(1) == (*it)->arg(2) && (*it)->arg(2) == (*it)->arg(3))
+          {
+            ExprVector forallArgs;
+            ExprVector fappArgs;
+            //make 3 new quantified variables
+            Expr arg1 = bind::mkConst(mkTerm<string>("_qv_" + to_string(glob_ind), efac), (*it)->right());
+            glob_ind++;
+            Expr arg2 = bind::mkConst(mkTerm<string>("_qv_" + to_string(glob_ind), efac), (*it)->right());
+            glob_ind++;
+            Expr arg3 = bind::mkConst(mkTerm<string>("_qv_" + to_string(glob_ind), efac), (*it)->right());
+            glob_ind++;
+            //add quantified typed variables
+            forallArgs.push_back(mk<FDECL>(arg1, (*it)->right()));
+            forallArgs.push_back(mk<FDECL>(arg2, (*it)->right()));
+            forallArgs.push_back(mk<FDECL>(arg3, (*it)->right()));
+            //build lhs
+            fappArgs.push_back((*it));
+            fappArgs.push_back(arg1);
+            fappArgs.push_back(arg2);
+            Expr fapp1 = mknary<FAPP>(fappArgs);
+            fappArgs.clear();
+            fappArgs.push_back((*it));
+            fappArgs.push_back(fapp1);
+            fappArgs.push_back(arg3);
+            Expr fapp2 = mknary<FAPP>(fappArgs);
+            fappArgs.clear();
+            //build rhs
+            fappArgs.push_back((*it));
+            fappArgs.push_back(arg2);
+            fappArgs.push_back(arg3);
+            Expr fapp3 = mknary<FAPP>(fappArgs);
+            fappArgs.clear();
+            fappArgs.push_back((*it));
+            fappArgs.push_back(arg1);
+            fappArgs.push_back(fapp3);
+            Expr fapp4 = mknary<FAPP>(fappArgs);
+            fappArgs.clear();
+            //build logic statement
+            forallArgs.push_back(mk<EQ>(fapp2, fapp4));
+            knowledgeScheme.insert(mknary<FORALL>(forallArgs));
+          }
+          arity2FDECLs.push_back((*it));
+        }
+      }
+      if (arity1FDECLs.size() > 1)
+      {
+        for (auto a = arity1FDECLs.begin(); a != arity1FDECLs.end(); a++)
+        {
+          //TEST FOR LENGTH INVARIANCE
+          if (isOpX<INT_TY>((*a)->last()))
+          {
+            for (auto at = arity1FDECLs.begin(); at != arity1FDECLs.end(); at++)
+            {
+              if ((*a)->arg(1) == (*at)->arg(2))
+              {
+                Expr fappArg = bind::mkConst(mkTerm<string>("_qv_" + to_string(glob_ind), efac), (*at)->arg(1));
+                glob_ind++;
+                Expr fapp1 = mk<FAPP>((*at), fappArg);
+                Expr fapp2 = mk<FAPP>((*a), fapp1);
+                Expr fapp3 = mk<FAPP>((*a), fappArg);
+                Expr forallArg1 = mk<FDECL>(fappArg, (*at)->arg(1));
+                Expr forallArg2 = mk<EQ>(fapp2, fapp3);
+                knowledgeScheme.insert(mk<FORALL>(forallArg1, forallArg2));
+              }
+            }
+          }
+        }
+      }
+      if (arity2FDECLs.size() > 1)
+      {
+        for (auto at1 = arity2FDECLs.begin(); at1 != arity2FDECLs.end(); at1++)
+        {
+          for (auto at2 = arity2FDECLs.begin(); at2 != arity2FDECLs.end(); at2++)
+          {
+            //TEST FOR DISTRIBUTIVITY
+            if
+            (
+              (*at1)->arg(1) == (*at2)->arg(1) &&
+              (*at1)->arg(2) == (*at2)->arg(2) &&
+              (*at1)->arg(3) == (*at2)->arg(3) &&
+              (*at1) != (*at2)
+            )
+            {
+              ExprVector fappArgs;
+              ExprVector forallArgs;
+              //make quantified variables
+              Expr arg1 = bind::mkConst(mkTerm<string>("_qv_" + to_string(glob_ind), efac), (*at1)->arg(1));
+              glob_ind++;
+              Expr arg2 = bind::mkConst(mkTerm<string>("_qv_" + to_string(glob_ind), efac), (*at1)->arg(2));
+              glob_ind++;
+              Expr arg3 = bind::mkConst(mkTerm<string>("_qv_" + to_string(glob_ind), efac), (*at1)->arg(3));
+              glob_ind++;
+              //build lhs
+              fappArgs.push_back((*at1));
+              fappArgs.push_back(arg2);
+              fappArgs.push_back(arg3);
+              Expr fapp1 = mknary<FAPP>(fappArgs);
+              fappArgs.clear();
+              fappArgs.push_back((*at2));
+              fappArgs.push_back(arg1);
+              fappArgs.push_back(fapp1);
+              Expr fapp2 = mknary<FAPP>(fappArgs);
+              fappArgs.clear();
+              //build rhs
+              fappArgs.push_back((*at2));
+              fappArgs.push_back(arg1);
+              fappArgs.push_back(arg2);
+              Expr fapp3 = mknary<FAPP>(fappArgs);
+              fappArgs.clear();
+              fappArgs.push_back((*at2));
+              fappArgs.push_back(arg1);
+              fappArgs.push_back(arg3);
+              Expr fapp4 = mknary<FAPP>(fappArgs);
+              fappArgs.clear();
+              fappArgs.push_back((*at1));
+              fappArgs.push_back(fapp3);
+              fappArgs.push_back(fapp4);
+              Expr fapp5 = mknary<FAPP>(fappArgs);
+              fappArgs.clear();
+              //build logic structure
+              forallArgs.push_back(mk<FDECL>(arg1, (*at1)->arg(1)));
+              forallArgs.push_back(mk<FDECL>(arg2, (*at1)->arg(2)));
+              forallArgs.push_back(mk<FDECL>(arg3, (*at1)->arg(3)));
+              forallArgs.push_back(mk<EQ>(fapp2, fapp5));
+              knowledgeScheme.insert(mknary<FORALL>(forallArgs));
+            }
+          }
+        }
+      }
+      if (arity1FDECLs.size() > 0 && arity2FDECLs.size() > 0)
+      {
+        for (auto at1 = arity1FDECLs.begin(); at1 != arity1FDECLs.end(); at1++)
+        {
+          for (auto at2 = arity2FDECLs.begin(); at2 != arity2FDECLs.end(); at2++)
+          {
+            //TEST FOR THE FOLLOWING TWO CASES
+            //  F1(F2(X, Y)) = F2(F1(X), F1(Y))
+            //  F1(F2(X, Y)) = F2(F1(Y), F1(X))
+            if
+            (
+              (*at2)->arg(1) == (*at2)->arg(2) &&
+              (*at2)->arg(2) == (*at2)->arg(3) &&
+              (*at1)->arg(1) == (*at2)->arg(3) &&
+              (*at1)->arg(2) == (*at2)->arg(3)
+            )
+            {
+              ExprVector forallArgs1;
+              ExprVector forallArgs2;
+              ExprVector fappArgs;
+              //make quantified variables
+              Expr arg1 = bind::mkConst(mkTerm<string>("_qv_" + to_string(glob_ind), efac), (*at2)->arg(1));
+              glob_ind++;
+              Expr arg2 = bind::mkConst(mkTerm<string>("_qv_" + to_string(glob_ind), efac), (*at2)->arg(2));
+              glob_ind++;
+              //build lhs
+              fappArgs.push_back((*at2));
+              fappArgs.push_back(arg1);
+              fappArgs.push_back(arg2);
+              Expr fapp1 = mk<FAPP>((*at1), mknary<FAPP>(fappArgs));
+              fappArgs.clear();
+              //build rhs1 and rhs2
+              fappArgs.push_back((*at2));
+              fappArgs.push_back(mk<FAPP>((*at1), arg1));
+              fappArgs.push_back(mk<FAPP>((*at1), arg2));
+              Expr fapp2 = mknary<FAPP>(fappArgs);
+              fappArgs.clear();
+              fappArgs.push_back((*at2));
+              fappArgs.push_back(mk<FAPP>((*at1), arg2));
+              fappArgs.push_back(mk<FAPP>((*at1), arg1));
+              Expr fapp3 = mknary<FAPP>(fappArgs);
+              fappArgs.clear();
+              //build logic structures
+              forallArgs1.push_back(mk<FDECL>(arg1, (*at2)->arg(1)));
+              forallArgs2.push_back(mk<FDECL>(arg1, (*at2)->arg(1)));
+              forallArgs1.push_back(mk<FDECL>(arg2, (*at2)->arg(2)));
+              forallArgs2.push_back(mk<FDECL>(arg2, (*at2)->arg(2)));
+              forallArgs1.push_back(mk<EQ>(fapp1, fapp2));
+              forallArgs2.push_back(mk<EQ>(fapp1, fapp3));
+              knowledgeScheme.insert(mknary<FORALL>(forallArgs1));
+	            knowledgeScheme.insert(mknary<FORALL>(forallArgs2));
+            }
+          }
+        }
+      }
+    }
+
+    void printKnowledgeScheme()
+    {
+      outs() << endl;
+      outs() << "The Knowledge Scheme currently contains the following lemmas:" << endl;
+      for (auto ks : knowledgeScheme)
+      {
+        outs() << "\t" << ks << endl;
+      }
+      outs() << endl;
     }
 
     bool proveByContradiction (Expr subgoal)
