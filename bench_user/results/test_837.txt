@@ -1,0 +1,17 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+
+Simplified goal: (forall (INT INT (Lst)) ((y>=0)->((mem x (drop y z))->(mem x z))))
+
+
+Base case:       ((mem _v_0 (drop _v_1 nil))->(mem _v_0 nil))
+{
+  proven trivially
+}
+Inductive step:  ((mem _v_0 (drop _v_1 (cons _t_2 _t_3)))->(mem _v_0 (cons _t_2 _t_3)))
+{
+  proven trivially
+}
+
+Proved
+unsat

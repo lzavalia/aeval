@@ -1,0 +1,83 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((minus _qv_0 _qv_1)=(minus _qv_1 _qv_0)))
+	(forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_2 _qv_3) _qv_4)=(minus _qv_2 (minus _qv_3 _qv_4))))
+	(forall ((Nat) (Lst) (Lst)) ((take _qv_5 (drop _qv_6 _qv_7))=(drop (take _qv_5 _qv_6) (take _qv_5 _qv_7))))
+	(forall ((Nat) (Lst) (Lst)) ((drop _qv_8 (take _qv_9 _qv_10))=(take (drop _qv_8 _qv_9) (drop _qv_8 _qv_10))))
+
+Simplified goal: (forall ((Nat) (Nat) (Lst)) ((drop n (take m xs))=(take (minus m n) (drop n xs))))
+
+
+Base case:       ((drop zero (take _v_11 _v_12))=(take (minus _v_11 zero) (drop zero _v_12)))
+{
+  proven trivially
+}
+Inductive step:  ((drop (succ _t_13) (take _v_11 _v_12))=(take (minus _v_11 (succ _t_13)) (drop (succ _t_13) _v_12)))
+{
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat)) ((minus zero _qv_1)=zero))
+    | Assumptions [1]: (forall ((Nat)) ((minus _qv_2 zero)=_qv_2))
+    | Assumptions [2]: (forall ((Nat) (Nat)) ((minus (succ _qv_3) (succ _qv_4))=(minus _qv_3 _qv_4)))
+    | Assumptions [3]: (forall ((Nat)) ((drop _qv_5 nil)=nil))
+    | Assumptions [4]: (forall ((Lst)) ((drop zero _qv_6)=_qv_6))
+    | Assumptions [5]: (forall ((Nat) (Nat) (Lst)) ((drop (succ _qv_7) (cons _qv_8 _qv_9))=(drop _qv_7 _qv_9)))
+    | Assumptions [6]: (forall ((Nat)) ((take _qv_10 nil)=nil))
+    | Assumptions [7]: (forall ((Lst)) ((take zero _qv_11)=nil))
+    | Assumptions [8]: (forall ((Nat) (Nat) (Lst)) ((take (succ _qv_12) (cons _qv_13 _qv_14))=(cons _qv_13 (take _qv_12 _qv_14))))
+    | Assumptions [9]: (forall ((Nat) (Lst)) ((drop _t_13 (take m xs))=(take (minus m _t_13) (drop _t_13 xs))))
+    | Assumptions [10]: (forall ((Nat) (Lst)) ((take (minus m _t_13) (drop _t_13 xs))=(drop _t_13 (take m xs))))
+    ====================
+  }
+
+Base case:       ((drop _v_14 (take zero _v_15))=(take (minus zero _v_14) (drop _v_14 _v_15)))
+{
+  proven trivially
+}
+Inductive step:  ((drop _v_14 (take (succ _t_16) _v_15))=(take (minus (succ _t_16) _v_14) (drop _v_14 _v_15)))
+{
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat)) ((minus zero _qv_1)=zero))
+    | Assumptions [1]: (forall ((Nat)) ((minus _qv_2 zero)=_qv_2))
+    | Assumptions [2]: (forall ((Nat) (Nat)) ((minus (succ _qv_3) (succ _qv_4))=(minus _qv_3 _qv_4)))
+    | Assumptions [3]: (forall ((Nat)) ((drop _qv_5 nil)=nil))
+    | Assumptions [4]: (forall ((Lst)) ((drop zero _qv_6)=_qv_6))
+    | Assumptions [5]: (forall ((Nat) (Nat) (Lst)) ((drop (succ _qv_7) (cons _qv_8 _qv_9))=(drop _qv_7 _qv_9)))
+    | Assumptions [6]: (forall ((Nat)) ((take _qv_10 nil)=nil))
+    | Assumptions [7]: (forall ((Lst)) ((take zero _qv_11)=nil))
+    | Assumptions [8]: (forall ((Nat) (Nat) (Lst)) ((take (succ _qv_12) (cons _qv_13 _qv_14))=(cons _qv_13 (take _qv_12 _qv_14))))
+    | Assumptions [9]: (forall ((Nat) (Lst)) ((drop _t_13 (take m xs))=(take (minus m _t_13) (drop _t_13 xs))))
+    | Assumptions [10]: (forall ((Nat) (Lst)) ((take (minus m _t_13) (drop _t_13 xs))=(drop _t_13 (take m xs))))
+    | Assumptions [11]: (forall ((Nat) (Lst)) ((drop n (take _t_16 xs))=(take (minus _t_16 n) (drop n xs))))
+    | Assumptions [12]: (forall ((Nat) (Lst)) ((take (minus _t_16 n) (drop n xs))=(drop n (take _t_16 xs))))
+    ====================
+  }
+
+Base case:       ((drop _v_17 (take _v_18 nil))=(take (minus _v_18 _v_17) (drop _v_17 nil)))
+{
+  proven trivially
+}
+Inductive step:  ((drop _v_17 (take _v_18 (cons _t_19 _t_20)))=(take (minus _v_18 _v_17) (drop _v_17 (cons _t_19 _t_20))))
+{
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat)) ((minus zero _qv_1)=zero))
+    | Assumptions [1]: (forall ((Nat)) ((minus _qv_2 zero)=_qv_2))
+    | Assumptions [2]: (forall ((Nat) (Nat)) ((minus (succ _qv_3) (succ _qv_4))=(minus _qv_3 _qv_4)))
+    | Assumptions [3]: (forall ((Nat)) ((drop _qv_5 nil)=nil))
+    | Assumptions [4]: (forall ((Lst)) ((drop zero _qv_6)=_qv_6))
+    | Assumptions [5]: (forall ((Nat) (Nat) (Lst)) ((drop (succ _qv_7) (cons _qv_8 _qv_9))=(drop _qv_7 _qv_9)))
+    | Assumptions [6]: (forall ((Nat)) ((take _qv_10 nil)=nil))
+    | Assumptions [7]: (forall ((Lst)) ((take zero _qv_11)=nil))
+    | Assumptions [8]: (forall ((Nat) (Nat) (Lst)) ((take (succ _qv_12) (cons _qv_13 _qv_14))=(cons _qv_13 (take _qv_12 _qv_14))))
+    | Assumptions [9]: (forall ((Nat) (Lst)) ((drop _t_13 (take m xs))=(take (minus m _t_13) (drop _t_13 xs))))
+    | Assumptions [10]: (forall ((Nat) (Lst)) ((take (minus m _t_13) (drop _t_13 xs))=(drop _t_13 (take m xs))))
+    | Assumptions [11]: (forall ((Nat) (Lst)) ((drop n (take _t_16 xs))=(take (minus _t_16 n) (drop n xs))))
+    | Assumptions [12]: (forall ((Nat) (Lst)) ((take (minus _t_16 n) (drop n xs))=(drop n (take _t_16 xs))))
+    | Assumptions [13]: (forall ((Nat) (Nat)) ((drop n (take m _t_20))=(take (minus m n) (drop n _t_20))))
+    | Assumptions [14]: (forall ((Nat) (Nat)) ((take (minus m n) (drop n _t_20))=(drop n (take m _t_20))))
+    ====================
+  }
+Unknown
+sat

@@ -1,0 +1,23 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((plus _qv_0 _qv_1)=(plus _qv_1 _qv_0)))
+	(forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_2 _qv_3) _qv_4)=(plus _qv_2 (plus _qv_3 _qv_4))))
+	(forall ((Nat) (Nat)) ((minus _qv_5 _qv_6)=(minus _qv_6 _qv_5)))
+	(forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_7 _qv_8) _qv_9)=(minus _qv_7 (minus _qv_8 _qv_9))))
+	(forall ((Nat) (Nat) (Nat)) ((minus _qv_10 (plus _qv_11 _qv_12))=(plus (minus _qv_10 _qv_11) (minus _qv_10 _qv_12))))
+	(forall ((Nat) (Nat) (Nat)) ((plus _qv_13 (minus _qv_14 _qv_15))=(minus (plus _qv_13 _qv_14) (plus _qv_13 _qv_15))))
+
+Simplified goal: (forall ((Nat) (Nat) (Nat)) ((minus (plus k m) (plus k n))=(minus m n)))
+
+
+Base case:       ((minus (plus zero _v_17) (plus zero _v_16))=(minus _v_17 _v_16))
+{
+  proven trivially
+}
+Inductive step:  ((minus (plus (succ _t_18) _v_17) (plus (succ _t_18) _v_16))=(minus _v_17 _v_16))
+{
+  proven trivially
+}
+
+Proved
+unsat

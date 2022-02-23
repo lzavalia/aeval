@@ -1,0 +1,58 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+	(forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+	(forall ((Lst)) ((butlast (butlast _qv_5))=_qv_5))
+	(forall ((Lst) (Lst)) ((butlast (append _qv_6 _qv_7))=(append (butlast _qv_6) (butlast _qv_7))))
+	(forall ((Lst) (Lst)) ((butlast (append _qv_6 _qv_7))=(append (butlast _qv_7) (butlast _qv_6))))
+
+Simplified goal: (forall ((Lst) (Nat)) ((butlast (append xs (cons x nil)))=xs))
+
+
+Base case:       ((butlast (append nil (cons _v_8 nil)))=nil)
+{
+  proven trivially
+}
+Inductive step:  ((butlast (append (cons _t_9 _t_10) (cons _v_8 nil)))=(cons _t_9 _t_10))
+{
+  {
+    ====================
+    | Assumptions [0]: ((butlast nil)=nil)
+    | Assumptions [1]: (forall ((Lst)) ((append nil _qv_1)=_qv_1))
+    | Assumptions [2]: (forall ((Nat) (Lst) (Lst)) ((append (cons _qv_2 _qv_3) _qv_4)=(cons _qv_2 (append _qv_3 _qv_4))))
+    | Assumptions [3]: (forall ((Nat) (Lst)) ((last (cons _qv_5 _qv_6))=ite(_qv_6=nil, _qv_5, (last _qv_6))))
+    | Assumptions [4]: (forall ((Nat) (Lst)) ((butlast (cons _qv_7 _qv_8))=ite(_qv_8=nil, nil, (cons _qv_7 (butlast _qv_8)))))
+    | Assumptions [5]: (forall ((Nat)) ((butlast (append _t_10 (cons x nil)))=_t_10))
+    | Assumptions [6]: (forall ((Nat)) (_t_10=(butlast (append _t_10 (cons x nil)))))
+    ====================
+  }
+  rewritten [2]: ((butlast (cons _t_9 (append _t_10 (cons _v_8 nil))))=(cons _t_9 _t_10))
+  rewritten [4]: (ite((append _t_10 (cons _v_8 nil))=nil, nil, (cons _t_9 (butlast (append _t_10 (cons _v_8 nil)))))=(cons _t_9 _t_10))
+  proceed with (part 1/2): (((append _t_10 (cons _v_8 nil))=nil)->(nil=(cons _t_9 _t_10)))
+  {
+    {
+      ====================
+      | Assumptions [0]: ((butlast nil)=nil)
+      | Assumptions [1]: (forall ((Lst)) ((append nil _qv_1)=_qv_1))
+      | Assumptions [2]: (forall ((Nat) (Lst) (Lst)) ((append (cons _qv_2 _qv_3) _qv_4)=(cons _qv_2 (append _qv_3 _qv_4))))
+      | Assumptions [3]: (forall ((Nat) (Lst)) ((last (cons _qv_5 _qv_6))=ite(_qv_6=nil, _qv_5, (last _qv_6))))
+      | Assumptions [4]: (forall ((Nat) (Lst)) ((butlast (cons _qv_7 _qv_8))=ite(_qv_8=nil, nil, (cons _qv_7 (butlast _qv_8)))))
+      | Assumptions [5]: (forall ((Nat)) ((butlast (append _t_10 (cons x nil)))=_t_10))
+      | Assumptions [6]: (forall ((Nat)) (_t_10=(butlast (append _t_10 (cons x nil)))))
+      | Assumptions [7]: ((append _t_10 (cons _v_8 nil))=nil)
+      | Assumptions [8]: ((append (butlast (append _t_10 (cons x nil))) (cons _v_8 nil))=nil)
+      | Assumptions [9]: ((append (butlast (append (butlast (append _t_10 (cons x nil))) (cons x nil))) (cons _v_8 nil))=nil)
+      | Assumptions [10]: ((append (butlast (append (butlast (append (butlast (append _t_10 (cons x nil))) (cons x nil))) (cons x nil))) (cons _v_8 nil))=nil)
+      ====================
+    }
+    current subgoal: (nil=(cons _t_9 _t_10))
+    rewritten [6]: (nil=(cons _t_9 (butlast (append _t_10 (cons x nil)))))
+    rewritten [5]: (nil=(cons _t_9 _t_10))
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Lst) (Lst)) ((append _qv_11 _qv_12)=(append _qv_12 _qv_11)))
+	(forall ((Lst) (Lst) (Lst)) ((append (append _qv_13 _qv_14) _qv_15)=(append _qv_13 (append _qv_14 _qv_15))))
+	(forall ((Lst)) ((butlast (butlast _qv_16))=_qv_16))
+	(forall ((Lst) (Lst)) ((butlast (append _qv_17 _qv_18))=(append (butlast _qv_17) (butlast _qv_18))))
+	(forall ((Lst) (Lst)) ((butlast (append _qv_17 _qv_18))=(append (butlast _qv_18) (butlast _qv_17))))
+

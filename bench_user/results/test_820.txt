@@ -1,0 +1,481 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+	(forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+	(forall ((Lst)) (0<=(len _qv_5)))
+
+Simplified goal: (forall ((Lst) (Lst)) ((len (append x y))=(len (append y x))))
+
+
+Base case:       ((len (append nil _v_6))=(len (append _v_6 nil)))
+{
+  {
+    ====================
+    | Assumptions [0]: ((len nil)=0)
+    | Assumptions [1]: (forall ((Lst)) ((append nil _qv_1)=_qv_1))
+    | Assumptions [2]: (forall (INT (Lst) (Lst)) ((append (cons _qv_2 _qv_3) _qv_4)=(cons _qv_2 (append _qv_3 _qv_4))))
+    | Assumptions [3]: (forall (INT (Lst)) ((len (cons _qv_5 _qv_6))=(1+(len _qv_6))))
+    | Assumptions [4]: (forall ((Lst)) ((len _qv_7)>=0))
+    ====================
+  }
+  rewritten [0]: ((len (append nil _v_6))=(len (append _v_6 nil)))
+  rewritten [1]: ((len _v_6)=(len (append _v_6 nil)))
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Lst) (Lst)) ((append _qv_7 _qv_8)=(append _qv_8 _qv_7)))
+	(forall ((Lst) (Lst) (Lst)) ((append (append _qv_9 _qv_10) _qv_11)=(append _qv_9 (append _qv_10 _qv_11))))
+	(forall ((Lst)) (0<=(len _qv_12)))
+
+  proven by induction: ((len _v_6)=(len (append _v_6 nil)))
+  rewriting done
+}
+Inductive step:  ((len (append (cons _t_7 _t_8) _v_6))=(len (append _v_6 (cons _t_7 _t_8))))
+{
+  {
+    ====================
+    | Assumptions [0]: ((len nil)=0)
+    | Assumptions [1]: (forall ((Lst)) ((append nil _qv_1)=_qv_1))
+    | Assumptions [2]: (forall (INT (Lst) (Lst)) ((append (cons _qv_2 _qv_3) _qv_4)=(cons _qv_2 (append _qv_3 _qv_4))))
+    | Assumptions [3]: (forall (INT (Lst)) ((len (cons _qv_5 _qv_6))=(1+(len _qv_6))))
+    | Assumptions [4]: (forall ((Lst)) ((len _qv_7)>=0))
+    | Assumptions [5]: (forall ((Lst)) ((len (append _t_8 y))=(len (append y _t_8))))
+    | Assumptions [6]: (forall ((Lst)) ((len (append y _t_8))=(len (append _t_8 y))))
+    ====================
+  }
+  rewritten [0]: ((len (append (cons _t_7 _t_8) _v_6))=(len (append _v_6 (cons _t_7 _t_8))))
+  rewritten [2]: ((len (cons _t_7 (append _t_8 _v_6)))=(len (append _v_6 (cons _t_7 _t_8))))
+  rewritten [3]: ((1+(len (append _t_8 _v_6)))=(len (append _v_6 (cons _t_7 _t_8))))
+  rewritten [0]: ((len (append _t_8 _v_6))=(-1+(len (append _v_6 (cons _t_7 _t_8)))))
+  rewritten [5]: ((len (append _v_6 _t_8))=((len (append _v_6 (cons _t_7 _t_8)))+-1))
+  rewritten [0]: ((len (append _v_6 _t_8))=(-1+(len (append _v_6 (cons _t_7 _t_8)))))
+  sequence of rewrites only grows
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Lst) (Lst)) ((append _qv_9 _qv_10)=(append _qv_10 _qv_9)))
+	(forall ((Lst) (Lst) (Lst)) ((append (append _qv_11 _qv_12) _qv_13)=(append _qv_11 (append _qv_12 _qv_13))))
+	(forall ((Lst)) (0<=(len _qv_14)))
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Lst) (Lst)) ((append _qv_19 _qv_20)=(append _qv_20 _qv_19)))
+	(forall ((Lst) (Lst) (Lst)) ((append (append _qv_21 _qv_22) _qv_23)=(append _qv_21 (append _qv_22 _qv_23))))
+	(forall ((Lst)) (0<=(len _qv_24)))
+
+CURRENT SUBGOAL ((len (cons _v_25 (cons _t_28 (append _t_29 _v_26))))=((len (cons _v_25 (append (cons _t_28 _t_29) (cons _v_27 _v_26))))+-1))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_19 _qv_20)=(append _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _v_25 (cons _t_28 (append _t_29 _v_26))))=((len (cons _v_25 (append (cons _t_28 _t_29) (cons _v_27 _v_26))))+-1))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_21 _qv_22) _qv_23)=(append _qv_21 (append _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _v_25 (cons _t_28 (append _t_29 _v_26))))=((len (cons _v_25 (append (cons _t_28 _t_29) (cons _v_27 _v_26))))+-1))
+NOW TESTING (forall ((Lst)) (0<=(len _qv_24)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _v_25 (cons _t_28 (append _t_29 _v_26))))=(len (cons _t_28 (append _t_29 (cons _v_27 _v_26)))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_19 _qv_20)=(append _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _v_25 (cons _t_28 (append _t_29 _v_26))))=(len (cons _t_28 (append _t_29 (cons _v_27 _v_26)))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_21 _qv_22) _qv_23)=(append _qv_21 (append _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _v_25 (cons _t_28 (append _t_29 _v_26))))=(len (cons _t_28 (append _t_29 (cons _v_27 _v_26)))))
+NOW TESTING (forall ((Lst)) (0<=(len _qv_24)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _v_25 (cons _t_28 (append _t_29 _v_26))))=(len (cons _t_28 (append _t_29 (cons _v_27 _v_26)))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_19 _qv_20)=(append _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _v_25 (cons _t_28 (append _t_29 _v_26))))=(len (cons _t_28 (append _t_29 (cons _v_27 _v_26)))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_21 _qv_22) _qv_23)=(append _qv_21 (append _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _v_25 (cons _t_28 (append _t_29 _v_26))))=(len (cons _t_28 (append _t_29 (cons _v_27 _v_26)))))
+NOW TESTING (forall ((Lst)) (0<=(len _qv_24)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _v_25 (cons _t_28 (append _t_29 _v_26))))=(len (cons _t_28 (append _t_29 (cons _v_27 _v_26)))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_19 _qv_20)=(append _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _v_25 (cons _t_28 (append _t_29 _v_26))))=(len (cons _t_28 (append _t_29 (cons _v_27 _v_26)))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_21 _qv_22) _qv_23)=(append _qv_21 (append _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _v_25 (cons _t_28 (append _t_29 _v_26))))=(len (cons _t_28 (append _t_29 (cons _v_27 _v_26)))))
+NOW TESTING (forall ((Lst)) (0<=(len _qv_24)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _v_25 (cons _t_28 (append _t_29 _v_26))))=(len (cons _t_28 (append _t_29 (cons _v_27 _v_26)))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_19 _qv_20)=(append _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _v_25 (cons _t_28 (append _t_29 _v_26))))=(len (cons _t_28 (append _t_29 (cons _v_27 _v_26)))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_21 _qv_22) _qv_23)=(append _qv_21 (append _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _v_25 (cons _t_28 (append _t_29 _v_26))))=(len (cons _t_28 (append _t_29 (cons _v_27 _v_26)))))
+NOW TESTING (forall ((Lst)) (0<=(len _qv_24)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _v_25 (cons _t_28 (append _t_29 _v_26))))=(len (cons _t_28 (append _t_29 (cons _v_27 _v_26)))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_19 _qv_20)=(append _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _v_25 (cons _t_28 (append _t_29 _v_26))))=(len (cons _t_28 (append _t_29 (cons _v_27 _v_26)))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_21 _qv_22) _qv_23)=(append _qv_21 (append _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _v_25 (cons _t_28 (append _t_29 _v_26))))=(len (cons _t_28 (append _t_29 (cons _v_27 _v_26)))))
+NOW TESTING (forall ((Lst)) (0<=(len _qv_24)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _v_25 (cons _t_28 (append _t_29 _v_26))))=(len (cons _t_28 (append _t_29 (cons _v_27 _v_26)))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_19 _qv_20)=(append _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _v_25 (cons _t_28 (append _t_29 _v_26))))=(len (cons _t_28 (append _t_29 (cons _v_27 _v_26)))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_21 _qv_22) _qv_23)=(append _qv_21 (append _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _v_25 (cons _t_28 (append _t_29 _v_26))))=(len (cons _t_28 (append _t_29 (cons _v_27 _v_26)))))
+NOW TESTING (forall ((Lst)) (0<=(len _qv_24)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _v_25 (cons _t_28 (append _t_29 _v_26))))=(len (append (cons _t_28 _t_29) (cons _v_27 _v_26))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_19 _qv_20)=(append _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _v_25 (cons _t_28 (append _t_29 _v_26))))=(len (append (cons _t_28 _t_29) (cons _v_27 _v_26))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_21 _qv_22) _qv_23)=(append _qv_21 (append _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _v_25 (cons _t_28 (append _t_29 _v_26))))=(len (append (cons _t_28 _t_29) (cons _v_27 _v_26))))
+NOW TESTING (forall ((Lst)) (0<=(len _qv_24)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _t_28 (append _t_29 _v_26)))=((len (append (cons _t_28 _t_29) (cons _v_27 _v_26)))+-1))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_19 _qv_20)=(append _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _t_28 (append _t_29 _v_26)))=((len (append (cons _t_28 _t_29) (cons _v_27 _v_26)))+-1))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_21 _qv_22) _qv_23)=(append _qv_21 (append _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _t_28 (append _t_29 _v_26)))=((len (append (cons _t_28 _t_29) (cons _v_27 _v_26)))+-1))
+NOW TESTING (forall ((Lst)) (0<=(len _qv_24)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _t_28 (append _t_29 _v_26)))=((len (append (cons _t_28 _t_29) (cons _v_27 _v_26)))+-1))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_19 _qv_20)=(append _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _t_28 (append _t_29 _v_26)))=((len (append (cons _t_28 _t_29) (cons _v_27 _v_26)))+-1))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_21 _qv_22) _qv_23)=(append _qv_21 (append _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _t_28 (append _t_29 _v_26)))=((len (append (cons _t_28 _t_29) (cons _v_27 _v_26)))+-1))
+NOW TESTING (forall ((Lst)) (0<=(len _qv_24)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _t_28 (append _t_29 _v_26)))=((len (append (cons _t_28 _t_29) (cons _v_27 _v_26)))+-1))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_19 _qv_20)=(append _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _t_28 (append _t_29 _v_26)))=((len (append (cons _t_28 _t_29) (cons _v_27 _v_26)))+-1))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_21 _qv_22) _qv_23)=(append _qv_21 (append _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _t_28 (append _t_29 _v_26)))=((len (append (cons _t_28 _t_29) (cons _v_27 _v_26)))+-1))
+NOW TESTING (forall ((Lst)) (0<=(len _qv_24)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _t_28 (append _t_29 _v_26)))=((len (append (cons _t_28 _t_29) (cons _v_27 _v_26)))+-1))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_19 _qv_20)=(append _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _t_28 (append _t_29 _v_26)))=((len (append (cons _t_28 _t_29) (cons _v_27 _v_26)))+-1))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_21 _qv_22) _qv_23)=(append _qv_21 (append _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _t_28 (append _t_29 _v_26)))=((len (append (cons _t_28 _t_29) (cons _v_27 _v_26)))+-1))
+NOW TESTING (forall ((Lst)) (0<=(len _qv_24)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _t_28 (append _t_29 _v_26)))=((len (append (cons _t_28 _t_29) (cons _v_27 _v_26)))+-1))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_19 _qv_20)=(append _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _t_28 (append _t_29 _v_26)))=((len (append (cons _t_28 _t_29) (cons _v_27 _v_26)))+-1))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_21 _qv_22) _qv_23)=(append _qv_21 (append _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _t_28 (append _t_29 _v_26)))=((len (append (cons _t_28 _t_29) (cons _v_27 _v_26)))+-1))
+NOW TESTING (forall ((Lst)) (0<=(len _qv_24)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _t_28 (append _t_29 _v_26)))=((len (append (cons _t_28 _t_29) (cons _v_27 _v_26)))+-1))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_19 _qv_20)=(append _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _t_28 (append _t_29 _v_26)))=((len (append (cons _t_28 _t_29) (cons _v_27 _v_26)))+-1))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_21 _qv_22) _qv_23)=(append _qv_21 (append _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _t_28 (append _t_29 _v_26)))=((len (append (cons _t_28 _t_29) (cons _v_27 _v_26)))+-1))
+NOW TESTING (forall ((Lst)) (0<=(len _qv_24)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _t_28 (append _t_29 _v_26)))=((len (append (cons _t_28 _t_29) (cons _v_27 _v_26)))+-1))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_19 _qv_20)=(append _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _t_28 (append _t_29 _v_26)))=((len (append (cons _t_28 _t_29) (cons _v_27 _v_26)))+-1))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_21 _qv_22) _qv_23)=(append _qv_21 (append _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _t_28 (append _t_29 _v_26)))=((len (append (cons _t_28 _t_29) (cons _v_27 _v_26)))+-1))
+NOW TESTING (forall ((Lst)) (0<=(len _qv_24)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _t_28 (append _t_29 _v_26)))=((len (append (cons _t_28 _t_29) (cons _v_27 _v_26)))+-1))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_19 _qv_20)=(append _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _t_28 (append _t_29 _v_26)))=((len (append (cons _t_28 _t_29) (cons _v_27 _v_26)))+-1))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_21 _qv_22) _qv_23)=(append _qv_21 (append _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _t_28 (append _t_29 _v_26)))=((len (append (cons _t_28 _t_29) (cons _v_27 _v_26)))+-1))
+NOW TESTING (forall ((Lst)) (0<=(len _qv_24)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _v_25 (cons _t_28 (append _t_29 _v_26))))=(len (append (cons _t_28 _t_29) (cons _v_27 _v_26))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_19 _qv_20)=(append _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _v_25 (cons _t_28 (append _t_29 _v_26))))=(len (append (cons _t_28 _t_29) (cons _v_27 _v_26))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_21 _qv_22) _qv_23)=(append _qv_21 (append _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _v_25 (cons _t_28 (append _t_29 _v_26))))=(len (append (cons _t_28 _t_29) (cons _v_27 _v_26))))
+NOW TESTING (forall ((Lst)) (0<=(len _qv_24)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _v_25 (cons _t_28 (append _t_29 _v_26))))=(len (cons _t_28 (append _t_29 (cons _v_27 _v_26)))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_19 _qv_20)=(append _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _v_25 (cons _t_28 (append _t_29 _v_26))))=(len (cons _t_28 (append _t_29 (cons _v_27 _v_26)))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_21 _qv_22) _qv_23)=(append _qv_21 (append _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _v_25 (cons _t_28 (append _t_29 _v_26))))=(len (cons _t_28 (append _t_29 (cons _v_27 _v_26)))))
+NOW TESTING (forall ((Lst)) (0<=(len _qv_24)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _v_25 (cons _t_28 (append _t_29 _v_26))))=(len (cons _t_28 (append _t_29 (cons _v_27 _v_26)))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_19 _qv_20)=(append _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _v_25 (cons _t_28 (append _t_29 _v_26))))=(len (cons _t_28 (append _t_29 (cons _v_27 _v_26)))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_21 _qv_22) _qv_23)=(append _qv_21 (append _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _v_25 (cons _t_28 (append _t_29 _v_26))))=(len (cons _t_28 (append _t_29 (cons _v_27 _v_26)))))
+NOW TESTING (forall ((Lst)) (0<=(len _qv_24)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _v_25 (cons _t_28 (append _t_29 _v_26))))=(len (cons _t_28 (append _t_29 (cons _v_27 _v_26)))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_19 _qv_20)=(append _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _v_25 (cons _t_28 (append _t_29 _v_26))))=(len (cons _t_28 (append _t_29 (cons _v_27 _v_26)))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_21 _qv_22) _qv_23)=(append _qv_21 (append _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _v_25 (cons _t_28 (append _t_29 _v_26))))=(len (cons _t_28 (append _t_29 (cons _v_27 _v_26)))))
+NOW TESTING (forall ((Lst)) (0<=(len _qv_24)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _v_25 (cons _t_28 (append _t_29 _v_26))))=(len (cons _t_28 (append _t_29 (cons _v_27 _v_26)))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_19 _qv_20)=(append _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _v_25 (cons _t_28 (append _t_29 _v_26))))=(len (cons _t_28 (append _t_29 (cons _v_27 _v_26)))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_21 _qv_22) _qv_23)=(append _qv_21 (append _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _v_25 (cons _t_28 (append _t_29 _v_26))))=(len (cons _t_28 (append _t_29 (cons _v_27 _v_26)))))
+NOW TESTING (forall ((Lst)) (0<=(len _qv_24)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _v_25 (cons _t_28 (append _t_29 _v_26))))=(len (cons _t_28 (append _t_29 (cons _v_27 _v_26)))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_19 _qv_20)=(append _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _v_25 (cons _t_28 (append _t_29 _v_26))))=(len (cons _t_28 (append _t_29 (cons _v_27 _v_26)))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_21 _qv_22) _qv_23)=(append _qv_21 (append _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _v_25 (cons _t_28 (append _t_29 _v_26))))=(len (cons _t_28 (append _t_29 (cons _v_27 _v_26)))))
+NOW TESTING (forall ((Lst)) (0<=(len _qv_24)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _v_25 (cons _t_28 (append _t_29 _v_26))))=(len (cons _t_28 (append _t_29 (cons _v_27 _v_26)))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_19 _qv_20)=(append _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _v_25 (cons _t_28 (append _t_29 _v_26))))=(len (cons _t_28 (append _t_29 (cons _v_27 _v_26)))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_21 _qv_22) _qv_23)=(append _qv_21 (append _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _v_25 (cons _t_28 (append _t_29 _v_26))))=(len (cons _t_28 (append _t_29 (cons _v_27 _v_26)))))
+NOW TESTING (forall ((Lst)) (0<=(len _qv_24)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _v_25 (cons _t_28 (append _t_29 _v_26))))=(len (append (cons _t_28 _t_29) (cons _v_27 _v_26))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_19 _qv_20)=(append _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _v_25 (cons _t_28 (append _t_29 _v_26))))=(len (append (cons _t_28 _t_29) (cons _v_27 _v_26))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_21 _qv_22) _qv_23)=(append _qv_21 (append _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _v_25 (cons _t_28 (append _t_29 _v_26))))=(len (append (cons _t_28 _t_29) (cons _v_27 _v_26))))
+NOW TESTING (forall ((Lst)) (0<=(len _qv_24)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _t_28 (append _t_29 _v_26)))=((len (append (cons _t_28 _t_29) (cons _v_27 _v_26)))+-1))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_19 _qv_20)=(append _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _t_28 (append _t_29 _v_26)))=((len (append (cons _t_28 _t_29) (cons _v_27 _v_26)))+-1))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_21 _qv_22) _qv_23)=(append _qv_21 (append _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _t_28 (append _t_29 _v_26)))=((len (append (cons _t_28 _t_29) (cons _v_27 _v_26)))+-1))
+NOW TESTING (forall ((Lst)) (0<=(len _qv_24)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _t_28 (append _t_29 _v_26)))=((len (append (cons _t_28 _t_29) (cons _v_27 _v_26)))+-1))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_19 _qv_20)=(append _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _t_28 (append _t_29 _v_26)))=((len (append (cons _t_28 _t_29) (cons _v_27 _v_26)))+-1))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_21 _qv_22) _qv_23)=(append _qv_21 (append _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _t_28 (append _t_29 _v_26)))=((len (append (cons _t_28 _t_29) (cons _v_27 _v_26)))+-1))
+NOW TESTING (forall ((Lst)) (0<=(len _qv_24)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _t_28 (append _t_29 _v_26)))=((len (append (cons _t_28 _t_29) (cons _v_27 _v_26)))+-1))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_19 _qv_20)=(append _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _t_28 (append _t_29 _v_26)))=((len (append (cons _t_28 _t_29) (cons _v_27 _v_26)))+-1))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_21 _qv_22) _qv_23)=(append _qv_21 (append _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _t_28 (append _t_29 _v_26)))=((len (append (cons _t_28 _t_29) (cons _v_27 _v_26)))+-1))
+NOW TESTING (forall ((Lst)) (0<=(len _qv_24)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _t_28 (append _t_29 _v_26)))=((len (append (cons _t_28 _t_29) (cons _v_27 _v_26)))+-1))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_19 _qv_20)=(append _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _t_28 (append _t_29 _v_26)))=((len (append (cons _t_28 _t_29) (cons _v_27 _v_26)))+-1))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_21 _qv_22) _qv_23)=(append _qv_21 (append _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _t_28 (append _t_29 _v_26)))=((len (append (cons _t_28 _t_29) (cons _v_27 _v_26)))+-1))
+NOW TESTING (forall ((Lst)) (0<=(len _qv_24)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _t_28 (append _t_29 _v_26)))=((len (append (cons _t_28 _t_29) (cons _v_27 _v_26)))+-1))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_19 _qv_20)=(append _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _t_28 (append _t_29 _v_26)))=((len (append (cons _t_28 _t_29) (cons _v_27 _v_26)))+-1))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_21 _qv_22) _qv_23)=(append _qv_21 (append _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _t_28 (append _t_29 _v_26)))=((len (append (cons _t_28 _t_29) (cons _v_27 _v_26)))+-1))
+NOW TESTING (forall ((Lst)) (0<=(len _qv_24)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _t_28 (append _t_29 _v_26)))=((len (append (cons _t_28 _t_29) (cons _v_27 _v_26)))+-1))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_19 _qv_20)=(append _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _t_28 (append _t_29 _v_26)))=((len (append (cons _t_28 _t_29) (cons _v_27 _v_26)))+-1))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_21 _qv_22) _qv_23)=(append _qv_21 (append _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _t_28 (append _t_29 _v_26)))=((len (append (cons _t_28 _t_29) (cons _v_27 _v_26)))+-1))
+NOW TESTING (forall ((Lst)) (0<=(len _qv_24)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _t_28 (append _t_29 _v_26)))=((len (append (cons _t_28 _t_29) (cons _v_27 _v_26)))+-1))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_19 _qv_20)=(append _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _t_28 (append _t_29 _v_26)))=((len (append (cons _t_28 _t_29) (cons _v_27 _v_26)))+-1))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_21 _qv_22) _qv_23)=(append _qv_21 (append _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _t_28 (append _t_29 _v_26)))=((len (append (cons _t_28 _t_29) (cons _v_27 _v_26)))+-1))
+NOW TESTING (forall ((Lst)) (0<=(len _qv_24)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _t_28 (append _t_29 _v_26)))=((len (append (cons _t_28 _t_29) (cons _v_27 _v_26)))+-1))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_19 _qv_20)=(append _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _t_28 (append _t_29 _v_26)))=((len (append (cons _t_28 _t_29) (cons _v_27 _v_26)))+-1))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_21 _qv_22) _qv_23)=(append _qv_21 (append _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _t_28 (append _t_29 _v_26)))=((len (append (cons _t_28 _t_29) (cons _v_27 _v_26)))+-1))
+NOW TESTING (forall ((Lst)) (0<=(len _qv_24)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _v_25 (cons _t_28 (append _t_29 _v_26))))=(len (append (cons _t_28 _t_29) (cons _v_27 _v_26))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_19 _qv_20)=(append _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _v_25 (cons _t_28 (append _t_29 _v_26))))=(len (append (cons _t_28 _t_29) (cons _v_27 _v_26))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_21 _qv_22) _qv_23)=(append _qv_21 (append _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _v_25 (cons _t_28 (append _t_29 _v_26))))=(len (append (cons _t_28 _t_29) (cons _v_27 _v_26))))
+NOW TESTING (forall ((Lst)) (0<=(len _qv_24)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _v_25 (cons _t_28 (append _t_29 _v_26))))=(len (append (cons _t_28 _t_29) (cons _v_27 _v_26))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_19 _qv_20)=(append _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _v_25 (cons _t_28 (append _t_29 _v_26))))=(len (append (cons _t_28 _t_29) (cons _v_27 _v_26))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_21 _qv_22) _qv_23)=(append _qv_21 (append _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((len (cons _v_25 (cons _t_28 (append _t_29 _v_26))))=(len (append (cons _t_28 _t_29) (cons _v_27 _v_26))))
+NOW TESTING (forall ((Lst)) (0<=(len _qv_24)))
+USE ASSUMPTION FAILED
+
+  proven by induction: ((len (append _v_6 _t_8))=(-1+(len (append _v_6 (cons _t_7 _t_8)))))
+  rewriting done
+  rewriting done
+  rewriting done
+  rewriting done
+  rewriting done
+}
+
+Proved
+unsat

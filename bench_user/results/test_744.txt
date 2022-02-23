@@ -1,0 +1,8 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall (INT INT) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+
+Simplified goal: (forall (INT INT INT) ([&&    a>=0    b>=0    c>=0]->((nmin (nmin a b) c)=(nmin a (nmin b c)))))
+
+Proved (with Z3)
+unsat

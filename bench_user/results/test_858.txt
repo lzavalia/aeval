@@ -1,0 +1,24 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+	(forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+	(forall ((Lst)) (0<=(len _qv_5)))
+	(forall ((Lst)) ((rev (rev _qv_6))=_qv_6))
+	(forall ((Lst)) ((len (rev _qv_7))=(len _qv_7)))
+	(forall ((Lst) (Lst)) ((rev (append _qv_8 _qv_9))=(append (rev _qv_8) (rev _qv_9))))
+	(forall ((Lst) (Lst)) ((rev (append _qv_8 _qv_9))=(append (rev _qv_9) (rev _qv_8))))
+
+Simplified goal: (forall ((Lst)) ((len (rev x))=(len x)))
+
+
+Base case:       ((len (rev nil))=(len nil))
+{
+  proven trivially
+}
+Inductive step:  ((len (rev (cons _t_10 _t_11)))=(len (cons _t_10 _t_11)))
+{
+  proven trivially
+}
+
+Proved
+unsat

@@ -1,0 +1,23 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall (INT INT) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+	(forall ((Lst)) (0<=(len _qv_2)))
+	(forall ((Lst)) ((sort (sort _qv_3))=_qv_3))
+	(forall ((Lst)) ((len (sort _qv_4))=(len _qv_4)))
+	(forall (INT (Lst) (Lst)) ((insort _qv_5 (cons _qv_6 _qv_7))=(cons (insort _qv_5 _qv_6) (insort _qv_5 _qv_7))))
+	(forall (INT (Lst) (Lst)) ((cons _qv_8 (insort _qv_9 _qv_10))=(insort (cons _qv_8 _qv_9) (cons _qv_8 _qv_10))))
+
+Simplified goal: (forall (INT (Lst)) ((len (insort x l))=(1+(len l))))
+
+
+Base case:       ((len (insort _v_11 nil))=(1+(len nil)))
+{
+  proven trivially
+}
+Inductive step:  ((len (insort _v_11 (cons _t_12 _t_13)))=(1+(len (cons _t_12 _t_13))))
+{
+  proven trivially
+}
+
+Proved
+unsat

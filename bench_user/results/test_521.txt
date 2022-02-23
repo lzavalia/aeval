@@ -1,0 +1,60 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Lst) (Lst)) ((lst-union _qv_0 _qv_1)=(lst-union _qv_1 _qv_0)))
+	(forall ((Lst) (Lst) (Lst)) ((lst-union (lst-union _qv_2 _qv_3) _qv_4)=(lst-union _qv_2 (lst-union _qv_3 _qv_4))))
+
+Simplified goal: (forall ((Nat) (Lst) (Lst)) ((lst-mem x y)->(lst-mem x (lst-union z y))))
+
+
+Base case:       (lst-mem zero (lst-union _v_6 _v_5))
+{
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat) (Nat) (Lst)) ((mem _qv_2 (cons _qv_3 _qv_4))=((_qv_2=_qv_3)||(mem _qv_2 _qv_4))))
+    | Assumptions [1]: (forall ((Nat) (Lst)) ((lst-mem _qv_5 _qv_6)=(mem _qv_5 _qv_6)))
+    | Assumptions [2]: (forall ((Lst)) ((lst-union nil _qv_7)=_qv_7))
+    | Assumptions [3]: (forall ((Nat) (Lst) (Lst)) ((lst-union (cons _qv_8 _qv_9) _qv_10)=ite((lst-mem _qv_8 _qv_10), (lst-union _qv_9 _qv_10), (cons _qv_8 (lst-union _qv_9 _qv_10)))))
+    | Assumptions [4]: (lst-mem zero _v_5)
+    | Assumptions [5]: (forall ((Nat)) (!(mem _qv_1 nil)))
+    | Assumptions [6]: (mem zero _v_5)
+    | Assumptions [7]: ((lst-mem zero _v_5)=(mem zero _v_5))
+    ====================
+  }
+  rewritten [1]: (mem zero (lst-union _v_6 _v_5))
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Lst) (Lst)) ((lst-union _qv_7 _qv_8)=(lst-union _qv_8 _qv_7)))
+	(forall ((Lst) (Lst) (Lst)) ((lst-union (lst-union _qv_9 _qv_10) _qv_11)=(lst-union _qv_9 (lst-union _qv_10 _qv_11))))
+	(forall ((Nat) (Lst) BOOL) ((lst-mem _qv_12 (mem _qv_13 _qv_14))=(mem (lst-mem _qv_12 _qv_13) (lst-mem _qv_12 _qv_14))))
+	(forall ((Nat) (Lst) BOOL) ((mem _qv_15 (lst-mem _qv_16 _qv_17))=(lst-mem (mem _qv_15 _qv_16) (mem _qv_15 _qv_17))))
+
+  proven by induction: (mem zero (lst-union _v_6 _v_5))
+}
+Inductive step:  (lst-mem (succ _t_7) (lst-union _v_6 _v_5))
+{
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat) (Nat) (Lst)) ((mem _qv_2 (cons _qv_3 _qv_4))=((_qv_2=_qv_3)||(mem _qv_2 _qv_4))))
+    | Assumptions [1]: (forall ((Nat) (Lst)) ((lst-mem _qv_5 _qv_6)=(mem _qv_5 _qv_6)))
+    | Assumptions [2]: (forall ((Lst)) ((lst-union nil _qv_7)=_qv_7))
+    | Assumptions [3]: (forall ((Nat) (Lst) (Lst)) ((lst-union (cons _qv_8 _qv_9) _qv_10)=ite((lst-mem _qv_8 _qv_10), (lst-union _qv_9 _qv_10), (cons _qv_8 (lst-union _qv_9 _qv_10)))))
+    | Assumptions [4]: (forall ((Lst) (Lst)) ((lst-mem _t_7 y)->(lst-mem _t_7 (lst-union z y))))
+    | Assumptions [5]: (lst-mem (succ _t_7) _v_5)
+    | Assumptions [6]: (forall ((Nat)) (!(mem _qv_1 nil)))
+    | Assumptions [7]: (mem (succ _t_7) _v_5)
+    ====================
+  }
+  rewritten [1]: (mem (succ _t_7) (lst-union _v_6 _v_5))
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_8))=_qv_8))
+	(forall ((Lst) (Lst)) ((lst-union _qv_9 _qv_10)=(lst-union _qv_10 _qv_9)))
+	(forall ((Lst) (Lst) (Lst)) ((lst-union (lst-union _qv_11 _qv_12) _qv_13)=(lst-union _qv_11 (lst-union _qv_12 _qv_13))))
+	(forall ((Nat) (Lst) BOOL) ((lst-mem _qv_14 (mem _qv_15 _qv_16))=(mem (lst-mem _qv_14 _qv_15) (lst-mem _qv_14 _qv_16))))
+	(forall ((Nat) (Lst) BOOL) ((mem _qv_17 (lst-mem _qv_18 _qv_19))=(lst-mem (mem _qv_17 _qv_18) (mem _qv_17 _qv_19))))
+
+  proven by induction: (mem (succ _t_7) (lst-union _v_6 _v_5))
+}
+
+Proved
+unsat

@@ -1,0 +1,1 @@
+./ind/benchmarks-dt/clam/goal71.smt2

@@ -1,0 +1,1 @@
+./ind/benchmarks-dtt/leon/amortize-queue-goal11.smt2

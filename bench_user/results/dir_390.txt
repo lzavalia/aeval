@@ -1,0 +1,1 @@
+./ind/benchmarks-dt/hipspec/sg/nichomachus-goal2.smt2

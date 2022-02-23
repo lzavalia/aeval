@@ -1,0 +1,1529 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((plus _qv_0 _qv_1)=(plus _qv_1 _qv_0)))
+	(forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_2 _qv_3) _qv_4)=(plus _qv_2 (plus _qv_3 _qv_4))))
+
+Simplified goal: (forall ((Nat)) ((plus x (succ x))=(succ (plus x x))))
+
+
+Base case:       ((plus zero (succ zero))=(succ (plus zero zero)))
+{
+  proven trivially
+}
+Inductive step:  ((plus (succ _t_5) (succ (succ _t_5)))=(succ (plus (succ _t_5) (succ _t_5))))
+{
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat)) ((plus zero _qv_1)=_qv_1))
+    | Assumptions [1]: (forall ((Nat) (Nat)) ((plus (succ _qv_2) _qv_3)=(succ (plus _qv_2 _qv_3))))
+    | Assumptions [2]: ((plus _t_5 (succ _t_5))=(succ (plus _t_5 _t_5)))
+    | Assumptions [3]: ((succ (plus _t_5 _t_5))=(plus _t_5 (succ _t_5)))
+    ====================
+  }
+  rewritten [1]: ((plus (succ _t_5) (succ (succ _t_5)))=(succ (succ (plus _t_5 (succ _t_5)))))
+  rewritten [1]: ((succ (plus _t_5 (succ (succ _t_5))))=(succ (succ (plus _t_5 (succ _t_5)))))
+  rewritten [2]: ((succ (plus _t_5 (succ (succ _t_5))))=(succ (succ (succ (plus _t_5 _t_5)))))
+CURRENT SUBGOAL ((succ (plus _t_5 (succ (succ _t_5))))=(succ (succ (plus _t_5 (succ _t_5)))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_0 _qv_1)=(plus _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus _t_5 (succ (succ _t_5))))=(succ (succ (plus _t_5 (succ _t_5)))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_2 _qv_3) _qv_4)=(plus _qv_2 (plus _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((succ (plus _t_5 (succ (succ _t_5))))=(succ (succ (plus _t_5 (succ _t_5)))))
+  rewritten [2]: ((succ (plus _t_5 (succ (succ _t_5))))=(succ (succ (succ (plus _t_5 _t_5)))))
+CURRENT SUBGOAL ((succ (plus _t_5 (succ (succ _t_5))))=(succ (succ (plus _t_5 (succ _t_5)))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_0 _qv_1)=(plus _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus _t_5 (succ (succ _t_5))))=(succ (succ (plus _t_5 (succ _t_5)))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_2 _qv_3) _qv_4)=(plus _qv_2 (plus _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((succ (plus _t_5 (succ (succ _t_5))))=(succ (succ (plus _t_5 (succ _t_5)))))
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_7))=_qv_7))
+	(forall ((Nat) (Nat)) ((plus _qv_8 _qv_9)=(plus _qv_9 _qv_8)))
+	(forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_10 _qv_11) _qv_12)=(plus _qv_10 (plus _qv_11 _qv_12))))
+	(forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_13) (succ _qv_14))))
+	(forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_14) (succ _qv_13))))
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_7))=_qv_7))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_8 _qv_9)=(plus _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_10 _qv_11) _qv_12)=(plus _qv_10 (plus _qv_11 _qv_12))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_13) (succ _qv_14))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_14) (succ _qv_13))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_7))=_qv_7))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_8 _qv_9)=(plus _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_10 _qv_11) _qv_12)=(plus _qv_10 (plus _qv_11 _qv_12))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_13) (succ _qv_14))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_14) (succ _qv_13))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_7))=_qv_7))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_8 _qv_9)=(plus _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_10 _qv_11) _qv_12)=(plus _qv_10 (plus _qv_11 _qv_12))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_13) (succ _qv_14))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_14) (succ _qv_13))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_7))=_qv_7))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_8 _qv_9)=(plus _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_10 _qv_11) _qv_12)=(plus _qv_10 (plus _qv_11 _qv_12))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_13) (succ _qv_14))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_14) (succ _qv_13))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus _t_15 (succ (succ _t_15)))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_7))=_qv_7))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus _t_15 (succ (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_8 _qv_9)=(plus _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus _t_15 (succ (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_10 _qv_11) _qv_12)=(plus _qv_10 (plus _qv_11 _qv_12))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus _t_15 (succ (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_13) (succ _qv_14))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus _t_15 (succ (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_14) (succ _qv_13))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus (succ _t_15) (succ _t_15))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_7))=_qv_7))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus (succ _t_15) (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_8 _qv_9)=(plus _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus (succ _t_15) (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_10 _qv_11) _qv_12)=(plus _qv_10 (plus _qv_11 _qv_12))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus (succ _t_15) (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_13) (succ _qv_14))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus (succ _t_15) (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_14) (succ _qv_13))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus (succ _t_15) (succ _t_15))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_7))=_qv_7))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus (succ _t_15) (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_8 _qv_9)=(plus _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus (succ _t_15) (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_10 _qv_11) _qv_12)=(plus _qv_10 (plus _qv_11 _qv_12))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus (succ _t_15) (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_13) (succ _qv_14))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus (succ _t_15) (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_14) (succ _qv_13))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus (succ _t_15) (succ _t_15))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_7))=_qv_7))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus (succ _t_15) (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_8 _qv_9)=(plus _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus (succ _t_15) (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_10 _qv_11) _qv_12)=(plus _qv_10 (plus _qv_11 _qv_12))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus (succ _t_15) (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_13) (succ _qv_14))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus (succ _t_15) (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_14) (succ _qv_13))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus (succ _t_15) (succ _t_15))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_7))=_qv_7))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus (succ _t_15) (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_8 _qv_9)=(plus _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus (succ _t_15) (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_10 _qv_11) _qv_12)=(plus _qv_10 (plus _qv_11 _qv_12))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus (succ _t_15) (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_13) (succ _qv_14))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus (succ _t_15) (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_14) (succ _qv_13))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus (succ _t_15) (succ _t_15))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_7))=_qv_7))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus (succ _t_15) (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_8 _qv_9)=(plus _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus (succ _t_15) (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_10 _qv_11) _qv_12)=(plus _qv_10 (plus _qv_11 _qv_12))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus (succ _t_15) (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_13) (succ _qv_14))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus (succ _t_15) (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_14) (succ _qv_13))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus (succ _t_15) (succ _t_15))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_7))=_qv_7))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus (succ _t_15) (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_8 _qv_9)=(plus _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus (succ _t_15) (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_10 _qv_11) _qv_12)=(plus _qv_10 (plus _qv_11 _qv_12))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus (succ _t_15) (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_13) (succ _qv_14))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus (succ _t_15) (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_14) (succ _qv_13))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus _t_15 (succ (succ _t_15)))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_7))=_qv_7))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus _t_15 (succ (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_8 _qv_9)=(plus _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus _t_15 (succ (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_10 _qv_11) _qv_12)=(plus _qv_10 (plus _qv_11 _qv_12))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus _t_15 (succ (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_13) (succ _qv_14))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus _t_15 (succ (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_14) (succ _qv_13))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (plus (succ _t_15) (succ (succ _t_15))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_7))=_qv_7))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (plus (succ _t_15) (succ (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_8 _qv_9)=(plus _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (plus (succ _t_15) (succ (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_10 _qv_11) _qv_12)=(plus _qv_10 (plus _qv_11 _qv_12))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (plus (succ _t_15) (succ (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_13) (succ _qv_14))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (plus (succ _t_15) (succ (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_14) (succ _qv_13))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (plus (succ _t_15) (succ (succ _t_15))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_7))=_qv_7))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (plus (succ _t_15) (succ (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_8 _qv_9)=(plus _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (plus (succ _t_15) (succ (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_10 _qv_11) _qv_12)=(plus _qv_10 (plus _qv_11 _qv_12))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (plus (succ _t_15) (succ (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_13) (succ _qv_14))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (plus (succ _t_15) (succ (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_14) (succ _qv_13))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (plus (succ _t_15) (succ (succ _t_15))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_7))=_qv_7))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (plus (succ _t_15) (succ (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_8 _qv_9)=(plus _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (plus (succ _t_15) (succ (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_10 _qv_11) _qv_12)=(plus _qv_10 (plus _qv_11 _qv_12))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (plus (succ _t_15) (succ (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_13) (succ _qv_14))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (plus (succ _t_15) (succ (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_14) (succ _qv_13))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (plus (succ _t_15) (succ (succ _t_15))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_7))=_qv_7))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (plus (succ _t_15) (succ (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_8 _qv_9)=(plus _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (plus (succ _t_15) (succ (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_10 _qv_11) _qv_12)=(plus _qv_10 (plus _qv_11 _qv_12))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (plus (succ _t_15) (succ (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_13) (succ _qv_14))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (plus (succ _t_15) (succ (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_14) (succ _qv_13))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus _t_15 (succ (succ _t_15)))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_7))=_qv_7))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus _t_15 (succ (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_8 _qv_9)=(plus _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus _t_15 (succ (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_10 _qv_11) _qv_12)=(plus _qv_10 (plus _qv_11 _qv_12))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus _t_15 (succ (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_13) (succ _qv_14))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus _t_15 (succ (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_14) (succ _qv_13))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_7))=_qv_7))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_8 _qv_9)=(plus _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_10 _qv_11) _qv_12)=(plus _qv_10 (plus _qv_11 _qv_12))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_13) (succ _qv_14))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_14) (succ _qv_13))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_7))=_qv_7))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_8 _qv_9)=(plus _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_10 _qv_11) _qv_12)=(plus _qv_10 (plus _qv_11 _qv_12))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_13) (succ _qv_14))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_14) (succ _qv_13))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_7))=_qv_7))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_8 _qv_9)=(plus _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_10 _qv_11) _qv_12)=(plus _qv_10 (plus _qv_11 _qv_12))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_13) (succ _qv_14))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_14) (succ _qv_13))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_7))=_qv_7))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_8 _qv_9)=(plus _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_10 _qv_11) _qv_12)=(plus _qv_10 (plus _qv_11 _qv_12))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_13) (succ _qv_14))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_14) (succ _qv_13))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus _t_15 (succ (succ _t_15)))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_7))=_qv_7))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus _t_15 (succ (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_8 _qv_9)=(plus _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus _t_15 (succ (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_10 _qv_11) _qv_12)=(plus _qv_10 (plus _qv_11 _qv_12))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus _t_15 (succ (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_13) (succ _qv_14))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus _t_15 (succ (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_14) (succ _qv_13))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus (succ _t_15) (succ _t_15))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_7))=_qv_7))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus (succ _t_15) (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_8 _qv_9)=(plus _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus (succ _t_15) (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_10 _qv_11) _qv_12)=(plus _qv_10 (plus _qv_11 _qv_12))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus (succ _t_15) (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_13) (succ _qv_14))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus (succ _t_15) (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_14) (succ _qv_13))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus (succ _t_15) (succ _t_15))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_7))=_qv_7))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus (succ _t_15) (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_8 _qv_9)=(plus _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus (succ _t_15) (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_10 _qv_11) _qv_12)=(plus _qv_10 (plus _qv_11 _qv_12))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus (succ _t_15) (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_13) (succ _qv_14))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus (succ _t_15) (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_14) (succ _qv_13))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus (succ _t_15) (succ _t_15))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_7))=_qv_7))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus (succ _t_15) (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_8 _qv_9)=(plus _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus (succ _t_15) (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_10 _qv_11) _qv_12)=(plus _qv_10 (plus _qv_11 _qv_12))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus (succ _t_15) (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_13) (succ _qv_14))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus (succ _t_15) (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_14) (succ _qv_13))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus (succ _t_15) (succ _t_15))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_7))=_qv_7))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus (succ _t_15) (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_8 _qv_9)=(plus _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus (succ _t_15) (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_10 _qv_11) _qv_12)=(plus _qv_10 (plus _qv_11 _qv_12))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus (succ _t_15) (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_13) (succ _qv_14))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus (succ _t_15) (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_14) (succ _qv_13))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus (succ _t_15) (succ _t_15))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_7))=_qv_7))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus (succ _t_15) (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_8 _qv_9)=(plus _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus (succ _t_15) (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_10 _qv_11) _qv_12)=(plus _qv_10 (plus _qv_11 _qv_12))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus (succ _t_15) (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_13) (succ _qv_14))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus (succ _t_15) (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_14) (succ _qv_13))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus (succ _t_15) (succ _t_15))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_7))=_qv_7))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus (succ _t_15) (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_8 _qv_9)=(plus _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus (succ _t_15) (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_10 _qv_11) _qv_12)=(plus _qv_10 (plus _qv_11 _qv_12))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus (succ _t_15) (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_13) (succ _qv_14))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus (succ _t_15) (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_14) (succ _qv_13))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus _t_15 (succ (succ _t_15)))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_7))=_qv_7))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus _t_15 (succ (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_8 _qv_9)=(plus _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus _t_15 (succ (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_10 _qv_11) _qv_12)=(plus _qv_10 (plus _qv_11 _qv_12))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus _t_15 (succ (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_13) (succ _qv_14))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus _t_15 (succ (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_14) (succ _qv_13))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (plus (succ _t_15) (succ (succ _t_15))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_7))=_qv_7))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (plus (succ _t_15) (succ (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_8 _qv_9)=(plus _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (plus (succ _t_15) (succ (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_10 _qv_11) _qv_12)=(plus _qv_10 (plus _qv_11 _qv_12))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (plus (succ _t_15) (succ (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_13) (succ _qv_14))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (plus (succ _t_15) (succ (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_14) (succ _qv_13))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (plus (succ _t_15) (succ (succ _t_15))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_7))=_qv_7))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (plus (succ _t_15) (succ (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_8 _qv_9)=(plus _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (plus (succ _t_15) (succ (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_10 _qv_11) _qv_12)=(plus _qv_10 (plus _qv_11 _qv_12))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (plus (succ _t_15) (succ (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_13) (succ _qv_14))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (plus (succ _t_15) (succ (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_14) (succ _qv_13))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (plus (succ _t_15) (succ (succ _t_15))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_7))=_qv_7))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (plus (succ _t_15) (succ (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_8 _qv_9)=(plus _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (plus (succ _t_15) (succ (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_10 _qv_11) _qv_12)=(plus _qv_10 (plus _qv_11 _qv_12))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (plus (succ _t_15) (succ (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_13) (succ _qv_14))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (plus (succ _t_15) (succ (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_14) (succ _qv_13))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (plus (succ _t_15) (succ (succ _t_15))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_7))=_qv_7))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (plus (succ _t_15) (succ (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_8 _qv_9)=(plus _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (plus (succ _t_15) (succ (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_10 _qv_11) _qv_12)=(plus _qv_10 (plus _qv_11 _qv_12))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (plus (succ _t_15) (succ (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_13) (succ _qv_14))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (plus (succ _t_15) (succ (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_14) (succ _qv_13))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus _t_15 (succ (succ _t_15)))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_7))=_qv_7))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus _t_15 (succ (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_8 _qv_9)=(plus _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus _t_15 (succ (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_10 _qv_11) _qv_12)=(plus _qv_10 (plus _qv_11 _qv_12))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus _t_15 (succ (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_13) (succ _qv_14))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (plus _t_15 (succ (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_14) (succ _qv_13))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_15) (succ (succ (succ _t_15)))))=(succ (succ (succ (plus _t_15 (succ (succ _t_15)))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_7))=_qv_7))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_15) (succ (succ (succ _t_15)))))=(succ (succ (succ (plus _t_15 (succ (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_8 _qv_9)=(plus _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_15) (succ (succ (succ _t_15)))))=(succ (succ (succ (plus _t_15 (succ (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_10 _qv_11) _qv_12)=(plus _qv_10 (plus _qv_11 _qv_12))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_15) (succ (succ (succ _t_15)))))=(succ (succ (succ (plus _t_15 (succ (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_13) (succ _qv_14))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_15) (succ (succ (succ _t_15)))))=(succ (succ (succ (plus _t_15 (succ (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_14) (succ _qv_13))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_7))=_qv_7))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_8 _qv_9)=(plus _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_10 _qv_11) _qv_12)=(plus _qv_10 (plus _qv_11 _qv_12))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_13) (succ _qv_14))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_14) (succ _qv_13))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_7))=_qv_7))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_8 _qv_9)=(plus _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_10 _qv_11) _qv_12)=(plus _qv_10 (plus _qv_11 _qv_12))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_13) (succ _qv_14))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_14) (succ _qv_13))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_7))=_qv_7))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_8 _qv_9)=(plus _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_10 _qv_11) _qv_12)=(plus _qv_10 (plus _qv_11 _qv_12))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_13) (succ _qv_14))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_14) (succ _qv_13))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_7))=_qv_7))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_8 _qv_9)=(plus _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_10 _qv_11) _qv_12)=(plus _qv_10 (plus _qv_11 _qv_12))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_13) (succ _qv_14))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_14) (succ _qv_13))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_7))=_qv_7))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_8 _qv_9)=(plus _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_10 _qv_11) _qv_12)=(plus _qv_10 (plus _qv_11 _qv_12))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_13) (succ _qv_14))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_14) (succ _qv_13))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_7))=_qv_7))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_8 _qv_9)=(plus _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_10 _qv_11) _qv_12)=(plus _qv_10 (plus _qv_11 _qv_12))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_13) (succ _qv_14))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_15 (succ (succ (succ _t_15))))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_14) (succ _qv_13))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_15) (succ (succ (succ _t_15)))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_7))=_qv_7))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_15) (succ (succ (succ _t_15)))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_8 _qv_9)=(plus _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_15) (succ (succ (succ _t_15)))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_10 _qv_11) _qv_12)=(plus _qv_10 (plus _qv_11 _qv_12))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_15) (succ (succ (succ _t_15)))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_13) (succ _qv_14))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_15) (succ (succ (succ _t_15)))))=(succ (succ (succ (succ (plus _t_15 (succ _t_15)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_14) (succ _qv_13))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_15) (succ (succ (succ _t_15)))))=(succ (succ (plus (succ _t_15) (succ (succ _t_15))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_7))=_qv_7))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_15) (succ (succ (succ _t_15)))))=(succ (succ (plus (succ _t_15) (succ (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_8 _qv_9)=(plus _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_15) (succ (succ (succ _t_15)))))=(succ (succ (plus (succ _t_15) (succ (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_10 _qv_11) _qv_12)=(plus _qv_10 (plus _qv_11 _qv_12))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_15) (succ (succ (succ _t_15)))))=(succ (succ (plus (succ _t_15) (succ (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_13) (succ _qv_14))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_15) (succ (succ (succ _t_15)))))=(succ (succ (plus (succ _t_15) (succ (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_14) (succ _qv_13))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_15) (succ (succ (succ _t_15)))))=(succ (succ (plus (succ _t_15) (succ (succ _t_15))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_7))=_qv_7))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_15) (succ (succ (succ _t_15)))))=(succ (succ (plus (succ _t_15) (succ (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_8 _qv_9)=(plus _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_15) (succ (succ (succ _t_15)))))=(succ (succ (plus (succ _t_15) (succ (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_10 _qv_11) _qv_12)=(plus _qv_10 (plus _qv_11 _qv_12))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_15) (succ (succ (succ _t_15)))))=(succ (succ (plus (succ _t_15) (succ (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_13) (succ _qv_14))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_15) (succ (succ (succ _t_15)))))=(succ (succ (plus (succ _t_15) (succ (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_14) (succ _qv_13))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_15) (succ (succ (succ _t_15)))))=(succ (succ (plus (succ _t_15) (succ (succ _t_15))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_7))=_qv_7))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_15) (succ (succ (succ _t_15)))))=(succ (succ (plus (succ _t_15) (succ (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_8 _qv_9)=(plus _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_15) (succ (succ (succ _t_15)))))=(succ (succ (plus (succ _t_15) (succ (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_10 _qv_11) _qv_12)=(plus _qv_10 (plus _qv_11 _qv_12))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_15) (succ (succ (succ _t_15)))))=(succ (succ (plus (succ _t_15) (succ (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_13) (succ _qv_14))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_15) (succ (succ (succ _t_15)))))=(succ (succ (plus (succ _t_15) (succ (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_14) (succ _qv_13))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_15) (succ (succ (succ _t_15)))))=(succ (succ (plus (succ _t_15) (succ (succ _t_15))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_7))=_qv_7))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_15) (succ (succ (succ _t_15)))))=(succ (succ (plus (succ _t_15) (succ (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_8 _qv_9)=(plus _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_15) (succ (succ (succ _t_15)))))=(succ (succ (plus (succ _t_15) (succ (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_10 _qv_11) _qv_12)=(plus _qv_10 (plus _qv_11 _qv_12))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_15) (succ (succ (succ _t_15)))))=(succ (succ (plus (succ _t_15) (succ (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_13) (succ _qv_14))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_15) (succ (succ (succ _t_15)))))=(succ (succ (plus (succ _t_15) (succ (succ _t_15))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_13 _qv_14))=(plus (succ _qv_14) (succ _qv_13))))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_80))=_qv_80))
+	(forall ((Nat) (Nat)) ((plus _qv_81 _qv_82)=(plus _qv_82 _qv_81)))
+	(forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_83 _qv_84) _qv_85)=(plus _qv_83 (plus _qv_84 _qv_85))))
+	(forall ((Nat) (Nat)) ((succ (plus _qv_86 _qv_87))=(plus (succ _qv_86) (succ _qv_87))))
+	(forall ((Nat) (Nat)) ((succ (plus _qv_86 _qv_87))=(plus (succ _qv_87) (succ _qv_86))))
+
+CURRENT SUBGOAL ((succ (succ (plus _t_90 (succ (succ (succ _t_90))))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_80))=_qv_80))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_90 (succ (succ (succ _t_90))))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_81 _qv_82)=(plus _qv_82 _qv_81)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_90 (succ (succ (succ _t_90))))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_83 _qv_84) _qv_85)=(plus _qv_83 (plus _qv_84 _qv_85))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_90 (succ (succ (succ _t_90))))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_86 _qv_87))=(plus (succ _qv_86) (succ _qv_87))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_90 (succ (succ (succ _t_90))))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_86 _qv_87))=(plus (succ _qv_87) (succ _qv_86))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_90 (succ (succ (succ _t_90))))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_80))=_qv_80))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_90 (succ (succ (succ _t_90))))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_81 _qv_82)=(plus _qv_82 _qv_81)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_90 (succ (succ (succ _t_90))))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_83 _qv_84) _qv_85)=(plus _qv_83 (plus _qv_84 _qv_85))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_90 (succ (succ (succ _t_90))))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_86 _qv_87))=(plus (succ _qv_86) (succ _qv_87))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_90 (succ (succ (succ _t_90))))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_86 _qv_87))=(plus (succ _qv_87) (succ _qv_86))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_80))=_qv_80))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_81 _qv_82)=(plus _qv_82 _qv_81)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_83 _qv_84) _qv_85)=(plus _qv_83 (plus _qv_84 _qv_85))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_86 _qv_87))=(plus (succ _qv_86) (succ _qv_87))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_86 _qv_87))=(plus (succ _qv_87) (succ _qv_86))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (succ (succ (plus _t_90 (succ _t_90)))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_80))=_qv_80))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (succ (succ (plus _t_90 (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_81 _qv_82)=(plus _qv_82 _qv_81)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (succ (succ (plus _t_90 (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_83 _qv_84) _qv_85)=(plus _qv_83 (plus _qv_84 _qv_85))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (succ (succ (plus _t_90 (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_86 _qv_87))=(plus (succ _qv_86) (succ _qv_87))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (succ (succ (plus _t_90 (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_86 _qv_87))=(plus (succ _qv_87) (succ _qv_86))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (succ (succ (plus _t_90 (succ _t_90)))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_80))=_qv_80))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (succ (succ (plus _t_90 (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_81 _qv_82)=(plus _qv_82 _qv_81)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (succ (succ (plus _t_90 (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_83 _qv_84) _qv_85)=(plus _qv_83 (plus _qv_84 _qv_85))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (succ (succ (plus _t_90 (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_86 _qv_87))=(plus (succ _qv_86) (succ _qv_87))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (succ (succ (plus _t_90 (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_86 _qv_87))=(plus (succ _qv_87) (succ _qv_86))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_80))=_qv_80))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_81 _qv_82)=(plus _qv_82 _qv_81)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_83 _qv_84) _qv_85)=(plus _qv_83 (plus _qv_84 _qv_85))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_86 _qv_87))=(plus (succ _qv_86) (succ _qv_87))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_86 _qv_87))=(plus (succ _qv_87) (succ _qv_86))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_90 (succ (succ (succ _t_90))))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_80))=_qv_80))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_90 (succ (succ (succ _t_90))))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_81 _qv_82)=(plus _qv_82 _qv_81)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_90 (succ (succ (succ _t_90))))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_83 _qv_84) _qv_85)=(plus _qv_83 (plus _qv_84 _qv_85))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_90 (succ (succ (succ _t_90))))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_86 _qv_87))=(plus (succ _qv_86) (succ _qv_87))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_90 (succ (succ (succ _t_90))))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_86 _qv_87))=(plus (succ _qv_87) (succ _qv_86))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_90 (succ (succ (succ _t_90))))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_80))=_qv_80))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_90 (succ (succ (succ _t_90))))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_81 _qv_82)=(plus _qv_82 _qv_81)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_90 (succ (succ (succ _t_90))))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_83 _qv_84) _qv_85)=(plus _qv_83 (plus _qv_84 _qv_85))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_90 (succ (succ (succ _t_90))))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_86 _qv_87))=(plus (succ _qv_86) (succ _qv_87))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_90 (succ (succ (succ _t_90))))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_86 _qv_87))=(plus (succ _qv_87) (succ _qv_86))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_80))=_qv_80))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_81 _qv_82)=(plus _qv_82 _qv_81)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_83 _qv_84) _qv_85)=(plus _qv_83 (plus _qv_84 _qv_85))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_86 _qv_87))=(plus (succ _qv_86) (succ _qv_87))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_86 _qv_87))=(plus (succ _qv_87) (succ _qv_86))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (succ (succ (plus _t_90 (succ _t_90)))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_80))=_qv_80))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (succ (succ (plus _t_90 (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_81 _qv_82)=(plus _qv_82 _qv_81)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (succ (succ (plus _t_90 (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_83 _qv_84) _qv_85)=(plus _qv_83 (plus _qv_84 _qv_85))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (succ (succ (plus _t_90 (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_86 _qv_87))=(plus (succ _qv_86) (succ _qv_87))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (succ (succ (plus _t_90 (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_86 _qv_87))=(plus (succ _qv_87) (succ _qv_86))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (succ (succ (plus _t_90 (succ _t_90)))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_80))=_qv_80))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (succ (succ (plus _t_90 (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_81 _qv_82)=(plus _qv_82 _qv_81)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (succ (succ (plus _t_90 (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_83 _qv_84) _qv_85)=(plus _qv_83 (plus _qv_84 _qv_85))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (succ (succ (plus _t_90 (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_86 _qv_87))=(plus (succ _qv_86) (succ _qv_87))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (succ (succ (plus _t_90 (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_86 _qv_87))=(plus (succ _qv_87) (succ _qv_86))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_80))=_qv_80))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_81 _qv_82)=(plus _qv_82 _qv_81)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_83 _qv_84) _qv_85)=(plus _qv_83 (plus _qv_84 _qv_85))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_86 _qv_87))=(plus (succ _qv_86) (succ _qv_87))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_86 _qv_87))=(plus (succ _qv_87) (succ _qv_86))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (plus (succ _t_90) (succ (succ _t_90))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_80))=_qv_80))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (plus (succ _t_90) (succ (succ _t_90))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_81 _qv_82)=(plus _qv_82 _qv_81)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (plus (succ _t_90) (succ (succ _t_90))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_83 _qv_84) _qv_85)=(plus _qv_83 (plus _qv_84 _qv_85))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (plus (succ _t_90) (succ (succ _t_90))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_86 _qv_87))=(plus (succ _qv_86) (succ _qv_87))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (plus (succ _t_90) (succ (succ _t_90))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_86 _qv_87))=(plus (succ _qv_87) (succ _qv_86))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_90 (succ (succ (succ _t_90))))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_80))=_qv_80))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_90 (succ (succ (succ _t_90))))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_81 _qv_82)=(plus _qv_82 _qv_81)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_90 (succ (succ (succ _t_90))))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_83 _qv_84) _qv_85)=(plus _qv_83 (plus _qv_84 _qv_85))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_90 (succ (succ (succ _t_90))))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_86 _qv_87))=(plus (succ _qv_86) (succ _qv_87))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_90 (succ (succ (succ _t_90))))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_86 _qv_87))=(plus (succ _qv_87) (succ _qv_86))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_90 (succ (succ (succ _t_90))))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_80))=_qv_80))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_90 (succ (succ (succ _t_90))))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_81 _qv_82)=(plus _qv_82 _qv_81)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_90 (succ (succ (succ _t_90))))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_83 _qv_84) _qv_85)=(plus _qv_83 (plus _qv_84 _qv_85))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_90 (succ (succ (succ _t_90))))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_86 _qv_87))=(plus (succ _qv_86) (succ _qv_87))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_90 (succ (succ (succ _t_90))))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_86 _qv_87))=(plus (succ _qv_87) (succ _qv_86))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_90 (succ (succ (succ _t_90))))))=(succ (succ (plus (succ _t_90) (succ (succ _t_90))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_80))=_qv_80))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_90 (succ (succ (succ _t_90))))))=(succ (succ (plus (succ _t_90) (succ (succ _t_90))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_81 _qv_82)=(plus _qv_82 _qv_81)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_90 (succ (succ (succ _t_90))))))=(succ (succ (plus (succ _t_90) (succ (succ _t_90))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_83 _qv_84) _qv_85)=(plus _qv_83 (plus _qv_84 _qv_85))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_90 (succ (succ (succ _t_90))))))=(succ (succ (plus (succ _t_90) (succ (succ _t_90))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_86 _qv_87))=(plus (succ _qv_86) (succ _qv_87))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_90 (succ (succ (succ _t_90))))))=(succ (succ (plus (succ _t_90) (succ (succ _t_90))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_86 _qv_87))=(plus (succ _qv_87) (succ _qv_86))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_90 (succ (succ (succ _t_90))))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_80))=_qv_80))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_90 (succ (succ (succ _t_90))))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_81 _qv_82)=(plus _qv_82 _qv_81)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_90 (succ (succ (succ _t_90))))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_83 _qv_84) _qv_85)=(plus _qv_83 (plus _qv_84 _qv_85))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_90 (succ (succ (succ _t_90))))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_86 _qv_87))=(plus (succ _qv_86) (succ _qv_87))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_90 (succ (succ (succ _t_90))))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_86 _qv_87))=(plus (succ _qv_87) (succ _qv_86))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_90 (succ (succ (succ _t_90))))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_80))=_qv_80))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_90 (succ (succ (succ _t_90))))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_81 _qv_82)=(plus _qv_82 _qv_81)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_90 (succ (succ (succ _t_90))))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_83 _qv_84) _qv_85)=(plus _qv_83 (plus _qv_84 _qv_85))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_90 (succ (succ (succ _t_90))))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_86 _qv_87))=(plus (succ _qv_86) (succ _qv_87))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_90 (succ (succ (succ _t_90))))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_86 _qv_87))=(plus (succ _qv_87) (succ _qv_86))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_90 (succ (succ (succ _t_90))))))=(succ (succ (plus (succ _t_90) (succ (succ _t_90))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_80))=_qv_80))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_90 (succ (succ (succ _t_90))))))=(succ (succ (plus (succ _t_90) (succ (succ _t_90))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_81 _qv_82)=(plus _qv_82 _qv_81)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_90 (succ (succ (succ _t_90))))))=(succ (succ (plus (succ _t_90) (succ (succ _t_90))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_83 _qv_84) _qv_85)=(plus _qv_83 (plus _qv_84 _qv_85))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_90 (succ (succ (succ _t_90))))))=(succ (succ (plus (succ _t_90) (succ (succ _t_90))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_86 _qv_87))=(plus (succ _qv_86) (succ _qv_87))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_90 (succ (succ (succ _t_90))))))=(succ (succ (plus (succ _t_90) (succ (succ _t_90))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_86 _qv_87))=(plus (succ _qv_87) (succ _qv_86))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (plus (succ _t_90) (succ (succ _t_90))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_80))=_qv_80))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (plus (succ _t_90) (succ (succ _t_90))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_81 _qv_82)=(plus _qv_82 _qv_81)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (plus (succ _t_90) (succ (succ _t_90))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_83 _qv_84) _qv_85)=(plus _qv_83 (plus _qv_84 _qv_85))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (plus (succ _t_90) (succ (succ _t_90))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_86 _qv_87))=(plus (succ _qv_86) (succ _qv_87))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (plus (succ _t_90) (succ (succ _t_90))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_86 _qv_87))=(plus (succ _qv_87) (succ _qv_86))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_90 (succ (succ (succ _t_90))))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_80))=_qv_80))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_90 (succ (succ (succ _t_90))))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_81 _qv_82)=(plus _qv_82 _qv_81)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_90 (succ (succ (succ _t_90))))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_83 _qv_84) _qv_85)=(plus _qv_83 (plus _qv_84 _qv_85))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_90 (succ (succ (succ _t_90))))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_86 _qv_87))=(plus (succ _qv_86) (succ _qv_87))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_90 (succ (succ (succ _t_90))))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_86 _qv_87))=(plus (succ _qv_87) (succ _qv_86))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_90 (succ (succ (succ _t_90))))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_80))=_qv_80))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_90 (succ (succ (succ _t_90))))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_81 _qv_82)=(plus _qv_82 _qv_81)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_90 (succ (succ (succ _t_90))))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_83 _qv_84) _qv_85)=(plus _qv_83 (plus _qv_84 _qv_85))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_90 (succ (succ (succ _t_90))))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_86 _qv_87))=(plus (succ _qv_86) (succ _qv_87))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_90 (succ (succ (succ _t_90))))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_86 _qv_87))=(plus (succ _qv_87) (succ _qv_86))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_80))=_qv_80))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_81 _qv_82)=(plus _qv_82 _qv_81)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_83 _qv_84) _qv_85)=(plus _qv_83 (plus _qv_84 _qv_85))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_86 _qv_87))=(plus (succ _qv_86) (succ _qv_87))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_86 _qv_87))=(plus (succ _qv_87) (succ _qv_86))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (succ (succ (plus _t_90 (succ _t_90)))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_80))=_qv_80))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (succ (succ (plus _t_90 (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_81 _qv_82)=(plus _qv_82 _qv_81)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (succ (succ (plus _t_90 (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_83 _qv_84) _qv_85)=(plus _qv_83 (plus _qv_84 _qv_85))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (succ (succ (plus _t_90 (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_86 _qv_87))=(plus (succ _qv_86) (succ _qv_87))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (succ (succ (plus _t_90 (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_86 _qv_87))=(plus (succ _qv_87) (succ _qv_86))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (succ (succ (plus _t_90 (succ _t_90)))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_80))=_qv_80))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (succ (succ (plus _t_90 (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_81 _qv_82)=(plus _qv_82 _qv_81)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (succ (succ (plus _t_90 (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_83 _qv_84) _qv_85)=(plus _qv_83 (plus _qv_84 _qv_85))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (succ (succ (plus _t_90 (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_86 _qv_87))=(plus (succ _qv_86) (succ _qv_87))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (succ (succ (plus _t_90 (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_86 _qv_87))=(plus (succ _qv_87) (succ _qv_86))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_80))=_qv_80))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_81 _qv_82)=(plus _qv_82 _qv_81)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_83 _qv_84) _qv_85)=(plus _qv_83 (plus _qv_84 _qv_85))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_86 _qv_87))=(plus (succ _qv_86) (succ _qv_87))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (plus (succ _t_90) (succ (succ (succ _t_90)))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_86 _qv_87))=(plus (succ _qv_87) (succ _qv_86))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_90 (succ (succ (succ _t_90))))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_80))=_qv_80))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_90 (succ (succ (succ _t_90))))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_81 _qv_82)=(plus _qv_82 _qv_81)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_90 (succ (succ (succ _t_90))))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_83 _qv_84) _qv_85)=(plus _qv_83 (plus _qv_84 _qv_85))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_90 (succ (succ (succ _t_90))))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_86 _qv_87))=(plus (succ _qv_86) (succ _qv_87))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_90 (succ (succ (succ _t_90))))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_86 _qv_87))=(plus (succ _qv_87) (succ _qv_86))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_90 (succ (succ (succ _t_90))))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_80))=_qv_80))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_90 (succ (succ (succ _t_90))))))=(succ (succ (succ (plus _t_90 (succ (succ _t_90)))))))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_81 _qv_82)=(plus _qv_82 _qv_81)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (succ (plus _t_90

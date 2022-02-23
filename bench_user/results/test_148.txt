@@ -1,0 +1,21 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+	(forall ((Nat)) (0<=(nat-to-int _qv_1)))
+	(forall ((Lst) (Lst)) ((zip _qv_2 _qv_3)=(zip _qv_3 _qv_2)))
+	(forall ((Nat)) ((nat-to-int (succ _qv_4))=(nat-to-int _qv_4)))
+
+Simplified goal: (forall ((Nat) (Lst) (Nat) (Lst)) ((zip (cons x xs) (cons y ys))=(zcons (mkpair x y) (zip xs ys))))
+
+
+Base case:       ((zip (cons zero _v_5) (cons _v_6 _v_7))=(zcons (mkpair zero _v_6) (zip _v_5 _v_7)))
+{
+  proven trivially
+}
+Inductive step:  ((zip (cons (succ _t_8) _v_5) (cons _v_6 _v_7))=(zcons (mkpair (succ _t_8) _v_6) (zip _v_5 _v_7)))
+{
+  proven trivially
+}
+
+Proved
+unsat

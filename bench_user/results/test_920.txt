@@ -1,0 +1,1561 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+	(forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+	(forall ((Lst)) (0<=(len _qv_5)))
+	(forall ((Lst)) ((rev (rev _qv_6))=_qv_6))
+	(forall ((Lst)) ((len (rev _qv_7))=(len _qv_7)))
+	(forall ((Lst) (Lst)) ((rev (append _qv_8 _qv_9))=(append (rev _qv_8) (rev _qv_9))))
+	(forall ((Lst) (Lst)) ((rev (append _qv_8 _qv_9))=(append (rev _qv_9) (rev _qv_8))))
+
+Simplified goal: (forall ((Lst)) ((len (rev x))=(len x)))
+
+
+Base case:       ((len (rev nil))=(len nil))
+{
+  proven trivially
+}
+Inductive step:  ((len (rev (cons _t_10 _t_11)))=(len (cons _t_10 _t_11)))
+{
+  {
+    ====================
+    | Assumptions [0]: ((len nil)=0)
+    | Assumptions [1]: ((rev nil)=nil)
+    | Assumptions [2]: (forall ((Lst)) ((append nil _qv_1)=_qv_1))
+    | Assumptions [3]: (forall (INT (Lst) (Lst)) ((append (cons _qv_2 _qv_3) _qv_4)=(cons _qv_2 (append _qv_3 _qv_4))))
+    | Assumptions [4]: (forall (INT (Lst)) ((len (cons _qv_5 _qv_6))=(1+(len _qv_6))))
+    | Assumptions [5]: (forall ((Lst)) ((len _qv_7)>=0))
+    | Assumptions [6]: (forall (INT (Lst)) ((rev (cons _qv_8 _qv_9))=(append (rev _qv_9) (cons _qv_8 nil))))
+    | Assumptions [7]: ((len (rev _t_11))=(len _t_11))
+    | Assumptions [8]: ((len _t_11)=(len (rev _t_11)))
+    ====================
+  }
+  rewritten [0]: ((len (rev (cons _t_10 _t_11)))=(len (cons _t_10 _t_11)))
+  rewritten [4]: ((len (rev (cons _t_10 _t_11)))=(1+(len _t_11)))
+  rewritten [6]: ((len (append (rev _t_11) (cons _t_10 nil)))=((len _t_11)+1))
+  rewritten [0]: ((len (append (rev _t_11) (cons _t_10 nil)))=(1+(len _t_11)))
+  rewritten [8]: ((len (append (rev _t_11) (cons _t_10 nil)))=((len (rev _t_11))+1))
+  sequence of rewrites only grows
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Lst) (Lst)) ((append _qv_13 _qv_14)=(append _qv_14 _qv_13)))
+	(forall ((Lst) (Lst) (Lst)) ((append (append _qv_15 _qv_16) _qv_17)=(append _qv_15 (append _qv_16 _qv_17))))
+	(forall ((Lst)) (0<=(len _qv_18)))
+	(forall ((Lst)) ((rev (rev _qv_19))=_qv_19))
+	(forall ((Lst)) ((len (rev _qv_20))=(len _qv_20)))
+	(forall ((Lst) (Lst)) ((rev (append _qv_21 _qv_22))=(append (rev _qv_21) (rev _qv_22))))
+	(forall ((Lst) (Lst)) ((rev (append _qv_21 _qv_22))=(append (rev _qv_22) (rev _qv_21))))
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Lst) (Lst)) ((append _qv_25 _qv_26)=(append _qv_26 _qv_25)))
+	(forall ((Lst) (Lst) (Lst)) ((append (append _qv_27 _qv_28) _qv_29)=(append _qv_27 (append _qv_28 _qv_29))))
+	(forall ((Lst)) (0<=(len _qv_30)))
+	(forall ((Lst)) ((rev (rev _qv_31))=_qv_31))
+	(forall ((Lst)) ((len (rev _qv_32))=(len _qv_32)))
+	(forall ((Lst) (Lst)) ((rev (append _qv_33 _qv_34))=(append (rev _qv_33) (rev _qv_34))))
+	(forall ((Lst) (Lst)) ((rev (append _qv_33 _qv_34))=(append (rev _qv_34) (rev _qv_33))))
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Lst) (Lst)) ((append _qv_27 _qv_28)=(append _qv_28 _qv_27)))
+	(forall ((Lst) (Lst) (Lst)) ((append (append _qv_29 _qv_30) _qv_31)=(append _qv_29 (append _qv_30 _qv_31))))
+	(forall ((Lst)) (0<=(len _qv_32)))
+	(forall ((Lst)) ((rev (rev _qv_33))=_qv_33))
+	(forall ((Lst)) ((len (rev _qv_34))=(len _qv_34)))
+	(forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_35) (rev _qv_36))))
+	(forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_36) (rev _qv_35))))
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (rev (cons _t_38 _t_39))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_27 _qv_28)=(append _qv_28 _qv_27)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (rev (cons _t_38 _t_39))))=1)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_29 _qv_30) _qv_31)=(append _qv_29 (append _qv_30 _qv_31))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (rev (cons _t_38 _t_39))))=1)
+NOW TESTING (forall ((Lst)) (0<=(len _qv_32)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (rev (cons _t_38 _t_39))))=1)
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_33))=_qv_33))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (rev (cons _t_38 _t_39))))=1)
+NOW TESTING (forall ((Lst)) ((len (rev _qv_34))=(len _qv_34)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (rev (cons _t_38 _t_39))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_35) (rev _qv_36))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (rev (cons _t_38 _t_39))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_36) (rev _qv_35))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (rev (cons _t_38 _t_39))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_27 _qv_28)=(append _qv_28 _qv_27)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (rev (cons _t_38 _t_39))))=1)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_29 _qv_30) _qv_31)=(append _qv_29 (append _qv_30 _qv_31))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (rev (cons _t_38 _t_39))))=1)
+NOW TESTING (forall ((Lst)) (0<=(len _qv_32)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (rev (cons _t_38 _t_39))))=1)
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_33))=_qv_33))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (rev (cons _t_38 _t_39))))=1)
+NOW TESTING (forall ((Lst)) ((len (rev _qv_34))=(len _qv_34)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (rev (cons _t_38 _t_39))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_35) (rev _qv_36))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (rev (cons _t_38 _t_39))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_36) (rev _qv_35))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ([+    -1*(len _t_39)    (len (rev (cons _t_38 _t_39)))    -1*1]=0)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_27 _qv_28)=(append _qv_28 _qv_27)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ([+    -1*(len _t_39)    (len (rev (cons _t_38 _t_39)))    -1*1]=0)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_29 _qv_30) _qv_31)=(append _qv_29 (append _qv_30 _qv_31))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ([+    -1*(len _t_39)    (len (rev (cons _t_38 _t_39)))    -1*1]=0)
+NOW TESTING (forall ((Lst)) (0<=(len _qv_32)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ([+    -1*(len _t_39)    (len (rev (cons _t_38 _t_39)))    -1*1]=0)
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_33))=_qv_33))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ([+    -1*(len _t_39)    (len (rev (cons _t_38 _t_39)))    -1*1]=0)
+NOW TESTING (forall ((Lst)) ((len (rev _qv_34))=(len _qv_34)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ([+    -1*(len _t_39)    (len (rev (cons _t_38 _t_39)))    -1*1]=0)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_35) (rev _qv_36))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ([+    -1*(len _t_39)    (len (rev (cons _t_38 _t_39)))    -1*1]=0)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_36) (rev _qv_35))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_27 _qv_28)=(append _qv_28 _qv_27)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_29 _qv_30) _qv_31)=(append _qv_29 (append _qv_30 _qv_31))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) (0<=(len _qv_32)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_33))=_qv_33))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((len (rev _qv_34))=(len _qv_34)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_35) (rev _qv_36))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_36) (rev _qv_35))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_27 _qv_28)=(append _qv_28 _qv_27)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_29 _qv_30) _qv_31)=(append _qv_29 (append _qv_30 _qv_31))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) (0<=(len _qv_32)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_33))=_qv_33))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((len (rev _qv_34))=(len _qv_34)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_35) (rev _qv_36))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_36) (rev _qv_35))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_27 _qv_28)=(append _qv_28 _qv_27)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_29 _qv_30) _qv_31)=(append _qv_29 (append _qv_30 _qv_31))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) (0<=(len _qv_32)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_33))=_qv_33))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((len (rev _qv_34))=(len _qv_34)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_35) (rev _qv_36))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_36) (rev _qv_35))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_27 _qv_28)=(append _qv_28 _qv_27)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_29 _qv_30) _qv_31)=(append _qv_29 (append _qv_30 _qv_31))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) (0<=(len _qv_32)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_33))=_qv_33))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((len (rev _qv_34))=(len _qv_34)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_35) (rev _qv_36))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_36) (rev _qv_35))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_27 _qv_28)=(append _qv_28 _qv_27)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_29 _qv_30) _qv_31)=(append _qv_29 (append _qv_30 _qv_31))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) (0<=(len _qv_32)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_33))=_qv_33))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((len (rev _qv_34))=(len _qv_34)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_35) (rev _qv_36))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_36) (rev _qv_35))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_27 _qv_28)=(append _qv_28 _qv_27)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_29 _qv_30) _qv_31)=(append _qv_29 (append _qv_30 _qv_31))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) (0<=(len _qv_32)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_33))=_qv_33))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((len (rev _qv_34))=(len _qv_34)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_35) (rev _qv_36))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_36) (rev _qv_35))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_27 _qv_28)=(append _qv_28 _qv_27)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_29 _qv_30) _qv_31)=(append _qv_29 (append _qv_30 _qv_31))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) (0<=(len _qv_32)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_33))=_qv_33))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((len (rev _qv_34))=(len _qv_34)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_35) (rev _qv_36))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_36) (rev _qv_35))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_27 _qv_28)=(append _qv_28 _qv_27)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_29 _qv_30) _qv_31)=(append _qv_29 (append _qv_30 _qv_31))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) (0<=(len _qv_32)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_33))=_qv_33))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((len (rev _qv_34))=(len _qv_34)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_35) (rev _qv_36))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_36) (rev _qv_35))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_27 _qv_28)=(append _qv_28 _qv_27)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_29 _qv_30) _qv_31)=(append _qv_29 (append _qv_30 _qv_31))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) (0<=(len _qv_32)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_33))=_qv_33))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((len (rev _qv_34))=(len _qv_34)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_35) (rev _qv_36))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_36) (rev _qv_35))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_27 _qv_28)=(append _qv_28 _qv_27)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_29 _qv_30) _qv_31)=(append _qv_29 (append _qv_30 _qv_31))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) (0<=(len _qv_32)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_33))=_qv_33))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((len (rev _qv_34))=(len _qv_34)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_35) (rev _qv_36))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_36) (rev _qv_35))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_27 _qv_28)=(append _qv_28 _qv_27)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_29 _qv_30) _qv_31)=(append _qv_29 (append _qv_30 _qv_31))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) (0<=(len _qv_32)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_33))=_qv_33))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((len (rev _qv_34))=(len _qv_34)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_35) (rev _qv_36))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_36) (rev _qv_35))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_27 _qv_28)=(append _qv_28 _qv_27)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_29 _qv_30) _qv_31)=(append _qv_29 (append _qv_30 _qv_31))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) (0<=(len _qv_32)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_33))=_qv_33))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((len (rev _qv_34))=(len _qv_34)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_35) (rev _qv_36))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_36) (rev _qv_35))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_27 _qv_28)=(append _qv_28 _qv_27)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_29 _qv_30) _qv_31)=(append _qv_29 (append _qv_30 _qv_31))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) (0<=(len _qv_32)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_33))=_qv_33))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((len (rev _qv_34))=(len _qv_34)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_35) (rev _qv_36))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_36) (rev _qv_35))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_27 _qv_28)=(append _qv_28 _qv_27)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_29 _qv_30) _qv_31)=(append _qv_29 (append _qv_30 _qv_31))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) (0<=(len _qv_32)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_33))=_qv_33))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((len (rev _qv_34))=(len _qv_34)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_35) (rev _qv_36))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_36) (rev _qv_35))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_27 _qv_28)=(append _qv_28 _qv_27)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_29 _qv_30) _qv_31)=(append _qv_29 (append _qv_30 _qv_31))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) (0<=(len _qv_32)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_33))=_qv_33))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((len (rev _qv_34))=(len _qv_34)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_35) (rev _qv_36))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_36) (rev _qv_35))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_27 _qv_28)=(append _qv_28 _qv_27)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_29 _qv_30) _qv_31)=(append _qv_29 (append _qv_30 _qv_31))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) (0<=(len _qv_32)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_33))=_qv_33))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((len (rev _qv_34))=(len _qv_34)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_35) (rev _qv_36))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_36) (rev _qv_35))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_27 _qv_28)=(append _qv_28 _qv_27)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_29 _qv_30) _qv_31)=(append _qv_29 (append _qv_30 _qv_31))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) (0<=(len _qv_32)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_33))=_qv_33))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((len (rev _qv_34))=(len _qv_34)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_35) (rev _qv_36))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_36) (rev _qv_35))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_27 _qv_28)=(append _qv_28 _qv_27)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_29 _qv_30) _qv_31)=(append _qv_29 (append _qv_30 _qv_31))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) (0<=(len _qv_32)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_33))=_qv_33))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((len (rev _qv_34))=(len _qv_34)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_35) (rev _qv_36))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_36) (rev _qv_35))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_27 _qv_28)=(append _qv_28 _qv_27)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_29 _qv_30) _qv_31)=(append _qv_29 (append _qv_30 _qv_31))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) (0<=(len _qv_32)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_33))=_qv_33))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((len (rev _qv_34))=(len _qv_34)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_35) (rev _qv_36))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_36) (rev _qv_35))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_27 _qv_28)=(append _qv_28 _qv_27)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_29 _qv_30) _qv_31)=(append _qv_29 (append _qv_30 _qv_31))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) (0<=(len _qv_32)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_33))=_qv_33))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((len (rev _qv_34))=(len _qv_34)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_35) (rev _qv_36))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_36) (rev _qv_35))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_27 _qv_28)=(append _qv_28 _qv_27)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_29 _qv_30) _qv_31)=(append _qv_29 (append _qv_30 _qv_31))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) (0<=(len _qv_32)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_33))=_qv_33))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((len (rev _qv_34))=(len _qv_34)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_35) (rev _qv_36))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_36) (rev _qv_35))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_27 _qv_28)=(append _qv_28 _qv_27)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_29 _qv_30) _qv_31)=(append _qv_29 (append _qv_30 _qv_31))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) (0<=(len _qv_32)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_33))=_qv_33))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((len (rev _qv_34))=(len _qv_34)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_35) (rev _qv_36))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_36) (rev _qv_35))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_27 _qv_28)=(append _qv_28 _qv_27)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_29 _qv_30) _qv_31)=(append _qv_29 (append _qv_30 _qv_31))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) (0<=(len _qv_32)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_33))=_qv_33))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((len (rev _qv_34))=(len _qv_34)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_35) (rev _qv_36))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_36) (rev _qv_35))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_27 _qv_28)=(append _qv_28 _qv_27)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_29 _qv_30) _qv_31)=(append _qv_29 (append _qv_30 _qv_31))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) (0<=(len _qv_32)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_33))=_qv_33))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((len (rev _qv_34))=(len _qv_34)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_35) (rev _qv_36))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_36) (rev _qv_35))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_27 _qv_28)=(append _qv_28 _qv_27)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_29 _qv_30) _qv_31)=(append _qv_29 (append _qv_30 _qv_31))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) (0<=(len _qv_32)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_33))=_qv_33))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((len (rev _qv_34))=(len _qv_34)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_35) (rev _qv_36))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_36) (rev _qv_35))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_27 _qv_28)=(append _qv_28 _qv_27)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_29 _qv_30) _qv_31)=(append _qv_29 (append _qv_30 _qv_31))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) (0<=(len _qv_32)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_33))=_qv_33))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((len (rev _qv_34))=(len _qv_34)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_35) (rev _qv_36))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_36) (rev _qv_35))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_27 _qv_28)=(append _qv_28 _qv_27)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_29 _qv_30) _qv_31)=(append _qv_29 (append _qv_30 _qv_31))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) (0<=(len _qv_32)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_33))=_qv_33))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((len (rev _qv_34))=(len _qv_34)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_35) (rev _qv_36))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_36) (rev _qv_35))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_27 _qv_28)=(append _qv_28 _qv_27)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_29 _qv_30) _qv_31)=(append _qv_29 (append _qv_30 _qv_31))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) (0<=(len _qv_32)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_33))=_qv_33))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((len (rev _qv_34))=(len _qv_34)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_35) (rev _qv_36))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_36) (rev _qv_35))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_27 _qv_28)=(append _qv_28 _qv_27)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_29 _qv_30) _qv_31)=(append _qv_29 (append _qv_30 _qv_31))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) (0<=(len _qv_32)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_33))=_qv_33))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((len (rev _qv_34))=(len _qv_34)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_35) (rev _qv_36))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_36) (rev _qv_35))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_27 _qv_28)=(append _qv_28 _qv_27)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_29 _qv_30) _qv_31)=(append _qv_29 (append _qv_30 _qv_31))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) (0<=(len _qv_32)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_33))=_qv_33))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((len (rev _qv_34))=(len _qv_34)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_35) (rev _qv_36))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_36) (rev _qv_35))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_27 _qv_28)=(append _qv_28 _qv_27)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_29 _qv_30) _qv_31)=(append _qv_29 (append _qv_30 _qv_31))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) (0<=(len _qv_32)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_33))=_qv_33))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((len (rev _qv_34))=(len _qv_34)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_35) (rev _qv_36))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_36) (rev _qv_35))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_27 _qv_28)=(append _qv_28 _qv_27)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_29 _qv_30) _qv_31)=(append _qv_29 (append _qv_30 _qv_31))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) (0<=(len _qv_32)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_33))=_qv_33))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((len (rev _qv_34))=(len _qv_34)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_35) (rev _qv_36))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_36) (rev _qv_35))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_27 _qv_28)=(append _qv_28 _qv_27)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_29 _qv_30) _qv_31)=(append _qv_29 (append _qv_30 _qv_31))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) (0<=(len _qv_32)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_33))=_qv_33))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((len (rev _qv_34))=(len _qv_34)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_35) (rev _qv_36))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_36) (rev _qv_35))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_27 _qv_28)=(append _qv_28 _qv_27)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_29 _qv_30) _qv_31)=(append _qv_29 (append _qv_30 _qv_31))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) (0<=(len _qv_32)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_33))=_qv_33))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((len (rev _qv_34))=(len _qv_34)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_35) (rev _qv_36))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_36) (rev _qv_35))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_27 _qv_28)=(append _qv_28 _qv_27)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_29 _qv_30) _qv_31)=(append _qv_29 (append _qv_30 _qv_31))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) (0<=(len _qv_32)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_33))=_qv_33))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((len (rev _qv_34))=(len _qv_34)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_35) (rev _qv_36))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_36) (rev _qv_35))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_27 _qv_28)=(append _qv_28 _qv_27)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_29 _qv_30) _qv_31)=(append _qv_29 (append _qv_30 _qv_31))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) (0<=(len _qv_32)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_33))=_qv_33))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((len (rev _qv_34))=(len _qv_34)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_35) (rev _qv_36))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_36) (rev _qv_35))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_27 _qv_28)=(append _qv_28 _qv_27)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_29 _qv_30) _qv_31)=(append _qv_29 (append _qv_30 _qv_31))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) (0<=(len _qv_32)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_33))=_qv_33))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((len (rev _qv_34))=(len _qv_34)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_35) (rev _qv_36))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_36) (rev _qv_35))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_27 _qv_28)=(append _qv_28 _qv_27)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_29 _qv_30) _qv_31)=(append _qv_29 (append _qv_30 _qv_31))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) (0<=(len _qv_32)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_33))=_qv_33))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((len (rev _qv_34))=(len _qv_34)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_35) (rev _qv_36))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_36) (rev _qv_35))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_27 _qv_28)=(append _qv_28 _qv_27)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_29 _qv_30) _qv_31)=(append _qv_29 (append _qv_30 _qv_31))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) (0<=(len _qv_32)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_33))=_qv_33))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((len (rev _qv_34))=(len _qv_34)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_35) (rev _qv_36))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_36) (rev _qv_35))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_27 _qv_28)=(append _qv_28 _qv_27)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_29 _qv_30) _qv_31)=(append _qv_29 (append _qv_30 _qv_31))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) (0<=(len _qv_32)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_33))=_qv_33))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((len (rev _qv_34))=(len _qv_34)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_35) (rev _qv_36))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_36) (rev _qv_35))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_27 _qv_28)=(append _qv_28 _qv_27)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_29 _qv_30) _qv_31)=(append _qv_29 (append _qv_30 _qv_31))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) (0<=(len _qv_32)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_33))=_qv_33))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((len (rev _qv_34))=(len _qv_34)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_35) (rev _qv_36))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_36) (rev _qv_35))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_27 _qv_28)=(append _qv_28 _qv_27)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_29 _qv_30) _qv_31)=(append _qv_29 (append _qv_30 _qv_31))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) (0<=(len _qv_32)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_33))=_qv_33))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((len (rev _qv_34))=(len _qv_34)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_35) (rev _qv_36))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_36) (rev _qv_35))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_27 _qv_28)=(append _qv_28 _qv_27)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_29 _qv_30) _qv_31)=(append _qv_29 (append _qv_30 _qv_31))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) (0<=(len _qv_32)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_33))=_qv_33))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((len (rev _qv_34))=(len _qv_34)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_35) (rev _qv_36))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_36) (rev _qv_35))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_27 _qv_28)=(append _qv_28 _qv_27)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_29 _qv_30) _qv_31)=(append _qv_29 (append _qv_30 _qv_31))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) (0<=(len _qv_32)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_33))=_qv_33))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst)) ((len (rev _qv_34))=(len _qv_34)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_35) (rev _qv_36))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (append (rev _t_39) (cons _t_38 nil))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_36) (rev _qv_35))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ([+    -1*(len _t_39)    (len (rev (cons _t_38 _t_39)))    -1*1]=0)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_27 _qv_28)=(append _qv_28 _qv_27)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ([+    -1*(len _t_39)    (len (rev (cons _t_38 _t_39)))    -1*1]=0)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_29 _qv_30) _qv_31)=(append _qv_29 (append _qv_30 _qv_31))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ([+    -1*(len _t_39)    (len (rev (cons _t_38 _t_39)))    -1*1]=0)
+NOW TESTING (forall ((Lst)) (0<=(len _qv_32)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ([+    -1*(len _t_39)    (len (rev (cons _t_38 _t_39)))    -1*1]=0)
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_33))=_qv_33))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ([+    -1*(len _t_39)    (len (rev (cons _t_38 _t_39)))    -1*1]=0)
+NOW TESTING (forall ((Lst)) ((len (rev _qv_34))=(len _qv_34)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ([+    -1*(len _t_39)    (len (rev (cons _t_38 _t_39)))    -1*1]=0)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_35) (rev _qv_36))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ([+    -1*(len _t_39)    (len (rev (cons _t_38 _t_39)))    -1*1]=0)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_36) (rev _qv_35))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (rev (cons _t_38 _t_39))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_27 _qv_28)=(append _qv_28 _qv_27)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (rev (cons _t_38 _t_39))))=1)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_29 _qv_30) _qv_31)=(append _qv_29 (append _qv_30 _qv_31))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (rev (cons _t_38 _t_39))))=1)
+NOW TESTING (forall ((Lst)) (0<=(len _qv_32)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (rev (cons _t_38 _t_39))))=1)
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_33))=_qv_33))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (rev (cons _t_38 _t_39))))=1)
+NOW TESTING (forall ((Lst)) ((len (rev _qv_34))=(len _qv_34)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (rev (cons _t_38 _t_39))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_35) (rev _qv_36))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (rev (cons _t_38 _t_39))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_36) (rev _qv_35))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (rev (cons _t_38 _t_39))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_27 _qv_28)=(append _qv_28 _qv_27)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (rev (cons _t_38 _t_39))))=1)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_29 _qv_30) _qv_31)=(append _qv_29 (append _qv_30 _qv_31))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (rev (cons _t_38 _t_39))))=1)
+NOW TESTING (forall ((Lst)) (0<=(len _qv_32)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (rev (cons _t_38 _t_39))))=1)
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_33))=_qv_33))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (rev (cons _t_38 _t_39))))=1)
+NOW TESTING (forall ((Lst)) ((len (rev _qv_34))=(len _qv_34)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (rev (cons _t_38 _t_39))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_35) (rev _qv_36))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (rev (cons _t_38 _t_39))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_36) (rev _qv_35))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ([+    -1*(len _t_39)    (len (rev (cons _t_38 _t_39)))    -1*1]=0)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_27 _qv_28)=(append _qv_28 _qv_27)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ([+    -1*(len _t_39)    (len (rev (cons _t_38 _t_39)))    -1*1]=0)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_29 _qv_30) _qv_31)=(append _qv_29 (append _qv_30 _qv_31))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ([+    -1*(len _t_39)    (len (rev (cons _t_38 _t_39)))    -1*1]=0)
+NOW TESTING (forall ((Lst)) (0<=(len _qv_32)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ([+    -1*(len _t_39)    (len (rev (cons _t_38 _t_39)))    -1*1]=0)
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_33))=_qv_33))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ([+    -1*(len _t_39)    (len (rev (cons _t_38 _t_39)))    -1*1]=0)
+NOW TESTING (forall ((Lst)) ((len (rev _qv_34))=(len _qv_34)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ([+    -1*(len _t_39)    (len (rev (cons _t_38 _t_39)))    -1*1]=0)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_35) (rev _qv_36))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ([+    -1*(len _t_39)    (len (rev (cons _t_38 _t_39)))    -1*1]=0)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_36) (rev _qv_35))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (rev (cons _t_38 _t_39))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_27 _qv_28)=(append _qv_28 _qv_27)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (rev (cons _t_38 _t_39))))=1)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_29 _qv_30) _qv_31)=(append _qv_29 (append _qv_30 _qv_31))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (rev (cons _t_38 _t_39))))=1)
+NOW TESTING (forall ((Lst)) (0<=(len _qv_32)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (rev (cons _t_38 _t_39))))=1)
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_33))=_qv_33))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (rev (cons _t_38 _t_39))))=1)
+NOW TESTING (forall ((Lst)) ((len (rev _qv_34))=(len _qv_34)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (rev (cons _t_38 _t_39))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_35) (rev _qv_36))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (rev (cons _t_38 _t_39))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_36) (rev _qv_35))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (rev (cons _t_38 _t_39))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_27 _qv_28)=(append _qv_28 _qv_27)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (rev (cons _t_38 _t_39))))=1)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_29 _qv_30) _qv_31)=(append _qv_29 (append _qv_30 _qv_31))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (rev (cons _t_38 _t_39))))=1)
+NOW TESTING (forall ((Lst)) (0<=(len _qv_32)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (rev (cons _t_38 _t_39))))=1)
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_33))=_qv_33))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (rev (cons _t_38 _t_39))))=1)
+NOW TESTING (forall ((Lst)) ((len (rev _qv_34))=(len _qv_34)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (rev (cons _t_38 _t_39))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_35) (rev _qv_36))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(len _t_39))+(len (rev (cons _t_38 _t_39))))=1)
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_35 _qv_36))=(append (rev _qv_36) (rev _qv_35))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ([+    -1*(len _t_39)    (len (rev (cons _t_38 _t_39)))    -1*1]=0)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_27 _qv_28)=(append _qv_28 _qv_27)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ([+    -1*(len _t_39)    (len (rev (cons _t_38 _t_39)))    -1*1]=0)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_29 _qv_30) _qv_31)=(append _qv_29 (append _qv_30 _qv_31))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ([+    -1*(len _t_39)    (le

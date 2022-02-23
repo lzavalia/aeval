@@ -1,0 +1,22 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+	(forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+	(forall ((Lst)) ((filter (filter _qv_5))=_qv_5))
+	(forall ((Lst) (Lst)) ((filter (append _qv_6 _qv_7))=(append (filter _qv_6) (filter _qv_7))))
+	(forall ((Lst) (Lst)) ((filter (append _qv_6 _qv_7))=(append (filter _qv_7) (filter _qv_6))))
+
+Simplified goal: (forall ((Lst) (Lst)) ((filter (append xs ys))=(append (filter xs) (filter ys))))
+
+
+Base case:       ((filter (append nil _v_8))=(append (filter nil) (filter _v_8)))
+{
+  proven trivially
+}
+Inductive step:  ((filter (append (cons _t_9 _t_10) _v_8))=(append (filter (cons _t_9 _t_10)) (filter _v_8)))
+{
+  proven trivially
+}
+
+Proved
+unsat

@@ -1,0 +1,73 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+	(forall ((Nat)) (0<=(nat-to-int _qv_1)))
+	(forall ((Lst) (Lst)) ((append _qv_2 _qv_3)=(append _qv_3 _qv_2)))
+	(forall ((Lst) (Lst) (Lst)) ((append (append _qv_4 _qv_5) _qv_6)=(append _qv_4 (append _qv_5 _qv_6))))
+	(forall ((Lst)) ((rev (rev _qv_7))=_qv_7))
+	(forall ((Lst) (Lst)) ((qreva _qv_8 _qv_9)=(qreva _qv_9 _qv_8)))
+	(forall ((Lst) (Lst) (Lst)) ((qreva (qreva _qv_10 _qv_11) _qv_12)=(qreva _qv_10 (qreva _qv_11 _qv_12))))
+	(forall ((Nat)) ((nat-to-int (succ _qv_13))=(nat-to-int _qv_13)))
+	(forall ((Lst) (Lst) (Lst)) ((qreva _qv_14 (append _qv_15 _qv_16))=(append (qreva _qv_14 _qv_15) (qreva _qv_14 _qv_16))))
+	(forall ((Lst) (Lst) (Lst)) ((append _qv_17 (qreva _qv_18 _qv_19))=(qreva (append _qv_17 _qv_18) (append _qv_17 _qv_19))))
+	(forall ((Lst) (Lst)) ((rev (append _qv_20 _qv_21))=(append (rev _qv_20) (rev _qv_21))))
+	(forall ((Lst) (Lst)) ((rev (append _qv_20 _qv_21))=(append (rev _qv_21) (rev _qv_20))))
+	(forall ((Lst) (Lst)) ((rev (qreva _qv_22 _qv_23))=(qreva (rev _qv_22) (rev _qv_23))))
+	(forall ((Lst) (Lst)) ((rev (qreva _qv_22 _qv_23))=(qreva (rev _qv_23) (rev _qv_22))))
+
+Simplified goal: (forall ((Lst) (Lst)) ((append (rev x) y)=(qreva x y)))
+
+
+Base case:       ((append (rev nil) _v_24)=(qreva nil _v_24))
+{
+  proven trivially
+}
+Inductive step:  ((append (rev (cons _t_25 _t_26)) _v_24)=(qreva (cons _t_25 _t_26) _v_24))
+{
+  {
+    ====================
+    | Assumptions [0]: ((nat-to-int zero)=0)
+    | Assumptions [1]: ((rev nil)=nil)
+    | Assumptions [2]: (forall ((Nat)) ((nat-to-int _qv_1)>=0))
+    | Assumptions [3]: (forall ((Nat) (Nat)) (((nat-to-int _qv_2)=(nat-to-int _qv_3))->(_qv_2=_qv_3)))
+    | Assumptions [4]: (forall ((Nat)) ((nat-to-int (succ _qv_4))=(1+(nat-to-int _qv_4))))
+    | Assumptions [5]: (forall ((Lst)) ((append nil _qv_5)=_qv_5))
+    | Assumptions [6]: (forall ((Nat) (Lst) (Lst)) ((append (cons _qv_6 _qv_7) _qv_8)=(cons _qv_6 (append _qv_7 _qv_8))))
+    | Assumptions [7]: (forall ((Nat) (Lst)) ((rev (cons _qv_9 _qv_10))=(append (rev _qv_10) (cons _qv_9 nil))))
+    | Assumptions [8]: (forall ((Lst)) ((qreva nil _qv_11)=_qv_11))
+    | Assumptions [9]: (forall ((Lst) (Lst) (Nat)) ((qreva (cons _qv_14 _qv_12) _qv_13)=(qreva _qv_12 (cons _qv_14 _qv_13))))
+    | Assumptions [10]: (forall ((Lst)) ((append (rev _t_26) y)=(qreva _t_26 y)))
+    | Assumptions [11]: (forall ((Lst)) ((qreva _t_26 y)=(append (rev _t_26) y)))
+    ====================
+  }
+  rewritten [7]: ((append (append (rev _t_26) (cons _t_25 nil)) _v_24)=(qreva (cons _t_25 _t_26) _v_24))
+  rewritten [9]: ((append (append (rev _t_26) (cons _t_25 nil)) _v_24)=(qreva _t_26 (cons _t_25 _v_24)))
+  rewritten [10]: ((append (qreva _t_26 (cons _t_25 nil)) _v_24)=(qreva _t_26 (cons _t_25 _v_24)))
+  rewritten [11]: ((append (qreva _t_26 (cons _t_25 nil)) _v_24)=(append (rev _t_26) (cons _t_25 _v_24)))
+  rewritten [11]: ((append (append (rev _t_26) (cons _t_25 nil)) _v_24)=(append (rev _t_26) (cons _t_25 _v_24)))
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_28))=_qv_28))
+	(forall ((Nat)) (0<=(nat-to-int _qv_29)))
+	(forall ((Lst) (Lst)) ((append _qv_30 _qv_31)=(append _qv_31 _qv_30)))
+	(forall ((Lst) (Lst) (Lst)) ((append (append _qv_32 _qv_33) _qv_34)=(append _qv_32 (append _qv_33 _qv_34))))
+	(forall ((Lst)) ((rev (rev _qv_35))=_qv_35))
+	(forall ((Lst) (Lst)) ((qreva _qv_36 _qv_37)=(qreva _qv_37 _qv_36)))
+	(forall ((Lst) (Lst) (Lst)) ((qreva (qreva _qv_38 _qv_39) _qv_40)=(qreva _qv_38 (qreva _qv_39 _qv_40))))
+	(forall ((Nat)) ((nat-to-int (succ _qv_41))=(nat-to-int _qv_41)))
+	(forall ((Lst) (Lst) (Lst)) ((qreva _qv_42 (append _qv_43 _qv_44))=(append (qreva _qv_42 _qv_43) (qreva _qv_42 _qv_44))))
+	(forall ((Lst) (Lst) (Lst)) ((append _qv_45 (qreva _qv_46 _qv_47))=(qreva (append _qv_45 _qv_46) (append _qv_45 _qv_47))))
+	(forall ((Lst) (Lst)) ((rev (append _qv_48 _qv_49))=(append (rev _qv_48) (rev _qv_49))))
+	(forall ((Lst) (Lst)) ((rev (append _qv_48 _qv_49))=(append (rev _qv_49) (rev _qv_48))))
+	(forall ((Lst) (Lst)) ((rev (qreva _qv_50 _qv_51))=(qreva (rev _qv_50) (rev _qv_51))))
+	(forall ((Lst) (Lst)) ((rev (qreva _qv_50 _qv_51))=(qreva (rev _qv_51) (rev _qv_50))))
+
+  proven by induction: ((append (append _w_27 (cons _t_25 nil)) _v_24)=(append _w_27 (cons _t_25 _v_24)))
+  rewriting done
+  rewriting done
+  rewriting done
+  rewriting done
+}
+
+Proved
+unsat

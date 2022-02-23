@@ -1,0 +1,9 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall (INT INT) ((minus _qv_0 _qv_1)=(minus _qv_1 _qv_0)))
+	(forall (INT INT INT) ((minus (minus _qv_2 _qv_3) _qv_4)=(minus _qv_2 (minus _qv_3 _qv_4))))
+
+Simplified goal: (forall (INT) ((m>=0)->((minus m m)=0)))
+
+Proved (with Z3)
+unsat

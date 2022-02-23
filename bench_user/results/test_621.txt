@@ -1,0 +1,324 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+	(forall ((Nat) (Nat)) ((plus _qv_1 _qv_2)=(plus _qv_2 _qv_1)))
+	(forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_3 _qv_4) _qv_5)=(plus _qv_3 (plus _qv_4 _qv_5))))
+	(forall ((Nat) (Nat)) ((mult _qv_6 _qv_7)=(mult _qv_7 _qv_6)))
+	(forall ((Nat) (Nat) (Nat)) ((mult (mult _qv_8 _qv_9) _qv_10)=(mult _qv_8 (mult _qv_9 _qv_10))))
+	(forall ((Nat)) ((fac (fac _qv_11))=_qv_11))
+	(forall ((Nat) (Nat)) ((qfac _qv_12 _qv_13)=(qfac _qv_13 _qv_12)))
+	(forall ((Nat) (Nat) (Nat)) ((qfac (qfac _qv_14 _qv_15) _qv_16)=(qfac _qv_14 (qfac _qv_15 _qv_16))))
+	(forall ((Nat) (Nat) (Nat)) ((mult _qv_17 (plus _qv_18 _qv_19))=(plus (mult _qv_17 _qv_18) (mult _qv_17 _qv_19))))
+	(forall ((Nat) (Nat) (Nat)) ((qfac _qv_20 (plus _qv_21 _qv_22))=(plus (qfac _qv_20 _qv_21) (qfac _qv_20 _qv_22))))
+	(forall ((Nat) (Nat) (Nat)) ((plus _qv_23 (mult _qv_24 _qv_25))=(mult (plus _qv_23 _qv_24) (plus _qv_23 _qv_25))))
+	(forall ((Nat) (Nat) (Nat)) ((qfac _qv_26 (mult _qv_27 _qv_28))=(mult (qfac _qv_26 _qv_27) (qfac _qv_26 _qv_28))))
+	(forall ((Nat) (Nat) (Nat)) ((plus _qv_29 (qfac _qv_30 _qv_31))=(qfac (plus _qv_29 _qv_30) (plus _qv_29 _qv_31))))
+	(forall ((Nat) (Nat) (Nat)) ((mult _qv_32 (qfac _qv_33 _qv_34))=(qfac (mult _qv_32 _qv_33) (mult _qv_32 _qv_34))))
+	(forall ((Nat) (Nat)) ((succ (plus _qv_35 _qv_36))=(plus (succ _qv_35) (succ _qv_36))))
+	(forall ((Nat) (Nat)) ((succ (plus _qv_35 _qv_36))=(plus (succ _qv_36) (succ _qv_35))))
+	(forall ((Nat) (Nat)) ((succ (mult _qv_37 _qv_38))=(mult (succ _qv_37) (succ _qv_38))))
+	(forall ((Nat) (Nat)) ((succ (mult _qv_37 _qv_38))=(mult (succ _qv_38) (succ _qv_37))))
+	(forall ((Nat) (Nat)) ((succ (qfac _qv_39 _qv_40))=(qfac (succ _qv_39) (succ _qv_40))))
+	(forall ((Nat) (Nat)) ((succ (qfac _qv_39 _qv_40))=(qfac (succ _qv_40) (succ _qv_39))))
+	(forall ((Nat) (Nat)) ((fac (plus _qv_41 _qv_42))=(plus (fac _qv_41) (fac _qv_42))))
+	(forall ((Nat) (Nat)) ((fac (plus _qv_41 _qv_42))=(plus (fac _qv_42) (fac _qv_41))))
+	(forall ((Nat) (Nat)) ((fac (mult _qv_43 _qv_44))=(mult (fac _qv_43) (fac _qv_44))))
+	(forall ((Nat) (Nat)) ((fac (mult _qv_43 _qv_44))=(mult (fac _qv_44) (fac _qv_43))))
+	(forall ((Nat) (Nat)) ((fac (qfac _qv_45 _qv_46))=(qfac (fac _qv_45) (fac _qv_46))))
+	(forall ((Nat) (Nat)) ((fac (qfac _qv_45 _qv_46))=(qfac (fac _qv_46) (fac _qv_45))))
+
+Simplified goal: (forall ((Nat)) ((fac x)=(qfac x (succ zero))))
+
+
+Base case:       ((fac zero)=(qfac zero (succ zero)))
+{
+  proven trivially
+}
+Inductive step:  ((fac (succ _t_47))=(qfac (succ _t_47) (succ zero)))
+{
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat)) ((plus zero _qv_1)=_qv_1))
+    | Assumptions [1]: (forall ((Nat) (Nat)) ((plus (succ _qv_2) _qv_3)=(succ (plus _qv_2 _qv_3))))
+    | Assumptions [2]: (forall ((Nat)) ((mult zero _qv_4)=zero))
+    | Assumptions [3]: (forall ((Nat) (Nat)) ((mult (succ _qv_5) _qv_6)=(plus (mult _qv_5 _qv_6) _qv_6)))
+    | Assumptions [4]: (forall ((Nat)) ((fac zero)=(succ zero)))
+    | Assumptions [5]: (forall ((Nat)) ((fac (succ _qv_8))=(mult (fac _qv_8) _qv_8)))
+    | Assumptions [6]: (forall ((Nat)) ((qfac zero _qv_9)=_qv_9))
+    | Assumptions [7]: (forall ((Nat) (Nat)) ((qfac (succ _qv_10) _qv_11)=(qfac _qv_10 (mult _qv_11 _qv_10))))
+    | Assumptions [8]: ((fac _t_47)=(qfac _t_47 (succ zero)))
+    | Assumptions [9]: ((qfac _t_47 (succ zero))=(fac _t_47))
+    ====================
+  }
+  rewritten [5]: ((mult (fac _t_47) _t_47)=(qfac (succ _t_47) (succ zero)))
+  rewritten [7]: ((mult (fac _t_47) _t_47)=(qfac _t_47 (mult (succ zero) _t_47)))
+  rewritten [3]: ((mult (fac _t_47) _t_47)=(qfac _t_47 (plus (mult zero _t_47) _t_47)))
+  rewritten [2]: ((mult (fac _t_47) _t_47)=(qfac _t_47 (plus zero _t_47)))
+  rewritten [0]: ((mult (fac _t_47) _t_47)=(qfac _t_47 _t_47))
+  rewritten [8]: ((mult (qfac _t_47 (succ zero)) _t_47)=(qfac _t_47 _t_47))
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_48))=_qv_48))
+	(forall ((Nat) (Nat)) ((plus _qv_49 _qv_50)=(plus _qv_50 _qv_49)))
+	(forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_51 _qv_52) _qv_53)=(plus _qv_51 (plus _qv_52 _qv_53))))
+	(forall ((Nat) (Nat)) ((mult _qv_54 _qv_55)=(mult _qv_55 _qv_54)))
+	(forall ((Nat) (Nat) (Nat)) ((mult (mult _qv_56 _qv_57) _qv_58)=(mult _qv_56 (mult _qv_57 _qv_58))))
+	(forall ((Nat)) ((fac (fac _qv_59))=_qv_59))
+	(forall ((Nat) (Nat)) ((qfac _qv_60 _qv_61)=(qfac _qv_61 _qv_60)))
+	(forall ((Nat) (Nat) (Nat)) ((qfac (qfac _qv_62 _qv_63) _qv_64)=(qfac _qv_62 (qfac _qv_63 _qv_64))))
+	(forall ((Nat) (Nat) (Nat)) ((mult _qv_65 (plus _qv_66 _qv_67))=(plus (mult _qv_65 _qv_66) (mult _qv_65 _qv_67))))
+	(forall ((Nat) (Nat) (Nat)) ((qfac _qv_68 (plus _qv_69 _qv_70))=(plus (qfac _qv_68 _qv_69) (qfac _qv_68 _qv_70))))
+	(forall ((Nat) (Nat) (Nat)) ((plus _qv_71 (mult _qv_72 _qv_73))=(mult (plus _qv_71 _qv_72) (plus _qv_71 _qv_73))))
+	(forall ((Nat) (Nat) (Nat)) ((qfac _qv_74 (mult _qv_75 _qv_76))=(mult (qfac _qv_74 _qv_75) (qfac _qv_74 _qv_76))))
+	(forall ((Nat) (Nat) (Nat)) ((plus _qv_77 (qfac _qv_78 _qv_79))=(qfac (plus _qv_77 _qv_78) (plus _qv_77 _qv_79))))
+	(forall ((Nat) (Nat) (Nat)) ((mult _qv_80 (qfac _qv_81 _qv_82))=(qfac (mult _qv_80 _qv_81) (mult _qv_80 _qv_82))))
+	(forall ((Nat) (Nat)) ((succ (plus _qv_83 _qv_84))=(plus (succ _qv_83) (succ _qv_84))))
+	(forall ((Nat) (Nat)) ((succ (plus _qv_83 _qv_84))=(plus (succ _qv_84) (succ _qv_83))))
+	(forall ((Nat) (Nat)) ((succ (mult _qv_85 _qv_86))=(mult (succ _qv_85) (succ _qv_86))))
+	(forall ((Nat) (Nat)) ((succ (mult _qv_85 _qv_86))=(mult (succ _qv_86) (succ _qv_85))))
+	(forall ((Nat) (Nat)) ((succ (qfac _qv_87 _qv_88))=(qfac (succ _qv_87) (succ _qv_88))))
+	(forall ((Nat) (Nat)) ((succ (qfac _qv_87 _qv_88))=(qfac (succ _qv_88) (succ _qv_87))))
+	(forall ((Nat) (Nat)) ((fac (plus _qv_89 _qv_90))=(plus (fac _qv_89) (fac _qv_90))))
+	(forall ((Nat) (Nat)) ((fac (plus _qv_89 _qv_90))=(plus (fac _qv_90) (fac _qv_89))))
+	(forall ((Nat) (Nat)) ((fac (mult _qv_91 _qv_92))=(mult (fac _qv_91) (fac _qv_92))))
+	(forall ((Nat) (Nat)) ((fac (mult _qv_91 _qv_92))=(mult (fac _qv_92) (fac _qv_91))))
+	(forall ((Nat) (Nat)) ((fac (qfac _qv_93 _qv_94))=(qfac (fac _qv_93) (fac _qv_94))))
+	(forall ((Nat) (Nat)) ((fac (qfac _qv_93 _qv_94))=(qfac (fac _qv_94) (fac _qv_93))))
+
+CURRENT SUBGOAL ((mult (qfac _t_95 _t_95) (succ _t_95))=(qfac _t_95 (mult (succ _t_95) _t_95)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_48))=_qv_48))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((mult (qfac _t_95 _t_95) (succ _t_95))=(qfac _t_95 (mult (succ _t_95) _t_95)))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_49 _qv_50)=(plus _qv_50 _qv_49)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((mult (qfac _t_95 _t_95) (succ _t_95))=(qfac _t_95 (mult (succ _t_95) _t_95)))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_51 _qv_52) _qv_53)=(plus _qv_51 (plus _qv_52 _qv_53))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((mult (qfac _t_95 _t_95) (succ _t_95))=(qfac _t_95 (mult (succ _t_95) _t_95)))
+NOW TESTING (forall ((Nat) (Nat)) ((mult _qv_54 _qv_55)=(mult _qv_55 _qv_54)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((mult (qfac _t_95 _t_95) (succ _t_95))=(qfac _t_95 (mult (succ _t_95) _t_95)))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((mult (mult _qv_56 _qv_57) _qv_58)=(mult _qv_56 (mult _qv_57 _qv_58))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((mult (qfac _t_95 _t_95) (succ _t_95))=(qfac _t_95 (mult (succ _t_95) _t_95)))
+NOW TESTING (forall ((Nat)) ((fac (fac _qv_59))=_qv_59))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((mult (qfac _t_95 _t_95) (succ _t_95))=(qfac _t_95 (mult (succ _t_95) _t_95)))
+NOW TESTING (forall ((Nat) (Nat)) ((qfac _qv_60 _qv_61)=(qfac _qv_61 _qv_60)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((mult (qfac _t_95 _t_95) (succ _t_95))=(qfac _t_95 (mult (succ _t_95) _t_95)))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((qfac (qfac _qv_62 _qv_63) _qv_64)=(qfac _qv_62 (qfac _qv_63 _qv_64))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((mult (qfac _t_95 _t_95) (succ _t_95))=(qfac _t_95 (mult (succ _t_95) _t_95)))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((mult _qv_65 (plus _qv_66 _qv_67))=(plus (mult _qv_65 _qv_66) (mult _qv_65 _qv_67))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((mult (qfac _t_95 _t_95) (succ _t_95))=(qfac _t_95 (mult (succ _t_95) _t_95)))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((qfac _qv_68 (plus _qv_69 _qv_70))=(plus (qfac _qv_68 _qv_69) (qfac _qv_68 _qv_70))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((mult (qfac _t_95 _t_95) (succ _t_95))=(qfac _t_95 (mult (succ _t_95) _t_95)))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus _qv_71 (mult _qv_72 _qv_73))=(mult (plus _qv_71 _qv_72) (plus _qv_71 _qv_73))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((mult (qfac _t_95 _t_95) (succ _t_95))=(qfac _t_95 (mult (succ _t_95) _t_95)))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((qfac _qv_74 (mult _qv_75 _qv_76))=(mult (qfac _qv_74 _qv_75) (qfac _qv_74 _qv_76))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((mult (qfac _t_95 _t_95) (succ _t_95))=(qfac _t_95 (mult (succ _t_95) _t_95)))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus _qv_77 (qfac _qv_78 _qv_79))=(qfac (plus _qv_77 _qv_78) (plus _qv_77 _qv_79))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((mult (qfac _t_95 _t_95) (succ _t_95))=(qfac _t_95 (mult (succ _t_95) _t_95)))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((mult _qv_80 (qfac _qv_81 _qv_82))=(qfac (mult _qv_80 _qv_81) (mult _qv_80 _qv_82))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((mult (qfac _t_95 _t_95) (succ _t_95))=(qfac _t_95 (mult (succ _t_95) _t_95)))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_83 _qv_84))=(plus (succ _qv_83) (succ _qv_84))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((mult (qfac _t_95 _t_95) (succ _t_95))=(qfac _t_95 (mult (succ _t_95) _t_95)))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_83 _qv_84))=(plus (succ _qv_84) (succ _qv_83))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((mult (qfac _t_95 _t_95) (succ _t_95))=(qfac _t_95 (mult (succ _t_95) _t_95)))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (mult _qv_85 _qv_86))=(mult (succ _qv_85) (succ _qv_86))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((mult (qfac _t_95 _t_95) (succ _t_95))=(qfac _t_95 (mult (succ _t_95) _t_95)))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (mult _qv_85 _qv_86))=(mult (succ _qv_86) (succ _qv_85))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((mult (qfac _t_95 _t_95) (succ _t_95))=(qfac _t_95 (mult (succ _t_95) _t_95)))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (qfac _qv_87 _qv_88))=(qfac (succ _qv_87) (succ _qv_88))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((mult (qfac _t_95 _t_95) (succ _t_95))=(qfac _t_95 (mult (succ _t_95) _t_95)))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (qfac _qv_87 _qv_88))=(qfac (succ _qv_88) (succ _qv_87))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((mult (qfac _t_95 _t_95) (succ _t_95))=(qfac _t_95 (mult (succ _t_95) _t_95)))
+NOW TESTING (forall ((Nat) (Nat)) ((fac (plus _qv_89 _qv_90))=(plus (fac _qv_89) (fac _qv_90))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((mult (qfac _t_95 _t_95) (succ _t_95))=(qfac _t_95 (mult (succ _t_95) _t_95)))
+NOW TESTING (forall ((Nat) (Nat)) ((fac (plus _qv_89 _qv_90))=(plus (fac _qv_90) (fac _qv_89))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((mult (qfac _t_95 _t_95) (succ _t_95))=(qfac _t_95 (mult (succ _t_95) _t_95)))
+NOW TESTING (forall ((Nat) (Nat)) ((fac (mult _qv_91 _qv_92))=(mult (fac _qv_91) (fac _qv_92))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((mult (qfac _t_95 _t_95) (succ _t_95))=(qfac _t_95 (mult (succ _t_95) _t_95)))
+NOW TESTING (forall ((Nat) (Nat)) ((fac (mult _qv_91 _qv_92))=(mult (fac _qv_92) (fac _qv_91))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((mult (qfac _t_95 _t_95) (succ _t_95))=(qfac _t_95 (mult (succ _t_95) _t_95)))
+NOW TESTING (forall ((Nat) (Nat)) ((fac (qfac _qv_93 _qv_94))=(qfac (fac _qv_93) (fac _qv_94))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((mult (qfac _t_95 _t_95) (succ _t_95))=(qfac _t_95 (mult (succ _t_95) _t_95)))
+NOW TESTING (forall ((Nat) (Nat)) ((fac (qfac _qv_93 _qv_94))=(qfac (fac _qv_94) (fac _qv_93))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((mult (qfac _t_95 _t_95) (succ _t_95))=(qfac _t_95 (mult (succ _t_95) _t_95)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_48))=_qv_48))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((mult (qfac _t_95 _t_95) (succ _t_95))=(qfac _t_95 (mult (succ _t_95) _t_95)))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_49 _qv_50)=(plus _qv_50 _qv_49)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((mult (qfac _t_95 _t_95) (succ _t_95))=(qfac _t_95 (mult (succ _t_95) _t_95)))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_51 _qv_52) _qv_53)=(plus _qv_51 (plus _qv_52 _qv_53))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((mult (qfac _t_95 _t_95) (succ _t_95))=(qfac _t_95 (mult (succ _t_95) _t_95)))
+NOW TESTING (forall ((Nat) (Nat)) ((mult _qv_54 _qv_55)=(mult _qv_55 _qv_54)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((mult (qfac _t_95 _t_95) (succ _t_95))=(qfac _t_95 (mult (succ _t_95) _t_95)))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((mult (mult _qv_56 _qv_57) _qv_58)=(mult _qv_56 (mult _qv_57 _qv_58))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((mult (qfac _t_95 _t_95) (succ _t_95))=(qfac _t_95 (mult (succ _t_95) _t_95)))
+NOW TESTING (forall ((Nat)) ((fac (fac _qv_59))=_qv_59))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((mult (qfac _t_95 _t_95) (succ _t_95))=(qfac _t_95 (mult (succ _t_95) _t_95)))
+NOW TESTING (forall ((Nat) (Nat)) ((qfac _qv_60 _qv_61)=(qfac _qv_61 _qv_60)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((mult (qfac _t_95 _t_95) (succ _t_95))=(qfac _t_95 (mult (succ _t_95) _t_95)))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((qfac (qfac _qv_62 _qv_63) _qv_64)=(qfac _qv_62 (qfac _qv_63 _qv_64))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((mult (qfac _t_95 _t_95) (succ _t_95))=(qfac _t_95 (mult (succ _t_95) _t_95)))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((mult _qv_65 (plus _qv_66 _qv_67))=(plus (mult _qv_65 _qv_66) (mult _qv_65 _qv_67))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((mult (qfac _t_95 _t_95) (succ _t_95))=(qfac _t_95 (mult (succ _t_95) _t_95)))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((qfac _qv_68 (plus _qv_69 _qv_70))=(plus (qfac _qv_68 _qv_69) (qfac _qv_68 _qv_70))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((mult (qfac _t_95 _t_95) (succ _t_95))=(qfac _t_95 (mult (succ _t_95) _t_95)))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus _qv_71 (mult _qv_72 _qv_73))=(mult (plus _qv_71 _qv_72) (plus _qv_71 _qv_73))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((mult (qfac _t_95 _t_95) (succ _t_95))=(qfac _t_95 (mult (succ _t_95) _t_95)))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((qfac _qv_74 (mult _qv_75 _qv_76))=(mult (qfac _qv_74 _qv_75) (qfac _qv_74 _qv_76))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((mult (qfac _t_95 _t_95) (succ _t_95))=(qfac _t_95 (mult (succ _t_95) _t_95)))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus _qv_77 (qfac _qv_78 _qv_79))=(qfac (plus _qv_77 _qv_78) (plus _qv_77 _qv_79))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((mult (qfac _t_95 _t_95) (succ _t_95))=(qfac _t_95 (mult (succ _t_95) _t_95)))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((mult _qv_80 (qfac _qv_81 _qv_82))=(qfac (mult _qv_80 _qv_81) (mult _qv_80 _qv_82))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((mult (qfac _t_95 _t_95) (succ _t_95))=(qfac _t_95 (mult (succ _t_95) _t_95)))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_83 _qv_84))=(plus (succ _qv_83) (succ _qv_84))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((mult (qfac _t_95 _t_95) (succ _t_95))=(qfac _t_95 (mult (succ _t_95) _t_95)))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_83 _qv_84))=(plus (succ _qv_84) (succ _qv_83))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((mult (qfac _t_95 _t_95) (succ _t_95))=(qfac _t_95 (mult (succ _t_95) _t_95)))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (mult _qv_85 _qv_86))=(mult (succ _qv_85) (succ _qv_86))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((mult (qfac _t_95 _t_95) (succ _t_95))=(qfac _t_95 (mult (succ _t_95) _t_95)))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (mult _qv_85 _qv_86))=(mult (succ _qv_86) (succ _qv_85))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((mult (qfac _t_95 _t_95) (succ _t_95))=(qfac _t_95 (mult (succ _t_95) _t_95)))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (qfac _qv_87 _qv_88))=(qfac (succ _qv_87) (succ _qv_88))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((mult (qfac _t_95 _t_95) (succ _t_95))=(qfac _t_95 (mult (succ _t_95) _t_95)))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (qfac _qv_87 _qv_88))=(qfac (succ _qv_88) (succ _qv_87))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((mult (qfac _t_95 _t_95) (succ _t_95))=(qfac _t_95 (mult (succ _t_95) _t_95)))
+NOW TESTING (forall ((Nat) (Nat)) ((fac (plus _qv_89 _qv_90))=(plus (fac _qv_89) (fac _qv_90))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((mult (qfac _t_95 _t_95) (succ _t_95))=(qfac _t_95 (mult (succ _t_95) _t_95)))
+NOW TESTING (forall ((Nat) (Nat)) ((fac (plus _qv_89 _qv_90))=(plus (fac _qv_90) (fac _qv_89))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((mult (qfac _t_95 _t_95) (succ _t_95))=(qfac _t_95 (mult (succ _t_95) _t_95)))
+NOW TESTING (forall ((Nat) (Nat)) ((fac (mult _qv_91 _qv_92))=(mult (fac _qv_91) (fac _qv_92))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((mult (qfac _t_95 _t_95) (succ _t_95))=(qfac _t_95 (mult (succ _t_95) _t_95)))
+NOW TESTING (forall ((Nat) (Nat)) ((fac (mult _qv_91 _qv_92))=(mult (fac _qv_92) (fac _qv_91))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((mult (qfac _t_95 _t_95) (succ _t_95))=(qfac _t_95 (mult (succ _t_95) _t_95)))
+NOW TESTING (forall ((Nat) (Nat)) ((fac (qfac _qv_93 _qv_94))=(qfac (fac _qv_93) (fac _qv_94))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((mult (qfac _t_95 _t_95) (succ _t_95))=(qfac _t_95 (mult (succ _t_95) _t_95)))
+NOW TESTING (forall ((Nat) (Nat)) ((fac (qfac _qv_93 _qv_94))=(qfac (fac _qv_94) (fac _qv_93))))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_97))=_qv_97))
+	(forall ((Nat) (Nat)) ((plus _qv_98 _qv_99)=(plus _qv_99 _qv_98)))
+	(forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_100 _qv_101) _qv_102)=(plus _qv_100 (plus _qv_101 _qv_102))))
+	(forall ((Nat) (Nat)) ((mult _qv_103 _qv_104)=(mult _qv_104 _qv_103)))
+	(forall ((Nat) (Nat) (Nat)) ((mult (mult _qv_105 _qv_106) _qv_107)=(mult _qv_105 (mult _qv_106 _qv_107))))
+	(forall ((Nat)) ((fac (fac _qv_108))=_qv_108))
+	(forall ((Nat) (Nat)) ((qfac _qv_109 _qv_110)=(qfac _qv_110 _qv_109)))
+	(forall ((Nat) (Nat) (Nat)) ((qfac (qfac _qv_111 _qv_112) _qv_113)=(qfac _qv_111 (qfac _qv_112 _qv_113))))
+	(forall ((Nat) (Nat) (Nat)) ((mult _qv_114 (plus _qv_115 _qv_116))=(plus (mult _qv_114 _qv_115) (mult _qv_114 _qv_116))))
+	(forall ((Nat) (Nat) (Nat)) ((qfac _qv_117 (plus _qv_118 _qv_119))=(plus (qfac _qv_117 _qv_118) (qfac _qv_117 _qv_119))))
+	(forall ((Nat) (Nat) (Nat)) ((plus _qv_120 (mult _qv_121 _qv_122))=(mult (plus _qv_120 _qv_121) (plus _qv_120 _qv_122))))
+	(forall ((Nat) (Nat) (Nat)) ((qfac _qv_123 (mult _qv_124 _qv_125))=(mult (qfac _qv_123 _qv_124) (qfac _qv_123 _qv_125))))
+	(forall ((Nat) (Nat) (Nat)) ((plus _qv_126 (qfac _qv_127 _qv_128))=(qfac (plus _qv_126 _qv_127) (plus _qv_126 _qv_128))))
+	(forall ((Nat) (Nat) (Nat)) ((mult _qv_129 (qfac _qv_130 _qv_131))=(qfac (mult _qv_129 _qv_130) (mult _qv_129 _qv_131))))
+	(forall ((Nat) (Nat)) ((succ (plus _qv_132 _qv_133))=(plus (succ _qv_132) (succ _qv_133))))
+	(forall ((Nat) (Nat)) ((succ (plus _qv_132 _qv_133))=(plus (succ _qv_133) (succ _qv_132))))
+	(forall ((Nat) (Nat)) ((succ (mult _qv_134 _qv_135))=(mult (succ _qv_134) (succ _qv_135))))
+	(forall ((Nat) (Nat)) ((succ (mult _qv_134 _qv_135))=(mult (succ _qv_135) (succ _qv_134))))
+	(forall ((Nat) (Nat)) ((succ (qfac _qv_136 _qv_137))=(qfac (succ _qv_136) (succ _qv_137))))
+	(forall ((Nat) (Nat)) ((succ (qfac _qv_136 _qv_137))=(qfac (succ _qv_137) (succ _qv_136))))
+	(forall ((Nat) (Nat)) ((fac (plus _qv_138 _qv_139))=(plus (fac _qv_138) (fac _qv_139))))
+	(forall ((Nat) (Nat)) ((fac (plus _qv_138 _qv_139))=(plus (fac _qv_139) (fac _qv_138))))
+	(forall ((Nat) (Nat)) ((fac (mult _qv_140 _qv_141))=(mult (fac _qv_140) (fac _qv_141))))
+	(forall ((Nat) (Nat)) ((fac (mult _qv_140 _qv_141))=(mult (fac _qv_141) (fac _qv_140))))
+	(forall ((Nat) (Nat)) ((fac (qfac _qv_142 _qv_143))=(qfac (fac _qv_142) (fac _qv_143))))
+	(forall ((Nat) (Nat)) ((fac (qfac _qv_142 _qv_143))=(qfac (fac _qv_143) (fac _qv_142))))
+

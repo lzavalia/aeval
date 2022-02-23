@@ -1,0 +1,20 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall (INT INT) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+	(forall ((Lst) (Lst)) ((append _qv_2 _qv_3)=(append _qv_3 _qv_2)))
+	(forall ((Lst) (Lst) (Lst)) ((append (append _qv_4 _qv_5) _qv_6)=(append _qv_4 (append _qv_5 _qv_6))))
+
+Simplified goal: (forall (INT (Lst) (Lst)) (((count n l)=(count n (append l m)))||(less (count n l) (count n (append l m)))))
+
+
+Base case:       (((count _v_7 nil)=(count _v_7 (append nil _v_8)))||(less (count _v_7 nil) (count _v_7 (append nil _v_8))))
+{
+  proven trivially
+}
+Inductive step:  (((count _v_7 (cons _t_9 _t_10))=(count _v_7 (append (cons _t_9 _t_10) _v_8)))||(less (count _v_7 (cons _t_9 _t_10)) (count _v_7 (append (cons _t_9 _t_10) _v_8))))
+{
+  proven trivially
+}
+
+Proved
+unsat

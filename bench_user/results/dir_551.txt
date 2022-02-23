@@ -1,0 +1,1 @@
+./ind/benchmarks-dt/clam/sg/goal-sg4.smt2

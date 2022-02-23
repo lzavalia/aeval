@@ -1,0 +1,17 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+
+Simplified goal: (forall (INT (Lst)) (!(mem x (delete x l))))
+
+
+Base case:       (!(mem _v_0 (delete _v_0 nil)))
+{
+  proven trivially
+}
+Inductive step:  (!(mem _v_0 (delete _v_0 (cons _t_1 _t_2))))
+{
+  proven trivially
+}
+
+Proved
+unsat

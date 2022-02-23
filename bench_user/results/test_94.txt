@@ -1,0 +1,38 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+	(forall ((Nat)) (0<=(nat-to-int _qv_1)))
+	(forall ((Nat)) ((nat-to-int (succ _qv_2))=(nat-to-int _qv_2)))
+	(forall ((Nat) (Lst) (Lst)) ((ins1 _qv_3 (cons _qv_4 _qv_5))=(cons (ins1 _qv_3 _qv_4) (ins1 _qv_3 _qv_5))))
+	(forall ((Nat) (Lst) (Lst)) ((cons _qv_6 (ins1 _qv_7 _qv_8))=(ins1 (cons _qv_6 _qv_7) (cons _qv_6 _qv_8))))
+
+Simplified goal: (forall ((Nat) (Lst)) (mem x (ins1 x l)))
+
+
+Base case:       (mem zero (ins1 zero _v_9))
+{
+  {
+    ====================
+    | Assumptions [0]: ((nat-to-int zero)=0)
+    | Assumptions [1]: (forall ((Nat)) ((nat-to-int _qv_1)>=0))
+    | Assumptions [2]: (forall ((Nat) (Nat)) (((nat-to-int _qv_2)=(nat-to-int _qv_3))->(_qv_2=_qv_3)))
+    | Assumptions [3]: (forall ((Nat)) ((nat-to-int (succ _qv_4))=(1+(nat-to-int _qv_4))))
+    | Assumptions [4]: (forall ((Nat) (Nat) (Lst)) ((mem _qv_6 (cons _qv_7 _qv_8))=((_qv_6=_qv_7)||(mem _qv_6 _qv_8))))
+    | Assumptions [5]: (forall ((Nat)) ((ins1 _qv_9 nil)=(cons _qv_9 nil)))
+    | Assumptions [6]: (forall ((Nat) (Nat) (Lst)) ((ins1 _qv_10 (cons _qv_11 _qv_12))=ite(_qv_10=_qv_11, (cons _qv_11 _qv_12), (cons _qv_11 (ins1 _qv_10 _qv_12)))))
+    | Assumptions [7]: (forall ((Nat)) (!(mem _qv_5 nil)))
+    ====================
+  }
+}
+
+Base case:       (mem _v_10 (ins1 _v_10 nil))
+{
+  proven trivially
+}
+Inductive step:  (mem _v_10 (ins1 _v_10 (cons _t_11 _t_12)))
+{
+  proven trivially
+}
+
+Proved
+unsat

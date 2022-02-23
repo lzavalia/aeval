@@ -1,0 +1,33 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+	(forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+	(forall ((Lst)) ((rev (rev _qv_5))=_qv_5))
+	(forall ((Lst) (Lst)) ((qreva _qv_6 _qv_7)=(qreva _qv_7 _qv_6)))
+	(forall ((Lst) (Lst) (Lst)) ((qreva (qreva _qv_8 _qv_9) _qv_10)=(qreva _qv_8 (qreva _qv_9 _qv_10))))
+	(forall ((Lst)) ((qrev (qrev _qv_11))=_qv_11))
+	(forall ((Lst) (Lst) (Lst)) ((qreva _qv_12 (append _qv_13 _qv_14))=(append (qreva _qv_12 _qv_13) (qreva _qv_12 _qv_14))))
+	(forall ((Lst) (Lst) (Lst)) ((append _qv_15 (qreva _qv_16 _qv_17))=(qreva (append _qv_15 _qv_16) (append _qv_15 _qv_17))))
+	(forall ((Lst) (Lst)) ((rev (append _qv_18 _qv_19))=(append (rev _qv_18) (rev _qv_19))))
+	(forall ((Lst) (Lst)) ((rev (append _qv_18 _qv_19))=(append (rev _qv_19) (rev _qv_18))))
+	(forall ((Lst) (Lst)) ((rev (qreva _qv_20 _qv_21))=(qreva (rev _qv_20) (rev _qv_21))))
+	(forall ((Lst) (Lst)) ((rev (qreva _qv_20 _qv_21))=(qreva (rev _qv_21) (rev _qv_20))))
+	(forall ((Lst) (Lst)) ((qrev (append _qv_22 _qv_23))=(append (qrev _qv_22) (qrev _qv_23))))
+	(forall ((Lst) (Lst)) ((qrev (append _qv_22 _qv_23))=(append (qrev _qv_23) (qrev _qv_22))))
+	(forall ((Lst) (Lst)) ((qrev (qreva _qv_24 _qv_25))=(qreva (qrev _qv_24) (qrev _qv_25))))
+	(forall ((Lst) (Lst)) ((qrev (qreva _qv_24 _qv_25))=(qreva (qrev _qv_25) (qrev _qv_24))))
+
+Simplified goal: (forall ((Lst) (Lst)) ((qreva x (rev y))=(rev (append y x))))
+
+
+Base case:       ((qreva nil (rev _v_26))=(rev (append _v_26 nil)))
+{
+  proven trivially
+}
+Inductive step:  ((qreva (cons _t_27 _t_28) (rev _v_26))=(rev (append _v_26 (cons _t_27 _t_28))))
+{
+  proven trivially
+}
+
+Proved
+unsat

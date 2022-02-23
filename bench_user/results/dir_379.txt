@@ -1,0 +1,1 @@
+./ind/benchmarks-dt/hipspec/sg/rev-equiv-goal7.smt2

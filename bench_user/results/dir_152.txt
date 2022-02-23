@@ -1,0 +1,1 @@
+./ind/benchmarks-dti/isaplanner/goal19.smt2

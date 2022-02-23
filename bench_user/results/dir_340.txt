@@ -1,0 +1,1 @@
+./ind/benchmarks-dt/leon/heap-goal3.smt2

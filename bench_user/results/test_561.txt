@@ -1,0 +1,134 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+	(forall ((Nat) (Nat)) ((plus _qv_1 _qv_2)=(plus _qv_2 _qv_1)))
+	(forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_3 _qv_4) _qv_5)=(plus _qv_3 (plus _qv_4 _qv_5))))
+	(forall ((Nat) (Nat)) ((mult _qv_6 _qv_7)=(mult _qv_7 _qv_6)))
+	(forall ((Nat) (Nat) (Nat)) ((mult (mult _qv_8 _qv_9) _qv_10)=(mult _qv_8 (mult _qv_9 _qv_10))))
+	(forall ((Nat) (Nat)) ((exp _qv_11 _qv_12)=(exp _qv_12 _qv_11)))
+	(forall ((Nat) (Nat) (Nat)) ((exp (exp _qv_13 _qv_14) _qv_15)=(exp _qv_13 (exp _qv_14 _qv_15))))
+	(forall ((Nat) (Nat) (Nat)) ((mult _qv_16 (plus _qv_17 _qv_18))=(plus (mult _qv_16 _qv_17) (mult _qv_16 _qv_18))))
+	(forall ((Nat) (Nat) (Nat)) ((exp _qv_19 (plus _qv_20 _qv_21))=(plus (exp _qv_19 _qv_20) (exp _qv_19 _qv_21))))
+	(forall ((Nat) (Nat) (Nat)) ((plus _qv_22 (mult _qv_23 _qv_24))=(mult (plus _qv_22 _qv_23) (plus _qv_22 _qv_24))))
+	(forall ((Nat) (Nat) (Nat)) ((exp _qv_25 (mult _qv_26 _qv_27))=(mult (exp _qv_25 _qv_26) (exp _qv_25 _qv_27))))
+	(forall ((Nat) (Nat) (Nat)) ((plus _qv_28 (exp _qv_29 _qv_30))=(exp (plus _qv_28 _qv_29) (plus _qv_28 _qv_30))))
+	(forall ((Nat) (Nat) (Nat)) ((mult _qv_31 (exp _qv_32 _qv_33))=(exp (mult _qv_31 _qv_32) (mult _qv_31 _qv_33))))
+	(forall ((Nat) (Nat)) ((succ (plus _qv_34 _qv_35))=(plus (succ _qv_34) (succ _qv_35))))
+	(forall ((Nat) (Nat)) ((succ (plus _qv_34 _qv_35))=(plus (succ _qv_35) (succ _qv_34))))
+	(forall ((Nat) (Nat)) ((succ (mult _qv_36 _qv_37))=(mult (succ _qv_36) (succ _qv_37))))
+	(forall ((Nat) (Nat)) ((succ (mult _qv_36 _qv_37))=(mult (succ _qv_37) (succ _qv_36))))
+	(forall ((Nat) (Nat)) ((succ (exp _qv_38 _qv_39))=(exp (succ _qv_38) (succ _qv_39))))
+	(forall ((Nat) (Nat)) ((succ (exp _qv_38 _qv_39))=(exp (succ _qv_39) (succ _qv_38))))
+
+Simplified goal: (forall ((Nat) (Nat) (Nat)) ((mult (exp x y) z)=(qexp x y z)))
+
+
+Base case:       ((mult (exp zero _v_40) _v_41)=(qexp zero _v_40 _v_41))
+{
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat)) ((plus zero _qv_1)=_qv_1))
+    | Assumptions [1]: (forall ((Nat) (Nat)) ((plus (succ _qv_2) _qv_3)=(succ (plus _qv_2 _qv_3))))
+    | Assumptions [2]: (forall ((Nat)) ((mult zero _qv_4)=zero))
+    | Assumptions [3]: (forall ((Nat) (Nat)) ((mult (succ _qv_5) _qv_6)=(plus (mult _qv_5 _qv_6) _qv_6)))
+    | Assumptions [4]: (forall ((Nat)) ((exp _qv_7 zero)=(succ zero)))
+    | Assumptions [5]: (forall ((Nat) (Nat)) ((exp _qv_8 (succ _qv_9))=(mult (exp _qv_8 _qv_9) _qv_8)))
+    | Assumptions [6]: (forall ((Nat) (Nat)) ((qexp _qv_10 zero _qv_11)=_qv_11))
+    | Assumptions [7]: (forall ((Nat) (Nat) (Nat)) ((qexp _qv_12 (succ _qv_13) _qv_14)=(qexp _qv_12 _qv_13 (mult _qv_14 _qv_12))))
+    | Assumptions [8]: (forall ((Nat) (Nat) (Nat)) ((mult (mult _qv_15 _qv_16) _qv_17)=(mult _qv_15 (mult _qv_16 _qv_17))))
+    ====================
+  }
+}
+
+Base case:       ((mult (exp _v_42 zero) _v_43)=(qexp _v_42 zero _v_43))
+{
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat)) ((plus zero _qv_1)=_qv_1))
+    | Assumptions [1]: (forall ((Nat) (Nat)) ((plus (succ _qv_2) _qv_3)=(succ (plus _qv_2 _qv_3))))
+    | Assumptions [2]: (forall ((Nat)) ((mult zero _qv_4)=zero))
+    | Assumptions [3]: (forall ((Nat) (Nat)) ((mult (succ _qv_5) _qv_6)=(plus (mult _qv_5 _qv_6) _qv_6)))
+    | Assumptions [4]: (forall ((Nat)) ((exp _qv_7 zero)=(succ zero)))
+    | Assumptions [5]: (forall ((Nat) (Nat)) ((exp _qv_8 (succ _qv_9))=(mult (exp _qv_8 _qv_9) _qv_8)))
+    | Assumptions [6]: (forall ((Nat) (Nat)) ((qexp _qv_10 zero _qv_11)=_qv_11))
+    | Assumptions [7]: (forall ((Nat) (Nat) (Nat)) ((qexp _qv_12 (succ _qv_13) _qv_14)=(qexp _qv_12 _qv_13 (mult _qv_14 _qv_12))))
+    | Assumptions [8]: (forall ((Nat) (Nat) (Nat)) ((mult (mult _qv_15 _qv_16) _qv_17)=(mult _qv_15 (mult _qv_16 _qv_17))))
+    ====================
+  }
+  rewritten [4]: ((mult (succ zero) _v_43)=(qexp _v_42 zero _v_43))
+  rewritten [3]: ((plus (mult zero _v_43) _v_43)=(qexp _v_42 zero _v_43))
+  rewritten [2]: ((plus zero _v_43)=(qexp _v_42 zero _v_43))
+  rewritten [0]: (_v_43=(qexp _v_42 zero _v_43))
+  applied [6]
+  rewriting done
+  rewriting done
+  rewriting done
+  rewriting done
+}
+Inductive step:  ((mult (exp _v_42 (succ _t_44)) _v_43)=(qexp _v_42 (succ _t_44) _v_43))
+{
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat)) ((plus zero _qv_1)=_qv_1))
+    | Assumptions [1]: (forall ((Nat) (Nat)) ((plus (succ _qv_2) _qv_3)=(succ (plus _qv_2 _qv_3))))
+    | Assumptions [2]: (forall ((Nat)) ((mult zero _qv_4)=zero))
+    | Assumptions [3]: (forall ((Nat) (Nat)) ((mult (succ _qv_5) _qv_6)=(plus (mult _qv_5 _qv_6) _qv_6)))
+    | Assumptions [4]: (forall ((Nat)) ((exp _qv_7 zero)=(succ zero)))
+    | Assumptions [5]: (forall ((Nat) (Nat)) ((exp _qv_8 (succ _qv_9))=(mult (exp _qv_8 _qv_9) _qv_8)))
+    | Assumptions [6]: (forall ((Nat) (Nat)) ((qexp _qv_10 zero _qv_11)=_qv_11))
+    | Assumptions [7]: (forall ((Nat) (Nat) (Nat)) ((qexp _qv_12 (succ _qv_13) _qv_14)=(qexp _qv_12 _qv_13 (mult _qv_14 _qv_12))))
+    | Assumptions [8]: (forall ((Nat) (Nat) (Nat)) ((mult (mult _qv_15 _qv_16) _qv_17)=(mult _qv_15 (mult _qv_16 _qv_17))))
+    | Assumptions [9]: (forall ((Nat) (Nat)) ((mult (exp x _t_44) z)=(qexp x _t_44 z)))
+    | Assumptions [10]: (forall ((Nat) (Nat)) ((qexp x _t_44 z)=(mult (exp x _t_44) z)))
+    ====================
+  }
+  rewritten [5]: ((mult (mult (exp _v_42 _t_44) _v_42) _v_43)=(qexp _v_42 (succ _t_44) _v_43))
+  rewritten [7]: ((mult (mult (exp _v_42 _t_44) _v_42) _v_43)=(qexp _v_42 _t_44 (mult _v_43 _v_42)))
+  rewritten [8]: ((mult (exp _v_42 _t_44) (mult _v_42 _v_43))=(qexp _v_42 _t_44 (mult _v_43 _v_42)))
+  rewritten [9]: ((qexp _v_42 _t_44 (mult _v_42 _v_43))=(qexp _v_42 _t_44 (mult _v_43 _v_42)))
+  rewritten [10]: ((qexp _v_42 _t_44 (mult _v_42 _v_43))=(mult (exp _v_42 _t_44) (mult _v_43 _v_42)))
+  rewritten [10]: ((mult (exp _v_42 _t_44) (mult _v_42 _v_43))=(mult (exp _v_42 _t_44) (mult _v_43 _v_42)))
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_46))=_qv_46))
+	(forall ((Nat) (Nat)) ((plus _qv_47 _qv_48)=(plus _qv_48 _qv_47)))
+	(forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_49 _qv_50) _qv_51)=(plus _qv_49 (plus _qv_50 _qv_51))))
+	(forall ((Nat) (Nat)) ((mult _qv_52 _qv_53)=(mult _qv_53 _qv_52)))
+	(forall ((Nat) (Nat) (Nat)) ((mult (mult _qv_54 _qv_55) _qv_56)=(mult _qv_54 (mult _qv_55 _qv_56))))
+	(forall ((Nat) (Nat)) ((exp _qv_57 _qv_58)=(exp _qv_58 _qv_57)))
+	(forall ((Nat) (Nat) (Nat)) ((exp (exp _qv_59 _qv_60) _qv_61)=(exp _qv_59 (exp _qv_60 _qv_61))))
+	(forall ((Nat) (Nat) (Nat)) ((mult _qv_62 (plus _qv_63 _qv_64))=(plus (mult _qv_62 _qv_63) (mult _qv_62 _qv_64))))
+	(forall ((Nat) (Nat) (Nat)) ((exp _qv_65 (plus _qv_66 _qv_67))=(plus (exp _qv_65 _qv_66) (exp _qv_65 _qv_67))))
+	(forall ((Nat) (Nat) (Nat)) ((plus _qv_68 (mult _qv_69 _qv_70))=(mult (plus _qv_68 _qv_69) (plus _qv_68 _qv_70))))
+	(forall ((Nat) (Nat) (Nat)) ((exp _qv_71 (mult _qv_72 _qv_73))=(mult (exp _qv_71 _qv_72) (exp _qv_71 _qv_73))))
+	(forall ((Nat) (Nat) (Nat)) ((plus _qv_74 (exp _qv_75 _qv_76))=(exp (plus _qv_74 _qv_75) (plus _qv_74 _qv_76))))
+	(forall ((Nat) (Nat) (Nat)) ((mult _qv_77 (exp _qv_78 _qv_79))=(exp (mult _qv_77 _qv_78) (mult _qv_77 _qv_79))))
+	(forall ((Nat) (Nat)) ((succ (plus _qv_80 _qv_81))=(plus (succ _qv_80) (succ _qv_81))))
+	(forall ((Nat) (Nat)) ((succ (plus _qv_80 _qv_81))=(plus (succ _qv_81) (succ _qv_80))))
+	(forall ((Nat) (Nat)) ((succ (mult _qv_82 _qv_83))=(mult (succ _qv_82) (succ _qv_83))))
+	(forall ((Nat) (Nat)) ((succ (mult _qv_82 _qv_83))=(mult (succ _qv_83) (succ _qv_82))))
+	(forall ((Nat) (Nat)) ((succ (exp _qv_84 _qv_85))=(exp (succ _qv_84) (succ _qv_85))))
+	(forall ((Nat) (Nat)) ((succ (exp _qv_84 _qv_85))=(exp (succ _qv_85) (succ _qv_84))))
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_89))=_qv_89))
+	(forall ((Nat) (Nat)) ((plus _qv_90 _qv_91)=(plus _qv_91 _qv_90)))
+	(forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_92 _qv_93) _qv_94)=(plus _qv_92 (plus _qv_93 _qv_94))))
+	(forall ((Nat) (Nat)) ((mult _qv_95 _qv_96)=(mult _qv_96 _qv_95)))
+	(forall ((Nat) (Nat) (Nat)) ((mult (mult _qv_97 _qv_98) _qv_99)=(mult _qv_97 (mult _qv_98 _qv_99))))
+	(forall ((Nat) (Nat)) ((exp _qv_100 _qv_101)=(exp _qv_101 _qv_100)))
+	(forall ((Nat) (Nat) (Nat)) ((exp (exp _qv_102 _qv_103) _qv_104)=(exp _qv_102 (exp _qv_103 _qv_104))))
+	(forall ((Nat) (Nat) (Nat)) ((mult _qv_105 (plus _qv_106 _qv_107))=(plus (mult _qv_105 _qv_106) (mult _qv_105 _qv_107))))
+	(forall ((Nat) (Nat) (Nat)) ((exp _qv_108 (plus _qv_109 _qv_110))=(plus (exp _qv_108 _qv_109) (exp _qv_108 _qv_110))))
+	(forall ((Nat) (Nat) (Nat)) ((plus _qv_111 (mult _qv_112 _qv_113))=(mult (plus _qv_111 _qv_112) (plus _qv_111 _qv_113))))
+	(forall ((Nat) (Nat) (Nat)) ((exp _qv_114 (mult _qv_115 _qv_116))=(mult (exp _qv_114 _qv_115) (exp _qv_114 _qv_116))))
+	(forall ((Nat) (Nat) (Nat)) ((plus _qv_117 (exp _qv_118 _qv_119))=(exp (plus _qv_117 _qv_118) (plus _qv_117 _qv_119))))
+	(forall ((Nat) (Nat) (Nat)) ((mult _qv_120 (exp _qv_121 _qv_122))=(exp (mult _qv_120 _qv_121) (mult _qv_120 _qv_122))))
+	(forall ((Nat) (Nat)) ((succ (plus _qv_123 _qv_124))=(plus (succ _qv_123) (succ _qv_124))))
+	(forall ((Nat) (Nat)) ((succ (plus _qv_123 _qv_124))=(plus (succ _qv_124) (succ _qv_123))))
+	(forall ((Nat) (Nat)) ((succ (mult _qv_125 _qv_126))=(mult (succ _qv_125) (succ _qv_126))))
+	(forall ((Nat) (Nat)) ((succ (mult _qv_125 _qv_126))=(mult (succ _qv_126) (succ _qv_125))))
+	(forall ((Nat) (Nat)) ((succ (exp _qv_127 _qv_128))=(exp (succ _qv_127) (succ _qv_128))))
+	(forall ((Nat) (Nat)) ((succ (exp _qv_127 _qv_128))=(exp (succ _qv_128) (succ _qv_127))))
+

@@ -1,0 +1,1069 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+
+Simplified goal: (forall ((Nat) (Nat)) (((m=n)||(less m n))->((m=(succ n))||(less m (succ n)))))
+
+
+Base case:       ((_v_2=(succ zero))||(less _v_2 (succ zero)))
+{
+  proven trivially
+}
+Inductive step:  ((_v_2=(succ (succ _t_3)))||(less _v_2 (succ (succ _t_3))))
+{
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+    | Assumptions [1]: (forall ((Nat)) (((m=_t_3)||(less m _t_3))->((m=(succ _t_3))||(less m (succ _t_3)))))
+    | Assumptions [2]: ((_v_2=(succ _t_3))||(less _v_2 (succ _t_3)))
+    | Assumptions [3]: (forall ((Nat)) (!(less _qv_1 zero)))
+    | Assumptions [4]: (forall ((Nat)) (less zero (succ _qv_2)))
+    ====================
+  }
+  split for (part 1/2): (_v_2=(succ _t_3))
+  {
+    {
+      ====================
+      | Assumptions [0]: true
+      | Assumptions [1]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+      | Assumptions [2]: (forall ((Nat)) (((m=_t_3)||(less m _t_3))->((m=(succ _t_3))||(less m (succ _t_3)))))
+      | Assumptions [3]: (forall ((Nat)) (!(less _qv_1 zero)))
+      | Assumptions [4]: (forall ((Nat)) (less zero (succ _qv_2)))
+      ====================
+    }
+    rewritten [1]: (((succ _t_3)=(succ (succ _t_3)))||(less _t_3 (succ _t_3)))
+    deciding: ((succ _t_3)=(succ (succ _t_3)))
+    {
+      ====================
+      | Assumptions [0]: true
+      | Assumptions [1]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+      | Assumptions [2]: (forall ((Nat)) (((m=_t_3)||(less m _t_3))->((m=(succ _t_3))||(less m (succ _t_3)))))
+      | Assumptions [3]: (forall ((Nat)) (!(less _qv_1 zero)))
+      | Assumptions [4]: (forall ((Nat)) (less zero (succ _qv_2)))
+      | Assumptions [5]: ((succ _t_3)!=(succ (succ _t_3)))
+      ====================
+    }
+    current subgoal: (less _t_3 (succ _t_3))
+    {
+    }
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_5))=_qv_5))
+	(forall ((Nat) (Nat)) ((less _qv_6 _qv_7)=(less _qv_7 _qv_6)))
+
+    proven by induction: (((succ _t_3)=(succ (succ _t_3)))||(less _t_3 (succ _t_3)))
+  }
+  split for (part 2/2): (less _v_2 (succ _t_3))
+  {
+    {
+      ====================
+      | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+      | Assumptions [1]: (forall ((Nat)) (((m=_t_3)||(less m _t_3))->((m=(succ _t_3))||(less m (succ _t_3)))))
+      | Assumptions [2]: (less _v_2 (succ _t_3))
+      | Assumptions [3]: (forall ((Nat)) (!(less _qv_1 zero)))
+      | Assumptions [4]: (forall ((Nat)) (less zero (succ _qv_2)))
+      ====================
+    }
+    deciding: (_v_2=(succ (succ _t_3)))
+    {
+      ====================
+      | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+      | Assumptions [1]: (forall ((Nat)) (((m=_t_3)||(less m _t_3))->((m=(succ _t_3))||(less m (succ _t_3)))))
+      | Assumptions [2]: (less _v_2 (succ _t_3))
+      | Assumptions [3]: (forall ((Nat)) (!(less _qv_1 zero)))
+      | Assumptions [4]: (forall ((Nat)) (less zero (succ _qv_2)))
+      | Assumptions [5]: (_v_2!=(succ (succ _t_3)))
+      ====================
+    }
+    current subgoal: (less _v_2 (succ (succ _t_3)))
+    {
+    }
+  }
+  unable to succeed
+  deciding: (_v_2=(succ (succ _t_3)))
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+    | Assumptions [1]: (forall ((Nat)) (((m=_t_3)||(less m _t_3))->((m=(succ _t_3))||(less m (succ _t_3)))))
+    | Assumptions [2]: ((_v_2=(succ _t_3))||(less _v_2 (succ _t_3)))
+    | Assumptions [3]: (forall ((Nat)) (!(less _qv_1 zero)))
+    | Assumptions [4]: (forall ((Nat)) (less zero (succ _qv_2)))
+    | Assumptions [5]: (_v_2!=(succ (succ _t_3)))
+    ====================
+  }
+  current subgoal: (less _v_2 (succ (succ _t_3)))
+  {
+    split for (part 1/2): (_v_2=(succ _t_3))
+    {
+      {
+        ====================
+        | Assumptions [0]: true
+        | Assumptions [1]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [2]: (forall ((Nat)) (((m=_t_3)||(less m _t_3))->((m=(succ _t_3))||(less m (succ _t_3)))))
+        | Assumptions [3]: (forall ((Nat)) (!(less _qv_1 zero)))
+        | Assumptions [4]: (forall ((Nat)) (less zero (succ _qv_2)))
+        | Assumptions [5]: ((succ _t_3)!=(succ (succ _t_3)))
+        ====================
+      }
+      rewritten [1]: (less _t_3 (succ _t_3))
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_5))=_qv_5))
+	(forall ((Nat) (Nat)) ((less _qv_6 _qv_7)=(less _qv_7 _qv_6)))
+
+      proven by induction: (less _t_3 (succ _t_3))
+    }
+    split for (part 2/2): (less _v_2 (succ _t_3))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat)) (((m=_t_3)||(less m _t_3))->((m=(succ _t_3))||(less m (succ _t_3)))))
+        | Assumptions [2]: (less _v_2 (succ _t_3))
+        | Assumptions [3]: (forall ((Nat)) (!(less _qv_1 zero)))
+        | Assumptions [4]: (forall ((Nat)) (less zero (succ _qv_2)))
+        | Assumptions [5]: (_v_2!=(succ (succ _t_3)))
+        ====================
+      }
+    }
+    unable to succeed
+  }
+
+Base case:       ((zero=(succ _v_5))||(less zero (succ _v_5)))
+{
+  proven trivially
+}
+Inductive step:  (((succ _t_6)=(succ _v_5))||(less (succ _t_6) (succ _v_5)))
+{
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+    | Assumptions [1]: (forall ((Nat)) (((m=_t_3)||(less m _t_3))->((m=(succ _t_3))||(less m (succ _t_3)))))
+    | Assumptions [2]: ((_v_2=(succ _t_3))||(less _v_2 (succ _t_3)))
+    | Assumptions [3]: (forall ((Nat)) (!(less _qv_1 zero)))
+    | Assumptions [4]: (forall ((Nat)) (less zero (succ _qv_2)))
+    | Assumptions [5]: (forall ((Nat)) (((_t_6=n)||(less _t_6 n))->((_t_6=(succ n))||(less _t_6 (succ n)))))
+    | Assumptions [6]: (((succ _t_6)=_v_5)||(less (succ _t_6) _v_5))
+    ====================
+  }
+  rewritten [0]: (((succ _t_6)=(succ _v_5))||(less _t_6 _v_5))
+  split for (part 1/2): (_v_2=(succ _t_3))
+  {
+    {
+      ====================
+      | Assumptions [0]: true
+      | Assumptions [1]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+      | Assumptions [2]: (forall ((Nat)) (((m=_t_3)||(less m _t_3))->((m=(succ _t_3))||(less m (succ _t_3)))))
+      | Assumptions [3]: (forall ((Nat)) (!(less _qv_1 zero)))
+      | Assumptions [4]: (forall ((Nat)) (less zero (succ _qv_2)))
+      | Assumptions [5]: (forall ((Nat)) (((_t_6=n)||(less _t_6 n))->((_t_6=(succ n))||(less _t_6 (succ n)))))
+      | Assumptions [6]: (((succ _t_6)=_v_5)||(less (succ _t_6) _v_5))
+      ====================
+    }
+    split for (part 1/2): ((succ _t_6)=_v_5)
+    {
+      {
+        ====================
+        | Assumptions [0]: true
+        | Assumptions [1]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [2]: (forall ((Nat)) (((m=_t_3)||(less m _t_3))->((m=(succ _t_3))||(less m (succ _t_3)))))
+        | Assumptions [3]: (forall ((Nat)) (!(less _qv_1 zero)))
+        | Assumptions [4]: (forall ((Nat)) (less zero (succ _qv_2)))
+        | Assumptions [5]: (forall ((Nat)) (((_t_6=n)||(less _t_6 n))->((_t_6=(succ n))||(less _t_6 (succ n)))))
+        ====================
+      }
+      deciding: ((succ _t_6)=(succ (succ _t_6)))
+      {
+        ====================
+        | Assumptions [0]: true
+        | Assumptions [1]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [2]: (forall ((Nat)) (((m=_t_3)||(less m _t_3))->((m=(succ _t_3))||(less m (succ _t_3)))))
+        | Assumptions [3]: (forall ((Nat)) (!(less _qv_1 zero)))
+        | Assumptions [4]: (forall ((Nat)) (less zero (succ _qv_2)))
+        | Assumptions [5]: (forall ((Nat)) (((_t_6=n)||(less _t_6 n))->((_t_6=(succ n))||(less _t_6 (succ n)))))
+        | Assumptions [6]: ((succ _t_6)!=(succ (succ _t_6)))
+        ====================
+      }
+      current subgoal: (less _t_6 (succ _t_6))
+      {
+      }
+    }
+    unable to succeed
+    deciding: ((succ _t_6)=(succ _v_5))
+    {
+      ====================
+      | Assumptions [0]: true
+      | Assumptions [1]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+      | Assumptions [2]: (forall ((Nat)) (((m=_t_3)||(less m _t_3))->((m=(succ _t_3))||(less m (succ _t_3)))))
+      | Assumptions [3]: (forall ((Nat)) (!(less _qv_1 zero)))
+      | Assumptions [4]: (forall ((Nat)) (less zero (succ _qv_2)))
+      | Assumptions [5]: (forall ((Nat)) (((_t_6=n)||(less _t_6 n))->((_t_6=(succ n))||(less _t_6 (succ n)))))
+      | Assumptions [6]: (((succ _t_6)=_v_5)||(less (succ _t_6) _v_5))
+      | Assumptions [7]: ((succ _t_6)!=(succ _v_5))
+      ====================
+    }
+    current subgoal: (less _t_6 _v_5)
+    {
+      split for (part 1/2): ((succ _t_6)=_v_5)
+      {
+        {
+          ====================
+          | Assumptions [0]: true
+          | Assumptions [1]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+          | Assumptions [2]: (forall ((Nat)) (((m=_t_3)||(less m _t_3))->((m=(succ _t_3))||(less m (succ _t_3)))))
+          | Assumptions [3]: (forall ((Nat)) (!(less _qv_1 zero)))
+          | Assumptions [4]: (forall ((Nat)) (less zero (succ _qv_2)))
+          | Assumptions [5]: (forall ((Nat)) (((_t_6=n)||(less _t_6 n))->((_t_6=(succ n))||(less _t_6 (succ n)))))
+          | Assumptions [6]: ((succ _t_6)!=(succ (succ _t_6)))
+          ====================
+        }
+      }
+      unable to succeed
+    }
+  }
+  unable to succeed
+  deciding: ((succ _t_6)=(succ _v_5))
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+    | Assumptions [1]: (forall ((Nat)) (((m=_t_3)||(less m _t_3))->((m=(succ _t_3))||(less m (succ _t_3)))))
+    | Assumptions [2]: ((_v_2=(succ _t_3))||(less _v_2 (succ _t_3)))
+    | Assumptions [3]: (forall ((Nat)) (!(less _qv_1 zero)))
+    | Assumptions [4]: (forall ((Nat)) (less zero (succ _qv_2)))
+    | Assumptions [5]: (forall ((Nat)) (((_t_6=n)||(less _t_6 n))->((_t_6=(succ n))||(less _t_6 (succ n)))))
+    | Assumptions [6]: (((succ _t_6)=_v_5)||(less (succ _t_6) _v_5))
+    | Assumptions [7]: ((succ _t_6)!=(succ _v_5))
+    ====================
+  }
+  current subgoal: (less _t_6 _v_5)
+  {
+    split for (part 1/2): (_v_2=(succ _t_3))
+    {
+      {
+        ====================
+        | Assumptions [0]: true
+        | Assumptions [1]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [2]: (forall ((Nat)) (((m=_t_3)||(less m _t_3))->((m=(succ _t_3))||(less m (succ _t_3)))))
+        | Assumptions [3]: (forall ((Nat)) (!(less _qv_1 zero)))
+        | Assumptions [4]: (forall ((Nat)) (less zero (succ _qv_2)))
+        | Assumptions [5]: (forall ((Nat)) (((_t_6=n)||(less _t_6 n))->((_t_6=(succ n))||(less _t_6 (succ n)))))
+        | Assumptions [6]: (((succ _t_6)=_v_5)||(less (succ _t_6) _v_5))
+        | Assumptions [7]: ((succ _t_6)!=(succ _v_5))
+        ====================
+      }
+      split for (part 1/2): ((succ _t_6)=_v_5)
+      {
+        {
+          ====================
+          | Assumptions [0]: true
+          | Assumptions [1]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+          | Assumptions [2]: (forall ((Nat)) (((m=_t_3)||(less m _t_3))->((m=(succ _t_3))||(less m (succ _t_3)))))
+          | Assumptions [3]: (forall ((Nat)) (!(less _qv_1 zero)))
+          | Assumptions [4]: (forall ((Nat)) (less zero (succ _qv_2)))
+          | Assumptions [5]: (forall ((Nat)) (((_t_6=n)||(less _t_6 n))->((_t_6=(succ n))||(less _t_6 (succ n)))))
+          | Assumptions [6]: ((succ _t_6)!=(succ (succ _t_6)))
+          ====================
+        }
+      }
+      unable to succeed
+    }
+    unable to succeed
+  }
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_7))=_qv_7))
+	(forall ((Nat) (Nat)) ((less _qv_8 _qv_9)=(less _qv_9 _qv_8)))
+
+CURRENT SUBGOAL (((succ _t_6)=(succ _v_5))||(less (succ _t_6) (succ _v_5)))
+NOW TESTING (forall ((Nat) (Nat)) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+  backtrack to: (((succ _t_6)=(succ _v_5))||(less (succ _t_6) (succ _v_5)))
+  split for (part 1/2): (_v_2=(succ _t_3))
+  {
+    {
+      ====================
+      | Assumptions [0]: true
+      | Assumptions [1]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+      | Assumptions [2]: (forall ((Nat)) (((m=_t_3)||(less m _t_3))->((m=(succ _t_3))||(less m (succ _t_3)))))
+      | Assumptions [3]: (forall ((Nat)) (!(less _qv_1 zero)))
+      | Assumptions [4]: (forall ((Nat)) (less zero (succ _qv_2)))
+      | Assumptions [5]: (forall ((Nat)) (((_t_6=n)||(less _t_6 n))->((_t_6=(succ n))||(less _t_6 (succ n)))))
+      | Assumptions [6]: (((succ _t_6)=_v_5)||(less (succ _t_6) _v_5))
+      ====================
+    }
+    rewritten [1]: (((succ _t_6)=(succ _v_5))||(less _t_6 _v_5))
+    split for (part 1/2): ((succ _t_6)=_v_5)
+    {
+      {
+        ====================
+        | Assumptions [0]: true
+        | Assumptions [1]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [2]: (forall ((Nat)) (((m=_t_3)||(less m _t_3))->((m=(succ _t_3))||(less m (succ _t_3)))))
+        | Assumptions [3]: (forall ((Nat)) (!(less _qv_1 zero)))
+        | Assumptions [4]: (forall ((Nat)) (less zero (succ _qv_2)))
+        | Assumptions [5]: (forall ((Nat)) (((_t_6=n)||(less _t_6 n))->((_t_6=(succ n))||(less _t_6 (succ n)))))
+        ====================
+      }
+      deciding: (less _t_6 (succ _t_6))
+      {
+        ====================
+        | Assumptions [0]: true
+        | Assumptions [1]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [2]: (forall ((Nat)) (((m=_t_3)||(less m _t_3))->((m=(succ _t_3))||(less m (succ _t_3)))))
+        | Assumptions [3]: (forall ((Nat)) (!(less _qv_1 zero)))
+        | Assumptions [4]: (forall ((Nat)) (less zero (succ _qv_2)))
+        | Assumptions [5]: (forall ((Nat)) (((_t_6=n)||(less _t_6 n))->((_t_6=(succ n))||(less _t_6 (succ n)))))
+        | Assumptions [6]: (!(less _t_6 (succ _t_6)))
+        ====================
+      }
+      current subgoal: ((succ _t_6)=(succ (succ _t_6)))
+      {
+      }
+    }
+    unable to succeed
+    deciding: ((succ _t_6)=(succ _v_5))
+    {
+      ====================
+      | Assumptions [0]: true
+      | Assumptions [1]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+      | Assumptions [2]: (forall ((Nat)) (((m=_t_3)||(less m _t_3))->((m=(succ _t_3))||(less m (succ _t_3)))))
+      | Assumptions [3]: (forall ((Nat)) (!(less _qv_1 zero)))
+      | Assumptions [4]: (forall ((Nat)) (less zero (succ _qv_2)))
+      | Assumptions [5]: (forall ((Nat)) (((_t_6=n)||(less _t_6 n))->((_t_6=(succ n))||(less _t_6 (succ n)))))
+      | Assumptions [6]: (((succ _t_6)=_v_5)||(less (succ _t_6) _v_5))
+      | Assumptions [7]: ((succ _t_6)!=(succ _v_5))
+      ====================
+    }
+    current subgoal: (less _t_6 _v_5)
+    {
+      split for (part 1/2): ((succ _t_6)=_v_5)
+      {
+        {
+          ====================
+          | Assumptions [0]: true
+          | Assumptions [1]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+          | Assumptions [2]: (forall ((Nat)) (((m=_t_3)||(less m _t_3))->((m=(succ _t_3))||(less m (succ _t_3)))))
+          | Assumptions [3]: (forall ((Nat)) (!(less _qv_1 zero)))
+          | Assumptions [4]: (forall ((Nat)) (less zero (succ _qv_2)))
+          | Assumptions [5]: (forall ((Nat)) (((_t_6=n)||(less _t_6 n))->((_t_6=(succ n))||(less _t_6 (succ n)))))
+          | Assumptions [6]: ((succ _t_6)!=(succ (succ _t_6)))
+          ====================
+        }
+      }
+      unable to succeed
+    }
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_7))=_qv_7))
+	(forall ((Nat) (Nat)) ((less _qv_8 _qv_9)=(less _qv_9 _qv_8)))
+
+CURRENT SUBGOAL (((succ _t_6)=(succ _v_5))||(less (succ _t_6) (succ _v_5)))
+NOW TESTING (forall ((Nat) (Nat)) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+    backtrack to: (((succ _t_6)=(succ _v_5))||(less (succ _t_6) (succ _v_5)))
+    split for (part 1/2): ((succ _t_6)=_v_5)
+    {
+      {
+        ====================
+        | Assumptions [0]: true
+        | Assumptions [1]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [2]: (forall ((Nat)) (((m=_t_3)||(less m _t_3))->((m=(succ _t_3))||(less m (succ _t_3)))))
+        | Assumptions [3]: (forall ((Nat)) (!(less _qv_1 zero)))
+        | Assumptions [4]: (forall ((Nat)) (less zero (succ _qv_2)))
+        | Assumptions [5]: (forall ((Nat)) (((_t_6=n)||(less _t_6 n))->((_t_6=(succ n))||(less _t_6 (succ n)))))
+        ====================
+      }
+      rewritten [1]: (((succ _t_6)=(succ (succ _t_6)))||(less _t_6 (succ _t_6)))
+      deciding: (less _t_6 (succ _t_6))
+      {
+        ====================
+        | Assumptions [0]: true
+        | Assumptions [1]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [2]: (forall ((Nat)) (((m=_t_3)||(less m _t_3))->((m=(succ _t_3))||(less m (succ _t_3)))))
+        | Assumptions [3]: (forall ((Nat)) (!(less _qv_1 zero)))
+        | Assumptions [4]: (forall ((Nat)) (less zero (succ _qv_2)))
+        | Assumptions [5]: (forall ((Nat)) (((_t_6=n)||(less _t_6 n))->((_t_6=(succ n))||(less _t_6 (succ n)))))
+        | Assumptions [6]: (!(less _t_6 (succ _t_6)))
+        ====================
+      }
+      current subgoal: ((succ _t_6)=(succ (succ _t_6)))
+      {
+      }
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_8))=_qv_8))
+	(forall ((Nat) (Nat)) ((less _qv_9 _qv_10)=(less _qv_10 _qv_9)))
+
+      proven by induction: (((succ _t_6)=(succ (succ _t_6)))||(less _t_6 (succ _t_6)))
+    }
+    split for (part 2/2): (less (succ _t_6) _v_5)
+    {
+      {
+        ====================
+        | Assumptions [0]: true
+        | Assumptions [1]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [2]: (forall ((Nat)) (((m=_t_3)||(less m _t_3))->((m=(succ _t_3))||(less m (succ _t_3)))))
+        | Assumptions [3]: (forall ((Nat)) (!(less _qv_1 zero)))
+        | Assumptions [4]: (forall ((Nat)) (less zero (succ _qv_2)))
+        | Assumptions [5]: (forall ((Nat)) (((_t_6=n)||(less _t_6 n))->((_t_6=(succ n))||(less _t_6 (succ n)))))
+        | Assumptions [6]: (less (succ _t_6) _v_5)
+        ====================
+      }
+      rewritten [1]: (((succ _t_6)=(succ _v_5))||(less _t_6 _v_5))
+      deciding: ((succ _t_6)=(succ _v_5))
+      {
+        ====================
+        | Assumptions [0]: true
+        | Assumptions [1]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [2]: (forall ((Nat)) (((m=_t_3)||(less m _t_3))->((m=(succ _t_3))||(less m (succ _t_3)))))
+        | Assumptions [3]: (forall ((Nat)) (!(less _qv_1 zero)))
+        | Assumptions [4]: (forall ((Nat)) (less zero (succ _qv_2)))
+        | Assumptions [5]: (forall ((Nat)) (((_t_6=n)||(less _t_6 n))->((_t_6=(succ n))||(less _t_6 (succ n)))))
+        | Assumptions [6]: (less (succ _t_6) _v_5)
+        | Assumptions [7]: ((succ _t_6)!=(succ _v_5))
+        ====================
+      }
+      current subgoal: (less _t_6 _v_5)
+      {
+      }
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_8))=_qv_8))
+	(forall ((Nat) (Nat)) ((less _qv_9 _qv_10)=(less _qv_10 _qv_9)))
+
+CURRENT SUBGOAL (((succ _t_6)=(succ _v_5))||(less (succ _t_6) (succ _v_5)))
+NOW TESTING (forall ((Nat) (Nat)) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+      backtrack to: (((succ _t_6)=(succ _v_5))||(less (succ _t_6) (succ _v_5)))
+      rewritten [1]: (((succ _t_6)=(succ _v_5))||(less _t_6 _v_5))
+      deciding: ((succ _t_6)=(succ _v_5))
+      {
+        ====================
+        | Assumptions [0]: true
+        | Assumptions [1]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [2]: (forall ((Nat)) (((m=_t_3)||(less m _t_3))->((m=(succ _t_3))||(less m (succ _t_3)))))
+        | Assumptions [3]: (forall ((Nat)) (!(less _qv_1 zero)))
+        | Assumptions [4]: (forall ((Nat)) (less zero (succ _qv_2)))
+        | Assumptions [5]: (forall ((Nat)) (((_t_6=n)||(less _t_6 n))->((_t_6=(succ n))||(less _t_6 (succ n)))))
+        | Assumptions [6]: (less (succ _t_6) _v_5)
+        | Assumptions [7]: ((succ _t_6)!=(succ _v_5))
+        ====================
+      }
+      current subgoal: (less _t_6 _v_5)
+      {
+      }
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_8))=_qv_8))
+	(forall ((Nat) (Nat)) ((less _qv_9 _qv_10)=(less _qv_10 _qv_9)))
+
+CURRENT SUBGOAL (((succ _t_6)=(succ _v_5))||(less (succ _t_6) (succ _v_5)))
+NOW TESTING (forall ((Nat) (Nat)) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+      backtrack to: (((succ _t_6)=(succ _v_5))||(less (succ _t_6) (succ _v_5)))
+      deciding: ((succ _t_6)=(succ _v_5))
+      {
+        ====================
+        | Assumptions [0]: true
+        | Assumptions [1]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [2]: (forall ((Nat)) (((m=_t_3)||(less m _t_3))->((m=(succ _t_3))||(less m (succ _t_3)))))
+        | Assumptions [3]: (forall ((Nat)) (!(less _qv_1 zero)))
+        | Assumptions [4]: (forall ((Nat)) (less zero (succ _qv_2)))
+        | Assumptions [5]: (forall ((Nat)) (((_t_6=n)||(less _t_6 n))->((_t_6=(succ n))||(less _t_6 (succ n)))))
+        | Assumptions [6]: (less (succ _t_6) _v_5)
+        | Assumptions [7]: ((succ _t_6)!=(succ _v_5))
+        ====================
+      }
+      current subgoal: (less (succ _t_6) (succ _v_5))
+      {
+        rewritten [1]: (less _t_6 _v_5)
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_8))=_qv_8))
+	(forall ((Nat) (Nat)) ((less _qv_9 _qv_10)=(less _qv_10 _qv_9)))
+
+CURRENT SUBGOAL (less (succ _t_6) (succ _v_5))
+NOW TESTING (forall ((Nat) (Nat)) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+        backtrack to: (less (succ _t_6) (succ _v_5))
+        rewritten [1]: (less _t_6 _v_5)
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_8))=_qv_8))
+	(forall ((Nat) (Nat)) ((less _qv_9 _qv_10)=(less _qv_10 _qv_9)))
+
+CURRENT SUBGOAL (less (succ _t_6) (succ _v_5))
+NOW TESTING (forall ((Nat) (Nat)) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+        backtrack to: (less (succ _t_6) (succ _v_5))
+      }
+    }
+    unable to succeed
+    rewritten [1]: (((succ _t_6)=(succ _v_5))||(less _t_6 _v_5))
+    split for (part 1/2): ((succ _t_6)=_v_5)
+    {
+      {
+        ====================
+        | Assumptions [0]: true
+        | Assumptions [1]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [2]: (forall ((Nat)) (((m=_t_3)||(less m _t_3))->((m=(succ _t_3))||(less m (succ _t_3)))))
+        | Assumptions [3]: (forall ((Nat)) (!(less _qv_1 zero)))
+        | Assumptions [4]: (forall ((Nat)) (less zero (succ _qv_2)))
+        | Assumptions [5]: (forall ((Nat)) (((_t_6=n)||(less _t_6 n))->((_t_6=(succ n))||(less _t_6 (succ n)))))
+        ====================
+      }
+      deciding: (less _t_6 (succ _t_6))
+      {
+        ====================
+        | Assumptions [0]: true
+        | Assumptions [1]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [2]: (forall ((Nat)) (((m=_t_3)||(less m _t_3))->((m=(succ _t_3))||(less m (succ _t_3)))))
+        | Assumptions [3]: (forall ((Nat)) (!(less _qv_1 zero)))
+        | Assumptions [4]: (forall ((Nat)) (less zero (succ _qv_2)))
+        | Assumptions [5]: (forall ((Nat)) (((_t_6=n)||(less _t_6 n))->((_t_6=(succ n))||(less _t_6 (succ n)))))
+        | Assumptions [6]: (!(less _t_6 (succ _t_6)))
+        ====================
+      }
+      current subgoal: ((succ _t_6)=(succ (succ _t_6)))
+      {
+      }
+    }
+    unable to succeed
+    deciding: ((succ _t_6)=(succ _v_5))
+    {
+      ====================
+      | Assumptions [0]: true
+      | Assumptions [1]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+      | Assumptions [2]: (forall ((Nat)) (((m=_t_3)||(less m _t_3))->((m=(succ _t_3))||(less m (succ _t_3)))))
+      | Assumptions [3]: (forall ((Nat)) (!(less _qv_1 zero)))
+      | Assumptions [4]: (forall ((Nat)) (less zero (succ _qv_2)))
+      | Assumptions [5]: (forall ((Nat)) (((_t_6=n)||(less _t_6 n))->((_t_6=(succ n))||(less _t_6 (succ n)))))
+      | Assumptions [6]: (((succ _t_6)=_v_5)||(less (succ _t_6) _v_5))
+      | Assumptions [7]: ((succ _t_6)!=(succ _v_5))
+      ====================
+    }
+    current subgoal: (less _t_6 _v_5)
+    {
+      split for (part 1/2): ((succ _t_6)=_v_5)
+      {
+        {
+          ====================
+          | Assumptions [0]: true
+          | Assumptions [1]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+          | Assumptions [2]: (forall ((Nat)) (((m=_t_3)||(less m _t_3))->((m=(succ _t_3))||(less m (succ _t_3)))))
+          | Assumptions [3]: (forall ((Nat)) (!(less _qv_1 zero)))
+          | Assumptions [4]: (forall ((Nat)) (less zero (succ _qv_2)))
+          | Assumptions [5]: (forall ((Nat)) (((_t_6=n)||(less _t_6 n))->((_t_6=(succ n))||(less _t_6 (succ n)))))
+          | Assumptions [6]: ((succ _t_6)!=(succ (succ _t_6)))
+          ====================
+        }
+      }
+      unable to succeed
+    }
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_8))=_qv_8))
+	(forall ((Nat) (Nat)) ((less _qv_9 _qv_10)=(less _qv_10 _qv_9)))
+
+CURRENT SUBGOAL (((succ _t_6)=(succ _v_5))||(less (succ _t_6) (succ _v_5)))
+NOW TESTING (forall ((Nat) (Nat)) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+    backtrack to: (((succ _t_6)=(succ _v_5))||(less (succ _t_6) (succ _v_5)))
+    deciding: ((succ _t_6)=(succ _v_5))
+    {
+      ====================
+      | Assumptions [0]: true
+      | Assumptions [1]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+      | Assumptions [2]: (forall ((Nat)) (((m=_t_3)||(less m _t_3))->((m=(succ _t_3))||(less m (succ _t_3)))))
+      | Assumptions [3]: (forall ((Nat)) (!(less _qv_1 zero)))
+      | Assumptions [4]: (forall ((Nat)) (less zero (succ _qv_2)))
+      | Assumptions [5]: (forall ((Nat)) (((_t_6=n)||(less _t_6 n))->((_t_6=(succ n))||(less _t_6 (succ n)))))
+      | Assumptions [6]: (((succ _t_6)=_v_5)||(less (succ _t_6) _v_5))
+      | Assumptions [7]: ((succ _t_6)!=(succ _v_5))
+      ====================
+    }
+    current subgoal: (less (succ _t_6) (succ _v_5))
+    {
+      rewritten [1]: (less _t_6 _v_5)
+      split for (part 1/2): ((succ _t_6)=_v_5)
+      {
+        {
+          ====================
+          | Assumptions [0]: true
+          | Assumptions [1]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+          | Assumptions [2]: (forall ((Nat)) (((m=_t_3)||(less m _t_3))->((m=(succ _t_3))||(less m (succ _t_3)))))
+          | Assumptions [3]: (forall ((Nat)) (!(less _qv_1 zero)))
+          | Assumptions [4]: (forall ((Nat)) (less zero (succ _qv_2)))
+          | Assumptions [5]: (forall ((Nat)) (((_t_6=n)||(less _t_6 n))->((_t_6=(succ n))||(less _t_6 (succ n)))))
+          | Assumptions [6]: ((succ _t_6)!=(succ (succ _t_6)))
+          ====================
+        }
+      }
+      unable to succeed
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_8))=_qv_8))
+	(forall ((Nat) (Nat)) ((less _qv_9 _qv_10)=(less _qv_10 _qv_9)))
+
+CURRENT SUBGOAL (less (succ _t_6) (succ _v_5))
+NOW TESTING (forall ((Nat) (Nat)) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+      backtrack to: (less (succ _t_6) (succ _v_5))
+      split for (part 1/2): ((succ _t_6)=_v_5)
+      {
+        {
+          ====================
+          | Assumptions [0]: true
+          | Assumptions [1]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+          | Assumptions [2]: (forall ((Nat)) (((m=_t_3)||(less m _t_3))->((m=(succ _t_3))||(less m (succ _t_3)))))
+          | Assumptions [3]: (forall ((Nat)) (!(less _qv_1 zero)))
+          | Assumptions [4]: (forall ((Nat)) (less zero (succ _qv_2)))
+          | Assumptions [5]: (forall ((Nat)) (((_t_6=n)||(less _t_6 n))->((_t_6=(succ n))||(less _t_6 (succ n)))))
+          | Assumptions [6]: ((succ _t_6)!=(succ (succ _t_6)))
+          ====================
+        }
+        rewritten [1]: (less _t_6 (succ _t_6))
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_8))=_qv_8))
+	(forall ((Nat) (Nat)) ((less _qv_9 _qv_10)=(less _qv_10 _qv_9)))
+
+        proven by induction: (less _t_6 (succ _t_6))
+      }
+      split for (part 2/2): (less (succ _t_6) _v_5)
+      {
+        {
+          ====================
+          | Assumptions [0]: true
+          | Assumptions [1]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+          | Assumptions [2]: (forall ((Nat)) (((m=_t_3)||(less m _t_3))->((m=(succ _t_3))||(less m (succ _t_3)))))
+          | Assumptions [3]: (forall ((Nat)) (!(less _qv_1 zero)))
+          | Assumptions [4]: (forall ((Nat)) (less zero (succ _qv_2)))
+          | Assumptions [5]: (forall ((Nat)) (((_t_6=n)||(less _t_6 n))->((_t_6=(succ n))||(less _t_6 (succ n)))))
+          | Assumptions [6]: (less (succ _t_6) _v_5)
+          | Assumptions [7]: ((succ _t_6)!=(succ _v_5))
+          ====================
+        }
+        rewritten [1]: (less _t_6 _v_5)
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_8))=_qv_8))
+	(forall ((Nat) (Nat)) ((less _qv_9 _qv_10)=(less _qv_10 _qv_9)))
+
+CURRENT SUBGOAL (less (succ _t_6) (succ _v_5))
+NOW TESTING (forall ((Nat) (Nat)) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+        backtrack to: (less (succ _t_6) (succ _v_5))
+        rewritten [1]: (less _t_6 _v_5)
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_8))=_qv_8))
+	(forall ((Nat) (Nat)) ((less _qv_9 _qv_10)=(less _qv_10 _qv_9)))
+
+CURRENT SUBGOAL (less (succ _t_6) (succ _v_5))
+NOW TESTING (forall ((Nat) (Nat)) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+        backtrack to: (less (succ _t_6) (succ _v_5))
+      }
+      unable to succeed
+      rewritten [1]: (less _t_6 _v_5)
+      split for (part 1/2): ((succ _t_6)=_v_5)
+      {
+        {
+          ====================
+          | Assumptions [0]: true
+          | Assumptions [1]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+          | Assumptions [2]: (forall ((Nat)) (((m=_t_3)||(less m _t_3))->((m=(succ _t_3))||(less m (succ _t_3)))))
+          | Assumptions [3]: (forall ((Nat)) (!(less _qv_1 zero)))
+          | Assumptions [4]: (forall ((Nat)) (less zero (succ _qv_2)))
+          | Assumptions [5]: (forall ((Nat)) (((_t_6=n)||(less _t_6 n))->((_t_6=(succ n))||(less _t_6 (succ n)))))
+          | Assumptions [6]: ((succ _t_6)!=(succ (succ _t_6)))
+          ====================
+        }
+      }
+      unable to succeed
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_8))=_qv_8))
+	(forall ((Nat) (Nat)) ((less _qv_9 _qv_10)=(less _qv_10 _qv_9)))
+
+CURRENT SUBGOAL (less (succ _t_6) (succ _v_5))
+NOW TESTING (forall ((Nat) (Nat)) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+      backtrack to: (less (succ _t_6) (succ _v_5))
+    }
+  }
+  unable to succeed
+  rewritten [0]: (((succ _t_6)=(succ _v_5))||(less _t_6 _v_5))
+  split for (part 1/2): (_v_2=(succ _t_3))
+  {
+    {
+      ====================
+      | Assumptions [0]: true
+      | Assumptions [1]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+      | Assumptions [2]: (forall ((Nat)) (((m=_t_3)||(less m _t_3))->((m=(succ _t_3))||(less m (succ _t_3)))))
+      | Assumptions [3]: (forall ((Nat)) (!(less _qv_1 zero)))
+      | Assumptions [4]: (forall ((Nat)) (less zero (succ _qv_2)))
+      | Assumptions [5]: (forall ((Nat)) (((_t_6=n)||(less _t_6 n))->((_t_6=(succ n))||(less _t_6 (succ n)))))
+      | Assumptions [6]: (((succ _t_6)=_v_5)||(less (succ _t_6) _v_5))
+      ====================
+    }
+    split for (part 1/2): ((succ _t_6)=_v_5)
+    {
+      {
+        ====================
+        | Assumptions [0]: true
+        | Assumptions [1]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [2]: (forall ((Nat)) (((m=_t_3)||(less m _t_3))->((m=(succ _t_3))||(less m (succ _t_3)))))
+        | Assumptions [3]: (forall ((Nat)) (!(less _qv_1 zero)))
+        | Assumptions [4]: (forall ((Nat)) (less zero (succ _qv_2)))
+        | Assumptions [5]: (forall ((Nat)) (((_t_6=n)||(less _t_6 n))->((_t_6=(succ n))||(less _t_6 (succ n)))))
+        ====================
+      }
+      deciding: (less _t_6 (succ _t_6))
+      {
+        ====================
+        | Assumptions [0]: true
+        | Assumptions [1]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [2]: (forall ((Nat)) (((m=_t_3)||(less m _t_3))->((m=(succ _t_3))||(less m (succ _t_3)))))
+        | Assumptions [3]: (forall ((Nat)) (!(less _qv_1 zero)))
+        | Assumptions [4]: (forall ((Nat)) (less zero (succ _qv_2)))
+        | Assumptions [5]: (forall ((Nat)) (((_t_6=n)||(less _t_6 n))->((_t_6=(succ n))||(less _t_6 (succ n)))))
+        | Assumptions [6]: (!(less _t_6 (succ _t_6)))
+        ====================
+      }
+      current subgoal: ((succ _t_6)=(succ (succ _t_6)))
+      {
+      }
+    }
+    unable to succeed
+    deciding: ((succ _t_6)=(succ _v_5))
+    {
+      ====================
+      | Assumptions [0]: true
+      | Assumptions [1]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+      | Assumptions [2]: (forall ((Nat)) (((m=_t_3)||(less m _t_3))->((m=(succ _t_3))||(less m (succ _t_3)))))
+      | Assumptions [3]: (forall ((Nat)) (!(less _qv_1 zero)))
+      | Assumptions [4]: (forall ((Nat)) (less zero (succ _qv_2)))
+      | Assumptions [5]: (forall ((Nat)) (((_t_6=n)||(less _t_6 n))->((_t_6=(succ n))||(less _t_6 (succ n)))))
+      | Assumptions [6]: (((succ _t_6)=_v_5)||(less (succ _t_6) _v_5))
+      | Assumptions [7]: ((succ _t_6)!=(succ _v_5))
+      ====================
+    }
+    current subgoal: (less _t_6 _v_5)
+    {
+      split for (part 1/2): ((succ _t_6)=_v_5)
+      {
+        {
+          ====================
+          | Assumptions [0]: true
+          | Assumptions [1]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+          | Assumptions [2]: (forall ((Nat)) (((m=_t_3)||(less m _t_3))->((m=(succ _t_3))||(less m (succ _t_3)))))
+          | Assumptions [3]: (forall ((Nat)) (!(less _qv_1 zero)))
+          | Assumptions [4]: (forall ((Nat)) (less zero (succ _qv_2)))
+          | Assumptions [5]: (forall ((Nat)) (((_t_6=n)||(less _t_6 n))->((_t_6=(succ n))||(less _t_6 (succ n)))))
+          | Assumptions [6]: ((succ _t_6)!=(succ (succ _t_6)))
+          ====================
+        }
+      }
+      unable to succeed
+    }
+  }
+  unable to succeed
+  deciding: ((succ _t_6)=(succ _v_5))
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+    | Assumptions [1]: (forall ((Nat)) (((m=_t_3)||(less m _t_3))->((m=(succ _t_3))||(less m (succ _t_3)))))
+    | Assumptions [2]: ((_v_2=(succ _t_3))||(less _v_2 (succ _t_3)))
+    | Assumptions [3]: (forall ((Nat)) (!(less _qv_1 zero)))
+    | Assumptions [4]: (forall ((Nat)) (less zero (succ _qv_2)))
+    | Assumptions [5]: (forall ((Nat)) (((_t_6=n)||(less _t_6 n))->((_t_6=(succ n))||(less _t_6 (succ n)))))
+    | Assumptions [6]: (((succ _t_6)=_v_5)||(less (succ _t_6) _v_5))
+    | Assumptions [7]: ((succ _t_6)!=(succ _v_5))
+    ====================
+  }
+  current subgoal: (less _t_6 _v_5)
+  {
+    split for (part 1/2): (_v_2=(succ _t_3))
+    {
+      {
+        ====================
+        | Assumptions [0]: true
+        | Assumptions [1]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [2]: (forall ((Nat)) (((m=_t_3)||(less m _t_3))->((m=(succ _t_3))||(less m (succ _t_3)))))
+        | Assumptions [3]: (forall ((Nat)) (!(less _qv_1 zero)))
+        | Assumptions [4]: (forall ((Nat)) (less zero (succ _qv_2)))
+        | Assumptions [5]: (forall ((Nat)) (((_t_6=n)||(less _t_6 n))->((_t_6=(succ n))||(less _t_6 (succ n)))))
+        | Assumptions [6]: (((succ _t_6)=_v_5)||(less (succ _t_6) _v_5))
+        | Assumptions [7]: ((succ _t_6)!=(succ _v_5))
+        ====================
+      }
+      split for (part 1/2): ((succ _t_6)=_v_5)
+      {
+        {
+          ====================
+          | Assumptions [0]: true
+          | Assumptions [1]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+          | Assumptions [2]: (forall ((Nat)) (((m=_t_3)||(less m _t_3))->((m=(succ _t_3))||(less m (succ _t_3)))))
+          | Assumptions [3]: (forall ((Nat)) (!(less _qv_1 zero)))
+          | Assumptions [4]: (forall ((Nat)) (less zero (succ _qv_2)))
+          | Assumptions [5]: (forall ((Nat)) (((_t_6=n)||(less _t_6 n))->((_t_6=(succ n))||(less _t_6 (succ n)))))
+          | Assumptions [6]: ((succ _t_6)!=(succ (succ _t_6)))
+          ====================
+        }
+      }
+      unable to succeed
+    }
+    unable to succeed
+  }
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_8))=_qv_8))
+	(forall ((Nat) (Nat)) ((less _qv_9 _qv_10)=(less _qv_10 _qv_9)))
+
+CURRENT SUBGOAL (((succ _t_6)=(succ _v_5))||(less (succ _t_6) (succ _v_5)))
+NOW TESTING (forall ((Nat) (Nat)) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+  backtrack to: (((succ _t_6)=(succ _v_5))||(less (succ _t_6) (succ _v_5)))
+  deciding: ((succ _t_6)=(succ _v_5))
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+    | Assumptions [1]: (forall ((Nat)) (((m=_t_3)||(less m _t_3))->((m=(succ _t_3))||(less m (succ _t_3)))))
+    | Assumptions [2]: ((_v_2=(succ _t_3))||(less _v_2 (succ _t_3)))
+    | Assumptions [3]: (forall ((Nat)) (!(less _qv_1 zero)))
+    | Assumptions [4]: (forall ((Nat)) (less zero (succ _qv_2)))
+    | Assumptions [5]: (forall ((Nat)) (((_t_6=n)||(less _t_6 n))->((_t_6=(succ n))||(less _t_6 (succ n)))))
+    | Assumptions [6]: (((succ _t_6)=_v_5)||(less (succ _t_6) _v_5))
+    | Assumptions [7]: ((succ _t_6)!=(succ _v_5))
+    ====================
+  }
+  current subgoal: (less (succ _t_6) (succ _v_5))
+  {
+    rewritten [0]: (less _t_6 _v_5)
+    split for (part 1/2): (_v_2=(succ _t_3))
+    {
+      {
+        ====================
+        | Assumptions [0]: true
+        | Assumptions [1]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [2]: (forall ((Nat)) (((m=_t_3)||(less m _t_3))->((m=(succ _t_3))||(less m (succ _t_3)))))
+        | Assumptions [3]: (forall ((Nat)) (!(less _qv_1 zero)))
+        | Assumptions [4]: (forall ((Nat)) (less zero (succ _qv_2)))
+        | Assumptions [5]: (forall ((Nat)) (((_t_6=n)||(less _t_6 n))->((_t_6=(succ n))||(less _t_6 (succ n)))))
+        | Assumptions [6]: (((succ _t_6)=_v_5)||(less (succ _t_6) _v_5))
+        | Assumptions [7]: ((succ _t_6)!=(succ _v_5))
+        ====================
+      }
+      split for (part 1/2): ((succ _t_6)=_v_5)
+      {
+        {
+          ====================
+          | Assumptions [0]: true
+          | Assumptions [1]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+          | Assumptions [2]: (forall ((Nat)) (((m=_t_3)||(less m _t_3))->((m=(succ _t_3))||(less m (succ _t_3)))))
+          | Assumptions [3]: (forall ((Nat)) (!(less _qv_1 zero)))
+          | Assumptions [4]: (forall ((Nat)) (less zero (succ _qv_2)))
+          | Assumptions [5]: (forall ((Nat)) (((_t_6=n)||(less _t_6 n))->((_t_6=(succ n))||(less _t_6 (succ n)))))
+          | Assumptions [6]: ((succ _t_6)!=(succ (succ _t_6)))
+          ====================
+        }
+      }
+      unable to succeed
+    }
+    unable to succeed
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_8))=_qv_8))
+	(forall ((Nat) (Nat)) ((less _qv_9 _qv_10)=(less _qv_10 _qv_9)))
+
+CURRENT SUBGOAL (less (succ _t_6) (succ _v_5))
+NOW TESTING (forall ((Nat) (Nat)) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+    backtrack to: (less (succ _t_6) (succ _v_5))
+    split for (part 1/2): (_v_2=(succ _t_3))
+    {
+      {
+        ====================
+        | Assumptions [0]: true
+        | Assumptions [1]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [2]: (forall ((Nat)) (((m=_t_3)||(less m _t_3))->((m=(succ _t_3))||(less m (succ _t_3)))))
+        | Assumptions [3]: (forall ((Nat)) (!(less _qv_1 zero)))
+        | Assumptions [4]: (forall ((Nat)) (less zero (succ _qv_2)))
+        | Assumptions [5]: (forall ((Nat)) (((_t_6=n)||(less _t_6 n))->((_t_6=(succ n))||(less _t_6 (succ n)))))
+        | Assumptions [6]: (((succ _t_6)=_v_5)||(less (succ _t_6) _v_5))
+        | Assumptions [7]: ((succ _t_6)!=(succ _v_5))
+        ====================
+      }
+      rewritten [1]: (less _t_6 _v_5)
+      split for (part 1/2): ((succ _t_6)=_v_5)
+      {
+        {
+          ====================
+          | Assumptions [0]: true
+          | Assumptions [1]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+          | Assumptions [2]: (forall ((Nat)) (((m=_t_3)||(less m _t_3))->((m=(succ _t_3))||(less m (succ _t_3)))))
+          | Assumptions [3]: (forall ((Nat)) (!(less _qv_1 zero)))
+          | Assumptions [4]: (forall ((Nat)) (less zero (succ _qv_2)))
+          | Assumptions [5]: (forall ((Nat)) (((_t_6=n)||(less _t_6 n))->((_t_6=(succ n))||(less _t_6 (succ n)))))
+          | Assumptions [6]: ((succ _t_6)!=(succ (succ _t_6)))
+          ====================
+        }
+      }
+      unable to succeed
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_8))=_qv_8))
+	(forall ((Nat) (Nat)) ((less _qv_9 _qv_10)=(less _qv_10 _qv_9)))
+
+CURRENT SUBGOAL (less (succ _t_6) (succ _v_5))
+NOW TESTING (forall ((Nat) (Nat)) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+      backtrack to: (less (succ _t_6) (succ _v_5))
+      split for (part 1/2): ((succ _t_6)=_v_5)
+      {
+        {
+          ====================
+          | Assumptions [0]: true
+          | Assumptions [1]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+          | Assumptions [2]: (forall ((Nat)) (((m=_t_3)||(less m _t_3))->((m=(succ _t_3))||(less m (succ _t_3)))))
+          | Assumptions [3]: (forall ((Nat)) (!(less _qv_1 zero)))
+          | Assumptions [4]: (forall ((Nat)) (less zero (succ _qv_2)))
+          | Assumptions [5]: (forall ((Nat)) (((_t_6=n)||(less _t_6 n))->((_t_6=(succ n))||(less _t_6 (succ n)))))
+          | Assumptions [6]: ((succ _t_6)!=(succ (succ _t_6)))
+          ====================
+        }
+        rewritten [1]: (less _t_6 (succ _t_6))
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_8))=_qv_8))
+	(forall ((Nat) (Nat)) ((less _qv_9 _qv_10)=(less _qv_10 _qv_9)))
+
+        proven by induction: (less _t_6 (succ _t_6))
+      }
+      split for (part 2/2): (less (succ _t_6) _v_5)
+      {
+        {
+          ====================
+          | Assumptions [0]: true
+          | Assumptions [1]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+          | Assumptions [2]: (forall ((Nat)) (((m=_t_3)||(less m _t_3))->((m=(succ _t_3))||(less m (succ _t_3)))))
+          | Assumptions [3]: (forall ((Nat)) (!(less _qv_1 zero)))
+          | Assumptions [4]: (forall ((Nat)) (less zero (succ _qv_2)))
+          | Assumptions [5]: (forall ((Nat)) (((_t_6=n)||(less _t_6 n))->((_t_6=(succ n))||(less _t_6 (succ n)))))
+          | Assumptions [6]: (less (succ _t_6) _v_5)
+          | Assumptions [7]: ((succ _t_6)!=(succ _v_5))
+          ====================
+        }
+        rewritten [1]: (less _t_6 _v_5)
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_8))=_qv_8))
+	(forall ((Nat) (Nat)) ((less _qv_9 _qv_10)=(less _qv_10 _qv_9)))
+
+CURRENT SUBGOAL (less (succ _t_6) (succ _v_5))
+NOW TESTING (forall ((Nat) (Nat)) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+        backtrack to: (less (succ _t_6) (succ _v_5))
+        rewritten [1]: (less _t_6 _v_5)
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_8))=_qv_8))
+	(forall ((Nat) (Nat)) ((less _qv_9 _qv_10)=(less _qv_10 _qv_9)))
+
+CURRENT SUBGOAL (less (succ _t_6) (succ _v_5))
+NOW TESTING (forall ((Nat) (Nat)) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+        backtrack to: (less (succ _t_6) (succ _v_5))
+      }
+      unable to succeed
+      rewritten [1]: (less _t_6 _v_5)
+      split for (part 1/2): ((succ _t_6)=_v_5)
+      {
+        {
+          ====================
+          | Assumptions [0]: true
+          | Assumptions [1]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+          | Assumptions [2]: (forall ((Nat)) (((m=_t_3)||(less m _t_3))->((m=(succ _t_3))||(less m (succ _t_3)))))
+          | Assumptions [3]: (forall ((Nat)) (!(less _qv_1 zero)))
+          | Assumptions [4]: (forall ((Nat)) (less zero (succ _qv_2)))
+          | Assumptions [5]: (forall ((Nat)) (((_t_6=n)||(less _t_6 n))->((_t_6=(succ n))||(less _t_6 (succ n)))))
+          | Assumptions [6]: ((succ _t_6)!=(succ (succ _t_6)))
+          ====================
+        }
+      }
+      unable to succeed
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_8))=_qv_8))
+	(forall ((Nat) (Nat)) ((less _qv_9 _qv_10)=(less _qv_10 _qv_9)))
+
+CURRENT SUBGOAL (less (succ _t_6) (succ _v_5))
+NOW TESTING (forall ((Nat) (Nat)) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+      backtrack to: (less (succ _t_6) (succ _v_5))
+    }
+    unable to succeed
+    rewritten [0]: (less _t_6 _v_5)
+    split for (part 1/2): (_v_2=(succ _t_3))
+    {
+      {
+        ====================
+        | Assumptions [0]: true
+        | Assumptions [1]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [2]: (forall ((Nat)) (((m=_t_3)||(less m _t_3))->((m=(succ _t_3))||(less m (succ _t_3)))))
+        | Assumptions [3]: (forall ((Nat)) (!(less _qv_1 zero)))
+        | Assumptions [4]: (forall ((Nat)) (less zero (succ _qv_2)))
+        | Assumptions [5]: (forall ((Nat)) (((_t_6=n)||(less _t_6 n))->((_t_6=(succ n))||(less _t_6 (succ n)))))
+        | Assumptions [6]: (((succ _t_6)=_v_5)||(less (succ _t_6) _v_5))
+        | Assumptions [7]: ((succ _t_6)!=(succ _v_5))
+        ====================
+      }
+      split for (part 1/2): ((succ _t_6)=_v_5)
+      {
+        {
+          ====================
+          | Assumptions [0]: true
+          | Assumptions [1]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+          | Assumptions [2]: (forall ((Nat)) (((m=_t_3)||(less m _t_3))->((m=(succ _t_3))||(less m (succ _t_3)))))
+          | Assumptions [3]: (forall ((Nat)) (!(less _qv_1 zero)))
+          | Assumptions [4]: (forall ((Nat)) (less zero (succ _qv_2)))
+          | Assumptions [5]: (forall ((Nat)) (((_t_6=n)||(less _t_6 n))->((_t_6=(succ n))||(less _t_6 (succ n)))))
+          | Assumptions [6]: ((succ _t_6)!=(succ (succ _t_6)))
+          ====================
+        }
+      }
+      unable to succeed
+    }
+    unable to succeed
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_8))=_qv_8))
+	(forall ((Nat) (Nat)) ((less _qv_9 _qv_10)=(less _qv_10 _qv_9)))
+
+CURRENT SUBGOAL (less (succ _t_6) (succ _v_5))
+NOW TESTING (forall ((Nat) (Nat)) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+    backtrack to: (less (succ _t_6) (succ _v_5))
+  }
+Unknown
+sat

@@ -1,0 +1,50 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+	(forall ((Nat) (Nat)) ((plus _qv_2 _qv_3)=(plus _qv_3 _qv_2)))
+	(forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_4 _qv_5) _qv_6)=(plus _qv_4 (plus _qv_5 _qv_6))))
+
+Simplified goal: (forall ((Nat) (Nat)) ((n=(plus n m))||(less n (plus n m))))
+
+
+Base case:       ((zero=(plus zero _v_7))||(less zero (plus zero _v_7)))
+{
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+    | Assumptions [1]: (forall ((Nat)) ((plus zero _qv_5)=_qv_5))
+    | Assumptions [2]: (forall ((Nat) (Nat)) ((plus (succ _qv_6) _qv_7)=(succ (plus _qv_6 _qv_7))))
+    | Assumptions [3]: (forall ((Nat)) (!(less _qv_1 zero)))
+    | Assumptions [4]: (forall ((Nat)) (less zero (succ _qv_2)))
+    ====================
+  }
+  rewritten [1]: ((zero=_v_7)||(less zero _v_7))
+  deciding: (zero=_v_7)
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+    | Assumptions [1]: (forall ((Nat)) ((plus zero _qv_5)=_qv_5))
+    | Assumptions [2]: (forall ((Nat) (Nat)) ((plus (succ _qv_6) _qv_7)=(succ (plus _qv_6 _qv_7))))
+    | Assumptions [3]: (forall ((Nat)) (!(less _qv_1 zero)))
+    | Assumptions [4]: (forall ((Nat)) (less zero (succ _qv_2)))
+    | Assumptions [5]: (zero!=_v_7)
+    ====================
+  }
+  current subgoal: (less zero _v_7)
+  {
+  }
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((less _qv_8 _qv_9)=(less _qv_9 _qv_8)))
+	(forall ((Nat) (Nat)) ((plus _qv_10 _qv_11)=(plus _qv_11 _qv_10)))
+	(forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_12 _qv_13) _qv_14)=(plus _qv_12 (plus _qv_13 _qv_14))))
+
+  proven by induction: ((zero=_v_7)||(less zero _v_7))
+}
+Inductive step:  (((succ _t_8)=(plus (succ _t_8) _v_7))||(less (succ _t_8) (plus (succ _t_8) _v_7)))
+{
+  proven trivially
+}
+
+Proved
+unsat

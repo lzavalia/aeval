@@ -1,0 +1,1 @@
+./ind/benchmarks-dti/clam/sg/goal-sg84.smt2

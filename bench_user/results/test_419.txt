@@ -1,0 +1,18 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Lst) (Lst)) ((zip _qv_0 _qv_1)=(zip _qv_1 _qv_0)))
+
+Simplified goal: (forall ((Lst)) ((zip nil ys)=znil))
+
+
+Base case:       ((zip nil nil)=znil)
+{
+  proven trivially
+}
+Inductive step:  ((zip nil (cons _t_2 _t_3))=(zip nil _t_3))
+{
+  proven trivially
+}
+
+Proved
+unsat

@@ -1,0 +1,564 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((minus _qv_0 _qv_1)=(minus _qv_1 _qv_0)))
+	(forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_2 _qv_3) _qv_4)=(minus _qv_2 (minus _qv_3 _qv_4))))
+	(forall ((Lst) (Lst)) ((append _qv_5 _qv_6)=(append _qv_6 _qv_5)))
+	(forall ((Lst) (Lst) (Lst)) ((append (append _qv_7 _qv_8) _qv_9)=(append _qv_7 (append _qv_8 _qv_9))))
+
+Simplified goal: (forall ((Nat) (Lst) (Lst)) ((take n (append xs ys))=(append (take n xs) (take (minus n (len xs)) ys))))
+
+
+Base case:       ((take zero (append _v_10 _v_11))=(append (take zero _v_10) (take (minus zero (len _v_10)) _v_11)))
+{
+  proven trivially
+}
+Inductive step:  ((take (succ _t_12) (append _v_10 _v_11))=(append (take (succ _t_12) _v_10) (take (minus (succ _t_12) (len _v_10)) _v_11)))
+{
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat) (Nat)) ((minus (succ _qv_3) (succ _qv_4))=(minus _qv_3 _qv_4)))
+    | Assumptions [1]: (forall ((Lst)) ((append nil _qv_5)=_qv_5))
+    | Assumptions [2]: (forall ((Nat) (Lst) (Lst)) ((append (cons _qv_6 _qv_7) _qv_8)=(cons _qv_6 (append _qv_7 _qv_8))))
+    | Assumptions [3]: (forall ((Nat) (Lst)) ((len (cons _qv_9 _qv_10))=(succ (len _qv_10))))
+    | Assumptions [4]: (forall ((Nat)) ((take _qv_11 nil)=nil))
+    | Assumptions [5]: (forall ((Nat) (Nat) (Lst)) ((take (succ _qv_13) (cons _qv_14 _qv_15))=(cons _qv_14 (take _qv_13 _qv_15))))
+    | Assumptions [6]: (forall ((Lst) (Lst)) ((take _t_12 (append xs ys))=(append (take _t_12 xs) (take (minus _t_12 (len xs)) ys))))
+    | Assumptions [7]: (forall ((Lst) (Lst)) ((append (take _t_12 xs) (take (minus _t_12 (len xs)) ys))=(take _t_12 (append xs ys))))
+    | Assumptions [8]: (forall ((Nat)) ((minus (len nil) _qv_1)=(len nil)))
+    | Assumptions [9]: (forall ((Nat)) ((minus _qv_2 (len nil))=_qv_2))
+    | Assumptions [10]: (forall ((Lst)) ((take (len nil) _qv_12)=nil))
+    ====================
+  }
+
+Base case:       ((take _v_13 (append nil _v_14))=(append (take _v_13 nil) (take (minus _v_13 (len nil)) _v_14)))
+{
+  proven trivially
+}
+Inductive step:  ((take _v_13 (append (cons _t_15 _t_16) _v_14))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (len (cons _t_15 _t_16))) _v_14)))
+{
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat) (Nat)) ((minus (succ _qv_3) (succ _qv_4))=(minus _qv_3 _qv_4)))
+    | Assumptions [1]: (forall ((Lst)) ((append nil _qv_5)=_qv_5))
+    | Assumptions [2]: (forall ((Nat) (Lst) (Lst)) ((append (cons _qv_6 _qv_7) _qv_8)=(cons _qv_6 (append _qv_7 _qv_8))))
+    | Assumptions [3]: (forall ((Nat) (Lst)) ((len (cons _qv_9 _qv_10))=(succ (len _qv_10))))
+    | Assumptions [4]: (forall ((Nat)) ((take _qv_11 nil)=nil))
+    | Assumptions [5]: (forall ((Nat) (Nat) (Lst)) ((take (succ _qv_13) (cons _qv_14 _qv_15))=(cons _qv_14 (take _qv_13 _qv_15))))
+    | Assumptions [6]: (forall ((Lst) (Lst)) ((take _t_12 (append xs ys))=(append (take _t_12 xs) (take (minus _t_12 (len xs)) ys))))
+    | Assumptions [7]: (forall ((Lst) (Lst)) ((append (take _t_12 xs) (take (minus _t_12 (len xs)) ys))=(take _t_12 (append xs ys))))
+    | Assumptions [8]: (forall ((Nat)) ((minus (len nil) _qv_1)=(len nil)))
+    | Assumptions [9]: (forall ((Nat)) ((minus _qv_2 (len nil))=_qv_2))
+    | Assumptions [10]: (forall ((Lst)) ((take (len nil) _qv_12)=nil))
+    | Assumptions [11]: (forall ((Nat) (Lst)) ((take n (append _t_16 ys))=(append (take n _t_16) (take (minus n (len _t_16)) ys))))
+    | Assumptions [12]: (forall ((Nat) (Lst)) ((append (take n _t_16) (take (minus n (len _t_16)) ys))=(take n (append _t_16 ys))))
+    ====================
+  }
+  rewritten [2]: ((take _v_13 (cons _t_15 (append _t_16 _v_14)))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (len (cons _t_15 _t_16))) _v_14)))
+  rewritten [3]: ((take _v_13 (cons _t_15 (append _t_16 _v_14)))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (succ (len _t_16))) _v_14)))
+CURRENT SUBGOAL ((take _v_13 (cons _t_15 (append _t_16 _v_14)))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (len (cons _t_15 _t_16))) _v_14)))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_0 _qv_1)=(minus _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_13 (cons _t_15 (append _t_16 _v_14)))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (len (cons _t_15 _t_16))) _v_14)))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_2 _qv_3) _qv_4)=(minus _qv_2 (minus _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_13 (cons _t_15 (append _t_16 _v_14)))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (len (cons _t_15 _t_16))) _v_14)))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_5 _qv_6)=(append _qv_6 _qv_5)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_13 (cons _t_15 (append _t_16 _v_14)))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (len (cons _t_15 _t_16))) _v_14)))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_7 _qv_8) _qv_9)=(append _qv_7 (append _qv_8 _qv_9))))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((take _v_13 (cons _t_15 (append _t_16 _v_14)))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (len (cons _t_15 _t_16))) _v_14)))
+  rewritten [3]: ((take _v_13 (cons _t_15 (append _t_16 _v_14)))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (succ (len _t_16))) _v_14)))
+CURRENT SUBGOAL ((take _v_13 (cons _t_15 (append _t_16 _v_14)))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (len (cons _t_15 _t_16))) _v_14)))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_0 _qv_1)=(minus _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_13 (cons _t_15 (append _t_16 _v_14)))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (len (cons _t_15 _t_16))) _v_14)))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_2 _qv_3) _qv_4)=(minus _qv_2 (minus _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_13 (cons _t_15 (append _t_16 _v_14)))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (len (cons _t_15 _t_16))) _v_14)))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_5 _qv_6)=(append _qv_6 _qv_5)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_13 (cons _t_15 (append _t_16 _v_14)))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (len (cons _t_15 _t_16))) _v_14)))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_7 _qv_8) _qv_9)=(append _qv_7 (append _qv_8 _qv_9))))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((take _v_13 (cons _t_15 (append _t_16 _v_14)))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (len (cons _t_15 _t_16))) _v_14)))
+CURRENT SUBGOAL ((take _v_13 (append (cons _t_15 _t_16) _v_14))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (len (cons _t_15 _t_16))) _v_14)))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_0 _qv_1)=(minus _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_13 (append (cons _t_15 _t_16) _v_14))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (len (cons _t_15 _t_16))) _v_14)))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_2 _qv_3) _qv_4)=(minus _qv_2 (minus _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_13 (append (cons _t_15 _t_16) _v_14))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (len (cons _t_15 _t_16))) _v_14)))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_5 _qv_6)=(append _qv_6 _qv_5)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_13 (append (cons _t_15 _t_16) _v_14))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (len (cons _t_15 _t_16))) _v_14)))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_7 _qv_8) _qv_9)=(append _qv_7 (append _qv_8 _qv_9))))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((take _v_13 (append (cons _t_15 _t_16) _v_14))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (len (cons _t_15 _t_16))) _v_14)))
+  rewritten [3]: ((take _v_13 (append (cons _t_15 _t_16) _v_14))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (succ (len _t_16))) _v_14)))
+  rewritten [2]: ((take _v_13 (cons _t_15 (append _t_16 _v_14)))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (succ (len _t_16))) _v_14)))
+CURRENT SUBGOAL ((take _v_13 (append (cons _t_15 _t_16) _v_14))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (succ (len _t_16))) _v_14)))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_0 _qv_1)=(minus _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_13 (append (cons _t_15 _t_16) _v_14))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (succ (len _t_16))) _v_14)))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_2 _qv_3) _qv_4)=(minus _qv_2 (minus _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_13 (append (cons _t_15 _t_16) _v_14))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (succ (len _t_16))) _v_14)))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_5 _qv_6)=(append _qv_6 _qv_5)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_13 (append (cons _t_15 _t_16) _v_14))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (succ (len _t_16))) _v_14)))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_7 _qv_8) _qv_9)=(append _qv_7 (append _qv_8 _qv_9))))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((take _v_13 (append (cons _t_15 _t_16) _v_14))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (succ (len _t_16))) _v_14)))
+  rewritten [2]: ((take _v_13 (cons _t_15 (append _t_16 _v_14)))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (succ (len _t_16))) _v_14)))
+CURRENT SUBGOAL ((take _v_13 (append (cons _t_15 _t_16) _v_14))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (succ (len _t_16))) _v_14)))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_0 _qv_1)=(minus _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_13 (append (cons _t_15 _t_16) _v_14))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (succ (len _t_16))) _v_14)))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_2 _qv_3) _qv_4)=(minus _qv_2 (minus _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_13 (append (cons _t_15 _t_16) _v_14))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (succ (len _t_16))) _v_14)))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_5 _qv_6)=(append _qv_6 _qv_5)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_13 (append (cons _t_15 _t_16) _v_14))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (succ (len _t_16))) _v_14)))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_7 _qv_8) _qv_9)=(append _qv_7 (append _qv_8 _qv_9))))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((take _v_13 (append (cons _t_15 _t_16) _v_14))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (succ (len _t_16))) _v_14)))
+CURRENT SUBGOAL ((take _v_13 (append (cons _t_15 _t_16) _v_14))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (len (cons _t_15 _t_16))) _v_14)))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_0 _qv_1)=(minus _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_13 (append (cons _t_15 _t_16) _v_14))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (len (cons _t_15 _t_16))) _v_14)))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_2 _qv_3) _qv_4)=(minus _qv_2 (minus _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_13 (append (cons _t_15 _t_16) _v_14))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (len (cons _t_15 _t_16))) _v_14)))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_5 _qv_6)=(append _qv_6 _qv_5)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_13 (append (cons _t_15 _t_16) _v_14))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (len (cons _t_15 _t_16))) _v_14)))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_7 _qv_8) _qv_9)=(append _qv_7 (append _qv_8 _qv_9))))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((take _v_13 (append (cons _t_15 _t_16) _v_14))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (len (cons _t_15 _t_16))) _v_14)))
+  rewritten [2]: ((take _v_13 (cons _t_15 (append _t_16 _v_14)))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (len (cons _t_15 _t_16))) _v_14)))
+  rewritten [3]: ((take _v_13 (cons _t_15 (append _t_16 _v_14)))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (succ (len _t_16))) _v_14)))
+CURRENT SUBGOAL ((take _v_13 (cons _t_15 (append _t_16 _v_14)))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (len (cons _t_15 _t_16))) _v_14)))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_0 _qv_1)=(minus _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_13 (cons _t_15 (append _t_16 _v_14)))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (len (cons _t_15 _t_16))) _v_14)))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_2 _qv_3) _qv_4)=(minus _qv_2 (minus _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_13 (cons _t_15 (append _t_16 _v_14)))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (len (cons _t_15 _t_16))) _v_14)))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_5 _qv_6)=(append _qv_6 _qv_5)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_13 (cons _t_15 (append _t_16 _v_14)))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (len (cons _t_15 _t_16))) _v_14)))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_7 _qv_8) _qv_9)=(append _qv_7 (append _qv_8 _qv_9))))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((take _v_13 (cons _t_15 (append _t_16 _v_14)))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (len (cons _t_15 _t_16))) _v_14)))
+  rewritten [3]: ((take _v_13 (cons _t_15 (append _t_16 _v_14)))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (succ (len _t_16))) _v_14)))
+CURRENT SUBGOAL ((take _v_13 (cons _t_15 (append _t_16 _v_14)))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (len (cons _t_15 _t_16))) _v_14)))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_0 _qv_1)=(minus _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_13 (cons _t_15 (append _t_16 _v_14)))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (len (cons _t_15 _t_16))) _v_14)))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_2 _qv_3) _qv_4)=(minus _qv_2 (minus _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_13 (cons _t_15 (append _t_16 _v_14)))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (len (cons _t_15 _t_16))) _v_14)))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_5 _qv_6)=(append _qv_6 _qv_5)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_13 (cons _t_15 (append _t_16 _v_14)))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (len (cons _t_15 _t_16))) _v_14)))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_7 _qv_8) _qv_9)=(append _qv_7 (append _qv_8 _qv_9))))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((take _v_13 (cons _t_15 (append _t_16 _v_14)))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (len (cons _t_15 _t_16))) _v_14)))
+CURRENT SUBGOAL ((take _v_13 (append (cons _t_15 _t_16) _v_14))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (len (cons _t_15 _t_16))) _v_14)))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_0 _qv_1)=(minus _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_13 (append (cons _t_15 _t_16) _v_14))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (len (cons _t_15 _t_16))) _v_14)))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_2 _qv_3) _qv_4)=(minus _qv_2 (minus _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_13 (append (cons _t_15 _t_16) _v_14))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (len (cons _t_15 _t_16))) _v_14)))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_5 _qv_6)=(append _qv_6 _qv_5)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_13 (append (cons _t_15 _t_16) _v_14))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (len (cons _t_15 _t_16))) _v_14)))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_7 _qv_8) _qv_9)=(append _qv_7 (append _qv_8 _qv_9))))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((take _v_13 (append (cons _t_15 _t_16) _v_14))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (len (cons _t_15 _t_16))) _v_14)))
+  rewritten [3]: ((take _v_13 (append (cons _t_15 _t_16) _v_14))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (succ (len _t_16))) _v_14)))
+  rewritten [2]: ((take _v_13 (cons _t_15 (append _t_16 _v_14)))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (succ (len _t_16))) _v_14)))
+CURRENT SUBGOAL ((take _v_13 (append (cons _t_15 _t_16) _v_14))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (succ (len _t_16))) _v_14)))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_0 _qv_1)=(minus _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_13 (append (cons _t_15 _t_16) _v_14))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (succ (len _t_16))) _v_14)))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_2 _qv_3) _qv_4)=(minus _qv_2 (minus _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_13 (append (cons _t_15 _t_16) _v_14))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (succ (len _t_16))) _v_14)))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_5 _qv_6)=(append _qv_6 _qv_5)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_13 (append (cons _t_15 _t_16) _v_14))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (succ (len _t_16))) _v_14)))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_7 _qv_8) _qv_9)=(append _qv_7 (append _qv_8 _qv_9))))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((take _v_13 (append (cons _t_15 _t_16) _v_14))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (succ (len _t_16))) _v_14)))
+  rewritten [2]: ((take _v_13 (cons _t_15 (append _t_16 _v_14)))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (succ (len _t_16))) _v_14)))
+CURRENT SUBGOAL ((take _v_13 (append (cons _t_15 _t_16) _v_14))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (succ (len _t_16))) _v_14)))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_0 _qv_1)=(minus _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_13 (append (cons _t_15 _t_16) _v_14))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (succ (len _t_16))) _v_14)))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_2 _qv_3) _qv_4)=(minus _qv_2 (minus _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_13 (append (cons _t_15 _t_16) _v_14))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (succ (len _t_16))) _v_14)))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_5 _qv_6)=(append _qv_6 _qv_5)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_13 (append (cons _t_15 _t_16) _v_14))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (succ (len _t_16))) _v_14)))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_7 _qv_8) _qv_9)=(append _qv_7 (append _qv_8 _qv_9))))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((take _v_13 (append (cons _t_15 _t_16) _v_14))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (succ (len _t_16))) _v_14)))
+CURRENT SUBGOAL ((take _v_13 (append (cons _t_15 _t_16) _v_14))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (len (cons _t_15 _t_16))) _v_14)))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_0 _qv_1)=(minus _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_13 (append (cons _t_15 _t_16) _v_14))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (len (cons _t_15 _t_16))) _v_14)))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_2 _qv_3) _qv_4)=(minus _qv_2 (minus _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_13 (append (cons _t_15 _t_16) _v_14))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (len (cons _t_15 _t_16))) _v_14)))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_5 _qv_6)=(append _qv_6 _qv_5)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_13 (append (cons _t_15 _t_16) _v_14))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (len (cons _t_15 _t_16))) _v_14)))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_7 _qv_8) _qv_9)=(append _qv_7 (append _qv_8 _qv_9))))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((take _v_13 (append (cons _t_15 _t_16) _v_14))=(append (take _v_13 (cons _t_15 _t_16)) (take (minus _v_13 (len (cons _t_15 _t_16))) _v_14)))
+
+Base case:       ((take _v_21 (append _v_22 nil))=(append (take _v_21 _v_22) (take (minus _v_21 (len _v_22)) nil)))
+{
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat) (Nat)) ((minus (succ _qv_3) (succ _qv_4))=(minus _qv_3 _qv_4)))
+    | Assumptions [1]: (forall ((Lst)) ((append nil _qv_5)=_qv_5))
+    | Assumptions [2]: (forall ((Nat) (Lst) (Lst)) ((append (cons _qv_6 _qv_7) _qv_8)=(cons _qv_6 (append _qv_7 _qv_8))))
+    | Assumptions [3]: (forall ((Nat) (Lst)) ((len (cons _qv_9 _qv_10))=(succ (len _qv_10))))
+    | Assumptions [4]: (forall ((Nat)) ((take _qv_11 nil)=nil))
+    | Assumptions [5]: (forall ((Nat) (Nat) (Lst)) ((take (succ _qv_13) (cons _qv_14 _qv_15))=(cons _qv_14 (take _qv_13 _qv_15))))
+    | Assumptions [6]: (forall ((Lst) (Lst)) ((take _t_12 (append xs ys))=(append (take _t_12 xs) (take (minus _t_12 (len xs)) ys))))
+    | Assumptions [7]: (forall ((Lst) (Lst)) ((append (take _t_12 xs) (take (minus _t_12 (len xs)) ys))=(take _t_12 (append xs ys))))
+    | Assumptions [8]: (forall ((Nat)) ((minus (len nil) _qv_1)=(len nil)))
+    | Assumptions [9]: (forall ((Nat)) ((minus _qv_2 (len nil))=_qv_2))
+    | Assumptions [10]: (forall ((Lst)) ((take (len nil) _qv_12)=nil))
+    | Assumptions [11]: (forall ((Nat) (Lst)) ((take n (append _t_16 ys))=(append (take n _t_16) (take (minus n (len _t_16)) ys))))
+    | Assumptions [12]: (forall ((Nat) (Lst)) ((append (take n _t_16) (take (minus n (len _t_16)) ys))=(take n (append _t_16 ys))))
+    ====================
+  }
+  rewritten [4]: ((take _v_21 (append _v_22 nil))=(append (take _v_21 _v_22) nil))
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((minus _qv_23 _qv_24)=(minus _qv_24 _qv_23)))
+	(forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_25 _qv_26) _qv_27)=(minus _qv_25 (minus _qv_26 _qv_27))))
+	(forall ((Lst) (Lst)) ((append _qv_28 _qv_29)=(append _qv_29 _qv_28)))
+	(forall ((Lst) (Lst) (Lst)) ((append (append _qv_30 _qv_31) _qv_32)=(append _qv_30 (append _qv_31 _qv_32))))
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((minus _qv_37 _qv_38)=(minus _qv_38 _qv_37)))
+	(forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_39 _qv_40) _qv_41)=(minus _qv_39 (minus _qv_40 _qv_41))))
+	(forall ((Lst) (Lst)) ((append _qv_42 _qv_43)=(append _qv_43 _qv_42)))
+	(forall ((Lst) (Lst) (Lst)) ((append (append _qv_44 _qv_45) _qv_46)=(append _qv_44 (append _qv_45 _qv_46))))
+
+CURRENT SUBGOAL ((take _v_51 (cons _v_52 (append nil nil)))=(append (take _v_51 (cons _v_52 nil)) nil))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_37 _qv_38)=(minus _qv_38 _qv_37)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_51 (cons _v_52 (append nil nil)))=(append (take _v_51 (cons _v_52 nil)) nil))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_39 _qv_40) _qv_41)=(minus _qv_39 (minus _qv_40 _qv_41))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_51 (cons _v_52 (append nil nil)))=(append (take _v_51 (cons _v_52 nil)) nil))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_42 _qv_43)=(append _qv_43 _qv_42)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_51 (cons _v_52 (append nil nil)))=(append (take _v_51 (cons _v_52 nil)) nil))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_44 _qv_45) _qv_46)=(append _qv_44 (append _qv_45 _qv_46))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_51 (cons _v_52 (append nil nil)))=(append (take _v_51 (cons _v_52 nil)) nil))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_37 _qv_38)=(minus _qv_38 _qv_37)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_51 (cons _v_52 (append nil nil)))=(append (take _v_51 (cons _v_52 nil)) nil))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_39 _qv_40) _qv_41)=(minus _qv_39 (minus _qv_40 _qv_41))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_51 (cons _v_52 (append nil nil)))=(append (take _v_51 (cons _v_52 nil)) nil))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_42 _qv_43)=(append _qv_43 _qv_42)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_51 (cons _v_52 (append nil nil)))=(append (take _v_51 (cons _v_52 nil)) nil))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_44 _qv_45) _qv_46)=(append _qv_44 (append _qv_45 _qv_46))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_34 (append (cons _t_35 _t_36) nil))=(append (take _v_34 (cons _t_35 _t_36)) nil))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_23 _qv_24)=(minus _qv_24 _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_34 (append (cons _t_35 _t_36) nil))=(append (take _v_34 (cons _t_35 _t_36)) nil))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_25 _qv_26) _qv_27)=(minus _qv_25 (minus _qv_26 _qv_27))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_34 (append (cons _t_35 _t_36) nil))=(append (take _v_34 (cons _t_35 _t_36)) nil))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_28 _qv_29)=(append _qv_29 _qv_28)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_34 (append (cons _t_35 _t_36) nil))=(append (take _v_34 (cons _t_35 _t_36)) nil))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_30 _qv_31) _qv_32)=(append _qv_30 (append _qv_31 _qv_32))))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((minus _qv_37 _qv_38)=(minus _qv_38 _qv_37)))
+	(forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_39 _qv_40) _qv_41)=(minus _qv_39 (minus _qv_40 _qv_41))))
+	(forall ((Lst) (Lst)) ((append _qv_42 _qv_43)=(append _qv_43 _qv_42)))
+	(forall ((Lst) (Lst) (Lst)) ((append (append _qv_44 _qv_45) _qv_46)=(append _qv_44 (append _qv_45 _qv_46))))
+
+CURRENT SUBGOAL ((take _v_51 (cons _v_52 (append nil nil)))=(append (take _v_51 (cons _v_52 nil)) nil))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_37 _qv_38)=(minus _qv_38 _qv_37)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_51 (cons _v_52 (append nil nil)))=(append (take _v_51 (cons _v_52 nil)) nil))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_39 _qv_40) _qv_41)=(minus _qv_39 (minus _qv_40 _qv_41))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_51 (cons _v_52 (append nil nil)))=(append (take _v_51 (cons _v_52 nil)) nil))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_42 _qv_43)=(append _qv_43 _qv_42)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_51 (cons _v_52 (append nil nil)))=(append (take _v_51 (cons _v_52 nil)) nil))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_44 _qv_45) _qv_46)=(append _qv_44 (append _qv_45 _qv_46))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_51 (cons _v_52 (append nil nil)))=(append (take _v_51 (cons _v_52 nil)) nil))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_37 _qv_38)=(minus _qv_38 _qv_37)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_51 (cons _v_52 (append nil nil)))=(append (take _v_51 (cons _v_52 nil)) nil))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_39 _qv_40) _qv_41)=(minus _qv_39 (minus _qv_40 _qv_41))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_51 (cons _v_52 (append nil nil)))=(append (take _v_51 (cons _v_52 nil)) nil))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_42 _qv_43)=(append _qv_43 _qv_42)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_51 (cons _v_52 (append nil nil)))=(append (take _v_51 (cons _v_52 nil)) nil))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_44 _qv_45) _qv_46)=(append _qv_44 (append _qv_45 _qv_46))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_34 (append (cons _t_35 _t_36) nil))=(append (take _v_34 (cons _t_35 _t_36)) nil))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_23 _qv_24)=(minus _qv_24 _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_34 (append (cons _t_35 _t_36) nil))=(append (take _v_34 (cons _t_35 _t_36)) nil))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_25 _qv_26) _qv_27)=(minus _qv_25 (minus _qv_26 _qv_27))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_34 (append (cons _t_35 _t_36) nil))=(append (take _v_34 (cons _t_35 _t_36)) nil))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_28 _qv_29)=(append _qv_29 _qv_28)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_34 (append (cons _t_35 _t_36) nil))=(append (take _v_34 (cons _t_35 _t_36)) nil))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_30 _qv_31) _qv_32)=(append _qv_30 (append _qv_31 _qv_32))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_21 (append _v_22 nil))=(append (take _v_21 _v_22) (take (minus _v_21 (len _v_22)) nil)))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_0 _qv_1)=(minus _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_21 (append _v_22 nil))=(append (take _v_21 _v_22) (take (minus _v_21 (len _v_22)) nil)))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_2 _qv_3) _qv_4)=(minus _qv_2 (minus _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_21 (append _v_22 nil))=(append (take _v_21 _v_22) (take (minus _v_21 (len _v_22)) nil)))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_5 _qv_6)=(append _qv_6 _qv_5)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_21 (append _v_22 nil))=(append (take _v_21 _v_22) (take (minus _v_21 (len _v_22)) nil)))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_7 _qv_8) _qv_9)=(append _qv_7 (append _qv_8 _qv_9))))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((take _v_21 (append _v_22 nil))=(append (take _v_21 _v_22) (take (minus _v_21 (len _v_22)) nil)))
+  rewritten [4]: ((take _v_21 (append _v_22 nil))=(append (take _v_21 _v_22) nil))
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((minus _qv_23 _qv_24)=(minus _qv_24 _qv_23)))
+	(forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_25 _qv_26) _qv_27)=(minus _qv_25 (minus _qv_26 _qv_27))))
+	(forall ((Lst) (Lst)) ((append _qv_28 _qv_29)=(append _qv_29 _qv_28)))
+	(forall ((Lst) (Lst) (Lst)) ((append (append _qv_30 _qv_31) _qv_32)=(append _qv_30 (append _qv_31 _qv_32))))
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((minus _qv_37 _qv_38)=(minus _qv_38 _qv_37)))
+	(forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_39 _qv_40) _qv_41)=(minus _qv_39 (minus _qv_40 _qv_41))))
+	(forall ((Lst) (Lst)) ((append _qv_42 _qv_43)=(append _qv_43 _qv_42)))
+	(forall ((Lst) (Lst) (Lst)) ((append (append _qv_44 _qv_45) _qv_46)=(append _qv_44 (append _qv_45 _qv_46))))
+
+CURRENT SUBGOAL ((take _v_51 (cons _v_52 (append nil nil)))=(append (take _v_51 (cons _v_52 nil)) nil))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_37 _qv_38)=(minus _qv_38 _qv_37)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_51 (cons _v_52 (append nil nil)))=(append (take _v_51 (cons _v_52 nil)) nil))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_39 _qv_40) _qv_41)=(minus _qv_39 (minus _qv_40 _qv_41))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_51 (cons _v_52 (append nil nil)))=(append (take _v_51 (cons _v_52 nil)) nil))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_42 _qv_43)=(append _qv_43 _qv_42)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_51 (cons _v_52 (append nil nil)))=(append (take _v_51 (cons _v_52 nil)) nil))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_44 _qv_45) _qv_46)=(append _qv_44 (append _qv_45 _qv_46))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_51 (cons _v_52 (append nil nil)))=(append (take _v_51 (cons _v_52 nil)) nil))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_37 _qv_38)=(minus _qv_38 _qv_37)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_51 (cons _v_52 (append nil nil)))=(append (take _v_51 (cons _v_52 nil)) nil))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_39 _qv_40) _qv_41)=(minus _qv_39 (minus _qv_40 _qv_41))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_51 (cons _v_52 (append nil nil)))=(append (take _v_51 (cons _v_52 nil)) nil))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_42 _qv_43)=(append _qv_43 _qv_42)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_51 (cons _v_52 (append nil nil)))=(append (take _v_51 (cons _v_52 nil)) nil))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_44 _qv_45) _qv_46)=(append _qv_44 (append _qv_45 _qv_46))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_34 (append (cons _t_35 _t_36) nil))=(append (take _v_34 (cons _t_35 _t_36)) nil))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_23 _qv_24)=(minus _qv_24 _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_34 (append (cons _t_35 _t_36) nil))=(append (take _v_34 (cons _t_35 _t_36)) nil))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_25 _qv_26) _qv_27)=(minus _qv_25 (minus _qv_26 _qv_27))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_34 (append (cons _t_35 _t_36) nil))=(append (take _v_34 (cons _t_35 _t_36)) nil))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_28 _qv_29)=(append _qv_29 _qv_28)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_34 (append (cons _t_35 _t_36) nil))=(append (take _v_34 (cons _t_35 _t_36)) nil))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_30 _qv_31) _qv_32)=(append _qv_30 (append _qv_31 _qv_32))))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((minus _qv_37 _qv_38)=(minus _qv_38 _qv_37)))
+	(forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_39 _qv_40) _qv_41)=(minus _qv_39 (minus _qv_40 _qv_41))))
+	(forall ((Lst) (Lst)) ((append _qv_42 _qv_43)=(append _qv_43 _qv_42)))
+	(forall ((Lst) (Lst) (Lst)) ((append (append _qv_44 _qv_45) _qv_46)=(append _qv_44 (append _qv_45 _qv_46))))
+
+CURRENT SUBGOAL ((take _v_51 (cons _v_52 (append nil nil)))=(append (take _v_51 (cons _v_52 nil)) nil))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_37 _qv_38)=(minus _qv_38 _qv_37)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_51 (cons _v_52 (append nil nil)))=(append (take _v_51 (cons _v_52 nil)) nil))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_39 _qv_40) _qv_41)=(minus _qv_39 (minus _qv_40 _qv_41))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_51 (cons _v_52 (append nil nil)))=(append (take _v_51 (cons _v_52 nil)) nil))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_42 _qv_43)=(append _qv_43 _qv_42)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_51 (cons _v_52 (append nil nil)))=(append (take _v_51 (cons _v_52 nil)) nil))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_44 _qv_45) _qv_46)=(append _qv_44 (append _qv_45 _qv_46))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_51 (cons _v_52 (append nil nil)))=(append (take _v_51 (cons _v_52 nil)) nil))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_37 _qv_38)=(minus _qv_38 _qv_37)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_51 (cons _v_52 (append nil nil)))=(append (take _v_51 (cons _v_52 nil)) nil))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_39 _qv_40) _qv_41)=(minus _qv_39 (minus _qv_40 _qv_41))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_51 (cons _v_52 (append nil nil)))=(append (take _v_51 (cons _v_52 nil)) nil))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_42 _qv_43)=(append _qv_43 _qv_42)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_51 (cons _v_52 (append nil nil)))=(append (take _v_51 (cons _v_52 nil)) nil))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_44 _qv_45) _qv_46)=(append _qv_44 (append _qv_45 _qv_46))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_34 (append (cons _t_35 _t_36) nil))=(append (take _v_34 (cons _t_35 _t_36)) nil))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_23 _qv_24)=(minus _qv_24 _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_34 (append (cons _t_35 _t_36) nil))=(append (take _v_34 (cons _t_35 _t_36)) nil))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_25 _qv_26) _qv_27)=(minus _qv_25 (minus _qv_26 _qv_27))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_34 (append (cons _t_35 _t_36) nil))=(append (take _v_34 (cons _t_35 _t_36)) nil))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_28 _qv_29)=(append _qv_29 _qv_28)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_34 (append (cons _t_35 _t_36) nil))=(append (take _v_34 (cons _t_35 _t_36)) nil))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_30 _qv_31) _qv_32)=(append _qv_30 (append _qv_31 _qv_32))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_21 (append _v_22 nil))=(append (take _v_21 _v_22) (take (minus _v_21 (len _v_22)) nil)))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_0 _qv_1)=(minus _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_21 (append _v_22 nil))=(append (take _v_21 _v_22) (take (minus _v_21 (len _v_22)) nil)))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_2 _qv_3) _qv_4)=(minus _qv_2 (minus _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_21 (append _v_22 nil))=(append (take _v_21 _v_22) (take (minus _v_21 (len _v_22)) nil)))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_5 _qv_6)=(append _qv_6 _qv_5)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_21 (append _v_22 nil))=(append (take _v_21 _v_22) (take (minus _v_21 (len _v_22)) nil)))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_7 _qv_8) _qv_9)=(append _qv_7 (append _qv_8 _qv_9))))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((take _v_21 (append _v_22 nil))=(append (take _v_21 _v_22) (take (minus _v_21 (len _v_22)) nil)))
+}
+Unknown
+sat

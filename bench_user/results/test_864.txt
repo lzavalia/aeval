@@ -1,0 +1,17 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+
+Simplified goal: (forall (INT INT (Lst)) (((x>=0)&&(y>=0))->((drop x (drop y z))=(drop y (drop x z)))))
+
+
+Base case:       ((drop _v_0 (drop _v_1 nil))=(drop _v_1 (drop _v_0 nil)))
+{
+  proven trivially
+}
+Inductive step:  ((drop _v_0 (drop _v_1 (cons _t_2 _t_3)))=(drop _v_1 (drop _v_0 (cons _t_2 _t_3))))
+{
+  proven trivially
+}
+
+Proved
+unsat

@@ -1,0 +1,229 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+	(forall ((Nat)) (0<=(nat-to-int _qv_1)))
+	(forall ((Nat) (Nat)) ((less _qv_2 _qv_3)=(less _qv_3 _qv_2)))
+	(forall ((Lst)) ((sort (sort _qv_4))=_qv_4))
+	(forall ((Nat)) ((nat-to-int (succ _qv_5))=(nat-to-int _qv_5)))
+	(forall ((Lst)) ((nat-to-int (len _qv_6))=(nat-to-int _qv_6)))
+	(forall ((Nat) (Lst) (Lst)) ((insort _qv_7 (cons _qv_8 _qv_9))=(cons (insort _qv_7 _qv_8) (insort _qv_7 _qv_9))))
+	(forall ((Nat) (Lst) (Lst)) ((cons _qv_10 (insort _qv_11 _qv_12))=(insort (cons _qv_10 _qv_11) (cons _qv_10 _qv_12))))
+
+Simplified goal: (forall ((Lst)) ((len (sort x))=(len x)))
+
+
+Base case:       ((len (sort nil))=(len nil))
+{
+  proven trivially
+}
+Inductive step:  ((len (sort (cons _t_13 _t_14)))=(len (cons _t_13 _t_14)))
+{
+  {
+    ====================
+    | Assumptions [0]: ((sort nil)=nil)
+    | Assumptions [1]: (forall ((Nat)) ((nat-to-int _qv_1)>=0))
+    | Assumptions [2]: (forall ((Nat) (Nat)) (((nat-to-int _qv_2)=(nat-to-int _qv_3))->(_qv_2=_qv_3)))
+    | Assumptions [3]: (forall ((Nat)) ((nat-to-int (succ _qv_4))=(1+(nat-to-int _qv_4))))
+    | Assumptions [4]: (forall ((Nat) (Nat)) ((less (succ _qv_7) (succ _qv_8))=(less _qv_7 _qv_8)))
+    | Assumptions [5]: (forall ((Nat) (Nat)) ((less _qv_9 _qv_10)=((nat-to-int _qv_9)<(nat-to-int _qv_10))))
+    | Assumptions [6]: (forall ((Nat) (Lst)) ((len (cons _qv_11 _qv_12))=(succ (len _qv_12))))
+    | Assumptions [7]: (forall ((Nat)) ((insort _qv_13 nil)=(cons _qv_13 nil)))
+    | Assumptions [8]: (forall ((Nat) (Nat) (Lst)) ((insort _qv_14 (cons _qv_15 _qv_16))=ite((less _qv_14 _qv_15), (cons _qv_14 (cons _qv_15 _qv_16)), (cons _qv_15 (insort _qv_14 _qv_16)))))
+    | Assumptions [9]: (forall ((Nat) (Lst)) ((sort (cons _qv_17 _qv_18))=(insort _qv_17 (sort _qv_18))))
+    | Assumptions [10]: ((len (sort _t_14))=(len _t_14))
+    | Assumptions [11]: ((len _t_14)=(len (sort _t_14)))
+    | Assumptions [12]: ((nat-to-int (len nil))=0)
+    | Assumptions [13]: (forall ((Nat)) (!(less _qv_5 (len nil))))
+    | Assumptions [14]: (forall ((Nat)) (less (len nil) (succ _qv_6)))
+    ====================
+  }
+  rewritten [2]: ((nat-to-int (len (sort (cons _t_13 _t_14))))=(nat-to-int (len (cons _t_13 _t_14))))
+  rewritten [6]: ((nat-to-int (len (sort (cons _t_13 _t_14))))=(nat-to-int (succ (len _t_14))))
+  rewritten [3]: ((nat-to-int (len (sort (cons _t_13 _t_14))))=(1+(nat-to-int (len _t_14))))
+  rewritten [9]: ((nat-to-int (len (insort _t_13 (sort _t_14))))=((nat-to-int (len _t_14))+1))
+  rewritten [11]: ((nat-to-int (len (insort _t_13 (sort _t_14))))=((nat-to-int (len (sort _t_14)))+1))
+  rewritten [12]: ((nat-to-int (len (insort _t_13 (sort _t_14))))=(1+(nat-to-int (len (sort _t_14)))))
+  sequence of rewrites only grows
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_16))=_qv_16))
+	(forall ((Nat)) (0<=(nat-to-int _qv_17)))
+	(forall ((Nat) (Nat)) ((less _qv_18 _qv_19)=(less _qv_19 _qv_18)))
+	(forall ((Lst)) ((sort (sort _qv_20))=_qv_20))
+	(forall ((Nat)) ((nat-to-int (succ _qv_21))=(nat-to-int _qv_21)))
+	(forall ((Lst)) ((nat-to-int (len _qv_22))=(nat-to-int _qv_22)))
+	(forall ((Nat) (Lst) (Lst)) ((insort _qv_23 (cons _qv_24 _qv_25))=(cons (insort _qv_23 _qv_24) (insort _qv_23 _qv_25))))
+	(forall ((Nat) (Lst) (Lst)) ((cons _qv_26 (insort _qv_27 _qv_28))=(insort (cons _qv_26 _qv_27) (cons _qv_26 _qv_28))))
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_31))=_qv_31))
+	(forall ((Nat)) (0<=(nat-to-int _qv_32)))
+	(forall ((Nat) (Nat)) ((less _qv_33 _qv_34)=(less _qv_34 _qv_33)))
+	(forall ((Lst)) ((sort (sort _qv_35))=_qv_35))
+	(forall ((Nat)) ((nat-to-int (succ _qv_36))=(nat-to-int _qv_36)))
+	(forall ((Lst)) ((nat-to-int (len _qv_37))=(nat-to-int _qv_37)))
+	(forall ((Nat) (Lst) (Lst)) ((insort _qv_38 (cons _qv_39 _qv_40))=(cons (insort _qv_38 _qv_39) (insort _qv_38 _qv_40))))
+	(forall ((Nat) (Lst) (Lst)) ((cons _qv_41 (insort _qv_42 _qv_43))=(insort (cons _qv_41 _qv_42) (cons _qv_41 _qv_43))))
+
+CURRENT SUBGOAL ((nat-to-int (len (insort zero _v_44)))=((nat-to-int (len _v_44))+1))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_31))=_qv_31))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((nat-to-int (len (insort zero _v_44)))=((nat-to-int (len _v_44))+1))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_32)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((nat-to-int (len (insort zero _v_44)))=((nat-to-int (len _v_44))+1))
+NOW TESTING (forall ((Nat) (Nat)) ((less _qv_33 _qv_34)=(less _qv_34 _qv_33)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((nat-to-int (len (insort zero _v_44)))=((nat-to-int (len _v_44))+1))
+NOW TESTING (forall ((Lst)) ((sort (sort _qv_35))=_qv_35))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((nat-to-int (len (insort zero _v_44)))=((nat-to-int (len _v_44))+1))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_36))=(nat-to-int _qv_36)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((nat-to-int (len (insort zero _v_44)))=((nat-to-int (len _v_44))+1))
+NOW TESTING (forall ((Lst)) ((nat-to-int (len _qv_37))=(nat-to-int _qv_37)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((nat-to-int (len (insort zero _v_44)))=((nat-to-int (len _v_44))+1))
+NOW TESTING (forall ((Nat) (Lst) (Lst)) ((insort _qv_38 (cons _qv_39 _qv_40))=(cons (insort _qv_38 _qv_39) (insort _qv_38 _qv_40))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((nat-to-int (len (insort zero _v_44)))=((nat-to-int (len _v_44))+1))
+NOW TESTING (forall ((Nat) (Lst) (Lst)) ((cons _qv_41 (insort _qv_42 _qv_43))=(insort (cons _qv_41 _qv_42) (cons _qv_41 _qv_43))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((nat-to-int (len (insort zero _v_44)))=((nat-to-int (len _v_44))+1))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_31))=_qv_31))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((nat-to-int (len (insort zero _v_44)))=((nat-to-int (len _v_44))+1))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_32)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((nat-to-int (len (insort zero _v_44)))=((nat-to-int (len _v_44))+1))
+NOW TESTING (forall ((Nat) (Nat)) ((less _qv_33 _qv_34)=(less _qv_34 _qv_33)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((nat-to-int (len (insort zero _v_44)))=((nat-to-int (len _v_44))+1))
+NOW TESTING (forall ((Lst)) ((sort (sort _qv_35))=_qv_35))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((nat-to-int (len (insort zero _v_44)))=((nat-to-int (len _v_44))+1))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_36))=(nat-to-int _qv_36)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((nat-to-int (len (insort zero _v_44)))=((nat-to-int (len _v_44))+1))
+NOW TESTING (forall ((Lst)) ((nat-to-int (len _qv_37))=(nat-to-int _qv_37)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((nat-to-int (len (insort zero _v_44)))=((nat-to-int (len _v_44))+1))
+NOW TESTING (forall ((Nat) (Lst) (Lst)) ((insort _qv_38 (cons _qv_39 _qv_40))=(cons (insort _qv_38 _qv_39) (insort _qv_38 _qv_40))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((nat-to-int (len (insort zero _v_44)))=((nat-to-int (len _v_44))+1))
+NOW TESTING (forall ((Nat) (Lst) (Lst)) ((cons _qv_41 (insort _qv_42 _qv_43))=(insort (cons _qv_41 _qv_42) (cons _qv_41 _qv_43))))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_33))=_qv_33))
+	(forall ((Nat)) (0<=(nat-to-int _qv_34)))
+	(forall ((Nat) (Nat)) ((less _qv_35 _qv_36)=(less _qv_36 _qv_35)))
+	(forall ((Lst)) ((sort (sort _qv_37))=_qv_37))
+	(forall ((Nat)) ((nat-to-int (succ _qv_38))=(nat-to-int _qv_38)))
+	(forall ((Lst)) ((nat-to-int (len _qv_39))=(nat-to-int _qv_39)))
+	(forall ((Nat) (Lst) (Lst)) ((insort _qv_40 (cons _qv_41 _qv_42))=(cons (insort _qv_40 _qv_41) (insort _qv_40 _qv_42))))
+	(forall ((Nat) (Lst) (Lst)) ((cons _qv_43 (insort _qv_44 _qv_45))=(insort (cons _qv_43 _qv_44) (cons _qv_43 _qv_45))))
+
+CURRENT SUBGOAL ((nat-to-int (len (insort _v_47 _v_48)))=((nat-to-int (len _v_48))+1))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_33))=_qv_33))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((nat-to-int (len (insort _v_47 _v_48)))=((nat-to-int (len _v_48))+1))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_34)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((nat-to-int (len (insort _v_47 _v_48)))=((nat-to-int (len _v_48))+1))
+NOW TESTING (forall ((Nat) (Nat)) ((less _qv_35 _qv_36)=(less _qv_36 _qv_35)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((nat-to-int (len (insort _v_47 _v_48)))=((nat-to-int (len _v_48))+1))
+NOW TESTING (forall ((Lst)) ((sort (sort _qv_37))=_qv_37))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((nat-to-int (len (insort _v_47 _v_48)))=((nat-to-int (len _v_48))+1))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_38))=(nat-to-int _qv_38)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((nat-to-int (len (insort _v_47 _v_48)))=((nat-to-int (len _v_48))+1))
+NOW TESTING (forall ((Lst)) ((nat-to-int (len _qv_39))=(nat-to-int _qv_39)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((nat-to-int (len (insort _v_47 _v_48)))=((nat-to-int (len _v_48))+1))
+NOW TESTING (forall ((Nat) (Lst) (Lst)) ((insort _qv_40 (cons _qv_41 _qv_42))=(cons (insort _qv_40 _qv_41) (insort _qv_40 _qv_42))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((nat-to-int (len (insort _v_47 _v_48)))=((nat-to-int (len _v_48))+1))
+NOW TESTING (forall ((Nat) (Lst) (Lst)) ((cons _qv_43 (insort _qv_44 _qv_45))=(insort (cons _qv_43 _qv_44) (cons _qv_43 _qv_45))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((nat-to-int (len (insort _v_47 _v_48)))=((nat-to-int (len _v_48))+1))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_33))=_qv_33))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((nat-to-int (len (insort _v_47 _v_48)))=((nat-to-int (len _v_48))+1))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_34)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((nat-to-int (len (insort _v_47 _v_48)))=((nat-to-int (len _v_48))+1))
+NOW TESTING (forall ((Nat) (Nat)) ((less _qv_35 _qv_36)=(less _qv_36 _qv_35)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((nat-to-int (len (insort _v_47 _v_48)))=((nat-to-int (len _v_48))+1))
+NOW TESTING (forall ((Lst)) ((sort (sort _qv_37))=_qv_37))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((nat-to-int (len (insort _v_47 _v_48)))=((nat-to-int (len _v_48))+1))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_38))=(nat-to-int _qv_38)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((nat-to-int (len (insort _v_47 _v_48)))=((nat-to-int (len _v_48))+1))
+NOW TESTING (forall ((Lst)) ((nat-to-int (len _qv_39))=(nat-to-int _qv_39)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((nat-to-int (len (insort _v_47 _v_48)))=((nat-to-int (len _v_48))+1))
+NOW TESTING (forall ((Nat) (Lst) (Lst)) ((insort _qv_40 (cons _qv_41 _qv_42))=(cons (insort _qv_40 _qv_41) (insort _qv_40 _qv_42))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((nat-to-int (len (insort _v_47 _v_48)))=((nat-to-int (len _v_48))+1))
+NOW TESTING (forall ((Nat) (Lst) (Lst)) ((cons _qv_43 (insort _qv_44 _qv_45))=(insort (cons _qv_43 _qv_44) (cons _qv_43 _qv_45))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((nat-to-int (len (insort _v_50 _v_51)))=((nat-to-int (len _v_51))+1))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_33))=_qv_33))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((nat-to-int (len (insort _v_50 _v_51)))=((nat-to-int (len _v_51))+1))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_34)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((nat-to-int (len (insort _v_50 _v_51)))=((nat-to-int (len _v_51))+1))
+NOW TESTING (forall ((Nat) (Nat)) ((less _qv_35 _qv_36)=(less _qv_36 _qv_35)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((nat-to-int (len (insort _v_50 _v_51)))=((nat-to-int (len _v_51))+1))
+NOW TESTING (forall ((Lst)) ((sort (sort _qv_37))=_qv_37))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((nat-to-int (len (insort _v_50 _v_51)))=((nat-to-int (len _v_51))+1))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_38))=(nat-to-int _qv_38)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((nat-to-int (len (insort _v_50 _v_51)))=((nat-to-int (len _v_51))+1))
+NOW TESTING (forall ((Lst)) ((

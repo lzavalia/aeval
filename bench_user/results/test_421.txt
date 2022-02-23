@@ -1,0 +1,2753 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+
+Simplified goal: (forall ((Nat) (Lst)) (((len (delete x l))=(len l))||(less (len (delete x l)) (len l))))
+
+
+Base case:       (((len (delete zero _v_2))=(len _v_2))||(less (len (delete zero _v_2)) (len _v_2)))
+{
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+    | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+    | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+    | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+    | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+    | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+    ====================
+  }
+  deciding: ((len (delete (len nil) _v_2))=(len _v_2))
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+    | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+    | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+    | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+    | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+    | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+    | Assumptions [6]: ((len (delete (len nil) _v_2))!=(len _v_2))
+    ====================
+  }
+  current subgoal: (less (len (delete (len nil) _v_2)) (len _v_2))
+  {
+  }
+}
+
+Base case:       (((len (delete _v_3 nil))=(len nil))||(less (len (delete _v_3 nil)) (len nil)))
+{
+  proven trivially
+}
+Inductive step:  (((len (delete _v_3 (cons _t_4 _t_5)))=(len (cons _t_4 _t_5)))||(less (len (delete _v_3 (cons _t_4 _t_5))) (len (cons _t_4 _t_5))))
+{
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+    | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+    | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+    | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+    | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+    | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+    | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+    ====================
+  }
+  rewritten [1]: (((len (delete _v_3 (cons _t_4 _t_5)))=(succ (len _t_5)))||(less (len (delete _v_3 (cons _t_4 _t_5))) (succ (len _t_5))))
+  rewritten [3]: (((len ite(_v_3=_t_4, (delete _v_3 _t_5), (cons _t_4 (delete _v_3 _t_5))))=(succ (len _t_5)))||(less (len ite(_v_3=_t_4, (delete _v_3 _t_5), (cons _t_4 (delete _v_3 _t_5)))) (succ (len _t_5))))
+  rewritten [1]: (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (succ (len (delete _v_3 _t_5))) (succ (len _t_5)))))
+  rewritten [0]: (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (len (delete _v_3 _t_5)) (len _t_5))))
+  deciding: ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+    | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+    | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+    | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+    | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+    | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+    | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+    | Assumptions [7]: (!ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5))))
+    ====================
+  }
+  current subgoal: ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (len (delete _v_3 _t_5)) (len _t_5)))
+  {
+    proceed with (part 1/2): ((_v_3=_t_4)->(less (len (delete _v_3 _t_5)) (succ (len _t_5))))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+        | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+        | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+        | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+        | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+        | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+        | Assumptions [7]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+        ====================
+      }
+      current subgoal: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+    }
+    proceed with (part 2/2): ((_v_3!=_t_4)->(less (len (delete _v_3 _t_5)) (len _t_5)))
+    {
+        proven trivially (with Z3)
+    }
+    adding ((_v_3!=_t_4)->(less (len (delete _v_3 _t_5)) (len _t_5))) to assumptions
+    will try subgoals again
+    proceed with (part 1/1): ((_v_3=_t_4)->(less (len (delete _v_3 _t_5)) (succ (len _t_5))))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+        | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+        | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+        | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+        | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+        | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+        | Assumptions [7]: (less (len (delete _t_4 _t_5)) (len _t_5))
+        | Assumptions [8]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+        | Assumptions [9]: (false->(less (len (delete _t_4 _t_5)) (len _t_5)))
+        | Assumptions [10]: ((less (len (delete _t_4 _t_5)) (len _t_5))||((len (delete _t_4 _t_5))=(len _t_5)))
+        ====================
+      }
+      current subgoal: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+      split for (part 1/2): (less (len (delete _t_4 _t_5)) (len _t_5))
+      {
+        {
+          ====================
+          | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+          | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+          | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+          | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+          | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+          | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+          | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+          | Assumptions [7]: (less (len (delete _t_4 _t_5)) (len _t_5))
+          | Assumptions [8]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+          | Assumptions [9]: (false->(less (len (delete _t_4 _t_5)) (len _t_5)))
+          ====================
+        }
+      }
+      unable to succeed
+    }
+    cannot prove 1 of the subgoals
+  }
+CURRENT SUBGOAL (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (succ (len (delete _v_3 _t_5))) (succ (len _t_5)))))
+NOW TESTING (forall ((Nat) (Nat)) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+  backtrack to: (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (succ (len (delete _v_3 _t_5))) (succ (len _t_5)))))
+  rewritten [0]: (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (len (delete _v_3 _t_5)) (len _t_5))))
+  deciding: ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+    | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+    | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+    | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+    | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+    | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+    | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+    | Assumptions [7]: (!ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5))))
+    ====================
+  }
+  current subgoal: ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (len (delete _v_3 _t_5)) (len _t_5)))
+  {
+    proceed with (part 1/2): ((_v_3=_t_4)->(less (len (delete _v_3 _t_5)) (succ (len _t_5))))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+        | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+        | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+        | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+        | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+        | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+        | Assumptions [7]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+        ====================
+      }
+      current subgoal: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+    }
+    proceed with (part 2/2): ((_v_3!=_t_4)->(less (len (delete _v_3 _t_5)) (len _t_5)))
+    {
+        proven trivially (with Z3)
+    }
+    adding ((_v_3!=_t_4)->(less (len (delete _v_3 _t_5)) (len _t_5))) to assumptions
+    will try subgoals again
+    proceed with (part 1/1): ((_v_3=_t_4)->(less (len (delete _v_3 _t_5)) (succ (len _t_5))))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+        | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+        | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+        | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+        | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+        | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+        | Assumptions [7]: (less (len (delete _t_4 _t_5)) (len _t_5))
+        | Assumptions [8]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+        | Assumptions [9]: (false->(less (len (delete _t_4 _t_5)) (len _t_5)))
+        | Assumptions [10]: ((less (len (delete _t_4 _t_5)) (len _t_5))||((len (delete _t_4 _t_5))=(len _t_5)))
+        ====================
+      }
+      current subgoal: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+      split for (part 1/2): (less (len (delete _t_4 _t_5)) (len _t_5))
+      {
+        {
+          ====================
+          | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+          | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+          | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+          | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+          | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+          | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+          | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+          | Assumptions [7]: (less (len (delete _t_4 _t_5)) (len _t_5))
+          | Assumptions [8]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+          | Assumptions [9]: (false->(less (len (delete _t_4 _t_5)) (len _t_5)))
+          ====================
+        }
+      }
+      unable to succeed
+    }
+    cannot prove 1 of the subgoals
+  }
+CURRENT SUBGOAL (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (succ (len (delete _v_3 _t_5))) (succ (len _t_5)))))
+NOW TESTING (forall ((Nat) (Nat)) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+  backtrack to: (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (succ (len (delete _v_3 _t_5))) (succ (len _t_5)))))
+  deciding: ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+    | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+    | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+    | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+    | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+    | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+    | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+    | Assumptions [7]: (!ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5))))
+    ====================
+  }
+  current subgoal: ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (succ (len (delete _v_3 _t_5))) (succ (len _t_5))))
+  {
+    proceed with (part 1/2): ((_v_3=_t_4)->(less (len (delete _v_3 _t_5)) (succ (len _t_5))))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+        | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+        | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+        | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+        | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+        | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+        | Assumptions [7]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+        ====================
+      }
+      current subgoal: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+    }
+    proceed with (part 2/2): ((_v_3!=_t_4)->(less (succ (len (delete _v_3 _t_5))) (succ (len _t_5))))
+    {
+        proven trivially (with Z3)
+    }
+    adding ((_v_3!=_t_4)->(less (succ (len (delete _v_3 _t_5))) (succ (len _t_5)))) to assumptions
+    will try subgoals again
+    proceed with (part 1/1): ((_v_3=_t_4)->(less (len (delete _v_3 _t_5)) (succ (len _t_5))))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+        | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+        | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+        | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+        | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+        | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+        | Assumptions [7]: (less (len (delete _t_4 _t_5)) (len _t_5))
+        | Assumptions [8]: (less (succ (len (delete _t_4 _t_5))) (succ (len _t_5)))
+        | Assumptions [9]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+        | Assumptions [10]: (false->(less (succ (len (delete _t_4 _t_5))) (succ (len _t_5))))
+        | Assumptions [11]: ((less (len (delete _t_4 _t_5)) (len _t_5))||((len (delete _t_4 _t_5))=(len _t_5)))
+        ====================
+      }
+      current subgoal: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+      split for (part 1/2): (less (len (delete _t_4 _t_5)) (len _t_5))
+      {
+        {
+          ====================
+          | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+          | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+          | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+          | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+          | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+          | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+          | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+          | Assumptions [7]: (less (len (delete _t_4 _t_5)) (len _t_5))
+          | Assumptions [8]: (less (succ (len (delete _t_4 _t_5))) (succ (len _t_5)))
+          | Assumptions [9]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+          | Assumptions [10]: (false->(less (succ (len (delete _t_4 _t_5))) (succ (len _t_5))))
+          ====================
+        }
+      }
+      unable to succeed
+    }
+    cannot prove 1 of the subgoals
+  }
+CURRENT SUBGOAL (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (len (cons _t_4 (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (len (cons _t_4 (delete _v_3 _t_5))) (succ (len _t_5)))))
+NOW TESTING (forall ((Nat) (Nat)) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+  backtrack to: (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (len (cons _t_4 (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (len (cons _t_4 (delete _v_3 _t_5))) (succ (len _t_5)))))
+  rewritten [1]: (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (succ (len (delete _v_3 _t_5))) (succ (len _t_5)))))
+  rewritten [0]: (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (len (delete _v_3 _t_5)) (len _t_5))))
+  deciding: ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+    | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+    | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+    | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+    | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+    | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+    | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+    | Assumptions [7]: (!ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5))))
+    ====================
+  }
+  current subgoal: ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (len (delete _v_3 _t_5)) (len _t_5)))
+  {
+    proceed with (part 1/2): ((_v_3=_t_4)->(less (len (delete _v_3 _t_5)) (succ (len _t_5))))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+        | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+        | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+        | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+        | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+        | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+        | Assumptions [7]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+        ====================
+      }
+      current subgoal: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+    }
+    proceed with (part 2/2): ((_v_3!=_t_4)->(less (len (delete _v_3 _t_5)) (len _t_5)))
+    {
+        proven trivially (with Z3)
+    }
+    adding ((_v_3!=_t_4)->(less (len (delete _v_3 _t_5)) (len _t_5))) to assumptions
+    will try subgoals again
+    proceed with (part 1/1): ((_v_3=_t_4)->(less (len (delete _v_3 _t_5)) (succ (len _t_5))))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+        | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+        | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+        | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+        | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+        | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+        | Assumptions [7]: (less (len (delete _t_4 _t_5)) (len _t_5))
+        | Assumptions [8]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+        | Assumptions [9]: (false->(less (len (delete _t_4 _t_5)) (len _t_5)))
+        | Assumptions [10]: ((less (len (delete _t_4 _t_5)) (len _t_5))||((len (delete _t_4 _t_5))=(len _t_5)))
+        ====================
+      }
+      current subgoal: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+      split for (part 1/2): (less (len (delete _t_4 _t_5)) (len _t_5))
+      {
+        {
+          ====================
+          | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+          | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+          | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+          | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+          | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+          | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+          | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+          | Assumptions [7]: (less (len (delete _t_4 _t_5)) (len _t_5))
+          | Assumptions [8]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+          | Assumptions [9]: (false->(less (len (delete _t_4 _t_5)) (len _t_5)))
+          ====================
+        }
+      }
+      unable to succeed
+    }
+    cannot prove 1 of the subgoals
+  }
+CURRENT SUBGOAL (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (succ (len (delete _v_3 _t_5))) (succ (len _t_5)))))
+NOW TESTING (forall ((Nat) (Nat)) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+  backtrack to: (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (succ (len (delete _v_3 _t_5))) (succ (len _t_5)))))
+  rewritten [0]: (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (len (delete _v_3 _t_5)) (len _t_5))))
+  deciding: ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+    | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+    | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+    | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+    | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+    | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+    | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+    | Assumptions [7]: (!ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5))))
+    ====================
+  }
+  current subgoal: ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (len (delete _v_3 _t_5)) (len _t_5)))
+  {
+    proceed with (part 1/2): ((_v_3=_t_4)->(less (len (delete _v_3 _t_5)) (succ (len _t_5))))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+        | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+        | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+        | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+        | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+        | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+        | Assumptions [7]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+        ====================
+      }
+      current subgoal: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+    }
+    proceed with (part 2/2): ((_v_3!=_t_4)->(less (len (delete _v_3 _t_5)) (len _t_5)))
+    {
+        proven trivially (with Z3)
+    }
+    adding ((_v_3!=_t_4)->(less (len (delete _v_3 _t_5)) (len _t_5))) to assumptions
+    will try subgoals again
+    proceed with (part 1/1): ((_v_3=_t_4)->(less (len (delete _v_3 _t_5)) (succ (len _t_5))))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+        | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+        | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+        | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+        | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+        | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+        | Assumptions [7]: (less (len (delete _t_4 _t_5)) (len _t_5))
+        | Assumptions [8]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+        | Assumptions [9]: (false->(less (len (delete _t_4 _t_5)) (len _t_5)))
+        | Assumptions [10]: ((less (len (delete _t_4 _t_5)) (len _t_5))||((len (delete _t_4 _t_5))=(len _t_5)))
+        ====================
+      }
+      current subgoal: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+      split for (part 1/2): (less (len (delete _t_4 _t_5)) (len _t_5))
+      {
+        {
+          ====================
+          | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+          | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+          | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+          | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+          | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+          | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+          | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+          | Assumptions [7]: (less (len (delete _t_4 _t_5)) (len _t_5))
+          | Assumptions [8]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+          | Assumptions [9]: (false->(less (len (delete _t_4 _t_5)) (len _t_5)))
+          ====================
+        }
+      }
+      unable to succeed
+    }
+    cannot prove 1 of the subgoals
+  }
+CURRENT SUBGOAL (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (succ (len (delete _v_3 _t_5))) (succ (len _t_5)))))
+NOW TESTING (forall ((Nat) (Nat)) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+  backtrack to: (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (succ (len (delete _v_3 _t_5))) (succ (len _t_5)))))
+  deciding: ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+    | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+    | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+    | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+    | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+    | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+    | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+    | Assumptions [7]: (!ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5))))
+    ====================
+  }
+  current subgoal: ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (succ (len (delete _v_3 _t_5))) (succ (len _t_5))))
+  {
+    proceed with (part 1/2): ((_v_3=_t_4)->(less (len (delete _v_3 _t_5)) (succ (len _t_5))))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+        | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+        | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+        | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+        | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+        | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+        | Assumptions [7]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+        ====================
+      }
+      current subgoal: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+    }
+    proceed with (part 2/2): ((_v_3!=_t_4)->(less (succ (len (delete _v_3 _t_5))) (succ (len _t_5))))
+    {
+        proven trivially (with Z3)
+    }
+    adding ((_v_3!=_t_4)->(less (succ (len (delete _v_3 _t_5))) (succ (len _t_5)))) to assumptions
+    will try subgoals again
+    proceed with (part 1/1): ((_v_3=_t_4)->(less (len (delete _v_3 _t_5)) (succ (len _t_5))))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+        | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+        | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+        | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+        | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+        | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+        | Assumptions [7]: (less (len (delete _t_4 _t_5)) (len _t_5))
+        | Assumptions [8]: (less (succ (len (delete _t_4 _t_5))) (succ (len _t_5)))
+        | Assumptions [9]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+        | Assumptions [10]: (false->(less (succ (len (delete _t_4 _t_5))) (succ (len _t_5))))
+        | Assumptions [11]: ((less (len (delete _t_4 _t_5)) (len _t_5))||((len (delete _t_4 _t_5))=(len _t_5)))
+        ====================
+      }
+      current subgoal: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+      split for (part 1/2): (less (len (delete _t_4 _t_5)) (len _t_5))
+      {
+        {
+          ====================
+          | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+          | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+          | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+          | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+          | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+          | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+          | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+          | Assumptions [7]: (less (len (delete _t_4 _t_5)) (len _t_5))
+          | Assumptions [8]: (less (succ (len (delete _t_4 _t_5))) (succ (len _t_5)))
+          | Assumptions [9]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+          | Assumptions [10]: (false->(less (succ (len (delete _t_4 _t_5))) (succ (len _t_5))))
+          ====================
+        }
+      }
+      unable to succeed
+    }
+    cannot prove 1 of the subgoals
+  }
+CURRENT SUBGOAL (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (len (cons _t_4 (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (len (cons _t_4 (delete _v_3 _t_5))) (succ (len _t_5)))))
+NOW TESTING (forall ((Nat) (Nat)) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+  backtrack to: (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (len (cons _t_4 (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (len (cons _t_4 (delete _v_3 _t_5))) (succ (len _t_5)))))
+  deciding: ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (len (cons _t_4 (delete _v_3 _t_5)))=(succ (len _t_5)))
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+    | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+    | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+    | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+    | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+    | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+    | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+    | Assumptions [7]: (!ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (len (cons _t_4 (delete _v_3 _t_5)))=(succ (len _t_5))))
+    | Assumptions [8]: (!ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5))))
+    ====================
+  }
+  current subgoal: ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (len (cons _t_4 (delete _v_3 _t_5))) (succ (len _t_5))))
+  {
+    proceed with (part 1/2): ((_v_3=_t_4)->(less (len (delete _v_3 _t_5)) (succ (len _t_5))))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+        | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+        | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+        | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+        | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+        | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+        | Assumptions [7]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+        ====================
+      }
+      current subgoal: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+    }
+    proceed with (part 2/2): ((_v_3!=_t_4)->(less (len (cons _t_4 (delete _v_3 _t_5))) (succ (len _t_5))))
+    {
+        proven trivially (with Z3)
+    }
+    adding ((_v_3!=_t_4)->(less (len (cons _t_4 (delete _v_3 _t_5))) (succ (len _t_5)))) to assumptions
+    will try subgoals again
+    proceed with (part 1/1): ((_v_3=_t_4)->(less (len (delete _v_3 _t_5)) (succ (len _t_5))))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+        | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+        | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+        | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+        | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+        | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+        | Assumptions [7]: (less (len (delete _t_4 _t_5)) (len _t_5))
+        | Assumptions [8]: (less (succ (len (delete _t_4 _t_5))) (succ (len _t_5)))
+        | Assumptions [9]: (less (len (cons _t_4 (delete _t_4 _t_5))) (succ (len _t_5)))
+        | Assumptions [10]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+        | Assumptions [11]: (false->(less (len (cons _t_4 (delete _t_4 _t_5))) (succ (len _t_5))))
+        ====================
+      }
+      current subgoal: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+    }
+    cannot prove 1 of the subgoals
+  }
+CURRENT SUBGOAL (((len (delete _v_3 (cons _t_4 _t_5)))=(succ (len _t_5)))||(less (len (delete _v_3 (cons _t_4 _t_5))) (succ (len _t_5))))
+NOW TESTING (forall ((Nat) (Nat)) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+  backtrack to: (((len (delete _v_3 (cons _t_4 _t_5)))=(succ (len _t_5)))||(less (len (delete _v_3 (cons _t_4 _t_5))) (succ (len _t_5))))
+  rewritten [3]: (((len ite(_v_3=_t_4, (delete _v_3 _t_5), (cons _t_4 (delete _v_3 _t_5))))=(succ (len _t_5)))||(less (len ite(_v_3=_t_4, (delete _v_3 _t_5), (cons _t_4 (delete _v_3 _t_5)))) (succ (len _t_5))))
+  rewritten [1]: (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (succ (len (delete _v_3 _t_5))) (succ (len _t_5)))))
+  rewritten [0]: (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (len (delete _v_3 _t_5)) (len _t_5))))
+  deciding: ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+    | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+    | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+    | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+    | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+    | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+    | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+    | Assumptions [7]: (!ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5))))
+    ====================
+  }
+  current subgoal: ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (len (delete _v_3 _t_5)) (len _t_5)))
+  {
+    proceed with (part 1/2): ((_v_3=_t_4)->(less (len (delete _v_3 _t_5)) (succ (len _t_5))))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+        | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+        | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+        | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+        | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+        | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+        | Assumptions [7]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+        ====================
+      }
+      current subgoal: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+    }
+    proceed with (part 2/2): ((_v_3!=_t_4)->(less (len (delete _v_3 _t_5)) (len _t_5)))
+    {
+        proven trivially (with Z3)
+    }
+    adding ((_v_3!=_t_4)->(less (len (delete _v_3 _t_5)) (len _t_5))) to assumptions
+    will try subgoals again
+    proceed with (part 1/1): ((_v_3=_t_4)->(less (len (delete _v_3 _t_5)) (succ (len _t_5))))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+        | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+        | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+        | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+        | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+        | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+        | Assumptions [7]: (less (len (delete _t_4 _t_5)) (len _t_5))
+        | Assumptions [8]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+        | Assumptions [9]: (false->(less (len (delete _t_4 _t_5)) (len _t_5)))
+        | Assumptions [10]: ((less (len (delete _t_4 _t_5)) (len _t_5))||((len (delete _t_4 _t_5))=(len _t_5)))
+        ====================
+      }
+      current subgoal: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+      split for (part 1/2): (less (len (delete _t_4 _t_5)) (len _t_5))
+      {
+        {
+          ====================
+          | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+          | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+          | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+          | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+          | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+          | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+          | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+          | Assumptions [7]: (less (len (delete _t_4 _t_5)) (len _t_5))
+          | Assumptions [8]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+          | Assumptions [9]: (false->(less (len (delete _t_4 _t_5)) (len _t_5)))
+          ====================
+        }
+      }
+      unable to succeed
+    }
+    cannot prove 1 of the subgoals
+  }
+CURRENT SUBGOAL (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (succ (len (delete _v_3 _t_5))) (succ (len _t_5)))))
+NOW TESTING (forall ((Nat) (Nat)) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+  backtrack to: (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (succ (len (delete _v_3 _t_5))) (succ (len _t_5)))))
+  rewritten [0]: (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (len (delete _v_3 _t_5)) (len _t_5))))
+  deciding: ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+    | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+    | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+    | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+    | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+    | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+    | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+    | Assumptions [7]: (!ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5))))
+    ====================
+  }
+  current subgoal: ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (len (delete _v_3 _t_5)) (len _t_5)))
+  {
+    proceed with (part 1/2): ((_v_3=_t_4)->(less (len (delete _v_3 _t_5)) (succ (len _t_5))))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+        | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+        | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+        | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+        | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+        | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+        | Assumptions [7]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+        ====================
+      }
+      current subgoal: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+    }
+    proceed with (part 2/2): ((_v_3!=_t_4)->(less (len (delete _v_3 _t_5)) (len _t_5)))
+    {
+        proven trivially (with Z3)
+    }
+    adding ((_v_3!=_t_4)->(less (len (delete _v_3 _t_5)) (len _t_5))) to assumptions
+    will try subgoals again
+    proceed with (part 1/1): ((_v_3=_t_4)->(less (len (delete _v_3 _t_5)) (succ (len _t_5))))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+        | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+        | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+        | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+        | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+        | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+        | Assumptions [7]: (less (len (delete _t_4 _t_5)) (len _t_5))
+        | Assumptions [8]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+        | Assumptions [9]: (false->(less (len (delete _t_4 _t_5)) (len _t_5)))
+        | Assumptions [10]: ((less (len (delete _t_4 _t_5)) (len _t_5))||((len (delete _t_4 _t_5))=(len _t_5)))
+        ====================
+      }
+      current subgoal: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+      split for (part 1/2): (less (len (delete _t_4 _t_5)) (len _t_5))
+      {
+        {
+          ====================
+          | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+          | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+          | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+          | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+          | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+          | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+          | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+          | Assumptions [7]: (less (len (delete _t_4 _t_5)) (len _t_5))
+          | Assumptions [8]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+          | Assumptions [9]: (false->(less (len (delete _t_4 _t_5)) (len _t_5)))
+          ====================
+        }
+      }
+      unable to succeed
+    }
+    cannot prove 1 of the subgoals
+  }
+CURRENT SUBGOAL (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (succ (len (delete _v_3 _t_5))) (succ (len _t_5)))))
+NOW TESTING (forall ((Nat) (Nat)) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+  backtrack to: (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (succ (len (delete _v_3 _t_5))) (succ (len _t_5)))))
+  deciding: ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+    | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+    | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+    | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+    | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+    | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+    | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+    | Assumptions [7]: (!ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5))))
+    ====================
+  }
+  current subgoal: ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (succ (len (delete _v_3 _t_5))) (succ (len _t_5))))
+  {
+    proceed with (part 1/2): ((_v_3=_t_4)->(less (len (delete _v_3 _t_5)) (succ (len _t_5))))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+        | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+        | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+        | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+        | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+        | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+        | Assumptions [7]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+        ====================
+      }
+      current subgoal: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+    }
+    proceed with (part 2/2): ((_v_3!=_t_4)->(less (succ (len (delete _v_3 _t_5))) (succ (len _t_5))))
+    {
+        proven trivially (with Z3)
+    }
+    adding ((_v_3!=_t_4)->(less (succ (len (delete _v_3 _t_5))) (succ (len _t_5)))) to assumptions
+    will try subgoals again
+    proceed with (part 1/1): ((_v_3=_t_4)->(less (len (delete _v_3 _t_5)) (succ (len _t_5))))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+        | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+        | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+        | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+        | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+        | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+        | Assumptions [7]: (less (len (delete _t_4 _t_5)) (len _t_5))
+        | Assumptions [8]: (less (succ (len (delete _t_4 _t_5))) (succ (len _t_5)))
+        | Assumptions [9]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+        | Assumptions [10]: (false->(less (succ (len (delete _t_4 _t_5))) (succ (len _t_5))))
+        | Assumptions [11]: ((less (len (delete _t_4 _t_5)) (len _t_5))||((len (delete _t_4 _t_5))=(len _t_5)))
+        ====================
+      }
+      current subgoal: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+      split for (part 1/2): (less (len (delete _t_4 _t_5)) (len _t_5))
+      {
+        {
+          ====================
+          | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+          | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+          | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+          | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+          | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+          | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+          | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+          | Assumptions [7]: (less (len (delete _t_4 _t_5)) (len _t_5))
+          | Assumptions [8]: (less (succ (len (delete _t_4 _t_5))) (succ (len _t_5)))
+          | Assumptions [9]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+          | Assumptions [10]: (false->(less (succ (len (delete _t_4 _t_5))) (succ (len _t_5))))
+          ====================
+        }
+      }
+      unable to succeed
+    }
+    cannot prove 1 of the subgoals
+  }
+CURRENT SUBGOAL (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (len (cons _t_4 (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (len (cons _t_4 (delete _v_3 _t_5))) (succ (len _t_5)))))
+NOW TESTING (forall ((Nat) (Nat)) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+  backtrack to: (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (len (cons _t_4 (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (len (cons _t_4 (delete _v_3 _t_5))) (succ (len _t_5)))))
+  rewritten [1]: (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (succ (len (delete _v_3 _t_5))) (succ (len _t_5)))))
+  rewritten [0]: (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (len (delete _v_3 _t_5)) (len _t_5))))
+  deciding: ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+    | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+    | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+    | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+    | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+    | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+    | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+    | Assumptions [7]: (!ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5))))
+    ====================
+  }
+  current subgoal: ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (len (delete _v_3 _t_5)) (len _t_5)))
+  {
+    proceed with (part 1/2): ((_v_3=_t_4)->(less (len (delete _v_3 _t_5)) (succ (len _t_5))))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+        | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+        | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+        | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+        | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+        | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+        | Assumptions [7]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+        ====================
+      }
+      current subgoal: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+    }
+    proceed with (part 2/2): ((_v_3!=_t_4)->(less (len (delete _v_3 _t_5)) (len _t_5)))
+    {
+        proven trivially (with Z3)
+    }
+    adding ((_v_3!=_t_4)->(less (len (delete _v_3 _t_5)) (len _t_5))) to assumptions
+    will try subgoals again
+    proceed with (part 1/1): ((_v_3=_t_4)->(less (len (delete _v_3 _t_5)) (succ (len _t_5))))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+        | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+        | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+        | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+        | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+        | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+        | Assumptions [7]: (less (len (delete _t_4 _t_5)) (len _t_5))
+        | Assumptions [8]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+        | Assumptions [9]: (false->(less (len (delete _t_4 _t_5)) (len _t_5)))
+        | Assumptions [10]: ((less (len (delete _t_4 _t_5)) (len _t_5))||((len (delete _t_4 _t_5))=(len _t_5)))
+        ====================
+      }
+      current subgoal: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+      split for (part 1/2): (less (len (delete _t_4 _t_5)) (len _t_5))
+      {
+        {
+          ====================
+          | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+          | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+          | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+          | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+          | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+          | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+          | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+          | Assumptions [7]: (less (len (delete _t_4 _t_5)) (len _t_5))
+          | Assumptions [8]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+          | Assumptions [9]: (false->(less (len (delete _t_4 _t_5)) (len _t_5)))
+          ====================
+        }
+      }
+      unable to succeed
+    }
+    cannot prove 1 of the subgoals
+  }
+CURRENT SUBGOAL (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (succ (len (delete _v_3 _t_5))) (succ (len _t_5)))))
+NOW TESTING (forall ((Nat) (Nat)) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+  backtrack to: (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (succ (len (delete _v_3 _t_5))) (succ (len _t_5)))))
+  rewritten [0]: (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (len (delete _v_3 _t_5)) (len _t_5))))
+  deciding: ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+    | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+    | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+    | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+    | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+    | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+    | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+    | Assumptions [7]: (!ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5))))
+    ====================
+  }
+  current subgoal: ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (len (delete _v_3 _t_5)) (len _t_5)))
+  {
+    proceed with (part 1/2): ((_v_3=_t_4)->(less (len (delete _v_3 _t_5)) (succ (len _t_5))))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+        | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+        | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+        | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+        | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+        | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+        | Assumptions [7]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+        ====================
+      }
+      current subgoal: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+    }
+    proceed with (part 2/2): ((_v_3!=_t_4)->(less (len (delete _v_3 _t_5)) (len _t_5)))
+    {
+        proven trivially (with Z3)
+    }
+    adding ((_v_3!=_t_4)->(less (len (delete _v_3 _t_5)) (len _t_5))) to assumptions
+    will try subgoals again
+    proceed with (part 1/1): ((_v_3=_t_4)->(less (len (delete _v_3 _t_5)) (succ (len _t_5))))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+        | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+        | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+        | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+        | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+        | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+        | Assumptions [7]: (less (len (delete _t_4 _t_5)) (len _t_5))
+        | Assumptions [8]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+        | Assumptions [9]: (false->(less (len (delete _t_4 _t_5)) (len _t_5)))
+        | Assumptions [10]: ((less (len (delete _t_4 _t_5)) (len _t_5))||((len (delete _t_4 _t_5))=(len _t_5)))
+        ====================
+      }
+      current subgoal: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+      split for (part 1/2): (less (len (delete _t_4 _t_5)) (len _t_5))
+      {
+        {
+          ====================
+          | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+          | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+          | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+          | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+          | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+          | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+          | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+          | Assumptions [7]: (less (len (delete _t_4 _t_5)) (len _t_5))
+          | Assumptions [8]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+          | Assumptions [9]: (false->(less (len (delete _t_4 _t_5)) (len _t_5)))
+          ====================
+        }
+      }
+      unable to succeed
+    }
+    cannot prove 1 of the subgoals
+  }
+CURRENT SUBGOAL (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (succ (len (delete _v_3 _t_5))) (succ (len _t_5)))))
+NOW TESTING (forall ((Nat) (Nat)) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+  backtrack to: (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (succ (len (delete _v_3 _t_5))) (succ (len _t_5)))))
+  deciding: ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+    | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+    | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+    | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+    | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+    | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+    | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+    | Assumptions [7]: (!ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5))))
+    ====================
+  }
+  current subgoal: ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (succ (len (delete _v_3 _t_5))) (succ (len _t_5))))
+  {
+    proceed with (part 1/2): ((_v_3=_t_4)->(less (len (delete _v_3 _t_5)) (succ (len _t_5))))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+        | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+        | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+        | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+        | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+        | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+        | Assumptions [7]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+        ====================
+      }
+      current subgoal: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+    }
+    proceed with (part 2/2): ((_v_3!=_t_4)->(less (succ (len (delete _v_3 _t_5))) (succ (len _t_5))))
+    {
+        proven trivially (with Z3)
+    }
+    adding ((_v_3!=_t_4)->(less (succ (len (delete _v_3 _t_5))) (succ (len _t_5)))) to assumptions
+    will try subgoals again
+    proceed with (part 1/1): ((_v_3=_t_4)->(less (len (delete _v_3 _t_5)) (succ (len _t_5))))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+        | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+        | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+        | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+        | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+        | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+        | Assumptions [7]: (less (len (delete _t_4 _t_5)) (len _t_5))
+        | Assumptions [8]: (less (succ (len (delete _t_4 _t_5))) (succ (len _t_5)))
+        | Assumptions [9]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+        | Assumptions [10]: (false->(less (succ (len (delete _t_4 _t_5))) (succ (len _t_5))))
+        | Assumptions [11]: ((less (len (delete _t_4 _t_5)) (len _t_5))||((len (delete _t_4 _t_5))=(len _t_5)))
+        ====================
+      }
+      current subgoal: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+      split for (part 1/2): (less (len (delete _t_4 _t_5)) (len _t_5))
+      {
+        {
+          ====================
+          | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+          | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+          | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+          | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+          | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+          | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+          | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+          | Assumptions [7]: (less (len (delete _t_4 _t_5)) (len _t_5))
+          | Assumptions [8]: (less (succ (len (delete _t_4 _t_5))) (succ (len _t_5)))
+          | Assumptions [9]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+          | Assumptions [10]: (false->(less (succ (len (delete _t_4 _t_5))) (succ (len _t_5))))
+          ====================
+        }
+      }
+      unable to succeed
+    }
+    cannot prove 1 of the subgoals
+  }
+CURRENT SUBGOAL (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (len (cons _t_4 (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (len (cons _t_4 (delete _v_3 _t_5))) (succ (len _t_5)))))
+NOW TESTING (forall ((Nat) (Nat)) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+  backtrack to: (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (len (cons _t_4 (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (len (cons _t_4 (delete _v_3 _t_5))) (succ (len _t_5)))))
+  deciding: ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (len (cons _t_4 (delete _v_3 _t_5)))=(succ (len _t_5)))
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+    | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+    | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+    | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+    | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+    | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+    | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+    | Assumptions [7]: (!ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (len (cons _t_4 (delete _v_3 _t_5)))=(succ (len _t_5))))
+    | Assumptions [8]: (!ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5))))
+    ====================
+  }
+  current subgoal: ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (len (cons _t_4 (delete _v_3 _t_5))) (succ (len _t_5))))
+  {
+    proceed with (part 1/2): ((_v_3=_t_4)->(less (len (delete _v_3 _t_5)) (succ (len _t_5))))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+        | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+        | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+        | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+        | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+        | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+        | Assumptions [7]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+        ====================
+      }
+      current subgoal: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+    }
+    proceed with (part 2/2): ((_v_3!=_t_4)->(less (len (cons _t_4 (delete _v_3 _t_5))) (succ (len _t_5))))
+    {
+        proven trivially (with Z3)
+    }
+    adding ((_v_3!=_t_4)->(less (len (cons _t_4 (delete _v_3 _t_5))) (succ (len _t_5)))) to assumptions
+    will try subgoals again
+    proceed with (part 1/1): ((_v_3=_t_4)->(less (len (delete _v_3 _t_5)) (succ (len _t_5))))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+        | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+        | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+        | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+        | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+        | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+        | Assumptions [7]: (less (len (delete _t_4 _t_5)) (len _t_5))
+        | Assumptions [8]: (less (succ (len (delete _t_4 _t_5))) (succ (len _t_5)))
+        | Assumptions [9]: (less (len (cons _t_4 (delete _t_4 _t_5))) (succ (len _t_5)))
+        | Assumptions [10]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+        | Assumptions [11]: (false->(less (len (cons _t_4 (delete _t_4 _t_5))) (succ (len _t_5))))
+        ====================
+      }
+      current subgoal: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+    }
+    cannot prove 1 of the subgoals
+  }
+CURRENT SUBGOAL (((len (delete _v_3 (cons _t_4 _t_5)))=(succ (len _t_5)))||(less (len (delete _v_3 (cons _t_4 _t_5))) (succ (len _t_5))))
+NOW TESTING (forall ((Nat) (Nat)) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+  backtrack to: (((len (delete _v_3 (cons _t_4 _t_5)))=(succ (len _t_5)))||(less (len (delete _v_3 (cons _t_4 _t_5))) (succ (len _t_5))))
+  deciding: ((len (delete _v_3 (cons _t_4 _t_5)))=(succ (len _t_5)))
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+    | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+    | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+    | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+    | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+    | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+    | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+    | Assumptions [7]: ((len (delete _v_3 (cons _t_4 _t_5)))!=(succ (len _t_5)))
+    | Assumptions [8]: ((len ite(_v_3=_t_4, (delete _v_3 _t_5), (cons _t_4 (delete _v_3 _t_5))))!=(succ (len _t_5)))
+    ====================
+  }
+  current subgoal: (less (len (delete _v_3 (cons _t_4 _t_5))) (succ (len _t_5)))
+  {
+    rewritten [3]: (less (len ite(_v_3=_t_4, (delete _v_3 _t_5), (cons _t_4 (delete _v_3 _t_5)))) (succ (len _t_5)))
+    proceed with (part 1/2): ((_v_3=_t_4)->(less (len (delete _v_3 _t_5)) (succ (len _t_5))))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+        | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+        | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+        | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+        | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+        | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+        | Assumptions [7]: ((len (delete _t_4 (cons _t_4 _t_5)))!=(succ (len _t_5)))
+        | Assumptions [8]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+        ====================
+      }
+      current subgoal: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+    }
+    proceed with (part 2/2): ((_v_3!=_t_4)->(less (len (cons _t_4 (delete _v_3 _t_5))) (succ (len _t_5))))
+    {
+        proven trivially (with Z3)
+    }
+    adding ((_v_3!=_t_4)->(less (len (cons _t_4 (delete _v_3 _t_5))) (succ (len _t_5)))) to assumptions
+    will try subgoals again
+    proceed with (part 1/1): ((_v_3=_t_4)->(less (len (delete _v_3 _t_5)) (succ (len _t_5))))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+        | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+        | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+        | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+        | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+        | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+        | Assumptions [7]: (less (len (delete _t_4 _t_5)) (len _t_5))
+        | Assumptions [8]: (less (succ (len (delete _t_4 _t_5))) (succ (len _t_5)))
+        | Assumptions [9]: (less (len (cons _t_4 (delete _t_4 _t_5))) (succ (len _t_5)))
+        | Assumptions [10]: ((len (delete _t_4 (cons _t_4 _t_5)))!=(succ (len _t_5)))
+        | Assumptions [11]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+        | Assumptions [12]: (false->(less (len (cons _t_4 (delete _t_4 _t_5))) (succ (len _t_5))))
+        ====================
+      }
+      current subgoal: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+    }
+    cannot prove 1 of the subgoals
+CURRENT SUBGOAL (less (len (delete _v_3 (cons _t_4 _t_5))) (succ (len _t_5)))
+NOW TESTING (forall ((Nat) (Nat)) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+    backtrack to: (less (len (delete _v_3 (cons _t_4 _t_5))) (succ (len _t_5)))
+    rewritten [3]: (less (len ite(_v_3=_t_4, (delete _v_3 _t_5), (cons _t_4 (delete _v_3 _t_5)))) (succ (len _t_5)))
+    proceed with (part 1/2): ((_v_3!=_t_4)->(less (len (cons _t_4 (delete _v_3 _t_5))) (succ (len _t_5))))
+    {
+        proven trivially (with Z3)
+    }
+    adding ((_v_3!=_t_4)->(less (len (cons _t_4 (delete _v_3 _t_5))) (succ (len _t_5)))) to assumptions
+    proceed with (part 2/2): ((_v_3=_t_4)->(less (len (delete _v_3 _t_5)) (succ (len _t_5))))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+        | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+        | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+        | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+        | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+        | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+        | Assumptions [7]: (less (len (delete _t_4 _t_5)) (len _t_5))
+        | Assumptions [8]: (less (succ (len (delete _t_4 _t_5))) (succ (len _t_5)))
+        | Assumptions [9]: (less (len (cons _t_4 (delete _t_4 _t_5))) (succ (len _t_5)))
+        | Assumptions [10]: ((len (delete _t_4 (cons _t_4 _t_5)))!=(succ (len _t_5)))
+        | Assumptions [11]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+        | Assumptions [12]: (false->(less (len (cons _t_4 (delete _t_4 _t_5))) (succ (len _t_5))))
+        ====================
+      }
+      current subgoal: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+    }
+    will try subgoals again
+    proceed with (part 1/1): ((_v_3=_t_4)->(less (len (delete _v_3 _t_5)) (succ (len _t_5))))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+        | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+        | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+        | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+        | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+        | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+        | Assumptions [7]: (less (len (delete _t_4 _t_5)) (len _t_5))
+        | Assumptions [8]: (less (succ (len (delete _t_4 _t_5))) (succ (len _t_5)))
+        | Assumptions [9]: (less (len (cons _t_4 (delete _t_4 _t_5))) (succ (len _t_5)))
+        | Assumptions [10]: ((len (delete _t_4 (cons _t_4 _t_5)))!=(succ (len _t_5)))
+        | Assumptions [11]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+        | Assumptions [12]: (false->(less (len (cons _t_4 (delete _t_4 _t_5))) (succ (len _t_5))))
+        ====================
+      }
+      current subgoal: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+    }
+    cannot prove 1 of the subgoals
+CURRENT SUBGOAL (less (len (delete _v_3 (cons _t_4 _t_5))) (succ (len _t_5)))
+NOW TESTING (forall ((Nat) (Nat)) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+    backtrack to: (less (len (delete _v_3 (cons _t_4 _t_5))) (succ (len _t_5)))
+  }
+CURRENT SUBGOAL (((len (delete _v_3 (cons _t_4 _t_5)))=(len (cons _t_4 _t_5)))||(less (len (delete _v_3 (cons _t_4 _t_5))) (len (cons _t_4 _t_5))))
+NOW TESTING (forall ((Nat) (Nat)) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+  backtrack to: (((len (delete _v_3 (cons _t_4 _t_5)))=(len (cons _t_4 _t_5)))||(less (len (delete _v_3 (cons _t_4 _t_5))) (len (cons _t_4 _t_5))))
+  rewritten [3]: (((len ite(_v_3=_t_4, (delete _v_3 _t_5), (cons _t_4 (delete _v_3 _t_5))))=(len (cons _t_4 _t_5)))||(less (len ite(_v_3=_t_4, (delete _v_3 _t_5), (cons _t_4 (delete _v_3 _t_5)))) (len (cons _t_4 _t_5))))
+  rewritten [1]: (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (len (cons _t_4 (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (len (cons _t_4 (delete _v_3 _t_5))) (succ (len _t_5)))))
+  rewritten [1]: (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (succ (len (delete _v_3 _t_5))) (succ (len _t_5)))))
+  rewritten [0]: (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (len (delete _v_3 _t_5)) (len _t_5))))
+  deciding: ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+    | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+    | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+    | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+    | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+    | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+    | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+    | Assumptions [7]: (!ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5))))
+    ====================
+  }
+  current subgoal: ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (len (delete _v_3 _t_5)) (len _t_5)))
+  {
+    proceed with (part 1/2): ((_v_3=_t_4)->(less (len (delete _v_3 _t_5)) (succ (len _t_5))))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+        | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+        | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+        | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+        | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+        | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+        | Assumptions [7]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+        ====================
+      }
+      current subgoal: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+    }
+    proceed with (part 2/2): ((_v_3!=_t_4)->(less (len (delete _v_3 _t_5)) (len _t_5)))
+    {
+        proven trivially (with Z3)
+    }
+    adding ((_v_3!=_t_4)->(less (len (delete _v_3 _t_5)) (len _t_5))) to assumptions
+    will try subgoals again
+    proceed with (part 1/1): ((_v_3=_t_4)->(less (len (delete _v_3 _t_5)) (succ (len _t_5))))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+        | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+        | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+        | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+        | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+        | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+        | Assumptions [7]: (less (len (delete _t_4 _t_5)) (len _t_5))
+        | Assumptions [8]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+        | Assumptions [9]: (false->(less (len (delete _t_4 _t_5)) (len _t_5)))
+        | Assumptions [10]: ((less (len (delete _t_4 _t_5)) (len _t_5))||((len (delete _t_4 _t_5))=(len _t_5)))
+        ====================
+      }
+      current subgoal: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+      split for (part 1/2): (less (len (delete _t_4 _t_5)) (len _t_5))
+      {
+        {
+          ====================
+          | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+          | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+          | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+          | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+          | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+          | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+          | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+          | Assumptions [7]: (less (len (delete _t_4 _t_5)) (len _t_5))
+          | Assumptions [8]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+          | Assumptions [9]: (false->(less (len (delete _t_4 _t_5)) (len _t_5)))
+          ====================
+        }
+      }
+      unable to succeed
+    }
+    cannot prove 1 of the subgoals
+  }
+CURRENT SUBGOAL (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (succ (len (delete _v_3 _t_5))) (succ (len _t_5)))))
+NOW TESTING (forall ((Nat) (Nat)) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+  backtrack to: (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (succ (len (delete _v_3 _t_5))) (succ (len _t_5)))))
+  rewritten [0]: (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (len (delete _v_3 _t_5)) (len _t_5))))
+  deciding: ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+    | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+    | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+    | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+    | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+    | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+    | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+    | Assumptions [7]: (!ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5))))
+    ====================
+  }
+  current subgoal: ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (len (delete _v_3 _t_5)) (len _t_5)))
+  {
+    proceed with (part 1/2): ((_v_3=_t_4)->(less (len (delete _v_3 _t_5)) (succ (len _t_5))))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+        | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+        | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+        | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+        | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+        | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+        | Assumptions [7]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+        ====================
+      }
+      current subgoal: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+    }
+    proceed with (part 2/2): ((_v_3!=_t_4)->(less (len (delete _v_3 _t_5)) (len _t_5)))
+    {
+        proven trivially (with Z3)
+    }
+    adding ((_v_3!=_t_4)->(less (len (delete _v_3 _t_5)) (len _t_5))) to assumptions
+    will try subgoals again
+    proceed with (part 1/1): ((_v_3=_t_4)->(less (len (delete _v_3 _t_5)) (succ (len _t_5))))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+        | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+        | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+        | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+        | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+        | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+        | Assumptions [7]: (less (len (delete _t_4 _t_5)) (len _t_5))
+        | Assumptions [8]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+        | Assumptions [9]: (false->(less (len (delete _t_4 _t_5)) (len _t_5)))
+        | Assumptions [10]: ((less (len (delete _t_4 _t_5)) (len _t_5))||((len (delete _t_4 _t_5))=(len _t_5)))
+        ====================
+      }
+      current subgoal: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+      split for (part 1/2): (less (len (delete _t_4 _t_5)) (len _t_5))
+      {
+        {
+          ====================
+          | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+          | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+          | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+          | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+          | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+          | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+          | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+          | Assumptions [7]: (less (len (delete _t_4 _t_5)) (len _t_5))
+          | Assumptions [8]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+          | Assumptions [9]: (false->(less (len (delete _t_4 _t_5)) (len _t_5)))
+          ====================
+        }
+      }
+      unable to succeed
+    }
+    cannot prove 1 of the subgoals
+  }
+CURRENT SUBGOAL (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (succ (len (delete _v_3 _t_5))) (succ (len _t_5)))))
+NOW TESTING (forall ((Nat) (Nat)) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+  backtrack to: (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (succ (len (delete _v_3 _t_5))) (succ (len _t_5)))))
+  deciding: ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+    | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+    | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+    | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+    | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+    | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+    | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+    | Assumptions [7]: (!ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5))))
+    ====================
+  }
+  current subgoal: ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (succ (len (delete _v_3 _t_5))) (succ (len _t_5))))
+  {
+    proceed with (part 1/2): ((_v_3=_t_4)->(less (len (delete _v_3 _t_5)) (succ (len _t_5))))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+        | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+        | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+        | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+        | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+        | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+        | Assumptions [7]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+        ====================
+      }
+      current subgoal: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+    }
+    proceed with (part 2/2): ((_v_3!=_t_4)->(less (succ (len (delete _v_3 _t_5))) (succ (len _t_5))))
+    {
+        proven trivially (with Z3)
+    }
+    adding ((_v_3!=_t_4)->(less (succ (len (delete _v_3 _t_5))) (succ (len _t_5)))) to assumptions
+    will try subgoals again
+    proceed with (part 1/1): ((_v_3=_t_4)->(less (len (delete _v_3 _t_5)) (succ (len _t_5))))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+        | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+        | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+        | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+        | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+        | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+        | Assumptions [7]: (less (len (delete _t_4 _t_5)) (len _t_5))
+        | Assumptions [8]: (less (succ (len (delete _t_4 _t_5))) (succ (len _t_5)))
+        | Assumptions [9]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+        | Assumptions [10]: (false->(less (succ (len (delete _t_4 _t_5))) (succ (len _t_5))))
+        | Assumptions [11]: ((less (len (delete _t_4 _t_5)) (len _t_5))||((len (delete _t_4 _t_5))=(len _t_5)))
+        ====================
+      }
+      current subgoal: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+      split for (part 1/2): (less (len (delete _t_4 _t_5)) (len _t_5))
+      {
+        {
+          ====================
+          | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+          | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+          | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+          | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+          | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+          | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+          | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+          | Assumptions [7]: (less (len (delete _t_4 _t_5)) (len _t_5))
+          | Assumptions [8]: (less (succ (len (delete _t_4 _t_5))) (succ (len _t_5)))
+          | Assumptions [9]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+          | Assumptions [10]: (false->(less (succ (len (delete _t_4 _t_5))) (succ (len _t_5))))
+          ====================
+        }
+      }
+      unable to succeed
+    }
+    cannot prove 1 of the subgoals
+  }
+CURRENT SUBGOAL (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (len (cons _t_4 (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (len (cons _t_4 (delete _v_3 _t_5))) (succ (len _t_5)))))
+NOW TESTING (forall ((Nat) (Nat)) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+  backtrack to: (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (len (cons _t_4 (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (len (cons _t_4 (delete _v_3 _t_5))) (succ (len _t_5)))))
+  rewritten [1]: (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (succ (len (delete _v_3 _t_5))) (succ (len _t_5)))))
+  rewritten [0]: (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (len (delete _v_3 _t_5)) (len _t_5))))
+  deciding: ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+    | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+    | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+    | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+    | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+    | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+    | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+    | Assumptions [7]: (!ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5))))
+    ====================
+  }
+  current subgoal: ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (len (delete _v_3 _t_5)) (len _t_5)))
+  {
+    proceed with (part 1/2): ((_v_3=_t_4)->(less (len (delete _v_3 _t_5)) (succ (len _t_5))))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+        | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+        | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+        | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+        | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+        | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+        | Assumptions [7]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+        ====================
+      }
+      current subgoal: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+    }
+    proceed with (part 2/2): ((_v_3!=_t_4)->(less (len (delete _v_3 _t_5)) (len _t_5)))
+    {
+        proven trivially (with Z3)
+    }
+    adding ((_v_3!=_t_4)->(less (len (delete _v_3 _t_5)) (len _t_5))) to assumptions
+    will try subgoals again
+    proceed with (part 1/1): ((_v_3=_t_4)->(less (len (delete _v_3 _t_5)) (succ (len _t_5))))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+        | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+        | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+        | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+        | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+        | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+        | Assumptions [7]: (less (len (delete _t_4 _t_5)) (len _t_5))
+        | Assumptions [8]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+        | Assumptions [9]: (false->(less (len (delete _t_4 _t_5)) (len _t_5)))
+        | Assumptions [10]: ((less (len (delete _t_4 _t_5)) (len _t_5))||((len (delete _t_4 _t_5))=(len _t_5)))
+        ====================
+      }
+      current subgoal: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+      split for (part 1/2): (less (len (delete _t_4 _t_5)) (len _t_5))
+      {
+        {
+          ====================
+          | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+          | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+          | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+          | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+          | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+          | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+          | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+          | Assumptions [7]: (less (len (delete _t_4 _t_5)) (len _t_5))
+          | Assumptions [8]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+          | Assumptions [9]: (false->(less (len (delete _t_4 _t_5)) (len _t_5)))
+          ====================
+        }
+      }
+      unable to succeed
+    }
+    cannot prove 1 of the subgoals
+  }
+CURRENT SUBGOAL (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (succ (len (delete _v_3 _t_5))) (succ (len _t_5)))))
+NOW TESTING (forall ((Nat) (Nat)) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+  backtrack to: (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (succ (len (delete _v_3 _t_5))) (succ (len _t_5)))))
+  rewritten [0]: (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (len (delete _v_3 _t_5)) (len _t_5))))
+  deciding: ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+    | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+    | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+    | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+    | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+    | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+    | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+    | Assumptions [7]: (!ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5))))
+    ====================
+  }
+  current subgoal: ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (len (delete _v_3 _t_5)) (len _t_5)))
+  {
+    proceed with (part 1/2): ((_v_3=_t_4)->(less (len (delete _v_3 _t_5)) (succ (len _t_5))))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+        | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+        | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+        | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+        | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+        | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+        | Assumptions [7]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+        ====================
+      }
+      current subgoal: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+    }
+    proceed with (part 2/2): ((_v_3!=_t_4)->(less (len (delete _v_3 _t_5)) (len _t_5)))
+    {
+        proven trivially (with Z3)
+    }
+    adding ((_v_3!=_t_4)->(less (len (delete _v_3 _t_5)) (len _t_5))) to assumptions
+    will try subgoals again
+    proceed with (part 1/1): ((_v_3=_t_4)->(less (len (delete _v_3 _t_5)) (succ (len _t_5))))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+        | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+        | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+        | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+        | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+        | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+        | Assumptions [7]: (less (len (delete _t_4 _t_5)) (len _t_5))
+        | Assumptions [8]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+        | Assumptions [9]: (false->(less (len (delete _t_4 _t_5)) (len _t_5)))
+        | Assumptions [10]: ((less (len (delete _t_4 _t_5)) (len _t_5))||((len (delete _t_4 _t_5))=(len _t_5)))
+        ====================
+      }
+      current subgoal: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+      split for (part 1/2): (less (len (delete _t_4 _t_5)) (len _t_5))
+      {
+        {
+          ====================
+          | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+          | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+          | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+          | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+          | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+          | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+          | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+          | Assumptions [7]: (less (len (delete _t_4 _t_5)) (len _t_5))
+          | Assumptions [8]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+          | Assumptions [9]: (false->(less (len (delete _t_4 _t_5)) (len _t_5)))
+          ====================
+        }
+      }
+      unable to succeed
+    }
+    cannot prove 1 of the subgoals
+  }
+CURRENT SUBGOAL (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (succ (len (delete _v_3 _t_5))) (succ (len _t_5)))))
+NOW TESTING (forall ((Nat) (Nat)) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+  backtrack to: (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (succ (len (delete _v_3 _t_5))) (succ (len _t_5)))))
+  deciding: ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+    | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+    | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+    | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+    | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+    | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+    | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+    | Assumptions [7]: (!ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5))))
+    ====================
+  }
+  current subgoal: ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (succ (len (delete _v_3 _t_5))) (succ (len _t_5))))
+  {
+    proceed with (part 1/2): ((_v_3=_t_4)->(less (len (delete _v_3 _t_5)) (succ (len _t_5))))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+        | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+        | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+        | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+        | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+        | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+        | Assumptions [7]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+        ====================
+      }
+      current subgoal: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+    }
+    proceed with (part 2/2): ((_v_3!=_t_4)->(less (succ (len (delete _v_3 _t_5))) (succ (len _t_5))))
+    {
+        proven trivially (with Z3)
+    }
+    adding ((_v_3!=_t_4)->(less (succ (len (delete _v_3 _t_5))) (succ (len _t_5)))) to assumptions
+    will try subgoals again
+    proceed with (part 1/1): ((_v_3=_t_4)->(less (len (delete _v_3 _t_5)) (succ (len _t_5))))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+        | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+        | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+        | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+        | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+        | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+        | Assumptions [7]: (less (len (delete _t_4 _t_5)) (len _t_5))
+        | Assumptions [8]: (less (succ (len (delete _t_4 _t_5))) (succ (len _t_5)))
+        | Assumptions [9]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+        | Assumptions [10]: (false->(less (succ (len (delete _t_4 _t_5))) (succ (len _t_5))))
+        | Assumptions [11]: ((less (len (delete _t_4 _t_5)) (len _t_5))||((len (delete _t_4 _t_5))=(len _t_5)))
+        ====================
+      }
+      current subgoal: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+      split for (part 1/2): (less (len (delete _t_4 _t_5)) (len _t_5))
+      {
+        {
+          ====================
+          | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+          | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+          | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+          | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+          | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+          | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+          | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+          | Assumptions [7]: (less (len (delete _t_4 _t_5)) (len _t_5))
+          | Assumptions [8]: (less (succ (len (delete _t_4 _t_5))) (succ (len _t_5)))
+          | Assumptions [9]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+          | Assumptions [10]: (false->(less (succ (len (delete _t_4 _t_5))) (succ (len _t_5))))
+          ====================
+        }
+      }
+      unable to succeed
+    }
+    cannot prove 1 of the subgoals
+  }
+CURRENT SUBGOAL (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (len (cons _t_4 (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (len (cons _t_4 (delete _v_3 _t_5))) (succ (len _t_5)))))
+NOW TESTING (forall ((Nat) (Nat)) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+  backtrack to: (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (len (cons _t_4 (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (len (cons _t_4 (delete _v_3 _t_5))) (succ (len _t_5)))))
+  deciding: ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (len (cons _t_4 (delete _v_3 _t_5)))=(succ (len _t_5)))
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+    | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+    | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+    | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+    | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+    | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+    | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+    | Assumptions [7]: (!ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (len (cons _t_4 (delete _v_3 _t_5)))=(succ (len _t_5))))
+    | Assumptions [8]: (!ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5))))
+    ====================
+  }
+  current subgoal: ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (len (cons _t_4 (delete _v_3 _t_5))) (succ (len _t_5))))
+  {
+    proceed with (part 1/2): ((_v_3=_t_4)->(less (len (delete _v_3 _t_5)) (succ (len _t_5))))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+        | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+        | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+        | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+        | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+        | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+        | Assumptions [7]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+        ====================
+      }
+      current subgoal: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+    }
+    proceed with (part 2/2): ((_v_3!=_t_4)->(less (len (cons _t_4 (delete _v_3 _t_5))) (succ (len _t_5))))
+    {
+        proven trivially (with Z3)
+    }
+    adding ((_v_3!=_t_4)->(less (len (cons _t_4 (delete _v_3 _t_5))) (succ (len _t_5)))) to assumptions
+    will try subgoals again
+    proceed with (part 1/1): ((_v_3=_t_4)->(less (len (delete _v_3 _t_5)) (succ (len _t_5))))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+        | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+        | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+        | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+        | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+        | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+        | Assumptions [7]: (less (len (delete _t_4 _t_5)) (len _t_5))
+        | Assumptions [8]: (less (succ (len (delete _t_4 _t_5))) (succ (len _t_5)))
+        | Assumptions [9]: (less (len (cons _t_4 (delete _t_4 _t_5))) (succ (len _t_5)))
+        | Assumptions [10]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+        | Assumptions [11]: (false->(less (len (cons _t_4 (delete _t_4 _t_5))) (succ (len _t_5))))
+        ====================
+      }
+      current subgoal: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+    }
+    cannot prove 1 of the subgoals
+  }
+CURRENT SUBGOAL (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(len (cons _t_4 _t_5)), (len (cons _t_4 (delete _v_3 _t_5)))=(len (cons _t_4 _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (len (cons _t_4 _t_5))), (less (len (cons _t_4 (delete _v_3 _t_5))) (len (cons _t_4 _t_5)))))
+NOW TESTING (forall ((Nat) (Nat)) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+  backtrack to: (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(len (cons _t_4 _t_5)), (len (cons _t_4 (delete _v_3 _t_5)))=(len (cons _t_4 _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (len (cons _t_4 _t_5))), (less (len (cons _t_4 (delete _v_3 _t_5))) (len (cons _t_4 _t_5)))))
+  rewritten [1]: (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(len (cons _t_4 _t_5)), (succ (len (delete _v_3 _t_5)))=(len (cons _t_4 _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (len (cons _t_4 _t_5))), (less (succ (len (delete _v_3 _t_5))) (len (cons _t_4 _t_5)))))
+  rewritten [1]: (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (succ (len (delete _v_3 _t_5))) (succ (len _t_5)))))
+  rewritten [0]: (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (len (delete _v_3 _t_5)) (len _t_5))))
+  deciding: ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+    | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+    | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+    | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+    | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+    | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+    | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+    | Assumptions [7]: (!ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5))))
+    ====================
+  }
+  current subgoal: ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (len (delete _v_3 _t_5)) (len _t_5)))
+  {
+    proceed with (part 1/2): ((_v_3=_t_4)->(less (len (delete _v_3 _t_5)) (succ (len _t_5))))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+        | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+        | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+        | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+        | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+        | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+        | Assumptions [7]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+        ====================
+      }
+      current subgoal: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+    }
+    proceed with (part 2/2): ((_v_3!=_t_4)->(less (len (delete _v_3 _t_5)) (len _t_5)))
+    {
+        proven trivially (with Z3)
+    }
+    adding ((_v_3!=_t_4)->(less (len (delete _v_3 _t_5)) (len _t_5))) to assumptions
+    will try subgoals again
+    proceed with (part 1/1): ((_v_3=_t_4)->(less (len (delete _v_3 _t_5)) (succ (len _t_5))))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+        | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+        | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+        | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+        | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+        | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+        | Assumptions [7]: (less (len (delete _t_4 _t_5)) (len _t_5))
+        | Assumptions [8]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+        | Assumptions [9]: (false->(less (len (delete _t_4 _t_5)) (len _t_5)))
+        | Assumptions [10]: ((less (len (delete _t_4 _t_5)) (len _t_5))||((len (delete _t_4 _t_5))=(len _t_5)))
+        ====================
+      }
+      current subgoal: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+      split for (part 1/2): (less (len (delete _t_4 _t_5)) (len _t_5))
+      {
+        {
+          ====================
+          | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+          | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+          | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+          | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+          | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+          | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+          | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+          | Assumptions [7]: (less (len (delete _t_4 _t_5)) (len _t_5))
+          | Assumptions [8]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+          | Assumptions [9]: (false->(less (len (delete _t_4 _t_5)) (len _t_5)))
+          ====================
+        }
+      }
+      unable to succeed
+    }
+    cannot prove 1 of the subgoals
+  }
+CURRENT SUBGOAL (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (succ (len (delete _v_3 _t_5))) (succ (len _t_5)))))
+NOW TESTING (forall ((Nat) (Nat)) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+  backtrack to: (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (succ (len (delete _v_3 _t_5))) (succ (len _t_5)))))
+  rewritten [0]: (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (len (delete _v_3 _t_5)) (len _t_5))))
+  deciding: ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+    | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+    | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+    | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+    | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+    | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+    | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+    | Assumptions [7]: (!ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5))))
+    ====================
+  }
+  current subgoal: ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (len (delete _v_3 _t_5)) (len _t_5)))
+  {
+    proceed with (part 1/2): ((_v_3=_t_4)->(less (len (delete _v_3 _t_5)) (succ (len _t_5))))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+        | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+        | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+        | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+        | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+        | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+        | Assumptions [7]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+        ====================
+      }
+      current subgoal: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+    }
+    proceed with (part 2/2): ((_v_3!=_t_4)->(less (len (delete _v_3 _t_5)) (len _t_5)))
+    {
+        proven trivially (with Z3)
+    }
+    adding ((_v_3!=_t_4)->(less (len (delete _v_3 _t_5)) (len _t_5))) to assumptions
+    will try subgoals again
+    proceed with (part 1/1): ((_v_3=_t_4)->(less (len (delete _v_3 _t_5)) (succ (len _t_5))))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+        | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+        | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+        | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+        | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+        | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+        | Assumptions [7]: (less (len (delete _t_4 _t_5)) (len _t_5))
+        | Assumptions [8]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+        | Assumptions [9]: (false->(less (len (delete _t_4 _t_5)) (len _t_5)))
+        | Assumptions [10]: ((less (len (delete _t_4 _t_5)) (len _t_5))||((len (delete _t_4 _t_5))=(len _t_5)))
+        ====================
+      }
+      current subgoal: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+      split for (part 1/2): (less (len (delete _t_4 _t_5)) (len _t_5))
+      {
+        {
+          ====================
+          | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+          | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+          | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+          | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+          | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+          | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+          | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+          | Assumptions [7]: (less (len (delete _t_4 _t_5)) (len _t_5))
+          | Assumptions [8]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+          | Assumptions [9]: (false->(less (len (delete _t_4 _t_5)) (len _t_5)))
+          ====================
+        }
+      }
+      unable to succeed
+    }
+    cannot prove 1 of the subgoals
+  }
+CURRENT SUBGOAL (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (succ (len (delete _v_3 _t_5))) (succ (len _t_5)))))
+NOW TESTING (forall ((Nat) (Nat)) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+  backtrack to: (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (succ (len (delete _v_3 _t_5))) (succ (len _t_5)))))
+  deciding: ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+    | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+    | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+    | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+    | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+    | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+    | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+    | Assumptions [7]: (!ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5))))
+    ====================
+  }
+  current subgoal: ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (succ (len (delete _v_3 _t_5))) (succ (len _t_5))))
+  {
+    proceed with (part 1/2): ((_v_3=_t_4)->(less (len (delete _v_3 _t_5)) (succ (len _t_5))))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+        | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+        | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+        | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+        | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+        | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+        | Assumptions [7]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+        ====================
+      }
+      current subgoal: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+    }
+    proceed with (part 2/2): ((_v_3!=_t_4)->(less (succ (len (delete _v_3 _t_5))) (succ (len _t_5))))
+    {
+        proven trivially (with Z3)
+    }
+    adding ((_v_3!=_t_4)->(less (succ (len (delete _v_3 _t_5))) (succ (len _t_5)))) to assumptions
+    will try subgoals again
+    proceed with (part 1/1): ((_v_3=_t_4)->(less (len (delete _v_3 _t_5)) (succ (len _t_5))))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+        | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+        | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+        | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+        | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+        | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+        | Assumptions [7]: (less (len (delete _t_4 _t_5)) (len _t_5))
+        | Assumptions [8]: (less (succ (len (delete _t_4 _t_5))) (succ (len _t_5)))
+        | Assumptions [9]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+        | Assumptions [10]: (false->(less (succ (len (delete _t_4 _t_5))) (succ (len _t_5))))
+        | Assumptions [11]: ((less (len (delete _t_4 _t_5)) (len _t_5))||((len (delete _t_4 _t_5))=(len _t_5)))
+        ====================
+      }
+      current subgoal: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+      split for (part 1/2): (less (len (delete _t_4 _t_5)) (len _t_5))
+      {
+        {
+          ====================
+          | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+          | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+          | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+          | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+          | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+          | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+          | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+          | Assumptions [7]: (less (len (delete _t_4 _t_5)) (len _t_5))
+          | Assumptions [8]: (less (succ (len (delete _t_4 _t_5))) (succ (len _t_5)))
+          | Assumptions [9]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+          | Assumptions [10]: (false->(less (succ (len (delete _t_4 _t_5))) (succ (len _t_5))))
+          ====================
+        }
+      }
+      unable to succeed
+    }
+    cannot prove 1 of the subgoals
+  }
+CURRENT SUBGOAL (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(len (cons _t_4 _t_5)), (succ (len (delete _v_3 _t_5)))=(len (cons _t_4 _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (len (cons _t_4 _t_5))), (less (succ (len (delete _v_3 _t_5))) (len (cons _t_4 _t_5)))))
+NOW TESTING (forall ((Nat) (Nat)) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+  backtrack to: (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(len (cons _t_4 _t_5)), (succ (len (delete _v_3 _t_5)))=(len (cons _t_4 _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (len (cons _t_4 _t_5))), (less (succ (len (delete _v_3 _t_5))) (len (cons _t_4 _t_5)))))
+  rewritten [1]: (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (succ (len (delete _v_3 _t_5))) (succ (len _t_5)))))
+  rewritten [0]: (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (len (delete _v_3 _t_5)) (len _t_5))))
+  deciding: ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+    | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+    | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+    | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+    | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+    | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+    | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+    | Assumptions [7]: (!ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5))))
+    ====================
+  }
+  current subgoal: ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (len (delete _v_3 _t_5)) (len _t_5)))
+  {
+    proceed with (part 1/2): ((_v_3=_t_4)->(less (len (delete _v_3 _t_5)) (succ (len _t_5))))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+        | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+        | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+        | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+        | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+        | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+        | Assumptions [7]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+        ====================
+      }
+      current subgoal: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+    }
+    proceed with (part 2/2): ((_v_3!=_t_4)->(less (len (delete _v_3 _t_5)) (len _t_5)))
+    {
+        proven trivially (with Z3)
+    }
+    adding ((_v_3!=_t_4)->(less (len (delete _v_3 _t_5)) (len _t_5))) to assumptions
+    will try subgoals again
+    proceed with (part 1/1): ((_v_3=_t_4)->(less (len (delete _v_3 _t_5)) (succ (len _t_5))))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+        | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+        | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+        | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+        | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+        | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+        | Assumptions [7]: (less (len (delete _t_4 _t_5)) (len _t_5))
+        | Assumptions [8]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+        | Assumptions [9]: (false->(less (len (delete _t_4 _t_5)) (len _t_5)))
+        | Assumptions [10]: ((less (len (delete _t_4 _t_5)) (len _t_5))||((len (delete _t_4 _t_5))=(len _t_5)))
+        ====================
+      }
+      current subgoal: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+      split for (part 1/2): (less (len (delete _t_4 _t_5)) (len _t_5))
+      {
+        {
+          ====================
+          | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+          | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+          | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+          | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+          | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+          | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+          | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+          | Assumptions [7]: (less (len (delete _t_4 _t_5)) (len _t_5))
+          | Assumptions [8]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+          | Assumptions [9]: (false->(less (len (delete _t_4 _t_5)) (len _t_5)))
+          ====================
+        }
+      }
+      unable to succeed
+    }
+    cannot prove 1 of the subgoals
+  }
+CURRENT SUBGOAL (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (succ (len (delete _v_3 _t_5))) (succ (len _t_5)))))
+NOW TESTING (forall ((Nat) (Nat)) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+  backtrack to: (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (succ (len (delete _v_3 _t_5))) (succ (len _t_5)))))
+  rewritten [0]: (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (len (delete _v_3 _t_5)) (len _t_5))))
+  deciding: ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+    | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+    | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+    | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+    | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+    | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+    | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+    | Assumptions [7]: (!ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5))))
+    ====================
+  }
+  current subgoal: ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (len (delete _v_3 _t_5)) (len _t_5)))
+  {
+    proceed with (part 1/2): ((_v_3=_t_4)->(less (len (delete _v_3 _t_5)) (succ (len _t_5))))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+        | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+        | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+        | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+        | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+        | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+        | Assumptions [7]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+        ====================
+      }
+      current subgoal: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+    }
+    proceed with (part 2/2): ((_v_3!=_t_4)->(less (len (delete _v_3 _t_5)) (len _t_5)))
+    {
+        proven trivially (with Z3)
+    }
+    adding ((_v_3!=_t_4)->(less (len (delete _v_3 _t_5)) (len _t_5))) to assumptions
+    will try subgoals again
+    proceed with (part 1/1): ((_v_3=_t_4)->(less (len (delete _v_3 _t_5)) (succ (len _t_5))))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+        | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+        | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+        | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+        | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+        | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+        | Assumptions [7]: (less (len (delete _t_4 _t_5)) (len _t_5))
+        | Assumptions [8]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+        | Assumptions [9]: (false->(less (len (delete _t_4 _t_5)) (len _t_5)))
+        | Assumptions [10]: ((less (len (delete _t_4 _t_5)) (len _t_5))||((len (delete _t_4 _t_5))=(len _t_5)))
+        ====================
+      }
+      current subgoal: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+      split for (part 1/2): (less (len (delete _t_4 _t_5)) (len _t_5))
+      {
+        {
+          ====================
+          | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+          | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+          | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+          | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+          | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+          | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+          | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+          | Assumptions [7]: (less (len (delete _t_4 _t_5)) (len _t_5))
+          | Assumptions [8]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+          | Assumptions [9]: (false->(less (len (delete _t_4 _t_5)) (len _t_5)))
+          ====================
+        }
+      }
+      unable to succeed
+    }
+    cannot prove 1 of the subgoals
+  }
+CURRENT SUBGOAL (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (succ (len (delete _v_3 _t_5))) (succ (len _t_5)))))
+NOW TESTING (forall ((Nat) (Nat)) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+  backtrack to: (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (succ (len (delete _v_3 _t_5))) (succ (len _t_5)))))
+  deciding: ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+    | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+    | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+    | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+    | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+    | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+    | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+    | Assumptions [7]: (!ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5))))
+    ====================
+  }
+  current subgoal: ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (succ (len (delete _v_3 _t_5))) (succ (len _t_5))))
+  {
+    proceed with (part 1/2): ((_v_3=_t_4)->(less (len (delete _v_3 _t_5)) (succ (len _t_5))))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+        | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+        | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+        | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+        | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+        | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+        | Assumptions [7]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+        ====================
+      }
+      current subgoal: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+    }
+    proceed with (part 2/2): ((_v_3!=_t_4)->(less (succ (len (delete _v_3 _t_5))) (succ (len _t_5))))
+    {
+        proven trivially (with Z3)
+    }
+    adding ((_v_3!=_t_4)->(less (succ (len (delete _v_3 _t_5))) (succ (len _t_5)))) to assumptions
+    will try subgoals again
+    proceed with (part 1/1): ((_v_3=_t_4)->(less (len (delete _v_3 _t_5)) (succ (len _t_5))))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+        | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+        | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+        | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+        | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+        | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+        | Assumptions [7]: (less (len (delete _t_4 _t_5)) (len _t_5))
+        | Assumptions [8]: (less (succ (len (delete _t_4 _t_5))) (succ (len _t_5)))
+        | Assumptions [9]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+        | Assumptions [10]: (false->(less (succ (len (delete _t_4 _t_5))) (succ (len _t_5))))
+        | Assumptions [11]: ((less (len (delete _t_4 _t_5)) (len _t_5))||((len (delete _t_4 _t_5))=(len _t_5)))
+        ====================
+      }
+      current subgoal: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+      split for (part 1/2): (less (len (delete _t_4 _t_5)) (len _t_5))
+      {
+        {
+          ====================
+          | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+          | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+          | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+          | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+          | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+          | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+          | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+          | Assumptions [7]: (less (len (delete _t_4 _t_5)) (len _t_5))
+          | Assumptions [8]: (less (succ (len (delete _t_4 _t_5))) (succ (len _t_5)))
+          | Assumptions [9]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+          | Assumptions [10]: (false->(less (succ (len (delete _t_4 _t_5))) (succ (len _t_5))))
+          ====================
+        }
+      }
+      unable to succeed
+    }
+    cannot prove 1 of the subgoals
+  }
+CURRENT SUBGOAL (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(len (cons _t_4 _t_5)), (succ (len (delete _v_3 _t_5)))=(len (cons _t_4 _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (len (cons _t_4 _t_5))), (less (succ (len (delete _v_3 _t_5))) (len (cons _t_4 _t_5)))))
+NOW TESTING (forall ((Nat) (Nat)) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+  backtrack to: (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(len (cons _t_4 _t_5)), (succ (len (delete _v_3 _t_5)))=(len (cons _t_4 _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (len (cons _t_4 _t_5))), (less (succ (len (delete _v_3 _t_5))) (len (cons _t_4 _t_5)))))
+  deciding: ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(len (cons _t_4 _t_5)), (succ (len (delete _v_3 _t_5)))=(len (cons _t_4 _t_5)))
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+    | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+    | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+    | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+    | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+    | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+    | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+    | Assumptions [7]: (!ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(len (cons _t_4 _t_5)), (succ (len (delete _v_3 _t_5)))=(len (cons _t_4 _t_5))))
+    | Assumptions [8]: (!ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5))))
+    ====================
+  }
+  current subgoal: ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (len (cons _t_4 _t_5))), (less (succ (len (delete _v_3 _t_5))) (len (cons _t_4 _t_5))))
+  {
+    proceed with (part 1/2): ((_v_3=_t_4)->(less (len (delete _v_3 _t_5)) (len (cons _t_4 _t_5))))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+        | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+        | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+        | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+        | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+        | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+        | Assumptions [7]: ((len (delete _t_4 _t_5))!=(len (cons _t_4 _t_5)))
+        | Assumptions [8]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+        ====================
+      }
+      current subgoal: (less (len (delete _t_4 _t_5)) (len (cons _t_4 _t_5)))
+      rewritten [1]: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+CURRENT SUBGOAL (less (len (delete _t_4 _t_5)) (len (cons _t_4 _t_5)))
+NOW TESTING (forall ((Nat) (Nat)) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+      backtrack to: (less (len (delete _t_4 _t_5)) (len (cons _t_4 _t_5)))
+      rewritten [1]: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+CURRENT SUBGOAL (less (len (delete _t_4 _t_5)) (len (cons _t_4 _t_5)))
+NOW TESTING (forall ((Nat) (Nat)) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+      backtrack to: (less (len (delete _t_4 _t_5)) (len (cons _t_4 _t_5)))
+    }
+    proceed with (part 2/2): ((_v_3!=_t_4)->(less (succ (len (delete _v_3 _t_5))) (len (cons _t_4 _t_5))))
+    {
+        proven trivially (with Z3)
+    }
+    adding ((_v_3!=_t_4)->(less (succ (len (delete _v_3 _t_5))) (len (cons _t_4 _t_5)))) to assumptions
+    will try subgoals again
+    proceed with (part 1/1): ((_v_3=_t_4)->(less (len (delete _v_3 _t_5)) (len (cons _t_4 _t_5))))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+        | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+        | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+        | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+        | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+        | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+        | Assumptions [7]: (less (len (delete _t_4 _t_5)) (len _t_5))
+        | Assumptions [8]: (less (succ (len (delete _t_4 _t_5))) (succ (len _t_5)))
+        | Assumptions [9]: (less (succ (len (delete _t_4 _t_5))) (len (cons _t_4 _t_5)))
+        | Assumptions [10]: ((len (delete _t_4 _t_5))!=(len (cons _t_4 _t_5)))
+        | Assumptions [11]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+        | Assumptions [12]: (false->(less (succ (len (delete _t_4 _t_5))) (len (cons _t_4 _t_5))))
+        ====================
+      }
+      current subgoal: (less (len (delete _t_4 _t_5)) (len (cons _t_4 _t_5)))
+      rewritten [1]: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+CURRENT SUBGOAL (less (len (delete _t_4 _t_5)) (len (cons _t_4 _t_5)))
+NOW TESTING (forall ((Nat) (Nat)) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+      backtrack to: (less (len (delete _t_4 _t_5)) (len (cons _t_4 _t_5)))
+      rewritten [1]: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+CURRENT SUBGOAL (less (len (delete _t_4 _t_5)) (len (cons _t_4 _t_5)))
+NOW TESTING (forall ((Nat) (Nat)) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+      backtrack to: (less (len (delete _t_4 _t_5)) (len (cons _t_4 _t_5)))
+    }
+    cannot prove 1 of the subgoals
+  }
+CURRENT SUBGOAL (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(len (cons _t_4 _t_5)), (len (cons _t_4 (delete _v_3 _t_5)))=(len (cons _t_4 _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (len (cons _t_4 _t_5))), (less (len (cons _t_4 (delete _v_3 _t_5))) (len (cons _t_4 _t_5)))))
+NOW TESTING (forall ((Nat) (Nat)) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+  backtrack to: (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(len (cons _t_4 _t_5)), (len (cons _t_4 (delete _v_3 _t_5)))=(len (cons _t_4 _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (len (cons _t_4 _t_5))), (less (len (cons _t_4 (delete _v_3 _t_5))) (len (cons _t_4 _t_5)))))
+  rewritten [1]: (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (len (cons _t_4 (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (len (cons _t_4 (delete _v_3 _t_5))) (succ (len _t_5)))))
+  rewritten [1]: (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (succ (len (delete _v_3 _t_5))) (succ (len _t_5)))))
+  rewritten [0]: (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (len (delete _v_3 _t_5)) (len _t_5))))
+  deciding: ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+    | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+    | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+    | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+    | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+    | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+    | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+    | Assumptions [7]: (!ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5))))
+    ====================
+  }
+  current subgoal: ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (len (delete _v_3 _t_5)) (len _t_5)))
+  {
+    proceed with (part 1/2): ((_v_3=_t_4)->(less (len (delete _v_3 _t_5)) (succ (len _t_5))))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+        | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+        | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+        | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+        | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+        | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+        | Assumptions [7]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+        ====================
+      }
+      current subgoal: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+    }
+    proceed with (part 2/2): ((_v_3!=_t_4)->(less (len (delete _v_3 _t_5)) (len _t_5)))
+    {
+        proven trivially (with Z3)
+    }
+    adding ((_v_3!=_t_4)->(less (len (delete _v_3 _t_5)) (len _t_5))) to assumptions
+    will try subgoals again
+    proceed with (part 1/1): ((_v_3=_t_4)->(less (len (delete _v_3 _t_5)) (succ (len _t_5))))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+        | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+        | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+        | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+        | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+        | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+        | Assumptions [7]: (less (len (delete _t_4 _t_5)) (len _t_5))
+        | Assumptions [8]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+        | Assumptions [9]: (false->(less (len (delete _t_4 _t_5)) (len _t_5)))
+        | Assumptions [10]: ((less (len (delete _t_4 _t_5)) (len _t_5))||((len (delete _t_4 _t_5))=(len _t_5)))
+        ====================
+      }
+      current subgoal: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+      split for (part 1/2): (less (len (delete _t_4 _t_5)) (len _t_5))
+      {
+        {
+          ====================
+          | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+          | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+          | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+          | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+          | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+          | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+          | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+          | Assumptions [7]: (less (len (delete _t_4 _t_5)) (len _t_5))
+          | Assumptions [8]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+          | Assumptions [9]: (false->(less (len (delete _t_4 _t_5)) (len _t_5)))
+          ====================
+        }
+      }
+      unable to succeed
+    }
+    cannot prove 1 of the subgoals
+  }
+CURRENT SUBGOAL (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (succ (len (delete _v_3 _t_5))) (succ (len _t_5)))))
+NOW TESTING (forall ((Nat) (Nat)) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+  backtrack to: (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (succ (len (delete _v_3 _t_5))) (succ (len _t_5)))))
+  rewritten [0]: (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (len (delete _v_3 _t_5)) (len _t_5))))
+  deciding: ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+    | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+    | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+    | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+    | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+    | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+    | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+    | Assumptions [7]: (!ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5))))
+    ====================
+  }
+  current subgoal: ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (len (delete _v_3 _t_5)) (len _t_5)))
+  {
+    proceed with (part 1/2): ((_v_3=_t_4)->(less (len (delete _v_3 _t_5)) (succ (len _t_5))))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+        | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+        | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+        | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+        | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+        | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+        | Assumptions [7]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+        ====================
+      }
+      current subgoal: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+    }
+    proceed with (part 2/2): ((_v_3!=_t_4)->(less (len (delete _v_3 _t_5)) (len _t_5)))
+    {
+        proven trivially (with Z3)
+    }
+    adding ((_v_3!=_t_4)->(less (len (delete _v_3 _t_5)) (len _t_5))) to assumptions
+    will try subgoals again
+    proceed with (part 1/1): ((_v_3=_t_4)->(less (len (delete _v_3 _t_5)) (succ (len _t_5))))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+        | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+        | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+        | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+        | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+        | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+        | Assumptions [7]: (less (len (delete _t_4 _t_5)) (len _t_5))
+        | Assumptions [8]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+        | Assumptions [9]: (false->(less (len (delete _t_4 _t_5)) (len _t_5)))
+        | Assumptions [10]: ((less (len (delete _t_4 _t_5)) (len _t_5))||((len (delete _t_4 _t_5))=(len _t_5)))
+        ====================
+      }
+      current subgoal: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+      split for (part 1/2): (less (len (delete _t_4 _t_5)) (len _t_5))
+      {
+        {
+          ====================
+          | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+          | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+          | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+          | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+          | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+          | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+          | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+          | Assumptions [7]: (less (len (delete _t_4 _t_5)) (len _t_5))
+          | Assumptions [8]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+          | Assumptions [9]: (false->(less (len (delete _t_4 _t_5)) (len _t_5)))
+          ====================
+        }
+      }
+      unable to succeed
+    }
+    cannot prove 1 of the subgoals
+  }
+CURRENT SUBGOAL (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (succ (len (delete _v_3 _t_5))) (succ (len _t_5)))))
+NOW TESTING (forall ((Nat) (Nat)) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+  backtrack to: (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (succ (len (delete _v_3 _t_5))) (succ (len _t_5)))))
+  deciding: ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+    | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+    | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+    | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+    | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+    | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+    | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+    | Assumptions [7]: (!ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5))))
+    ====================
+  }
+  current subgoal: ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (succ (len (delete _v_3 _t_5))) (succ (len _t_5))))
+  {
+    proceed with (part 1/2): ((_v_3=_t_4)->(less (len (delete _v_3 _t_5)) (succ (len _t_5))))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+        | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+        | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+        | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+        | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+        | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+        | Assumptions [7]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+        ====================
+      }
+      current subgoal: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+    }
+    proceed with (part 2/2): ((_v_3!=_t_4)->(less (succ (len (delete _v_3 _t_5))) (succ (len _t_5))))
+    {
+        proven trivially (with Z3)
+    }
+    adding ((_v_3!=_t_4)->(less (succ (len (delete _v_3 _t_5))) (succ (len _t_5)))) to assumptions
+    will try subgoals again
+    proceed with (part 1/1): ((_v_3=_t_4)->(less (len (delete _v_3 _t_5)) (succ (len _t_5))))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+        | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+        | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+        | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+        | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+        | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+        | Assumptions [7]: (less (len (delete _t_4 _t_5)) (len _t_5))
+        | Assumptions [8]: (less (succ (len (delete _t_4 _t_5))) (succ (len _t_5)))
+        | Assumptions [9]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+        | Assumptions [10]: (false->(less (succ (len (delete _t_4 _t_5))) (succ (len _t_5))))
+        | Assumptions [11]: ((less (len (delete _t_4 _t_5)) (len _t_5))||((len (delete _t_4 _t_5))=(len _t_5)))
+        ====================
+      }
+      current subgoal: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+      split for (part 1/2): (less (len (delete _t_4 _t_5)) (len _t_5))
+      {
+        {
+          ====================
+          | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+          | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+          | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+          | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+          | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+          | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+          | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+          | Assumptions [7]: (less (len (delete _t_4 _t_5)) (len _t_5))
+          | Assumptions [8]: (less (succ (len (delete _t_4 _t_5))) (succ (len _t_5)))
+          | Assumptions [9]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+          | Assumptions [10]: (false->(less (succ (len (delete _t_4 _t_5))) (succ (len _t_5))))
+          ====================
+        }
+      }
+      unable to succeed
+    }
+    cannot prove 1 of the subgoals
+  }
+CURRENT SUBGOAL (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (len (cons _t_4 (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (len (cons _t_4 (delete _v_3 _t_5))) (succ (len _t_5)))))
+NOW TESTING (forall ((Nat) (Nat)) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+  backtrack to: (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (len (cons _t_4 (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (len (cons _t_4 (delete _v_3 _t_5))) (succ (len _t_5)))))
+  rewritten [1]: (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (succ (len (delete _v_3 _t_5))) (succ (len _t_5)))))
+  rewritten [0]: (ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))||ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (len (delete _v_3 _t_5)) (len _t_5))))
+  deciding: ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5)))
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+    | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+    | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+    | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+    | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+    | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+    | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+    | Assumptions [7]: (!ite(_v_3=_t_4, (len (delete _v_3 _t_5))=(succ (len _t_5)), (succ (len (delete _v_3 _t_5)))=(succ (len _t_5))))
+    ====================
+  }
+  current subgoal: ite(_v_3=_t_4, (less (len (delete _v_3 _t_5)) (succ (len _t_5))), (less (len (delete _v_3 _t_5)) (len _t_5)))
+  {
+    proceed with (part 1/2): ((_v_3=_t_4)->(less (len (delete _v_3 _t_5)) (succ (len _t_5))))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+        | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+        | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 _qv_10)))))
+        | Assumptions [4]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+        | Assumptions [5]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+        | Assumptions [6]: (forall ((Nat)) (((len (delete x _t_5))=(len _t_5))||(less (len (delete x _t_5)) (len _t_5))))
+        | Assumptions [7]: ((len (delete _t_4 _t_5))!=(succ (len _t_5)))
+        ====================
+      }
+      current subgoal: (less (len (delete _t_4 _t_5)) (succ (len _t_5)))
+    }
+    proceed with (part 2/2): ((_v_3!=_t_4)->(less (len (delete _v_3 _t_5)) (len _t_5)))
+    {
+        proven trivially (with Z3)
+    }
+    adding ((_v_3!=_t_4)->(less (len (delete _v_3 _t_5)) (len _t_5))) to assumptions
+    will try subgoals again
+    proceed with (part 1/1): ((_v_3=_t_4)->(less (len (delete _v_3 _t_5)) (succ (len _t_5))))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+        | Assumptions [2]: (forall ((Nat)) ((delete _qv_7 nil)=nil))
+        | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_8 (cons _qv_9 _qv_10))=ite(_qv_8=_qv_9, (delete _qv_8 _qv_10), (cons _qv_9 (delete _qv_8 

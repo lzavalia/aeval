@@ -1,0 +1,87 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Lst) (Lst)) ((lst-subset _qv_0 _qv_1)=(lst-subset _qv_1 _qv_0)))
+	(forall ((Lst) (Lst)) ((lst-intersection _qv_2 _qv_3)=(lst-intersection _qv_3 _qv_2)))
+	(forall ((Lst) (Lst) (Lst)) ((lst-intersection (lst-intersection _qv_4 _qv_5) _qv_6)=(lst-intersection _qv_4 (lst-intersection _qv_5 _qv_6))))
+
+Simplified goal: (forall ((Lst) (Lst)) ((lst-subset x y)->((lst-subset (lst-intersection x y) x)&&(lst-subset x (lst-intersection x y)))))
+
+
+Base case:       ((lst-subset (lst-intersection nil _v_7) nil)&&(lst-subset nil (lst-intersection nil _v_7)))
+{
+  proven trivially
+}
+Inductive step:  ((lst-subset (lst-intersection (cons _t_8 _t_9) _v_7) (cons _t_8 _t_9))&&(lst-subset (cons _t_8 _t_9) (lst-intersection (cons _t_8 _t_9) _v_7)))
+{
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat) (Lst)) ((lst-mem _qv_1 _qv_2)=(mem _qv_1 _qv_2)))
+    | Assumptions [1]: (forall ((Nat) (Lst) (Lst)) ((lst-subset (cons _qv_4 _qv_5) _qv_6)=((lst-subset _qv_5 _qv_6)&&(lst-mem _qv_4 _qv_6))))
+    | Assumptions [2]: (forall ((Lst) (Lst)) ((lst-eq _qv_7 _qv_8)=((lst-subset _qv_7 _qv_8)&&(lst-subset _qv_8 _qv_7))))
+    | Assumptions [3]: (forall ((Lst)) ((lst-intersection nil _qv_9)=nil))
+    | Assumptions [4]: (forall ((Nat) (Lst) (Lst)) ((lst-intersection (cons _qv_10 _qv_11) _qv_12)=ite((lst-mem _qv_10 _qv_12), (cons _qv_10 (lst-intersection _qv_11 _qv_12)), (lst-intersection _qv_11 _qv_12))))
+    | Assumptions [5]: (lst-subset nil _v_7)
+    | Assumptions [6]: (forall ((Lst)) ((lst-subset _t_9 y)->((lst-subset (lst-intersection _t_9 y) _t_9)&&(lst-subset _t_9 (lst-intersection _t_9 y)))))
+    | Assumptions [7]: (lst-subset (cons _t_8 _t_9) _v_7)
+    | Assumptions [8]: (forall ((Lst)) (lst-subset nil _qv_3))
+    | Assumptions [9]: (lst-subset _t_9 _v_7)
+    | Assumptions [10]: (lst-mem _t_8 _v_7)
+    | Assumptions [11]: ((lst-eq _v_7 _t_9)=((lst-subset _t_9 _v_7)&&(lst-subset _v_7 _t_9)))
+    | Assumptions [12]: (lst-subset (lst-intersection _t_9 _v_7) _t_9)
+    | Assumptions [13]: (lst-subset _t_9 (lst-intersection _t_9 _v_7))
+    | Assumptions [14]: (mem _t_8 _v_7)
+    | Assumptions [15]: ((lst-eq nil _v_7)=((lst-subset nil _v_7)&&(lst-subset _v_7 nil)))
+    | Assumptions [16]: (lst-subset (lst-intersection _t_9 (lst-intersection _t_9 _v_7)) _t_9)
+    | Assumptions [17]: (lst-subset _t_9 (lst-intersection _t_9 (lst-intersection _t_9 _v_7)))
+    | Assumptions [18]: ((lst-mem _t_8 _v_7)=(mem _t_8 _v_7))
+    ====================
+  }
+  proceed with (part 1/2): (lst-subset (lst-intersection (cons _t_8 _t_9) _v_7) (cons _t_8 _t_9))
+  {
+    rewritten [4]: (lst-subset ite((lst-mem _t_8 _v_7), (cons _t_8 (lst-intersection _t_9 _v_7)), (lst-intersection _t_9 _v_7)) (cons _t_8 _t_9))
+    proceed with (part 1/2): ((lst-mem _t_8 _v_7)->(lst-subset (cons _t_8 (lst-intersection _t_9 _v_7)) (cons _t_8 _t_9)))
+    {
+      current subgoal: (lst-subset (cons _t_8 (lst-intersection _t_9 _v_7)) (cons _t_8 _t_9))
+      rewritten [1]: ((lst-subset (lst-intersection _t_9 _v_7) (cons _t_8 _t_9))&&(lst-mem _t_8 (cons _t_8 _t_9)))
+      proceed with (part 1/2): (lst-subset (lst-intersection _t_9 _v_7) (cons _t_8 _t_9))
+      {
+      }
+      proceed with (part 2/2): (lst-mem _t_8 (cons _t_8 _t_9))
+      {
+        rewritten [0]: (mem _t_8 (cons _t_8 _t_9))
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Lst) (Lst)) ((lst-subset _qv_10 _qv_11)=(lst-subset _qv_11 _qv_10)))
+	(forall ((Lst) (Lst)) ((lst-eq _qv_12 _qv_13)=(lst-eq _qv_13 _qv_12)))
+	(forall ((Lst) (Lst)) ((lst-intersection _qv_14 _qv_15)=(lst-intersection _qv_15 _qv_14)))
+	(forall ((Lst) (Lst) (Lst)) ((lst-intersection (lst-intersection _qv_16 _qv_17) _qv_18)=(lst-intersection _qv_16 (lst-intersection _qv_17 _qv_18))))
+	(forall ((Nat) (Lst) BOOL) ((mem _qv_19 (lst-mem _qv_20 _qv_21))=(lst-mem (mem _qv_19 _qv_20) (mem _qv_19 _qv_21))))
+	(forall ((Nat) (Lst) BOOL) ((lst-mem _qv_22 (mem _qv_23 _qv_24))=(mem (lst-mem _qv_22 _qv_23) (lst-mem _qv_22 _qv_24))))
+	(forall ((Lst) (Lst) BOOL) ((lst-eq _qv_25 (lst-subset _qv_26 _qv_27))=(lst-subset (lst-eq _qv_25 _qv_26) (lst-eq _qv_25 _qv_27))))
+	(forall ((Lst) (Lst) BOOL) ((lst-subset _qv_28 (lst-eq _qv_29 _qv_30))=(lst-eq (lst-subset _qv_28 _qv_29) (lst-subset _qv_28 _qv_30))))
+
+CURRENT SUBGOAL (lst-mem _t_8 (cons _t_8 _t_9))
+NOW TESTING (forall ((Lst) (Lst)) ((lst-subset _qv_0 _qv_1)=(lst-subset _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-mem _t_8 (cons _t_8 _t_9))
+NOW TESTING (forall ((Lst) (Lst)) ((lst-intersection _qv_2 _qv_3)=(lst-intersection _qv_3 _qv_2)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-mem _t_8 (cons _t_8 _t_9))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((lst-intersection (lst-intersection _qv_4 _qv_5) _qv_6)=(lst-intersection _qv_4 (lst-intersection _qv_5 _qv_6))))
+USE ASSUMPTION FAILED
+
+        backtrack to: (lst-mem _t_8 (cons _t_8 _t_9))
+        rewritten [0]: (mem _t_8 (cons _t_8 _t_9))
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Lst) (Lst)) ((lst-subset _qv_10 _qv_11)=(lst-subset _qv_11 _qv_10)))
+	(forall ((Lst) (Lst)) ((lst-eq _qv_12 _qv_13)=(lst-eq _qv_13 _qv_12)))
+	(forall ((Lst) (Lst)) ((lst-intersection _qv_14 _qv_15)=(lst-intersection _qv_15 _qv_14)))
+	(forall ((Lst) (Lst) (Lst)) ((lst-intersection (lst-intersection _qv_16 _qv_17) _qv_18)=(lst-intersection _qv_16 (lst-intersection _qv_17 _qv_18))))
+	(forall ((Nat) (Lst) BOOL) ((mem _qv_19 (lst-mem _qv_20 _qv_21))=(lst-mem (mem _qv_19 _qv_20) (mem _qv_19 _qv_21))))
+	(forall ((Nat) (Lst) BOOL) ((lst-mem _qv_22 (mem _qv_23 _qv_24))=(mem (lst-mem _qv_22 _qv_23) (lst-mem _qv_22 _qv_24))))
+	(forall ((Lst) (Lst) BOOL) ((lst-eq _qv_25 (lst-subset _qv_26 _qv_27))=(lst-subset (lst-eq _qv_25 _qv_26) (lst-eq _qv_25 _qv_27))))
+	(forall ((Lst) (Lst) BOOL) ((lst-subset _qv_28 (lst-eq _qv_29 _qv_30))=(lst-eq (lst-subset _qv_28 _qv_29) (lst-subset _qv_28 _qv_30))))
+

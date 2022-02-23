@@ -1,0 +1,131 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+
+Simplified goal: (forall ((Nat) (Nat) (Nat) (Nat) (Lst)) ((drop (succ v) (drop w (drop x (cons y z))))=(drop v (drop w (drop x z)))))
+
+
+Base case:       ((drop (succ zero) (drop _v_0 (drop _v_1 (cons _v_2 _v_3))))=(drop zero (drop _v_0 (drop _v_1 _v_3))))
+{
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat)) ((drop _qv_1 nil)=nil))
+    | Assumptions [1]: (forall ((Lst)) ((drop zero _qv_2)=_qv_2))
+    | Assumptions [2]: (forall ((Nat) (Nat) (Lst)) ((drop (succ _qv_3) (cons _qv_4 _qv_5))=(drop _qv_3 _qv_5)))
+    ====================
+  }
+  rewritten [1]: ((drop (succ zero) (drop _v_0 (drop _v_1 (cons _v_2 _v_3))))=(drop _v_0 (drop _v_1 _v_3)))
+  backtrack to: ((drop (succ zero) (drop _v_0 (drop _v_1 (cons _v_2 _v_3))))=(drop zero (drop _v_0 (drop _v_1 _v_3))))
+  rewritten [1]: ((drop (succ zero) (drop _v_0 (drop _v_1 (cons _v_2 _v_3))))=(drop _v_0 (drop _v_1 _v_3)))
+  backtrack to: ((drop (succ zero) (drop _v_0 (drop _v_1 (cons _v_2 _v_3))))=(drop zero (drop _v_0 (drop _v_1 _v_3))))
+}
+
+Base case:       ((drop (succ _v_4) (drop zero (drop _v_5 (cons _v_6 _v_7))))=(drop _v_4 (drop zero (drop _v_5 _v_7))))
+{
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat)) ((drop _qv_1 nil)=nil))
+    | Assumptions [1]: (forall ((Lst)) ((drop zero _qv_2)=_qv_2))
+    | Assumptions [2]: (forall ((Nat) (Nat) (Lst)) ((drop (succ _qv_3) (cons _qv_4 _qv_5))=(drop _qv_3 _qv_5)))
+    ====================
+  }
+  rewritten [1]: ((drop (succ _v_4) (drop _v_5 (cons _v_6 _v_7)))=(drop _v_4 (drop zero (drop _v_5 _v_7))))
+  rewritten [1]: ((drop (succ _v_4) (drop _v_5 (cons _v_6 _v_7)))=(drop _v_4 (drop _v_5 _v_7)))
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+  backtrack to: ((drop (succ _v_4) (drop _v_5 (cons _v_6 _v_7)))=(drop _v_4 (drop zero (drop _v_5 _v_7))))
+  rewritten [1]: ((drop (succ _v_4) (drop _v_5 (cons _v_6 _v_7)))=(drop _v_4 (drop _v_5 _v_7)))
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+  backtrack to: ((drop (succ _v_4) (drop _v_5 (cons _v_6 _v_7)))=(drop _v_4 (drop zero (drop _v_5 _v_7))))
+  backtrack to: ((drop (succ _v_4) (drop zero (drop _v_5 (cons _v_6 _v_7))))=(drop _v_4 (drop zero (drop _v_5 _v_7))))
+  rewritten [1]: ((drop (succ _v_4) (drop zero (drop _v_5 (cons _v_6 _v_7))))=(drop _v_4 (drop _v_5 _v_7)))
+  rewritten [1]: ((drop (succ _v_4) (drop _v_5 (cons _v_6 _v_7)))=(drop _v_4 (drop _v_5 _v_7)))
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+  backtrack to: ((drop (succ _v_4) (drop zero (drop _v_5 (cons _v_6 _v_7))))=(drop _v_4 (drop _v_5 _v_7)))
+  rewritten [1]: ((drop (succ _v_4) (drop _v_5 (cons _v_6 _v_7)))=(drop _v_4 (drop _v_5 _v_7)))
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+  backtrack to: ((drop (succ _v_4) (drop zero (drop _v_5 (cons _v_6 _v_7))))=(drop _v_4 (drop _v_5 _v_7)))
+  backtrack to: ((drop (succ _v_4) (drop zero (drop _v_5 (cons _v_6 _v_7))))=(drop _v_4 (drop zero (drop _v_5 _v_7))))
+  rewritten [1]: ((drop (succ _v_4) (drop _v_5 (cons _v_6 _v_7)))=(drop _v_4 (drop zero (drop _v_5 _v_7))))
+  rewritten [1]: ((drop (succ _v_4) (drop _v_5 (cons _v_6 _v_7)))=(drop _v_4 (drop _v_5 _v_7)))
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+

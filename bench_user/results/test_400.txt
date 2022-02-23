@@ -1,0 +1,575 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((plus _qv_0 _qv_1)=(plus _qv_1 _qv_0)))
+	(forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_2 _qv_3) _qv_4)=(plus _qv_2 (plus _qv_3 _qv_4))))
+
+Simplified goal: (forall ((Nat) (Nat) (Lst)) ((plus (count n t) (count n (cons h nil)))=(count n (cons h t))))
+
+
+Base case:       ((plus (count zero _v_6) (count zero (cons _v_5 nil)))=(count zero (cons _v_5 _v_6)))
+{
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat)) ((plus zero _qv_1)=_qv_1))
+    | Assumptions [1]: (forall ((Nat) (Nat)) ((plus (succ _qv_2) _qv_3)=(succ (plus _qv_2 _qv_3))))
+    | Assumptions [2]: (forall ((Nat)) ((count _qv_4 nil)=zero))
+    | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((count _qv_5 (cons _qv_6 _qv_7))=ite(_qv_5=_qv_6, (succ (count _qv_5 _qv_7)), (count _qv_5 _qv_7))))
+    ====================
+  }
+  rewritten [3]: ((plus (count zero _v_6) ite(zero=_v_5, (succ (count zero nil)), (count zero nil)))=(count zero (cons _v_5 _v_6)))
+  proceed with (part 1/2): ((zero=_v_5)->((plus (count zero _v_6) (succ (count zero nil)))=(count zero (cons _v_5 _v_6))))
+  {
+    {
+      ====================
+      | Assumptions [0]: (forall ((Nat) (Nat)) ((plus (succ _qv_2) _qv_3)=(succ (plus _qv_2 _qv_3))))
+      | Assumptions [1]: (forall ((Nat) (Nat) (Lst)) ((count _qv_5 (cons _qv_6 _qv_7))=ite(_qv_5=_qv_6, (succ (count _qv_5 _qv_7)), (count _qv_5 _qv_7))))
+      | Assumptions [2]: (forall ((Nat)) ((plus _v_5 _qv_1)=_qv_1))
+      | Assumptions [3]: (forall ((Nat)) ((count _qv_4 nil)=_v_5))
+      ====================
+    }
+    current subgoal: ((plus (count _v_5 _v_6) (succ (count _v_5 nil)))=(count _v_5 (cons _v_5 _v_6)))
+    rewritten [1]: ((plus (count _v_5 _v_6) (succ (count _v_5 nil)))=ite(_v_5=_v_5, (succ (count _v_5 _v_6)), (count _v_5 _v_6)))
+    rewritten [3]: ((plus (count _v_5 _v_6) (succ _v_5))=(succ (count _v_5 _v_6)))
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((plus _qv_8 _qv_9)=(plus _qv_9 _qv_8)))
+	(forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_10 _qv_11) _qv_12)=(plus _qv_10 (plus _qv_11 _qv_12))))
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((plus _qv_15 _qv_16)=(plus _qv_16 _qv_15)))
+	(forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_17 _qv_18) _qv_19)=(plus _qv_17 (plus _qv_18 _qv_19))))
+
+CURRENT SUBGOAL ((plus _v_5 (succ _v_14))=(succ _v_5))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_8 _qv_9)=(plus _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((plus _v_5 (succ _v_14))=(succ _v_5))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_10 _qv_11) _qv_12)=(plus _qv_10 (plus _qv_11 _qv_12))))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((plus _qv_15 _qv_16)=(plus _qv_16 _qv_15)))
+	(forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_17 _qv_18) _qv_19)=(plus _qv_17 (plus _qv_18 _qv_19))))
+
+CURRENT SUBGOAL ((plus _v_5 (succ _v_14))=(succ _v_5))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_8 _qv_9)=(plus _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((plus _v_5 (succ _v_14))=(succ _v_5))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_10 _qv_11) _qv_12)=(plus _qv_10 (plus _qv_11 _qv_12))))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((plus _qv_15 _qv_16)=(plus _qv_16 _qv_15)))
+	(forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_17 _qv_18) _qv_19)=(plus _qv_17 (plus _qv_18 _qv_19))))
+
+CURRENT SUBGOAL ((plus (count _v_14 nil) (succ _v_14))=(succ (count _v_14 nil)))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_8 _qv_9)=(plus _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((plus (count _v_14 nil) (succ _v_14))=(succ (count _v_14 nil)))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_10 _qv_11) _qv_12)=(plus _qv_10 (plus _qv_11 _qv_12))))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((plus _qv_15 _qv_16)=(plus _qv_16 _qv_15)))
+	(forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_17 _qv_18) _qv_19)=(plus _qv_17 (plus _qv_18 _qv_19))))
+
+CURRENT SUBGOAL ((plus _v_5 (succ _v_14))=(succ _v_5))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_8 _qv_9)=(plus _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((plus _v_5 (succ _v_14))=(succ _v_5))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_10 _qv_11) _qv_12)=(plus _qv_10 (plus _qv_11 _qv_12))))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((plus _qv_15 _qv_16)=(plus _qv_16 _qv_15)))
+	(forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_17 _qv_18) _qv_19)=(plus _qv_17 (plus _qv_18 _qv_19))))
+
+CURRENT SUBGOAL ((plus _v_5 (succ _v_14))=(succ _v_5))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_8 _qv_9)=(plus _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((plus _v_5 (succ _v_14))=(succ _v_5))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_10 _qv_11) _qv_12)=(plus _qv_10 (plus _qv_11 _qv_12))))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((plus _qv_15 _qv_16)=(plus _qv_16 _qv_15)))
+	(forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_17 _qv_18) _qv_19)=(plus _qv_17 (plus _qv_18 _qv_19))))
+
+CURRENT SUBGOAL ((plus (count _v_14 nil) (succ _v_14))=(succ (count _v_14 nil)))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_8 _qv_9)=(plus _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((plus (count _v_14 nil) (succ _v_14))=(succ (count _v_14 nil)))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_10 _qv_11) _qv_12)=(plus _qv_10 (plus _qv_11 _qv_12))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((plus (count _v_5 _v_6) (succ (count _v_5 nil)))=(succ (count _v_5 _v_6)))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_0 _qv_1)=(plus _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((plus (count _v_5 _v_6) (succ (count _v_5 nil)))=(succ (count _v_5 _v_6)))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_2 _qv_3) _qv_4)=(plus _qv_2 (plus _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+    backtrack to: ((plus (count _v_5 _v_6) (succ (count _v_5 nil)))=(succ (count _v_5 _v_6)))
+    rewritten [3]: ((plus (count _v_5 _v_6) (succ _v_5))=(succ (count _v_5 _v_6)))
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((plus _qv_9 _qv_10)=(plus _qv_10 _qv_9)))
+	(forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_11 _qv_12) _qv_13)=(plus _qv_11 (plus _qv_12 _qv_13))))
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((plus _qv_16 _qv_17)=(plus _qv_17 _qv_16)))
+	(forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_18 _qv_19) _qv_20)=(plus _qv_18 (plus _qv_19 _qv_20))))
+
+CURRENT SUBGOAL ((plus _v_5 (succ _v_15))=(succ _v_5))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_9 _qv_10)=(plus _qv_10 _qv_9)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((plus _v_5 (succ _v_15))=(succ _v_5))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_11 _qv_12) _qv_13)=(plus _qv_11 (plus _qv_12 _qv_13))))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((plus _qv_16 _qv_17)=(plus _qv_17 _qv_16)))
+	(forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_18 _qv_19) _qv_20)=(plus _qv_18 (plus _qv_19 _qv_20))))
+
+CURRENT SUBGOAL ((plus _v_5 (succ _v_15))=(succ _v_5))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_9 _qv_10)=(plus _qv_10 _qv_9)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((plus _v_5 (succ _v_15))=(succ _v_5))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_11 _qv_12) _qv_13)=(plus _qv_11 (plus _qv_12 _qv_13))))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((plus _qv_16 _qv_17)=(plus _qv_17 _qv_16)))
+	(forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_18 _qv_19) _qv_20)=(plus _qv_18 (plus _qv_19 _qv_20))))
+
+CURRENT SUBGOAL ((plus (count _v_15 nil) (succ _v_15))=(succ (count _v_15 nil)))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_9 _qv_10)=(plus _qv_10 _qv_9)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((plus (count _v_15 nil) (succ _v_15))=(succ (count _v_15 nil)))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_11 _qv_12) _qv_13)=(plus _qv_11 (plus _qv_12 _qv_13))))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((plus _qv_16 _qv_17)=(plus _qv_17 _qv_16)))
+	(forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_18 _qv_19) _qv_20)=(plus _qv_18 (plus _qv_19 _qv_20))))
+
+CURRENT SUBGOAL ((plus _v_5 (succ _v_15))=(succ _v_5))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_9 _qv_10)=(plus _qv_10 _qv_9)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((plus _v_5 (succ _v_15))=(succ _v_5))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_11 _qv_12) _qv_13)=(plus _qv_11 (plus _qv_12 _qv_13))))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((plus _qv_16 _qv_17)=(plus _qv_17 _qv_16)))
+	(forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_18 _qv_19) _qv_20)=(plus _qv_18 (plus _qv_19 _qv_20))))
+
+CURRENT SUBGOAL ((plus _v_5 (succ _v_15))=(succ _v_5))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_9 _qv_10)=(plus _qv_10 _qv_9)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((plus _v_5 (succ _v_15))=(succ _v_5))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_11 _qv_12) _qv_13)=(plus _qv_11 (plus _qv_12 _qv_13))))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((plus _qv_16 _qv_17)=(plus _qv_17 _qv_16)))
+	(forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_18 _qv_19) _qv_20)=(plus _qv_18 (plus _qv_19 _qv_20))))
+
+CURRENT SUBGOAL ((plus (count _v_15 nil) (succ _v_15))=(succ (count _v_15 nil)))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_9 _qv_10)=(plus _qv_10 _qv_9)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((plus (count _v_15 nil) (succ _v_15))=(succ (count _v_15 nil)))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_11 _qv_12) _qv_13)=(plus _qv_11 (plus _qv_12 _qv_13))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((plus (count _v_5 _v_6) (succ (count _v_5 nil)))=(succ (count _v_5 _v_6)))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_0 _qv_1)=(plus _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((plus (count _v_5 _v_6) (succ (count _v_5 nil)))=(succ (count _v_5 _v_6)))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_2 _qv_3) _qv_4)=(plus _qv_2 (plus _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+    backtrack to: ((plus (count _v_5 _v_6) (succ (count _v_5 nil)))=(succ (count _v_5 _v_6)))
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((plus _qv_10 _qv_11)=(plus _qv_11 _qv_10)))
+	(forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_12 _qv_13) _qv_14)=(plus _qv_12 (plus _qv_13 _qv_14))))
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((plus _qv_17 _qv_18)=(plus _qv_18 _qv_17)))
+	(forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_19 _qv_20) _qv_21)=(plus _qv_19 (plus _qv_20 _qv_21))))
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((plus _qv_17 _qv_18)=(plus _qv_18 _qv_17)))
+	(forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_19 _qv_20) _qv_21)=(plus _qv_19 (plus _qv_20 _qv_21))))
+
+CURRENT SUBGOAL ((plus _v_5 (succ _v_22))=(succ _v_5))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_17 _qv_18)=(plus _qv_18 _qv_17)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((plus _v_5 (succ _v_22))=(succ _v_5))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_19 _qv_20) _qv_21)=(plus _qv_19 (plus _qv_20 _qv_21))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((plus _v_5 (succ _v_22))=(succ _v_5))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_17 _qv_18)=(plus _qv_18 _qv_17)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((plus _v_5 (succ _v_22))=(succ _v_5))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_19 _qv_20) _qv_21)=(plus _qv_19 (plus _qv_20 _qv_21))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((plus (count zero nil) (succ _v_22))=(succ (count zero nil)))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_17 _qv_18)=(plus _qv_18 _qv_17)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((plus (count zero nil) (succ _v_22))=(succ (count zero nil)))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_19 _qv_20) _qv_21)=(plus _qv_19 (plus _qv_20 _qv_21))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((plus _v_5 (succ _v_22))=(succ _v_5))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_17 _qv_18)=(plus _qv_18 _qv_17)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((plus _v_5 (succ _v_22))=(succ _v_5))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_19 _qv_20) _qv_21)=(plus _qv_19 (plus _qv_20 _qv_21))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((plus _v_5 (succ _v_22))=(succ _v_5))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_17 _qv_18)=(plus _qv_18 _qv_17)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((plus _v_5 (succ _v_22))=(succ _v_5))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_19 _qv_20) _qv_21)=(plus _qv_19 (plus _qv_20 _qv_21))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((plus (count zero nil) (succ _v_22))=(succ (count zero nil)))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_17 _qv_18)=(plus _qv_18 _qv_17)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((plus (count zero nil) (succ _v_22))=(succ (count zero nil)))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_19 _qv_20) _qv_21)=(plus _qv_19 (plus _qv_20 _qv_21))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((plus (count zero _v_15) (succ (count zero nil)))=(succ (count zero _v_15)))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_10 _qv_11)=(plus _qv_11 _qv_10)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((plus (count zero _v_15) (succ (count zero nil)))=(succ (count zero _v_15)))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_12 _qv_13) _qv_14)=(plus _qv_12 (plus _qv_13 _qv_14))))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((plus _qv_18 _qv_19)=(plus _qv_19 _qv_18)))
+	(forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_20 _qv_21) _qv_22)=(plus _qv_20 (plus _qv_21 _qv_22))))
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((plus _qv_18 _qv_19)=(plus _qv_19 _qv_18)))
+	(forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_20 _qv_21) _qv_22)=(plus _qv_20 (plus _qv_21 _qv_22))))
+
+CURRENT SUBGOAL ((plus _v_5 (succ _v_23))=(succ _v_5))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_18 _qv_19)=(plus _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((plus _v_5 (succ _v_23))=(succ _v_5))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_20 _qv_21) _qv_22)=(plus _qv_20 (plus _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((plus _v_5 (succ _v_23))=(succ _v_5))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_18 _qv_19)=(plus _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((plus _v_5 (succ _v_23))=(succ _v_5))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_20 _qv_21) _qv_22)=(plus _qv_20 (plus _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((plus (count zero nil) (succ _v_23))=(succ (count zero nil)))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_18 _qv_19)=(plus _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((plus (count zero nil) (succ _v_23))=(succ (count zero nil)))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_20 _qv_21) _qv_22)=(plus _qv_20 (plus _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((plus _v_5 (succ _v_23))=(succ _v_5))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_18 _qv_19)=(plus _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((plus _v_5 (succ _v_23))=(succ _v_5))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_20 _qv_21) _qv_22)=(plus _qv_20 (plus _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((plus _v_5 (succ _v_23))=(succ _v_5))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_18 _qv_19)=(plus _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((plus _v_5 (succ _v_23))=(succ _v_5))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_20 _qv_21) _qv_22)=(plus _qv_20 (plus _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((plus (count zero nil) (succ _v_23))=(succ (count zero nil)))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_18 _qv_19)=(plus _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((plus (count zero nil) (succ _v_23))=(succ (count zero nil)))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_20 _qv_21) _qv_22)=(plus _qv_20 (plus _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((plus (count zero _v_15) (succ (count zero nil)))=(succ (count zero _v_15)))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_10 _qv_11)=(plus _qv_11 _qv_10)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((plus (count zero _v_15) (succ (count zero nil)))=(succ (count zero _v_15)))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_12 _qv_13) _qv_14)=(plus _qv_12 (plus _qv_13 _qv_14))))
+USE ASSUMPTION FAILED
+
+    proven by induction: ((plus (count _v_5 _v_6) (succ (count _v_5 nil)))=ite(_v_5=_v_5, (succ (count _v_5 _v_6)), (count _v_5 _v_6)))
+  }
+  adding ((zero=_v_5)->((plus (count zero _v_6) (succ (count zero nil)))=(count zero (cons _v_5 _v_6)))) to assumptions
+  proceed with (part 2/2): ((zero!=_v_5)->((plus (count zero _v_6) (count zero nil))=(count zero (cons _v_5 _v_6))))
+  {
+    {
+      ====================
+      | Assumptions [0]: (forall ((Nat)) ((plus zero _qv_1)=_qv_1))
+      | Assumptions [1]: (forall ((Nat) (Nat)) ((plus (succ _qv_2) _qv_3)=(succ (plus _qv_2 _qv_3))))
+      | Assumptions [2]: (forall ((Nat)) ((count _qv_4 nil)=zero))
+      | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((count _qv_5 (cons _qv_6 _qv_7))=ite(_qv_5=_qv_6, (succ (count _qv_5 _qv_7)), (count _qv_5 _qv_7))))
+      | Assumptions [4]: ((zero=_v_5)->((plus (count zero _v_6) (succ (count zero nil)))=(count zero (cons _v_5 _v_6))))
+      | Assumptions [5]: (zero!=_v_5)
+      | Assumptions [6]: ((zero=_v_5)->((plus (count zero _v_6) (succ zero))=(count zero (cons _v_5 _v_6))))
+      | Assumptions [7]: ((zero=_v_5)->((plus (count zero _v_6) (succ (count zero nil)))=ite(zero=_v_5, (succ (count zero _v_6)), (count zero _v_6))))
+      | Assumptions [8]: ((zero=_v_5)->((plus (count zero _v_6) (succ zero))=ite(zero=_v_5, (succ (count zero _v_6)), (count zero _v_6))))
+      ====================
+    }
+    current subgoal: ((plus (count zero _v_6) (count zero nil))=(count zero (cons _v_5 _v_6)))
+    rewritten [2]: ((plus (count zero _v_6) zero)=(count zero (cons _v_5 _v_6)))
+    rewritten [3]: ((plus (count zero _v_6) zero)=ite(zero=_v_5, (succ (count zero _v_6)), (count zero _v_6)))
+    proceed with (part 1/2): ((zero=_v_5)->((plus (count zero _v_6) zero)=(succ (count zero _v_6))))
+    {
+        proven trivially (with Z3)
+    }
+    adding ((zero=_v_5)->((plus (count zero _v_6) zero)=(succ (count zero _v_6)))) to assumptions
+    proceed with (part 2/2): ((zero!=_v_5)->((plus (count zero _v_6) zero)=(count zero _v_6)))
+    {
+      current subgoal: ((plus (count zero _v_6) zero)=(count zero _v_6))
+    }
+    will try subgoals again
+    proceed with (part 1/1): ((zero!=_v_5)->((plus (count zero _v_6) zero)=(count zero _v_6)))
+    {
+      current subgoal: ((plus (count zero _v_6) zero)=(count zero _v_6))
+    }
+    cannot prove 1 of the subgoals
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_11))=_qv_11))
+	(forall ((Nat) (Nat)) ((plus _qv_12 _qv_13)=(plus _qv_13 _qv_12)))
+	(forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_14 _qv_15) _qv_16)=(plus _qv_14 (plus _qv_15 _qv_16))))
+	(forall ((Nat) (Nat)) ((succ (plus _qv_17 _qv_18))=(plus (succ _qv_17) (succ _qv_18))))
+	(forall ((Nat) (Nat)) ((succ (plus _qv_17 _qv_18))=(plus (succ _qv_18) (succ _qv_17))))
+
+    proven by induction: ((plus (count zero _v_6) zero)=ite(zero=_v_5, (succ (count zero _v_6)), (count zero _v_6)))
+    rewriting done
+  }
+  adding ((zero!=_v_5)->((plus (count zero _v_6) (count zero nil))=(count zero (cons _v_5 _v_6)))) to assumptions
+  all subgoals are proven
+  rewriting done
+}
+Inductive step:  ((plus (count (succ _t_11) _v_6) (count (succ _t_11) (cons _v_5 nil)))=(count (succ _t_11) (cons _v_5 _v_6)))
+{
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat)) ((plus zero _qv_1)=_qv_1))
+    | Assumptions [1]: (forall ((Nat) (Nat)) ((plus (succ _qv_2) _qv_3)=(succ (plus _qv_2 _qv_3))))
+    | Assumptions [2]: (forall ((Nat)) ((count _qv_4 nil)=zero))
+    | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((count _qv_5 (cons _qv_6 _qv_7))=ite(_qv_5=_qv_6, (succ (count _qv_5 _qv_7)), (count _qv_5 _qv_7))))
+    | Assumptions [4]: (forall ((Nat) (Lst)) ((plus (count _t_11 t) (count _t_11 (cons h nil)))=(count _t_11 (cons h t))))
+    | Assumptions [5]: (forall ((Nat) (Lst)) ((count _t_11 (cons h t))=(plus (count _t_11 t) (count _t_11 (cons h nil)))))
+    ====================
+  }
+  rewritten [3]: ((plus (count (succ _t_11) _v_6) ite((succ _t_11)=_v_5, (succ (count (succ _t_11) nil)), (count (succ _t_11) nil)))=(count (succ _t_11) (cons _v_5 _v_6)))
+  proceed with (part 1/2): (((succ _t_11)=_v_5)->((plus (count (succ _t_11) _v_6) (succ (count (succ _t_11) nil)))=(count (succ _t_11) (cons _v_5 _v_6))))
+  {
+    {
+      ====================
+      | Assumptions [0]: (forall ((Nat)) ((plus zero _qv_1)=_qv_1))
+      | Assumptions [1]: (forall ((Nat) (Nat)) ((plus (succ _qv_2) _qv_3)=(succ (plus _qv_2 _qv_3))))
+      | Assumptions [2]: (forall ((Nat)) ((count _qv_4 nil)=zero))
+      | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((count _qv_5 (cons _qv_6 _qv_7))=ite(_qv_5=_qv_6, (succ (count _qv_5 _qv_7)), (count _qv_5 _qv_7))))
+      | Assumptions [4]: (forall ((Nat) (Lst)) ((plus (count _t_11 t) (count _t_11 (cons h nil)))=(count _t_11 (cons h t))))
+      | Assumptions [5]: (forall ((Nat) (Lst)) ((count _t_11 (cons h t))=(plus (count _t_11 t) (count _t_11 (cons h nil)))))
+      ====================
+    }
+    current subgoal: ((plus (count (succ _t_11) _v_6) (succ (count (succ _t_11) nil)))=(count (succ _t_11) (cons (succ _t_11) _v_6)))
+    rewritten [2]: ((plus (count (succ _t_11) _v_6) (succ zero))=(count (succ _t_11) (cons (succ _t_11) _v_6)))
+    rewritten [3]: ((plus (count (succ _t_11) _v_6) (succ zero))=ite((succ _t_11)=(succ _t_11), (succ (count (succ _t_11) _v_6)), (count (succ _t_11) _v_6)))
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((plus _qv_13 _qv_14)=(plus _qv_14 _qv_13)))
+	(forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_15 _qv_16) _qv_17)=(plus _qv_15 (plus _qv_16 _qv_17))))
+
+    proven by induction: ((plus (count _w_12 _v_6) (succ zero))=ite(_w_12=_w_12, (succ (count _w_12 _v_6)), (count _w_12 _v_6)))
+    rewriting done
+  }
+  adding (((succ _t_11)=_v_5)->((plus (count (succ _t_11) _v_6) (succ (count (succ _t_11) nil)))=(count (succ _t_11) (cons _v_5 _v_6)))) to assumptions
+  proceed with (part 2/2): (((succ _t_11)!=_v_5)->((plus (count (succ _t_11) _v_6) (count (succ _t_11) nil))=(count (succ _t_11) (cons _v_5 _v_6))))
+  {
+    {
+      ====================
+      | Assumptions [0]: (forall ((Nat)) ((plus zero _qv_1)=_qv_1))
+      | Assumptions [1]: (forall ((Nat) (Nat)) ((plus (succ _qv_2) _qv_3)=(succ (plus _qv_2 _qv_3))))
+      | Assumptions [2]: (forall ((Nat)) ((count _qv_4 nil)=zero))
+      | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((count _qv_5 (cons _qv_6 _qv_7))=ite(_qv_5=_qv_6, (succ (count _qv_5 _qv_7)), (count _qv_5 _qv_7))))
+      | Assumptions [4]: (forall ((Nat) (Lst)) ((plus (count _t_11 t) (count _t_11 (cons h nil)))=(count _t_11 (cons h t))))
+      | Assumptions [5]: (forall ((Nat) (Lst)) ((count _t_11 (cons h t))=(plus (count _t_11 t) (count _t_11 (cons h nil)))))
+      | Assumptions [6]: (((succ _t_11)=_v_5)->((plus (count (succ _t_11) _v_6) (succ (count (succ _t_11) nil)))=(count (succ _t_11) (cons _v_5 _v_6))))
+      | Assumptions [7]: ((succ _t_11)!=_v_5)
+      | Assumptions [8]: (((succ _t_11)=_v_5)->((plus (count (succ _t_11) _v_6) (succ zero))=(count (succ _t_11) (cons _v_5 _v_6))))
+      | Assumptions [9]: (((succ _t_11)=_v_5)->((plus (count (succ _t_11) _v_6) (succ (count (succ _t_11) nil)))=ite((succ _t_11)=_v_5, (succ (count (succ _t_11) _v_6)), (count (succ _t_11) _v_6))))
+      | Assumptions [10]: (((succ _t_11)=_v_5)->((plus (count (succ _t_11) _v_6) (succ zero))=ite((succ _t_11)=_v_5, (succ (count (succ _t_11) _v_6)), (count (succ _t_11) _v_6))))
+      ====================
+    }
+    current subgoal: ((plus (count (succ _t_11) _v_6) (count (succ _t_11) nil))=(count (succ _t_11) (cons _v_5 _v_6)))
+    rewritten [2]: ((plus (count (succ _t_11) _v_6) zero)=(count (succ _t_11) (cons _v_5 _v_6)))
+    rewritten [3]: ((plus (count (succ _t_11) _v_6) zero)=ite((succ _t_11)=_v_5, (succ (count (succ _t_11) _v_6)), (count (succ _t_11) _v_6)))
+    proceed with (part 1/2): (((succ _t_11)=_v_5)->((plus (count (succ _t_11) _v_6) zero)=(succ (count (succ _t_11) _v_6))))
+    {
+        proven trivially (with Z3)
+    }
+    adding (((succ _t_11)=_v_5)->((plus (count (succ _t_11) _v_6) zero)=(succ (count (succ _t_11) _v_6)))) to assumptions
+    proceed with (part 2/2): (((succ _t_11)!=_v_5)->((plus (count (succ _t_11) _v_6) zero)=(count (succ _t_11) _v_6)))
+    {
+      current subgoal: ((plus (count (succ _t_11) _v_6) zero)=(count (succ _t_11) _v_6))
+    }
+    will try subgoals again
+    proceed with (part 1/1): (((succ _t_11)!=_v_5)->((plus (count (succ _t_11) _v_6) zero)=(count (succ _t_11) _v_6)))
+    {
+      current subgoal: ((plus (count (succ _t_11) _v_6) zero)=(count (succ _t_11) _v_6))
+    }
+    cannot prove 1 of the subgoals
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_14))=_qv_14))
+	(forall ((Nat) (Nat)) ((plus _qv_15 _qv_16)=(plus _qv_16 _qv_15)))
+	(forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_17 _qv_18) _qv_19)=(plus _qv_17 (plus _qv_18 _qv_19))))
+	(forall ((Nat) (Nat)) ((succ (plus _qv_20 _qv_21))=(plus (succ _qv_20) (succ _qv_21))))
+	(forall ((Nat) (Nat)) ((succ (plus _qv_20 _qv_21))=(plus (succ _qv_21) (succ _qv_20))))
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((plus _qv_25 _qv_26)=(plus _qv_26 _qv_25)))
+	(forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_27 _qv_28) _qv_29)=(plus _qv_27 (plus _qv_28 _qv_29))))
+
+CURRENT SUBGOAL ((succ zero)=_v_35)
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_25 _qv_26)=(plus _qv_26 _qv_25)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ zero)=_v_35)
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_27 _qv_28) _qv_29)=(plus _qv_27 (plus _qv_28 _qv_29))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ zero)=_v_35)
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_25 _qv_26)=(plus _qv_26 _qv_25)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ zero)=_v_35)
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_27 _qv_28) _qv_29)=(plus _qv_27 (plus _qv_28 _qv_29))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_23!=_v_22)&&((succ zero)=_v_22))||((_v_23=_v_22)&&((succ zero)=_v_22)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_14))=_qv_14))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_23!=_v_22)&&((succ zero)=_v_22))||((_v_23=_v_22)&&((succ zero)=_v_22)))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_15 _qv_16)=(plus _qv_16 _qv_15)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_23!=_v_22)&&((succ zero)=_v_22))||((_v_23=_v_22)&&((succ zero)=_v_22)))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_17 _qv_18) _qv_19)=(plus _qv_17 (plus _qv_18 _qv_19))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_23!=_v_22)&&((succ zero)=_v_22))||((_v_23=_v_22)&&((succ zero)=_v_22)))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_20 _qv_21))=(plus (succ _qv_20) (succ _qv_21))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_23!=_v_22)&&((succ zero)=_v_22))||((_v_23=_v_22)&&((succ zero)=_v_22)))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_20 _qv_21))=(plus (succ _qv_21) (succ _qv_20))))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((plus _qv_25 _qv_26)=(plus _qv_26 _qv_25)))
+	(forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_27 _qv_28) _qv_29)=(plus _qv_27 (plus _qv_28 _qv_29))))
+
+CURRENT SUBGOAL ((succ zero)=_v_35)
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_25 _qv_26)=(plus _qv_26 _qv_25)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ zero)=_v_35)
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_27 _qv_28) _qv_29)=(plus _qv_27 (plus _qv_28 _qv_29))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ zero)=_v_35)
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_25 _qv_26)=(plus _qv_26 _qv_25)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ zero)=_v_35)
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_27 _qv_28) _qv_29)=(plus _qv_27 (plus _qv_28 _qv_29))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_23!=_v_22)&&((succ zero)=_v_22))||((_v_23=_v_22)&&((succ zero)=_v_22)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_14))=_qv_14))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_23!=_v_22)&&((succ zero)=_v_22))||((_v_23=_v_22)&&((succ zero)=_v_22)))
+NOW TESTING (forall ((Nat) (Nat)) ((plus _qv_15 _qv_16)=(plus _qv_16 _qv_15)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_23!=_v_22)&&((succ zero)=_v_22))||((_v_23=_v_22)&&((succ zero)=_v_22)))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_17 _qv_18) _qv_19)=(plus _qv_17 (plus _qv_18 _qv_19))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_23!=_v_22)&&((succ zero)=_v_22))||((_v_23=_v_22)&&((succ zero)=_v_22)))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_20 _qv_21))=(plus (succ _qv_20) (succ _qv_21))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_23!=_v_22)&&((succ zero)=_v_22))||((_v_23=_v_22)&&((succ zero)=_v_22)))
+NOW TESTING (forall ((Nat) (Nat)) ((succ (plus _qv_20 _qv_21))=(plus (succ _qv_21) (succ _qv_20))))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_25))=_qv_25))
+	(forall ((Nat) (Nat)) ((plus _qv_26 _qv_27)=(plus _qv_27 _qv_26)))
+	(forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_28 _qv_29) _qv_30)=(plus _qv_28 (plus _qv_29 _qv_30))))
+	(forall ((Nat) (Nat)) ((succ (plus _qv_31 _qv_32))=(plus (succ _qv_31) (succ _qv_32))))
+	(forall ((Nat) (Nat)) ((succ (plus _qv_31 _qv_32))=(plus (succ _qv_32) (succ _qv_31))))
+

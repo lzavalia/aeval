@@ -1,0 +1,185 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+	(forall ((Nat)) (0<=(nat-to-int _qv_1)))
+	(forall ((Lst) (Lst)) ((append _qv_2 _qv_3)=(append _qv_3 _qv_2)))
+	(forall ((Lst) (Lst) (Lst)) ((append (append _qv_4 _qv_5) _qv_6)=(append _qv_4 (append _qv_5 _qv_6))))
+	(forall ((Nat)) ((nat-to-int (succ _qv_7))=(nat-to-int _qv_7)))
+
+Simplified goal: (forall ((Lst) (Lst)) ((!(ys=nil))->((last (append xs ys))=(last ys))))
+
+
+Base case:       ((last (append nil _v_8))=(last _v_8))
+{
+  proven trivially
+}
+Inductive step:  ((last (append (cons _t_9 _t_10) _v_8))=(last _v_8))
+{
+  {
+    ====================
+    | Assumptions [0]: ((nat-to-int zero)=0)
+    | Assumptions [1]: (forall ((Nat)) ((nat-to-int _qv_1)>=0))
+    | Assumptions [2]: (forall ((Nat) (Nat)) (((nat-to-int _qv_2)=(nat-to-int _qv_3))->(_qv_2=_qv_3)))
+    | Assumptions [3]: (forall ((Nat)) ((nat-to-int (succ _qv_4))=(1+(nat-to-int _qv_4))))
+    | Assumptions [4]: (forall ((Lst)) ((append nil _qv_5)=_qv_5))
+    | Assumptions [5]: (forall ((Nat) (Lst) (Lst)) ((append (cons _qv_6 _qv_7) _qv_8)=(cons _qv_6 (append _qv_7 _qv_8))))
+    | Assumptions [6]: (forall ((Nat) (Lst)) ((last (cons _qv_9 _qv_10))=ite(_qv_10=nil, _qv_9, (last _qv_10))))
+    | Assumptions [7]: (forall ((Lst)) ((ys!=nil)->((last (append _t_10 ys))=(last ys))))
+    | Assumptions [8]: (_v_8!=nil)
+    | Assumptions [9]: ((last (append _t_10 _v_8))=(last _v_8))
+    ====================
+  }
+  rewritten [2]: ((nat-to-int (last (append (cons _t_9 _t_10) _v_8)))=(nat-to-int (last _v_8)))
+  rewritten [5]: ((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))=(nat-to-int (last _v_8)))
+  rewritten [6]: ((nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8))))=(nat-to-int (last _v_8)))
+  proceed with (part 1/2): (((append _t_10 _v_8)=nil)->((nat-to-int _t_9)=(nat-to-int (last _v_8))))
+  {
+    {
+      ====================
+      | Assumptions [0]: ((nat-to-int zero)=0)
+      | Assumptions [1]: (forall ((Nat)) ((nat-to-int _qv_1)>=0))
+      | Assumptions [2]: (forall ((Nat) (Nat)) (((nat-to-int _qv_2)=(nat-to-int _qv_3))->(_qv_2=_qv_3)))
+      | Assumptions [3]: (forall ((Nat)) ((nat-to-int (succ _qv_4))=(1+(nat-to-int _qv_4))))
+      | Assumptions [4]: (forall ((Nat) (Lst) (Lst)) ((append (cons _qv_6 _qv_7) _qv_8)=(cons _qv_6 (append _qv_7 _qv_8))))
+      | Assumptions [5]: ((last (append _t_10 _v_8))=(last _v_8))
+      | Assumptions [6]: (forall ((Lst)) ((append (append _t_10 _v_8) _qv_5)=_qv_5))
+      | Assumptions [7]: (forall ((Nat) (Lst)) ((last (cons _qv_9 _qv_10))=ite(_qv_10=(append _t_10 _v_8), _qv_9, (last _qv_10))))
+      | Assumptions [8]: (forall ((Lst)) ((ys!=(append _t_10 _v_8))->((last (append _t_10 ys))=(last ys))))
+      | Assumptions [9]: (_v_8!=(append _t_10 _v_8))
+      ====================
+    }
+    current subgoal: ((nat-to-int _t_9)=(nat-to-int (last _v_8)))
+    rewritten [0]: ((nat-to-int _t_9)=(nat-to-int (last _v_8)))
+CURRENT SUBGOAL ((nat-to-int _t_9)=(nat-to-int (last _v_8)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((nat-to-int _t_9)=(nat-to-int (last _v_8)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((nat-to-int _t_9)=(nat-to-int (last _v_8)))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_2 _qv_3)=(append _qv_3 _qv_2)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((nat-to-int _t_9)=(nat-to-int (last _v_8)))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_4 _qv_5) _qv_6)=(append _qv_4 (append _qv_5 _qv_6))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((nat-to-int _t_9)=(nat-to-int (last _v_8)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_7))=(nat-to-int _qv_7)))
+USE ASSUMPTION FAILED
+
+    backtrack to: ((nat-to-int _t_9)=(nat-to-int (last _v_8)))
+    rewritten [0]: ((nat-to-int _t_9)=(nat-to-int (last _v_8)))
+CURRENT SUBGOAL ((nat-to-int _t_9)=(nat-to-int (last _v_8)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((nat-to-int _t_9)=(nat-to-int (last _v_8)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((nat-to-int _t_9)=(nat-to-int (last _v_8)))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_2 _qv_3)=(append _qv_3 _qv_2)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((nat-to-int _t_9)=(nat-to-int (last _v_8)))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_4 _qv_5) _qv_6)=(append _qv_4 (append _qv_5 _qv_6))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((nat-to-int _t_9)=(nat-to-int (last _v_8)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_7))=(nat-to-int _qv_7)))
+USE ASSUMPTION FAILED
+
+    backtrack to: ((nat-to-int _t_9)=(nat-to-int (last _v_8)))
+  }
+  proceed with (part 2/2): (((append _t_10 _v_8)!=nil)->((nat-to-int (last (append _t_10 _v_8)))=(nat-to-int (last _v_8))))
+  {
+      proven trivially (with Z3)
+  }
+  adding (((append _t_10 _v_8)!=nil)->((nat-to-int (last (append _t_10 _v_8)))=(nat-to-int (last _v_8)))) to assumptions
+  will try subgoals again
+  proceed with (part 1/1): (((append _t_10 _v_8)=nil)->((nat-to-int _t_9)=(nat-to-int (last _v_8))))
+  {
+    {
+      ====================
+      | Assumptions [0]: ((nat-to-int zero)=0)
+      | Assumptions [1]: (forall ((Nat)) ((nat-to-int _qv_1)>=0))
+      | Assumptions [2]: (forall ((Nat) (Nat)) (((nat-to-int _qv_2)=(nat-to-int _qv_3))->(_qv_2=_qv_3)))
+      | Assumptions [3]: (forall ((Nat)) ((nat-to-int (succ _qv_4))=(1+(nat-to-int _qv_4))))
+      | Assumptions [4]: (forall ((Nat) (Lst) (Lst)) ((append (cons _qv_6 _qv_7) _qv_8)=(cons _qv_6 (append _qv_7 _qv_8))))
+      | Assumptions [5]: ((last (append _t_10 _v_8))=(last _v_8))
+      | Assumptions [6]: ((nat-to-int (last (append _t_10 _v_8)))=(nat-to-int (last _v_8)))
+      | Assumptions [7]: (forall ((Lst)) ((append (append _t_10 _v_8) _qv_5)=_qv_5))
+      | Assumptions [8]: (forall ((Nat) (Lst)) ((last (cons _qv_9 _qv_10))=ite(_qv_10=(append _t_10 _v_8), _qv_9, (last _qv_10))))
+      | Assumptions [9]: (forall ((Lst)) ((ys!=(append _t_10 _v_8))->((last (append _t_10 ys))=(last ys))))
+      | Assumptions [10]: (_v_8!=(append _t_10 _v_8))
+      | Assumptions [11]: (false->((nat-to-int (last (append _t_10 _v_8)))=(nat-to-int (last _v_8))))
+      ====================
+    }
+    current subgoal: ((nat-to-int _t_9)=(nat-to-int (last _v_8)))
+    rewritten [0]: ((nat-to-int _t_9)=(nat-to-int (last _v_8)))
+CURRENT SUBGOAL ((nat-to-int _t_9)=(nat-to-int (last _v_8)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((nat-to-int _t_9)=(nat-to-int (last _v_8)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((nat-to-int _t_9)=(nat-to-int (last _v_8)))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_2 _qv_3)=(append _qv_3 _qv_2)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((nat-to-int _t_9)=(nat-to-int (last _v_8)))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_4 _qv_5) _qv_6)=(append _qv_4 (append _qv_5 _qv_6))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((nat-to-int _t_9)=(nat-to-int (last _v_8)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_7))=(nat-to-int _qv_7)))
+USE ASSUMPTION FAILED
+
+    backtrack to: ((nat-to-int _t_9)=(nat-to-int (last _v_8)))
+    rewritten [0]: ((nat-to-int _t_9)=(nat-to-int (last _v_8)))
+CURRENT SUBGOAL ((nat-to-int _t_9)=(nat-to-int (last _v_8)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((nat-to-int _t_9)=(nat-to-int (last _v_8)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((nat-to-int _t_9)=(nat-to-int (last _v_8)))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_2 _qv_3)=(append _qv_3 _qv_2)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((nat-to-int _t_9)=(nat-to-int (last _v_8)))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_4 _qv_5) _qv_6)=(append _qv_4 (append _qv_5 _qv_6))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((nat-to-int _t_9)=(nat-to-int (last _v_8)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_7))=(nat-to-int _qv_7)))
+USE ASSUMPTION FAILED
+
+    backtrack to: ((nat-to-int _t_9)=(nat-to-int (last _v_8)))
+  }
+  cannot prove 1 of the subgoals
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_12))=_qv_12))
+	(forall ((Nat)) (0<=(nat-to-int _qv_13)))
+	(forall ((Lst) (Lst)) ((append _qv_14 _qv_15)=(append _qv_15 _qv_14)))
+	(forall ((Lst) (Lst) (Lst)) ((append (append _qv_16 _qv_17) _qv_18)=(append _qv_16 (append _qv_17 _qv_18))))
+	(forall ((Nat)) ((nat-to-int (succ _qv_19))=(nat-to-int _qv_19)))
+	(forall ((Lst)) ((nat-to-int (last _qv_20))=(nat-to-int _qv_20)))
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_25))=_qv_25))
+	(forall ((Nat)) (0<=(nat-to-int _qv_26)))
+	(forall ((Lst) (Lst)) ((append _qv_27 _qv_28)=(append _qv_28 _qv_27)))
+	(forall ((Lst) (Lst) (Lst)) ((append (append _qv_29 _qv_30) _qv_31)=(append _qv_29 (append _qv_30 _qv_31))))
+	(forall ((Nat)) ((nat-to-int (succ _qv_32))=(nat-to-int _qv_32)))
+	(forall ((Lst)) ((nat-to-int (last _qv_33))=(nat-to-int _qv_33)))
+

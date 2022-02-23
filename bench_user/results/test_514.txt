@@ -1,0 +1,37 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+	(forall ((Lst)) ((sort (sort _qv_2))=_qv_2))
+	(forall ((Nat) (Lst) (Lst)) ((insort _qv_3 (cons _qv_4 _qv_5))=(cons (insort _qv_3 _qv_4) (insort _qv_3 _qv_5))))
+	(forall ((Nat) (Lst) (Lst)) ((cons _qv_6 (insort _qv_7 _qv_8))=(insort (cons _qv_6 _qv_7) (cons _qv_6 _qv_8))))
+
+Simplified goal: (forall ((Nat) (Lst)) ((len (insort x y))=(succ (len y))))
+
+
+Base case:       ((len (insort zero _v_9))=(succ (len _v_9)))
+{
+  {
+    ====================
+    | Assumptions [0]: ((sort nil)=nil)
+    | Assumptions [1]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+    | Assumptions [2]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+    | Assumptions [3]: (forall ((Nat)) ((insort _qv_7 nil)=(cons _qv_7 nil)))
+    | Assumptions [4]: (forall ((Nat) (Nat) (Lst)) ((insort _qv_8 (cons _qv_9 _qv_10))=ite((less _qv_8 _qv_9), (cons _qv_8 (cons _qv_9 _qv_10)), (cons _qv_9 (insort _qv_8 _qv_10)))))
+    | Assumptions [5]: (forall ((Nat) (Lst)) ((sort (cons _qv_11 _qv_12))=(insort _qv_11 (sort _qv_12))))
+    | Assumptions [6]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+    | Assumptions [7]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+    ====================
+  }
+}
+
+Base case:       ((len (insort _v_10 nil))=(succ (len nil)))
+{
+  proven trivially
+}
+Inductive step:  ((len (insort _v_10 (cons _t_11 _t_12)))=(succ (len (cons _t_11 _t_12))))
+{
+  proven trivially
+}
+
+Proved
+unsat

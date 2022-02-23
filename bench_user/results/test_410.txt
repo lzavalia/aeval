@@ -1,0 +1,58 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Lst)) ((lmap (lmap _qv_0))=_qv_0))
+
+Simplified goal: (forall ((Nat) (Lst)) ((drop n (lmap xs))=(lmap (drop n xs))))
+
+
+Base case:       ((drop zero (lmap _v_1))=(lmap (drop zero _v_1)))
+{
+  proven trivially
+}
+Inductive step:  ((drop (succ _t_2) (lmap _v_1))=(lmap (drop (succ _t_2) _v_1)))
+{
+  {
+    ====================
+    | Assumptions [0]: ((lmap nil)=nil)
+    | Assumptions [1]: (forall ((Nat)) ((drop _qv_1 nil)=nil))
+    | Assumptions [2]: (forall ((Lst)) ((drop zero _qv_2)=_qv_2))
+    | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((drop (succ _qv_3) (cons _qv_4 _qv_5))=(drop _qv_3 _qv_5)))
+    | Assumptions [4]: (forall ((Nat) (Lst)) ((lmap (cons _qv_6 _qv_7))=(cons (f _qv_6) (lmap _qv_7))))
+    | Assumptions [5]: (forall ((Lst)) ((drop _t_2 (lmap xs))=(lmap (drop _t_2 xs))))
+    | Assumptions [6]: (forall ((Lst)) ((lmap (drop _t_2 xs))=(drop _t_2 (lmap xs))))
+    ====================
+  }
+
+Base case:       ((drop _v_3 (lmap nil))=(lmap (drop _v_3 nil)))
+{
+  proven trivially
+}
+Inductive step:  ((drop _v_3 (lmap (cons _t_4 _t_5)))=(lmap (drop _v_3 (cons _t_4 _t_5))))
+{
+  {
+    ====================
+    | Assumptions [0]: ((lmap nil)=nil)
+    | Assumptions [1]: (forall ((Nat)) ((drop _qv_1 nil)=nil))
+    | Assumptions [2]: (forall ((Lst)) ((drop zero _qv_2)=_qv_2))
+    | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((drop (succ _qv_3) (cons _qv_4 _qv_5))=(drop _qv_3 _qv_5)))
+    | Assumptions [4]: (forall ((Nat) (Lst)) ((lmap (cons _qv_6 _qv_7))=(cons (f _qv_6) (lmap _qv_7))))
+    | Assumptions [5]: (forall ((Lst)) ((drop _t_2 (lmap xs))=(lmap (drop _t_2 xs))))
+    | Assumptions [6]: (forall ((Lst)) ((lmap (drop _t_2 xs))=(drop _t_2 (lmap xs))))
+    | Assumptions [7]: (forall ((Nat)) ((drop n (lmap _t_5))=(lmap (drop n _t_5))))
+    | Assumptions [8]: (forall ((Nat)) ((lmap (drop n _t_5))=(drop n (lmap _t_5))))
+    ====================
+  }
+  rewritten [4]: ((drop _v_3 (cons (f _t_4) (lmap _t_5)))=(lmap (drop _v_3 (cons _t_4 _t_5))))
+CURRENT SUBGOAL ((drop _v_3 (lmap (cons _t_4 _t_5)))=(lmap (drop _v_3 (cons _t_4 _t_5))))
+NOW TESTING (forall ((Lst)) ((lmap (lmap _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((drop _v_3 (lmap (cons _t_4 _t_5)))=(lmap (drop _v_3 (cons _t_4 _t_5))))
+  rewritten [4]: ((drop _v_3 (cons (f _t_4) (lmap _t_5)))=(lmap (drop _v_3 (cons _t_4 _t_5))))
+CURRENT SUBGOAL ((drop _v_3 (lmap (cons _t_4 _t_5)))=(lmap (drop _v_3 (cons _t_4 _t_5))))
+NOW TESTING (forall ((Lst)) ((lmap (lmap _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((drop _v_3 (lmap (cons _t_4 _t_5)))=(lmap (drop _v_3 (cons _t_4 _t_5))))
+Unknown
+sat

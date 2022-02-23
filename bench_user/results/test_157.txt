@@ -1,0 +1,23 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+	(forall ((Nat)) (0<=(nat-to-int _qv_1)))
+	(forall ((Nat) (Nat)) ((less _qv_2 _qv_3)=(less _qv_3 _qv_2)))
+	(forall ((Tree)) ((mirror (mirror _qv_4))=_qv_4))
+	(forall ((Nat)) ((nat-to-int (succ _qv_5))=(nat-to-int _qv_5)))
+	(forall ((Tree)) ((nat-to-int (height _qv_6))=(nat-to-int _qv_6)))
+
+Simplified goal: (forall ((Tree)) ((height (mirror a))=(height a)))
+
+
+Base case:       ((height (mirror leaf))=(height leaf))
+{
+  proven trivially
+}
+Inductive step:  ((height (mirror (node _t_7 _t_8 _t_9)))=(height (node _t_7 _t_8 _t_9)))
+{
+  proven trivially
+}
+
+Proved
+unsat

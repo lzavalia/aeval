@@ -1,0 +1,40 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Lst)) ((lmap (lmap _qv_0))=_qv_0))
+
+Simplified goal: (forall (INT (Lst)) ((n>=0)->((take n (lmap xs))=(lmap (take n xs)))))
+
+
+Base case:       ((take _v_1 (lmap nil))=(lmap (take _v_1 nil)))
+{
+  proven trivially
+}
+Inductive step:  ((take _v_1 (lmap (cons _t_2 _t_3)))=(lmap (take _v_1 (cons _t_2 _t_3))))
+{
+  {
+    ====================
+    | Assumptions [0]: ((lmap nil)=nil)
+    | Assumptions [1]: (forall (INT) ((take _qv_1 nil)=nil))
+    | Assumptions [2]: (forall ((Lst)) ((take 0 _qv_2)=nil))
+    | Assumptions [3]: (forall (INT INT (Lst)) ((_qv_3>=0)->((take _qv_3+1 (cons _qv_4 _qv_5))=(cons _qv_4 (take _qv_3 _qv_5)))))
+    | Assumptions [4]: (forall (INT (Lst)) ((lmap (cons _qv_6 _qv_7))=(cons (f _qv_6) (lmap _qv_7))))
+    | Assumptions [5]: (_v_1>=0)
+    | Assumptions [6]: (forall (INT) ((n>=0)->((take n (lmap _t_3))=(lmap (take n _t_3)))))
+    | Assumptions [7]: (forall (INT (Lst)) ((take _v_1+1 (cons _qv_4 _qv_5))=(cons _qv_4 (take _v_1 _qv_5))))
+    | Assumptions [8]: ((take _v_1 (lmap _t_3))=(lmap (take _v_1 _t_3)))
+    ====================
+  }
+  rewritten [4]: ((take _v_1 (cons (f _t_2) (lmap _t_3)))=(lmap (take _v_1 (cons _t_2 _t_3))))
+CURRENT SUBGOAL ((take _v_1 (lmap (cons _t_2 _t_3)))=(lmap (take _v_1 (cons _t_2 _t_3))))
+NOW TESTING (forall ((Lst)) ((lmap (lmap _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((take _v_1 (lmap (cons _t_2 _t_3)))=(lmap (take _v_1 (cons _t_2 _t_3))))
+  rewritten [4]: ((take _v_1 (cons (f _t_2) (lmap _t_3)))=(lmap (take _v_1 (cons _t_2 _t_3))))
+CURRENT SUBGOAL ((take _v_1 (lmap (cons _t_2 _t_3)))=(lmap (take _v_1 (cons _t_2 _t_3))))
+NOW TESTING (forall ((Lst)) ((lmap (lmap _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((take _v_1 (lmap (cons _t_2 _t_3)))=(lmap (take _v_1 (cons _t_2 _t_3))))
+Unknown
+sat

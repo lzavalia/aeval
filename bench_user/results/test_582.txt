@@ -1,0 +1,28 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+	(forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+	(forall ((Lst)) ((rev (rev _qv_5))=_qv_5))
+	(forall ((Lst) (Lst)) ((qreva _qv_6 _qv_7)=(qreva _qv_7 _qv_6)))
+	(forall ((Lst) (Lst) (Lst)) ((qreva (qreva _qv_8 _qv_9) _qv_10)=(qreva _qv_8 (qreva _qv_9 _qv_10))))
+	(forall ((Lst) (Lst) (Lst)) ((qreva _qv_11 (append _qv_12 _qv_13))=(append (qreva _qv_11 _qv_12) (qreva _qv_11 _qv_13))))
+	(forall ((Lst) (Lst) (Lst)) ((append _qv_14 (qreva _qv_15 _qv_16))=(qreva (append _qv_14 _qv_15) (append _qv_14 _qv_16))))
+	(forall ((Lst) (Lst)) ((rev (append _qv_17 _qv_18))=(append (rev _qv_17) (rev _qv_18))))
+	(forall ((Lst) (Lst)) ((rev (append _qv_17 _qv_18))=(append (rev _qv_18) (rev _qv_17))))
+	(forall ((Lst) (Lst)) ((rev (qreva _qv_19 _qv_20))=(qreva (rev _qv_19) (rev _qv_20))))
+	(forall ((Lst) (Lst)) ((rev (qreva _qv_19 _qv_20))=(qreva (rev _qv_20) (rev _qv_19))))
+
+Simplified goal: (forall ((Tree) (Lst)) ((append (revflat x) y)=(qrevaflat x y)))
+
+
+Base case:       ((append (revflat leaf) _v_21)=(qrevaflat leaf _v_21))
+{
+  proven trivially
+}
+Inductive step:  ((append (revflat (node _t_22 _t_23 _t_24)) _v_21)=(qrevaflat (node _t_22 _t_23 _t_24) _v_21))
+{
+  proven trivially
+}
+
+Proved
+unsat

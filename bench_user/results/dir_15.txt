@@ -1,0 +1,1 @@
+./ind/benchmarks-dti/leon/bsearch-tree-goal1.smt2

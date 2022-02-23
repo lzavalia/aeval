@@ -1,0 +1,63 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((minus _qv_0 _qv_1)=(minus _qv_1 _qv_0)))
+	(forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_2 _qv_3) _qv_4)=(minus _qv_2 (minus _qv_3 _qv_4))))
+
+Simplified goal: (forall ((Nat) (Nat) (Nat)) ((minus (minus i j) k)=(minus (minus i k) j)))
+
+
+Base case:       ((minus (minus zero _v_5) _v_6)=(minus (minus zero _v_6) _v_5))
+{
+  proven trivially
+}
+Inductive step:  ((minus (minus (succ _t_7) _v_5) _v_6)=(minus (minus (succ _t_7) _v_6) _v_5))
+{
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat)) ((minus zero _qv_1)=zero))
+    | Assumptions [1]: (forall ((Nat)) ((minus _qv_2 zero)=_qv_2))
+    | Assumptions [2]: (forall ((Nat) (Nat)) ((minus (succ _qv_3) (succ _qv_4))=(minus _qv_3 _qv_4)))
+    | Assumptions [3]: (forall ((Nat) (Nat)) ((minus (minus _t_7 j) k)=(minus (minus _t_7 k) j)))
+    | Assumptions [4]: (forall ((Nat) (Nat)) ((minus (minus _t_7 k) j)=(minus (minus _t_7 j) k)))
+    ====================
+  }
+
+Base case:       ((minus (minus _v_8 zero) _v_9)=(minus (minus _v_8 _v_9) zero))
+{
+  proven trivially
+}
+Inductive step:  ((minus (minus _v_8 (succ _t_10)) _v_9)=(minus (minus _v_8 _v_9) (succ _t_10)))
+{
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat)) ((minus zero _qv_1)=zero))
+    | Assumptions [1]: (forall ((Nat)) ((minus _qv_2 zero)=_qv_2))
+    | Assumptions [2]: (forall ((Nat) (Nat)) ((minus (succ _qv_3) (succ _qv_4))=(minus _qv_3 _qv_4)))
+    | Assumptions [3]: (forall ((Nat) (Nat)) ((minus (minus _t_7 j) k)=(minus (minus _t_7 k) j)))
+    | Assumptions [4]: (forall ((Nat) (Nat)) ((minus (minus _t_7 k) j)=(minus (minus _t_7 j) k)))
+    | Assumptions [5]: (forall ((Nat) (Nat)) ((minus (minus i _t_10) k)=(minus (minus i k) _t_10)))
+    | Assumptions [6]: (forall ((Nat) (Nat)) ((minus (minus i k) _t_10)=(minus (minus i _t_10) k)))
+    ====================
+  }
+
+Base case:       ((minus (minus _v_11 _v_12) zero)=(minus (minus _v_11 zero) _v_12))
+{
+  proven trivially
+}
+Inductive step:  ((minus (minus _v_11 _v_12) (succ _t_13))=(minus (minus _v_11 (succ _t_13)) _v_12))
+{
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat)) ((minus zero _qv_1)=zero))
+    | Assumptions [1]: (forall ((Nat)) ((minus _qv_2 zero)=_qv_2))
+    | Assumptions [2]: (forall ((Nat) (Nat)) ((minus (succ _qv_3) (succ _qv_4))=(minus _qv_3 _qv_4)))
+    | Assumptions [3]: (forall ((Nat) (Nat)) ((minus (minus _t_7 j) k)=(minus (minus _t_7 k) j)))
+    | Assumptions [4]: (forall ((Nat) (Nat)) ((minus (minus _t_7 k) j)=(minus (minus _t_7 j) k)))
+    | Assumptions [5]: (forall ((Nat) (Nat)) ((minus (minus i _t_10) k)=(minus (minus i k) _t_10)))
+    | Assumptions [6]: (forall ((Nat) (Nat)) ((minus (minus i k) _t_10)=(minus (minus i _t_10) k)))
+    | Assumptions [7]: (forall ((Nat) (Nat)) ((minus (minus i j) _t_13)=(minus (minus i _t_13) j)))
+    | Assumptions [8]: (forall ((Nat) (Nat)) ((minus (minus i _t_13) j)=(minus (minus i j) _t_13)))
+    ====================
+  }
+Unknown
+sat

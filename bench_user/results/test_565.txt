@@ -1,0 +1,58 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+	(forall ((Nat) (Nat)) ((plus _qv_1 _qv_2)=(plus _qv_2 _qv_1)))
+	(forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_3 _qv_4) _qv_5)=(plus _qv_3 (plus _qv_4 _qv_5))))
+	(forall ((Nat) (Nat)) ((mult _qv_6 _qv_7)=(mult _qv_7 _qv_6)))
+	(forall ((Nat) (Nat) (Nat)) ((mult (mult _qv_8 _qv_9) _qv_10)=(mult _qv_8 (mult _qv_9 _qv_10))))
+	(forall ((Nat) (Nat)) ((exp _qv_11 _qv_12)=(exp _qv_12 _qv_11)))
+	(forall ((Nat) (Nat) (Nat)) ((exp (exp _qv_13 _qv_14) _qv_15)=(exp _qv_13 (exp _qv_14 _qv_15))))
+	(forall ((Nat) (Nat) (Nat)) ((mult _qv_16 (plus _qv_17 _qv_18))=(plus (mult _qv_16 _qv_17) (mult _qv_16 _qv_18))))
+	(forall ((Nat) (Nat) (Nat)) ((exp _qv_19 (plus _qv_20 _qv_21))=(plus (exp _qv_19 _qv_20) (exp _qv_19 _qv_21))))
+	(forall ((Nat) (Nat) (Nat)) ((plus _qv_22 (mult _qv_23 _qv_24))=(mult (plus _qv_22 _qv_23) (plus _qv_22 _qv_24))))
+	(forall ((Nat) (Nat) (Nat)) ((exp _qv_25 (mult _qv_26 _qv_27))=(mult (exp _qv_25 _qv_26) (exp _qv_25 _qv_27))))
+	(forall ((Nat) (Nat) (Nat)) ((plus _qv_28 (exp _qv_29 _qv_30))=(exp (plus _qv_28 _qv_29) (plus _qv_28 _qv_30))))
+	(forall ((Nat) (Nat) (Nat)) ((mult _qv_31 (exp _qv_32 _qv_33))=(exp (mult _qv_31 _qv_32) (mult _qv_31 _qv_33))))
+	(forall ((Nat) (Nat)) ((succ (plus _qv_34 _qv_35))=(plus (succ _qv_34) (succ _qv_35))))
+	(forall ((Nat) (Nat)) ((succ (plus _qv_34 _qv_35))=(plus (succ _qv_35) (succ _qv_34))))
+	(forall ((Nat) (Nat)) ((succ (mult _qv_36 _qv_37))=(mult (succ _qv_36) (succ _qv_37))))
+	(forall ((Nat) (Nat)) ((succ (mult _qv_36 _qv_37))=(mult (succ _qv_37) (succ _qv_36))))
+	(forall ((Nat) (Nat)) ((succ (exp _qv_38 _qv_39))=(exp (succ _qv_38) (succ _qv_39))))
+	(forall ((Nat) (Nat)) ((succ (exp _qv_38 _qv_39))=(exp (succ _qv_39) (succ _qv_38))))
+
+Simplified goal: (forall ((Nat) (Nat)) ((exp x y)=(qexp x y (succ zero))))
+
+
+Base case:       ((exp zero _v_40)=(qexp zero _v_40 (succ zero)))
+{
+  proven trivially
+}
+Inductive step:  ((exp (succ _t_41) _v_40)=(qexp (succ _t_41) _v_40 (succ zero)))
+{
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat)) ((plus zero _qv_1)=_qv_1))
+    | Assumptions [1]: (forall ((Nat) (Nat)) ((plus (succ _qv_2) _qv_3)=(succ (plus _qv_2 _qv_3))))
+    | Assumptions [2]: (forall ((Nat)) ((mult zero _qv_4)=zero))
+    | Assumptions [3]: (forall ((Nat) (Nat)) ((mult (succ _qv_5) _qv_6)=(plus (mult _qv_5 _qv_6) _qv_6)))
+    | Assumptions [4]: (forall ((Nat)) ((exp _qv_7 zero)=(succ zero)))
+    | Assumptions [5]: (forall ((Nat) (Nat)) ((exp _qv_8 (succ _qv_9))=(mult (exp _qv_8 _qv_9) _qv_8)))
+    | Assumptions [6]: (forall ((Nat) (Nat)) ((qexp _qv_10 zero _qv_11)=_qv_11))
+    | Assumptions [7]: (forall ((Nat) (Nat) (Nat)) ((qexp _qv_12 (succ _qv_13) _qv_14)=(qexp _qv_12 _qv_13 (mult _qv_14 _qv_12))))
+    | Assumptions [8]: (forall ((Nat) (Nat) (Nat)) ((mult (exp _qv_15 _qv_16) _qv_17)=(qexp _qv_15 _qv_16 _qv_17)))
+    | Assumptions [9]: (forall ((Nat)) ((exp _t_41 y)=(qexp _t_41 y (succ zero))))
+    | Assumptions [10]: (forall ((Nat)) ((qexp _t_41 y (succ zero))=(exp _t_41 y)))
+    ====================
+  }
+
+Base case:       ((exp _v_42 zero)=(qexp _v_42 zero (succ zero)))
+{
+  proven trivially
+}
+Inductive step:  ((exp _v_42 (succ _t_43))=(qexp _v_42 (succ _t_43) (succ zero)))
+{
+  proven trivially
+}
+
+Proved
+unsat

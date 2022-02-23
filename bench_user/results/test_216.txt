@@ -1,0 +1,160 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+	(forall ((Nat)) (0<=(nat-to-int _qv_1)))
+	(forall ((Lst) (Lst)) ((append _qv_2 _qv_3)=(append _qv_3 _qv_2)))
+	(forall ((Lst) (Lst) (Lst)) ((append (append _qv_4 _qv_5) _qv_6)=(append _qv_4 (append _qv_5 _qv_6))))
+	(forall ((Lst)) ((rev (rev _qv_7))=_qv_7))
+	(forall ((Lst) (Lst)) ((qreva _qv_8 _qv_9)=(qreva _qv_9 _qv_8)))
+	(forall ((Lst) (Lst) (Lst)) ((qreva (qreva _qv_10 _qv_11) _qv_12)=(qreva _qv_10 (qreva _qv_11 _qv_12))))
+	(forall ((Nat)) ((nat-to-int (succ _qv_13))=(nat-to-int _qv_13)))
+	(forall ((Lst) (Lst) (Lst)) ((qreva _qv_14 (append _qv_15 _qv_16))=(append (qreva _qv_14 _qv_15) (qreva _qv_14 _qv_16))))
+	(forall ((Lst) (Lst) (Lst)) ((append _qv_17 (qreva _qv_18 _qv_19))=(qreva (append _qv_17 _qv_18) (append _qv_17 _qv_19))))
+	(forall ((Lst) (Lst)) ((rev (append _qv_20 _qv_21))=(append (rev _qv_20) (rev _qv_21))))
+	(forall ((Lst) (Lst)) ((rev (append _qv_20 _qv_21))=(append (rev _qv_21) (rev _qv_20))))
+	(forall ((Lst) (Lst)) ((rev (qreva _qv_22 _qv_23))=(qreva (rev _qv_22) (rev _qv_23))))
+	(forall ((Lst) (Lst)) ((rev (qreva _qv_22 _qv_23))=(qreva (rev _qv_23) (rev _qv_22))))
+
+Simplified goal: (forall ((Tree)) ((revflat x)=(qrevaflat x nil)))
+
+
+Base case:       ((revflat leaf)=(qrevaflat leaf nil))
+{
+  proven trivially
+}
+Inductive step:  ((revflat (node _t_24 _t_25 _t_26))=(qrevaflat (node _t_24 _t_25 _t_26) (revflat leaf)))
+{
+  {
+    ====================
+    | Assumptions [0]: ((nat-to-int zero)=0)
+    | Assumptions [1]: (forall ((Nat)) ((nat-to-int _qv_1)>=0))
+    | Assumptions [2]: (forall ((Nat) (Nat)) (((nat-to-int _qv_2)=(nat-to-int _qv_3))->(_qv_2=_qv_3)))
+    | Assumptions [3]: (forall ((Nat)) ((nat-to-int (succ _qv_4))=(1+(nat-to-int _qv_4))))
+    | Assumptions [4]: (forall ((Lst)) ((qrevaflat leaf _qv_5)=_qv_5))
+    | Assumptions [5]: (forall ((Nat) (Tree) (Tree) (Lst)) ((qrevaflat (node _qv_6 _qv_7 _qv_8) _qv_9)=(qrevaflat _qv_7 (cons _qv_6 (qrevaflat _qv_8 _qv_9)))))
+    | Assumptions [6]: (forall ((Nat) (Lst) (Lst)) ((append (cons _qv_11 _qv_12) _qv_13)=(cons _qv_11 (append _qv_12 _qv_13))))
+    | Assumptions [7]: (forall ((Lst) (Lst) (Nat)) ((qreva (cons _qv_19 _qv_17) _qv_18)=(qreva _qv_17 (cons _qv_19 _qv_18))))
+    | Assumptions [8]: (forall ((Nat) (Tree) (Tree)) ((revflat (node _qv_20 _qv_21 _qv_22))=(append (revflat _qv_21) (cons _qv_20 (revflat _qv_22)))))
+    | Assumptions [9]: (forall ((Lst)) ((append (revflat leaf) _qv_10)=_qv_10))
+    | Assumptions [10]: ((rev (revflat leaf))=(revflat leaf))
+    | Assumptions [11]: (forall ((Nat) (Lst)) ((rev (cons _qv_14 _qv_15))=(append (rev _qv_15) (cons _qv_14 (revflat leaf)))))
+    | Assumptions [12]: (forall ((Lst)) ((qreva (revflat leaf) _qv_16)=_qv_16))
+    | Assumptions [13]: ((revflat _t_25)=(qrevaflat _t_25 (revflat leaf)))
+    | Assumptions [14]: ((qrevaflat _t_25 (revflat leaf))=(revflat _t_25))
+    | Assumptions [15]: ((revflat _t_26)=(qrevaflat _t_26 (revflat leaf)))
+    | Assumptions [16]: ((qrevaflat _t_26 (revflat leaf))=(revflat _t_26))
+    ====================
+  }
+  rewritten [5]: ((revflat (node _t_24 _t_25 _t_26))=(qrevaflat _t_25 (cons _t_24 (qrevaflat _t_26 (revflat leaf)))))
+  rewritten [8]: ((append (revflat _t_25) (cons _t_24 (revflat _t_26)))=(qrevaflat _t_25 (cons _t_24 (qrevaflat _t_26 (revflat leaf)))))
+  rewritten [13]: ((append (qrevaflat _t_25 (revflat leaf)) (cons _t_24 (revflat _t_26)))=(qrevaflat _t_25 (cons _t_24 (qrevaflat _t_26 (revflat leaf)))))
+  rewritten [15]: ((append (qrevaflat _t_25 (revflat leaf)) (cons _t_24 (qrevaflat _t_26 (revflat leaf))))=(qrevaflat _t_25 (cons _t_24 (qrevaflat _t_26 (revflat leaf)))))
+  sequence of rewrites only grows
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_28))=_qv_28))
+	(forall ((Nat)) (0<=(nat-to-int _qv_29)))
+	(forall ((Lst) (Lst)) ((append _qv_30 _qv_31)=(append _qv_31 _qv_30)))
+	(forall ((Lst) (Lst) (Lst)) ((append (append _qv_32 _qv_33) _qv_34)=(append _qv_32 (append _qv_33 _qv_34))))
+	(forall ((Lst)) ((rev (rev _qv_35))=_qv_35))
+	(forall ((Lst) (Lst)) ((qreva _qv_36 _qv_37)=(qreva _qv_37 _qv_36)))
+	(forall ((Lst) (Lst) (Lst)) ((qreva (qreva _qv_38 _qv_39) _qv_40)=(qreva _qv_38 (qreva _qv_39 _qv_40))))
+	(forall ((Nat)) ((nat-to-int (succ _qv_41))=(nat-to-int _qv_41)))
+	(forall ((Lst) (Lst) (Lst)) ((qreva _qv_42 (append _qv_43 _qv_44))=(append (qreva _qv_42 _qv_43) (qreva _qv_42 _qv_44))))
+	(forall ((Lst) (Lst) (Lst)) ((append _qv_45 (qreva _qv_46 _qv_47))=(qreva (append _qv_45 _qv_46) (append _qv_45 _qv_47))))
+	(forall ((Lst) (Lst)) ((rev (append _qv_48 _qv_49))=(append (rev _qv_48) (rev _qv_49))))
+	(forall ((Lst) (Lst)) ((rev (append _qv_48 _qv_49))=(append (rev _qv_49) (rev _qv_48))))
+	(forall ((Lst) (Lst)) ((rev (qreva _qv_50 _qv_51))=(qreva (rev _qv_50) (rev _qv_51))))
+	(forall ((Lst) (Lst)) ((rev (qreva _qv_50 _qv_51))=(qreva (rev _qv_51) (rev _qv_50))))
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_57))=_qv_57))
+	(forall ((Nat)) (0<=(nat-to-int _qv_58)))
+	(forall ((Lst) (Lst)) ((append _qv_59 _qv_60)=(append _qv_60 _qv_59)))
+	(forall ((Lst) (Lst) (Lst)) ((append (append _qv_61 _qv_62) _qv_63)=(append _qv_61 (append _qv_62 _qv_63))))
+	(forall ((Lst)) ((rev (rev _qv_64))=_qv_64))
+	(forall ((Lst) (Lst)) ((qreva _qv_65 _qv_66)=(qreva _qv_66 _qv_65)))
+	(forall ((Lst) (Lst) (Lst)) ((qreva (qreva _qv_67 _qv_68) _qv_69)=(qreva _qv_67 (qreva _qv_68 _qv_69))))
+	(forall ((Nat)) ((nat-to-int (succ _qv_70))=(nat-to-int _qv_70)))
+	(forall ((Lst) (Lst) (Lst)) ((qreva _qv_71 (append _qv_72 _qv_73))=(append (qreva _qv_71 _qv_72) (qreva _qv_71 _qv_73))))
+	(forall ((Lst) (Lst) (Lst)) ((append _qv_74 (qreva _qv_75 _qv_76))=(qreva (append _qv_74 _qv_75) (append _qv_74 _qv_76))))
+	(forall ((Lst) (Lst)) ((rev (append _qv_77 _qv_78))=(append (rev _qv_77) (rev _qv_78))))
+	(forall ((Lst) (Lst)) ((rev (append _qv_77 _qv_78))=(append (rev _qv_78) (rev _qv_77))))
+	(forall ((Lst) (Lst)) ((rev (qreva _qv_79 _qv_80))=(qreva (rev _qv_79) (rev _qv_80))))
+	(forall ((Lst) (Lst)) ((rev (qreva _qv_79 _qv_80))=(qreva (rev _qv_80) (rev _qv_79))))
+
+CURRENT SUBGOAL ((append _v_81 (cons _v_82 (qrevaflat leaf _v_81)))=(cons _v_82 (qrevaflat leaf _v_81)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_57))=_qv_57))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((append _v_81 (cons _v_82 (qrevaflat leaf _v_81)))=(cons _v_82 (qrevaflat leaf _v_81)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_58)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((append _v_81 (cons _v_82 (qrevaflat leaf _v_81)))=(cons _v_82 (qrevaflat leaf _v_81)))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_59 _qv_60)=(append _qv_60 _qv_59)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((append _v_81 (cons _v_82 (qrevaflat leaf _v_81)))=(cons _v_82 (qrevaflat leaf _v_81)))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_61 _qv_62) _qv_63)=(append _qv_61 (append _qv_62 _qv_63))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((append _v_81 (cons _v_82 (qrevaflat leaf _v_81)))=(cons _v_82 (qrevaflat leaf _v_81)))
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_64))=_qv_64))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((append _v_81 (cons _v_82 (qrevaflat leaf _v_81)))=(cons _v_82 (qrevaflat leaf _v_81)))
+NOW TESTING (forall ((Lst) (Lst)) ((qreva _qv_65 _qv_66)=(qreva _qv_66 _qv_65)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((append _v_81 (cons _v_82 (qrevaflat leaf _v_81)))=(cons _v_82 (qrevaflat leaf _v_81)))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((qreva (qreva _qv_67 _qv_68) _qv_69)=(qreva _qv_67 (qreva _qv_68 _qv_69))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((append _v_81 (cons _v_82 (qrevaflat leaf _v_81)))=(cons _v_82 (qrevaflat leaf _v_81)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_70))=(nat-to-int _qv_70)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((append _v_81 (cons _v_82 (qrevaflat leaf _v_81)))=(cons _v_82 (qrevaflat leaf _v_81)))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((qreva _qv_71 (append _qv_72 _qv_73))=(append (qreva _qv_71 _qv_72) (qreva _qv_71 _qv_73))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((append _v_81 (cons _v_82 (qrevaflat leaf _v_81)))=(cons _v_82 (qrevaflat leaf _v_81)))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append _qv_74 (qreva _qv_75 _qv_76))=(qreva (append _qv_74 _qv_75) (append _qv_74 _qv_76))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((append _v_81 (cons _v_82 (qrevaflat leaf _v_81)))=(cons _v_82 (qrevaflat leaf _v_81)))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_77 _qv_78))=(append (rev _qv_77) (rev _qv_78))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((append _v_81 (cons _v_82 (qrevaflat leaf _v_81)))=(cons _v_82 (qrevaflat leaf _v_81)))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_77 _qv_78))=(append (rev _qv_78) (rev _qv_77))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((append _v_81 (cons _v_82 (qrevaflat leaf _v_81)))=(cons _v_82 (qrevaflat leaf _v_81)))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (qreva _qv_79 _qv_80))=(qreva (rev _qv_79) (rev _qv_80))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((append _v_81 (cons _v_82 (qrevaflat leaf _v_81)))=(cons _v_82 (qrevaflat leaf _v_81)))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (qreva _qv_79 _qv_80))=(qreva (rev _qv_80) (rev _qv_79))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((append _v_81 (cons _v_82 (qrevaflat leaf _v_81)))=(cons _v_82 (qrevaflat leaf _v_81)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_57))=_qv_57))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((append _v_81 (cons _v_82 (qrevaflat leaf _v_81)))=(cons _v_82 (qrevaflat leaf _v_81)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_58)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((append _v_81 (cons _v_82 (qrevaflat leaf _v_81)))=(cons _v_82 (qrevaflat leaf _v_81)))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_59 _qv_60)=(append _qv_60 _qv_59)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((append _v_81 (cons _v_82 (qrevaflat leaf _v_81)))=(cons _v_82 (qrevaflat leaf _v_81)))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_61 _qv_62) _qv_63)=(append _qv_61 (append _qv_62 _qv_63))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((append _v_81 (cons _v_82 (qrevaflat leaf _v_81)))=(cons _v_82 (qrevaflat leaf _v_81)))
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_64))=_qv

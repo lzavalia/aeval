@@ -1,0 +1,42 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+	(forall ((Nat)) (0<=(nat-to-int _qv_1)))
+	(forall ((Nat)) ((nat-to-int (succ _qv_2))=(nat-to-int _qv_2)))
+
+Simplified goal: (forall ((Nat) (Nat) (Nat) (Lst)) ((drop w (drop x (drop y z)))=(drop y (drop x (drop w z)))))
+
+
+Base case:       ((drop _v_4 (drop zero (drop _v_3 _v_5)))=(drop _v_3 (drop zero (drop _v_4 _v_5))))
+{
+  {
+    ====================
+    | Assumptions [0]: ((nat-to-int zero)=0)
+    | Assumptions [1]: (forall ((Nat)) ((nat-to-int _qv_1)>=0))
+    | Assumptions [2]: (forall ((Nat) (Nat)) (((nat-to-int _qv_2)=(nat-to-int _qv_3))->(_qv_2=_qv_3)))
+    | Assumptions [3]: (forall ((Nat)) ((nat-to-int (succ _qv_4))=(1+(nat-to-int _qv_4))))
+    | Assumptions [4]: (forall ((Nat)) ((drop _qv_5 nil)=nil))
+    | Assumptions [5]: (forall ((Lst)) ((drop zero _qv_6)=_qv_6))
+    | Assumptions [6]: (forall ((Nat) (Nat) (Lst)) ((drop (succ _qv_7) (cons _qv_8 _qv_9))=(drop _qv_7 _qv_9)))
+    | Assumptions [7]: (forall ((Nat) (Nat) (Nat) (Nat) (Lst)) ((drop (succ _qv_10) (drop _qv_11 (drop _qv_12 (cons _qv_13 _qv_14))))=(drop _qv_10 (drop _qv_11 (drop _qv_12 _qv_14)))))
+    | Assumptions [8]: (forall ((Nat) (Nat) (Nat) (Nat) (Nat) (Lst)) ((drop (succ _qv_15) (drop _qv_16 (drop (succ _qv_17) (cons _qv_18 (cons _qv_19 _qv_20)))))=(drop (succ _qv_15) (drop _qv_16 (drop _qv_17 (cons _qv_18 _qv_20))))))
+    ====================
+  }
+  rewritten [5]: ((drop _v_4 (drop _v_3 _v_5))=(drop _v_3 (drop zero (drop _v_4 _v_5))))
+  rewritten [5]: ((drop _v_4 (drop _v_3 _v_5))=(drop _v_3 (drop _v_4 _v_5)))
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_6))=_qv_6))
+	(forall ((Nat)) (0<=(nat-to-int _qv_7)))
+	(forall ((Nat)) ((nat-to-int (succ _qv_8))=(nat-to-int _qv_8)))
+
+  proven by induction: ((drop _v_4 (drop _v_3 _v_5))=(drop _v_3 (drop _v_4 _v_5)))
+  rewriting done
+}
+Inductive step:  ((drop _v_4 (drop (succ _t_6) (drop _v_3 _v_5)))=(drop _v_3 (drop (succ _t_6) (drop _v_4 _v_5))))
+{
+  proven trivially
+}
+
+Proved
+unsat

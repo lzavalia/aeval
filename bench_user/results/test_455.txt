@@ -1,0 +1,119 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+
+Simplified goal: (forall ((Nat) (Lst)) ((less n (len xs))->((last (drop n xs))=(last xs))))
+
+
+Base case:       ((last (drop zero _v_2))=(last _v_2))
+{
+  proven trivially
+}
+Inductive step:  ((last (drop (succ _t_3) _v_2))=(last _v_2))
+{
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+    | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+    | Assumptions [2]: (forall ((Nat)) ((drop _qv_7 nil)=nil))
+    | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((drop (succ _qv_9) (cons _qv_10 _qv_11))=(drop _qv_9 _qv_11)))
+    | Assumptions [4]: (forall ((Nat) (Lst)) ((last (cons _qv_12 _qv_13))=ite(_qv_13=nil, _qv_12, (last _qv_13))))
+    | Assumptions [5]: (forall ((Lst)) ((less _t_3 (len xs))->((last (drop _t_3 xs))=(last xs))))
+    | Assumptions [6]: (less (succ _t_3) (len _v_2))
+    | Assumptions [7]: (forall ((Lst)) ((drop (len nil) _qv_8)=_qv_8))
+    | Assumptions [8]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+    | Assumptions [9]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+    ====================
+  }
+
+Base case:       ((last (drop _v_4 nil))=(last nil))
+{
+  proven trivially
+}
+Inductive step:  ((last (drop _v_4 (cons _t_5 _t_6)))=(last (cons _t_5 _t_6)))
+{
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+    | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+    | Assumptions [2]: (forall ((Nat)) ((drop _qv_7 nil)=nil))
+    | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((drop (succ _qv_9) (cons _qv_10 _qv_11))=(drop _qv_9 _qv_11)))
+    | Assumptions [4]: (forall ((Nat) (Lst)) ((last (cons _qv_12 _qv_13))=ite(_qv_13=nil, _qv_12, (last _qv_13))))
+    | Assumptions [5]: (forall ((Lst)) ((less _t_3 (len xs))->((last (drop _t_3 xs))=(last xs))))
+    | Assumptions [6]: (less (succ _t_3) (len _v_2))
+    | Assumptions [7]: (forall ((Lst)) ((drop (len nil) _qv_8)=_qv_8))
+    | Assumptions [8]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+    | Assumptions [9]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+    | Assumptions [10]: (forall ((Nat)) ((less n (len _t_6))->((last (drop n _t_6))=(last _t_6))))
+    | Assumptions [11]: (less _v_4 (len (cons _t_5 _t_6)))
+    | Assumptions [12]: (less _v_4 (succ (len _t_6)))
+    ====================
+  }
+  rewritten [4]: ((last (drop _v_4 (cons _t_5 _t_6)))=ite(_t_6=nil, _t_5, (last _t_6)))
+  proceed with (part 1/2): ((_t_6=nil)->((last (drop _v_4 (cons _t_5 _t_6)))=_t_5))
+  {
+    {
+      ====================
+      | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+      | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+      | Assumptions [2]: (forall ((Nat)) ((drop _qv_7 nil)=nil))
+      | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((drop (succ _qv_9) (cons _qv_10 _qv_11))=(drop _qv_9 _qv_11)))
+      | Assumptions [4]: (forall ((Nat) (Lst)) ((last (cons _qv_12 _qv_13))=ite(_qv_13=nil, _qv_12, (last _qv_13))))
+      | Assumptions [5]: (forall ((Lst)) ((less _t_3 (len xs))->((last (drop _t_3 xs))=(last xs))))
+      | Assumptions [6]: (less (succ _t_3) (len _v_2))
+      | Assumptions [7]: (forall ((Lst)) ((drop (len nil) _qv_8)=_qv_8))
+      | Assumptions [8]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+      | Assumptions [9]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+      | Assumptions [10]: (forall ((Nat)) ((less n (len nil))->((last (drop n nil))=(last nil))))
+      | Assumptions [11]: (less _v_4 (len (cons _t_5 nil)))
+      | Assumptions [12]: (less _v_4 (succ (len nil)))
+      ====================
+    }
+    current subgoal: ((last (drop _v_4 (cons _t_5 nil)))=_t_5)
+  }
+  proceed with (part 2/2): ((_t_6!=nil)->((last (drop _v_4 (cons _t_5 _t_6)))=(last _t_6)))
+  {
+    {
+      ====================
+      | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+      | Assumptions [1]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+      | Assumptions [2]: (forall ((Nat)) ((drop _qv_7 nil)=nil))
+      | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((drop (succ _qv_9) (cons _qv_10 _qv_11))=(drop _qv_9 _qv_11)))
+      | Assumptions [4]: (forall ((Nat) (Lst)) ((last (cons _qv_12 _qv_13))=ite(_qv_13=nil, _qv_12, (last _qv_13))))
+      | Assumptions [5]: (forall ((Lst)) ((less _t_3 (len xs))->((last (drop _t_3 xs))=(last xs))))
+      | Assumptions [6]: (less (succ _t_3) (len _v_2))
+      | Assumptions [7]: (forall ((Lst)) ((drop (len nil) _qv_8)=_qv_8))
+      | Assumptions [8]: (forall ((Nat)) (!(less _qv_1 (len nil))))
+      | Assumptions [9]: (forall ((Nat)) (less (len nil) (succ _qv_2)))
+      | Assumptions [10]: (forall ((Nat)) ((less n (len _t_6))->((last (drop n _t_6))=(last _t_6))))
+      | Assumptions [11]: (less _v_4 (len (cons _t_5 _t_6)))
+      | Assumptions [12]: (less _v_4 (succ (len _t_6)))
+      | Assumptions [13]: (_t_6!=nil)
+      ====================
+    }
+    current subgoal: ((last (drop _v_4 (cons _t_5 _t_6)))=(last _t_6))
+  }
+  cannot prove 2 of the subgoals
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_7))=_qv_7))
+	(forall ((Nat) (Nat)) ((less _qv_8 _qv_9)=(less _qv_9 _qv_8)))
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_14))=_qv_14))
+	(forall ((Nat) (Nat)) ((less _qv_15 _qv_16)=(less _qv_16 _qv_15)))
+
+CURRENT SUBGOAL (_v_13=nil)
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_7))=_qv_7))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (_v_13=nil)
+NOW TESTING (forall ((Nat) (Nat)) ((less _qv_8 _qv_9)=(less _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_14))=_qv_14))
+	(forall ((Nat) (Nat)) ((less _qv_15 _qv_16)=(less _qv_16 _qv_15)))
+

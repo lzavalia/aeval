@@ -1,0 +1,25 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+	(forall ((Nat) (Nat)) ((plus _qv_1 _qv_2)=(plus _qv_2 _qv_1)))
+	(forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_3 _qv_4) _qv_5)=(plus _qv_3 (plus _qv_4 _qv_5))))
+	(forall ((Nat)) ((half (half _qv_6))=_qv_6))
+	(forall ((Nat) (Nat)) ((succ (plus _qv_7 _qv_8))=(plus (succ _qv_7) (succ _qv_8))))
+	(forall ((Nat) (Nat)) ((succ (plus _qv_7 _qv_8))=(plus (succ _qv_8) (succ _qv_7))))
+	(forall ((Nat) (Nat)) ((half (plus _qv_9 _qv_10))=(plus (half _qv_9) (half _qv_10))))
+	(forall ((Nat) (Nat)) ((half (plus _qv_9 _qv_10))=(plus (half _qv_10) (half _qv_9))))
+
+Simplified goal: (forall ((Nat)) ((half (plus x x))=x))
+
+
+Base case:       ((half (plus zero zero))=zero)
+{
+  proven trivially
+}
+Inductive step:  ((half (plus (succ _t_11) (succ _t_11)))=(succ _t_11))
+{
+  proven trivially
+}
+
+Proved
+unsat

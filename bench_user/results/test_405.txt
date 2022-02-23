@@ -1,0 +1,31 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Lst) (Lst)) ((ins1 _qv_0 (cons _qv_1 _qv_2))=(cons (ins1 _qv_0 _qv_1) (ins1 _qv_0 _qv_2))))
+	(forall ((Nat) (Lst) (Lst)) ((cons _qv_3 (ins1 _qv_4 _qv_5))=(ins1 (cons _qv_3 _qv_4) (cons _qv_3 _qv_5))))
+
+Simplified goal: (forall ((Nat) (Lst)) (mem x (ins1 x l)))
+
+
+Base case:       (mem zero (ins1 zero _v_6))
+{
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat) (Nat) (Lst)) ((mem _qv_2 (cons _qv_3 _qv_4))=((_qv_2=_qv_3)||(mem _qv_2 _qv_4))))
+    | Assumptions [1]: (forall ((Nat)) ((ins1 _qv_5 nil)=(cons _qv_5 nil)))
+    | Assumptions [2]: (forall ((Nat) (Nat) (Lst)) ((ins1 _qv_6 (cons _qv_7 _qv_8))=ite(_qv_6=_qv_7, (cons _qv_7 _qv_8), (cons _qv_7 (ins1 _qv_6 _qv_8)))))
+    | Assumptions [3]: (forall ((Nat)) (!(mem _qv_1 nil)))
+    ====================
+  }
+}
+
+Base case:       (mem _v_7 (ins1 _v_7 nil))
+{
+  proven trivially
+}
+Inductive step:  (mem _v_7 (ins1 _v_7 (cons _t_8 _t_9)))
+{
+  proven trivially
+}
+
+Proved
+unsat

@@ -1,0 +1,27 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+	(forall ((Lst) (Lst)) ((append _qv_1 _qv_2)=(append _qv_2 _qv_1)))
+	(forall ((Lst) (Lst) (Lst)) ((append (append _qv_3 _qv_4) _qv_5)=(append _qv_3 (append _qv_4 _qv_5))))
+	(forall ((Nat) (Nat)) ((plus _qv_6 _qv_7)=(plus _qv_7 _qv_6)))
+	(forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_8 _qv_9) _qv_10)=(plus _qv_8 (plus _qv_9 _qv_10))))
+	(forall ((Nat)) (0<=(nat-to-int _qv_11)))
+	(forall ((Nat)) ((nat-to-int (succ _qv_12))=(nat-to-int _qv_12)))
+	(forall ((Lst)) ((nat-to-int (len _qv_13))=(nat-to-int _qv_13)))
+	(forall ((Nat) (Nat)) ((succ (plus _qv_14 _qv_15))=(plus (succ _qv_14) (succ _qv_15))))
+	(forall ((Nat) (Nat)) ((succ (plus _qv_14 _qv_15))=(plus (succ _qv_15) (succ _qv_14))))
+
+Simplified goal: (forall ((Lst)) ((rotate (len x) x)=x))
+
+
+Base case:       ((rotate (len nil) nil)=nil)
+{
+  proven trivially
+}
+Inductive step:  ((rotate (len (cons _t_16 _t_17)) (cons _t_16 _t_17))=(cons _t_16 _t_17))
+{
+  proven trivially
+}
+
+Proved
+unsat

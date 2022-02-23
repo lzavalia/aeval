@@ -1,0 +1,27 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+	(forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+	(forall ((Lst)) ((dropWhile (dropWhile _qv_5))=_qv_5))
+	(forall ((Lst)) ((takeWhile (takeWhile _qv_6))=_qv_6))
+	(forall (INT (Lst) (Lst)) ((take _qv_7 (drop _qv_8 _qv_9))=(drop (take _qv_7 _qv_8) (take _qv_7 _qv_9))))
+	(forall (INT (Lst) (Lst)) ((drop _qv_10 (take _qv_11 _qv_12))=(take (drop _qv_10 _qv_11) (drop _qv_10 _qv_12))))
+	(forall ((Lst) (Lst)) ((dropWhile (append _qv_13 _qv_14))=(append (dropWhile _qv_13) (dropWhile _qv_14))))
+	(forall ((Lst) (Lst)) ((dropWhile (append _qv_13 _qv_14))=(append (dropWhile _qv_14) (dropWhile _qv_13))))
+	(forall ((Lst) (Lst)) ((takeWhile (append _qv_15 _qv_16))=(append (takeWhile _qv_15) (takeWhile _qv_16))))
+	(forall ((Lst) (Lst)) ((takeWhile (append _qv_15 _qv_16))=(append (takeWhile _qv_16) (takeWhile _qv_15))))
+
+Simplified goal: (forall ((Lst)) ((append (takeWhile xs) (dropWhile xs))=xs))
+
+
+Base case:       ((append (takeWhile nil) (dropWhile nil))=nil)
+{
+  proven trivially
+}
+Inductive step:  ((append (takeWhile (cons _t_17 _t_18)) (dropWhile (cons _t_17 _t_18)))=(cons _t_17 _t_18))
+{
+  proven trivially
+}
+
+Proved
+unsat

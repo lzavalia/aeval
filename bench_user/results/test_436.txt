@@ -1,0 +1,514 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+	(forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+	(forall ((Lst) (Lst)) ((zip _qv_5 _qv_6)=(zip _qv_6 _qv_5)))
+	(forall ((ZLst) (ZLst)) ((zappend _qv_7 _qv_8)=(zappend _qv_8 _qv_7)))
+	(forall ((ZLst) (ZLst) (ZLst)) ((zappend (zappend _qv_9 _qv_10) _qv_11)=(zappend _qv_9 (zappend _qv_10 _qv_11))))
+	(forall ((Nat) (Lst) (Lst)) ((take _qv_12 (drop _qv_13 _qv_14))=(drop (take _qv_12 _qv_13) (take _qv_12 _qv_14))))
+	(forall ((Nat) (Lst) (Lst)) ((drop _qv_15 (take _qv_16 _qv_17))=(take (drop _qv_15 _qv_16) (drop _qv_15 _qv_17))))
+
+Simplified goal: (forall ((Lst) (Lst) (Lst)) ((zip (append xs ys) zs)=(zappend (zip xs (take (len xs) zs)) (zip ys (drop (len xs) zs)))))
+
+
+Base case:       ((zip (append nil _v_18) _v_19)=(zappend (zip nil (take (len nil) _v_19)) (zip _v_18 (drop (len nil) _v_19))))
+{
+  proven trivially
+}
+Inductive step:  ((zip (append (cons _t_20 _t_21) _v_18) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (len (cons _t_20 _t_21)) _v_19)) (zip _v_18 (drop (len (cons _t_20 _t_21)) _v_19))))
+{
+  {
+    ====================
+    | Assumptions [0]: (forall ((Lst)) ((append nil _qv_1)=_qv_1))
+    | Assumptions [1]: (forall ((Nat) (Lst) (Lst)) ((append (cons _qv_2 _qv_3) _qv_4)=(cons _qv_2 (append _qv_3 _qv_4))))
+    | Assumptions [2]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+    | Assumptions [3]: (forall ((Nat)) ((drop _qv_7 nil)=nil))
+    | Assumptions [4]: (forall ((Nat) (Nat) (Lst)) ((drop (succ _qv_9) (cons _qv_10 _qv_11))=(drop _qv_9 _qv_11)))
+    | Assumptions [5]: (forall ((Nat)) ((take _qv_12 nil)=nil))
+    | Assumptions [6]: (forall ((Nat) (Nat) (Lst)) ((take (succ _qv_14) (cons _qv_15 _qv_16))=(cons _qv_15 (take _qv_14 _qv_16))))
+    | Assumptions [7]: (forall ((Lst)) ((zip nil _qv_17)=znil))
+    | Assumptions [8]: (forall ((Lst)) ((zip _qv_18 nil)=znil))
+    | Assumptions [9]: (forall ((Nat) (Lst) (Nat) (Lst)) ((zip (cons _qv_19 _qv_20) (cons _qv_21 _qv_22))=(zcons (mkpair _qv_19 _qv_21) (zip _qv_20 _qv_22))))
+    | Assumptions [10]: (forall ((ZLst)) ((zappend znil _qv_23)=_qv_23))
+    | Assumptions [11]: (forall ((Pair) (ZLst) (ZLst)) ((zappend (zcons _qv_24 _qv_25) _qv_26)=(zcons _qv_24 (zappend _qv_25 _qv_26))))
+    | Assumptions [12]: (forall ((Lst) (Lst)) ((zip (append _t_21 ys) zs)=(zappend (zip _t_21 (take (len _t_21) zs)) (zip ys (drop (len _t_21) zs)))))
+    | Assumptions [13]: (forall ((Lst) (Lst)) ((zappend (zip _t_21 (take (len _t_21) zs)) (zip ys (drop (len _t_21) zs)))=(zip (append _t_21 ys) zs)))
+    | Assumptions [14]: (forall ((Lst)) ((drop (len nil) _qv_8)=_qv_8))
+    | Assumptions [15]: (forall ((Lst)) ((take (len nil) _qv_13)=nil))
+    ====================
+  }
+  rewritten [1]: ((zip (cons _t_20 (append _t_21 _v_18)) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (len (cons _t_20 _t_21)) _v_19)) (zip _v_18 (drop (len (cons _t_20 _t_21)) _v_19))))
+  rewritten [2]: ((zip (cons _t_20 (append _t_21 _v_18)) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (succ (len _t_21)) _v_19)) (zip _v_18 (drop (succ (len _t_21)) _v_19))))
+CURRENT SUBGOAL ((zip (cons _t_20 (append _t_21 _v_18)) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (len (cons _t_20 _t_21)) _v_19)) (zip _v_18 (drop (len (cons _t_20 _t_21)) _v_19))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (cons _t_20 (append _t_21 _v_18)) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (len (cons _t_20 _t_21)) _v_19)) (zip _v_18 (drop (len (cons _t_20 _t_21)) _v_19))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (cons _t_20 (append _t_21 _v_18)) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (len (cons _t_20 _t_21)) _v_19)) (zip _v_18 (drop (len (cons _t_20 _t_21)) _v_19))))
+NOW TESTING (forall ((Lst) (Lst)) ((zip _qv_5 _qv_6)=(zip _qv_6 _qv_5)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (cons _t_20 (append _t_21 _v_18)) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (len (cons _t_20 _t_21)) _v_19)) (zip _v_18 (drop (len (cons _t_20 _t_21)) _v_19))))
+NOW TESTING (forall ((ZLst) (ZLst)) ((zappend _qv_7 _qv_8)=(zappend _qv_8 _qv_7)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (cons _t_20 (append _t_21 _v_18)) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (len (cons _t_20 _t_21)) _v_19)) (zip _v_18 (drop (len (cons _t_20 _t_21)) _v_19))))
+NOW TESTING (forall ((ZLst) (ZLst) (ZLst)) ((zappend (zappend _qv_9 _qv_10) _qv_11)=(zappend _qv_9 (zappend _qv_10 _qv_11))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (cons _t_20 (append _t_21 _v_18)) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (len (cons _t_20 _t_21)) _v_19)) (zip _v_18 (drop (len (cons _t_20 _t_21)) _v_19))))
+NOW TESTING (forall ((Nat) (Lst) (Lst)) ((take _qv_12 (drop _qv_13 _qv_14))=(drop (take _qv_12 _qv_13) (take _qv_12 _qv_14))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (cons _t_20 (append _t_21 _v_18)) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (len (cons _t_20 _t_21)) _v_19)) (zip _v_18 (drop (len (cons _t_20 _t_21)) _v_19))))
+NOW TESTING (forall ((Nat) (Lst) (Lst)) ((drop _qv_15 (take _qv_16 _qv_17))=(take (drop _qv_15 _qv_16) (drop _qv_15 _qv_17))))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((zip (cons _t_20 (append _t_21 _v_18)) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (len (cons _t_20 _t_21)) _v_19)) (zip _v_18 (drop (len (cons _t_20 _t_21)) _v_19))))
+  rewritten [2]: ((zip (cons _t_20 (append _t_21 _v_18)) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (succ (len _t_21)) _v_19)) (zip _v_18 (drop (succ (len _t_21)) _v_19))))
+CURRENT SUBGOAL ((zip (cons _t_20 (append _t_21 _v_18)) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (len (cons _t_20 _t_21)) _v_19)) (zip _v_18 (drop (len (cons _t_20 _t_21)) _v_19))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (cons _t_20 (append _t_21 _v_18)) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (len (cons _t_20 _t_21)) _v_19)) (zip _v_18 (drop (len (cons _t_20 _t_21)) _v_19))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (cons _t_20 (append _t_21 _v_18)) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (len (cons _t_20 _t_21)) _v_19)) (zip _v_18 (drop (len (cons _t_20 _t_21)) _v_19))))
+NOW TESTING (forall ((Lst) (Lst)) ((zip _qv_5 _qv_6)=(zip _qv_6 _qv_5)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (cons _t_20 (append _t_21 _v_18)) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (len (cons _t_20 _t_21)) _v_19)) (zip _v_18 (drop (len (cons _t_20 _t_21)) _v_19))))
+NOW TESTING (forall ((ZLst) (ZLst)) ((zappend _qv_7 _qv_8)=(zappend _qv_8 _qv_7)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (cons _t_20 (append _t_21 _v_18)) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (len (cons _t_20 _t_21)) _v_19)) (zip _v_18 (drop (len (cons _t_20 _t_21)) _v_19))))
+NOW TESTING (forall ((ZLst) (ZLst) (ZLst)) ((zappend (zappend _qv_9 _qv_10) _qv_11)=(zappend _qv_9 (zappend _qv_10 _qv_11))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (cons _t_20 (append _t_21 _v_18)) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (len (cons _t_20 _t_21)) _v_19)) (zip _v_18 (drop (len (cons _t_20 _t_21)) _v_19))))
+NOW TESTING (forall ((Nat) (Lst) (Lst)) ((take _qv_12 (drop _qv_13 _qv_14))=(drop (take _qv_12 _qv_13) (take _qv_12 _qv_14))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (cons _t_20 (append _t_21 _v_18)) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (len (cons _t_20 _t_21)) _v_19)) (zip _v_18 (drop (len (cons _t_20 _t_21)) _v_19))))
+NOW TESTING (forall ((Nat) (Lst) (Lst)) ((drop _qv_15 (take _qv_16 _qv_17))=(take (drop _qv_15 _qv_16) (drop _qv_15 _qv_17))))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((zip (cons _t_20 (append _t_21 _v_18)) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (len (cons _t_20 _t_21)) _v_19)) (zip _v_18 (drop (len (cons _t_20 _t_21)) _v_19))))
+CURRENT SUBGOAL ((zip (append (cons _t_20 _t_21) _v_18) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (len (cons _t_20 _t_21)) _v_19)) (zip _v_18 (drop (len (cons _t_20 _t_21)) _v_19))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (append (cons _t_20 _t_21) _v_18) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (len (cons _t_20 _t_21)) _v_19)) (zip _v_18 (drop (len (cons _t_20 _t_21)) _v_19))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (append (cons _t_20 _t_21) _v_18) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (len (cons _t_20 _t_21)) _v_19)) (zip _v_18 (drop (len (cons _t_20 _t_21)) _v_19))))
+NOW TESTING (forall ((Lst) (Lst)) ((zip _qv_5 _qv_6)=(zip _qv_6 _qv_5)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (append (cons _t_20 _t_21) _v_18) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (len (cons _t_20 _t_21)) _v_19)) (zip _v_18 (drop (len (cons _t_20 _t_21)) _v_19))))
+NOW TESTING (forall ((ZLst) (ZLst)) ((zappend _qv_7 _qv_8)=(zappend _qv_8 _qv_7)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (append (cons _t_20 _t_21) _v_18) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (len (cons _t_20 _t_21)) _v_19)) (zip _v_18 (drop (len (cons _t_20 _t_21)) _v_19))))
+NOW TESTING (forall ((ZLst) (ZLst) (ZLst)) ((zappend (zappend _qv_9 _qv_10) _qv_11)=(zappend _qv_9 (zappend _qv_10 _qv_11))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (append (cons _t_20 _t_21) _v_18) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (len (cons _t_20 _t_21)) _v_19)) (zip _v_18 (drop (len (cons _t_20 _t_21)) _v_19))))
+NOW TESTING (forall ((Nat) (Lst) (Lst)) ((take _qv_12 (drop _qv_13 _qv_14))=(drop (take _qv_12 _qv_13) (take _qv_12 _qv_14))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (append (cons _t_20 _t_21) _v_18) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (len (cons _t_20 _t_21)) _v_19)) (zip _v_18 (drop (len (cons _t_20 _t_21)) _v_19))))
+NOW TESTING (forall ((Nat) (Lst) (Lst)) ((drop _qv_15 (take _qv_16 _qv_17))=(take (drop _qv_15 _qv_16) (drop _qv_15 _qv_17))))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((zip (append (cons _t_20 _t_21) _v_18) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (len (cons _t_20 _t_21)) _v_19)) (zip _v_18 (drop (len (cons _t_20 _t_21)) _v_19))))
+  rewritten [2]: ((zip (append (cons _t_20 _t_21) _v_18) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (succ (len _t_21)) _v_19)) (zip _v_18 (drop (succ (len _t_21)) _v_19))))
+  rewritten [1]: ((zip (cons _t_20 (append _t_21 _v_18)) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (succ (len _t_21)) _v_19)) (zip _v_18 (drop (succ (len _t_21)) _v_19))))
+CURRENT SUBGOAL ((zip (append (cons _t_20 _t_21) _v_18) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (succ (len _t_21)) _v_19)) (zip _v_18 (drop (succ (len _t_21)) _v_19))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (append (cons _t_20 _t_21) _v_18) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (succ (len _t_21)) _v_19)) (zip _v_18 (drop (succ (len _t_21)) _v_19))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (append (cons _t_20 _t_21) _v_18) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (succ (len _t_21)) _v_19)) (zip _v_18 (drop (succ (len _t_21)) _v_19))))
+NOW TESTING (forall ((Lst) (Lst)) ((zip _qv_5 _qv_6)=(zip _qv_6 _qv_5)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (append (cons _t_20 _t_21) _v_18) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (succ (len _t_21)) _v_19)) (zip _v_18 (drop (succ (len _t_21)) _v_19))))
+NOW TESTING (forall ((ZLst) (ZLst)) ((zappend _qv_7 _qv_8)=(zappend _qv_8 _qv_7)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (append (cons _t_20 _t_21) _v_18) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (succ (len _t_21)) _v_19)) (zip _v_18 (drop (succ (len _t_21)) _v_19))))
+NOW TESTING (forall ((ZLst) (ZLst) (ZLst)) ((zappend (zappend _qv_9 _qv_10) _qv_11)=(zappend _qv_9 (zappend _qv_10 _qv_11))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (append (cons _t_20 _t_21) _v_18) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (succ (len _t_21)) _v_19)) (zip _v_18 (drop (succ (len _t_21)) _v_19))))
+NOW TESTING (forall ((Nat) (Lst) (Lst)) ((take _qv_12 (drop _qv_13 _qv_14))=(drop (take _qv_12 _qv_13) (take _qv_12 _qv_14))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (append (cons _t_20 _t_21) _v_18) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (succ (len _t_21)) _v_19)) (zip _v_18 (drop (succ (len _t_21)) _v_19))))
+NOW TESTING (forall ((Nat) (Lst) (Lst)) ((drop _qv_15 (take _qv_16 _qv_17))=(take (drop _qv_15 _qv_16) (drop _qv_15 _qv_17))))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((zip (append (cons _t_20 _t_21) _v_18) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (succ (len _t_21)) _v_19)) (zip _v_18 (drop (succ (len _t_21)) _v_19))))
+  rewritten [1]: ((zip (cons _t_20 (append _t_21 _v_18)) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (succ (len _t_21)) _v_19)) (zip _v_18 (drop (succ (len _t_21)) _v_19))))
+CURRENT SUBGOAL ((zip (append (cons _t_20 _t_21) _v_18) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (succ (len _t_21)) _v_19)) (zip _v_18 (drop (succ (len _t_21)) _v_19))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (append (cons _t_20 _t_21) _v_18) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (succ (len _t_21)) _v_19)) (zip _v_18 (drop (succ (len _t_21)) _v_19))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (append (cons _t_20 _t_21) _v_18) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (succ (len _t_21)) _v_19)) (zip _v_18 (drop (succ (len _t_21)) _v_19))))
+NOW TESTING (forall ((Lst) (Lst)) ((zip _qv_5 _qv_6)=(zip _qv_6 _qv_5)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (append (cons _t_20 _t_21) _v_18) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (succ (len _t_21)) _v_19)) (zip _v_18 (drop (succ (len _t_21)) _v_19))))
+NOW TESTING (forall ((ZLst) (ZLst)) ((zappend _qv_7 _qv_8)=(zappend _qv_8 _qv_7)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (append (cons _t_20 _t_21) _v_18) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (succ (len _t_21)) _v_19)) (zip _v_18 (drop (succ (len _t_21)) _v_19))))
+NOW TESTING (forall ((ZLst) (ZLst) (ZLst)) ((zappend (zappend _qv_9 _qv_10) _qv_11)=(zappend _qv_9 (zappend _qv_10 _qv_11))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (append (cons _t_20 _t_21) _v_18) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (succ (len _t_21)) _v_19)) (zip _v_18 (drop (succ (len _t_21)) _v_19))))
+NOW TESTING (forall ((Nat) (Lst) (Lst)) ((take _qv_12 (drop _qv_13 _qv_14))=(drop (take _qv_12 _qv_13) (take _qv_12 _qv_14))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (append (cons _t_20 _t_21) _v_18) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (succ (len _t_21)) _v_19)) (zip _v_18 (drop (succ (len _t_21)) _v_19))))
+NOW TESTING (forall ((Nat) (Lst) (Lst)) ((drop _qv_15 (take _qv_16 _qv_17))=(take (drop _qv_15 _qv_16) (drop _qv_15 _qv_17))))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((zip (append (cons _t_20 _t_21) _v_18) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (succ (len _t_21)) _v_19)) (zip _v_18 (drop (succ (len _t_21)) _v_19))))
+CURRENT SUBGOAL ((zip (append (cons _t_20 _t_21) _v_18) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (len (cons _t_20 _t_21)) _v_19)) (zip _v_18 (drop (len (cons _t_20 _t_21)) _v_19))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (append (cons _t_20 _t_21) _v_18) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (len (cons _t_20 _t_21)) _v_19)) (zip _v_18 (drop (len (cons _t_20 _t_21)) _v_19))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (append (cons _t_20 _t_21) _v_18) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (len (cons _t_20 _t_21)) _v_19)) (zip _v_18 (drop (len (cons _t_20 _t_21)) _v_19))))
+NOW TESTING (forall ((Lst) (Lst)) ((zip _qv_5 _qv_6)=(zip _qv_6 _qv_5)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (append (cons _t_20 _t_21) _v_18) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (len (cons _t_20 _t_21)) _v_19)) (zip _v_18 (drop (len (cons _t_20 _t_21)) _v_19))))
+NOW TESTING (forall ((ZLst) (ZLst)) ((zappend _qv_7 _qv_8)=(zappend _qv_8 _qv_7)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (append (cons _t_20 _t_21) _v_18) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (len (cons _t_20 _t_21)) _v_19)) (zip _v_18 (drop (len (cons _t_20 _t_21)) _v_19))))
+NOW TESTING (forall ((ZLst) (ZLst) (ZLst)) ((zappend (zappend _qv_9 _qv_10) _qv_11)=(zappend _qv_9 (zappend _qv_10 _qv_11))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (append (cons _t_20 _t_21) _v_18) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (len (cons _t_20 _t_21)) _v_19)) (zip _v_18 (drop (len (cons _t_20 _t_21)) _v_19))))
+NOW TESTING (forall ((Nat) (Lst) (Lst)) ((take _qv_12 (drop _qv_13 _qv_14))=(drop (take _qv_12 _qv_13) (take _qv_12 _qv_14))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (append (cons _t_20 _t_21) _v_18) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (len (cons _t_20 _t_21)) _v_19)) (zip _v_18 (drop (len (cons _t_20 _t_21)) _v_19))))
+NOW TESTING (forall ((Nat) (Lst) (Lst)) ((drop _qv_15 (take _qv_16 _qv_17))=(take (drop _qv_15 _qv_16) (drop _qv_15 _qv_17))))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((zip (append (cons _t_20 _t_21) _v_18) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (len (cons _t_20 _t_21)) _v_19)) (zip _v_18 (drop (len (cons _t_20 _t_21)) _v_19))))
+  rewritten [1]: ((zip (cons _t_20 (append _t_21 _v_18)) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (len (cons _t_20 _t_21)) _v_19)) (zip _v_18 (drop (len (cons _t_20 _t_21)) _v_19))))
+  rewritten [2]: ((zip (cons _t_20 (append _t_21 _v_18)) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (succ (len _t_21)) _v_19)) (zip _v_18 (drop (succ (len _t_21)) _v_19))))
+CURRENT SUBGOAL ((zip (cons _t_20 (append _t_21 _v_18)) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (len (cons _t_20 _t_21)) _v_19)) (zip _v_18 (drop (len (cons _t_20 _t_21)) _v_19))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (cons _t_20 (append _t_21 _v_18)) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (len (cons _t_20 _t_21)) _v_19)) (zip _v_18 (drop (len (cons _t_20 _t_21)) _v_19))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (cons _t_20 (append _t_21 _v_18)) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (len (cons _t_20 _t_21)) _v_19)) (zip _v_18 (drop (len (cons _t_20 _t_21)) _v_19))))
+NOW TESTING (forall ((Lst) (Lst)) ((zip _qv_5 _qv_6)=(zip _qv_6 _qv_5)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (cons _t_20 (append _t_21 _v_18)) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (len (cons _t_20 _t_21)) _v_19)) (zip _v_18 (drop (len (cons _t_20 _t_21)) _v_19))))
+NOW TESTING (forall ((ZLst) (ZLst)) ((zappend _qv_7 _qv_8)=(zappend _qv_8 _qv_7)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (cons _t_20 (append _t_21 _v_18)) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (len (cons _t_20 _t_21)) _v_19)) (zip _v_18 (drop (len (cons _t_20 _t_21)) _v_19))))
+NOW TESTING (forall ((ZLst) (ZLst) (ZLst)) ((zappend (zappend _qv_9 _qv_10) _qv_11)=(zappend _qv_9 (zappend _qv_10 _qv_11))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (cons _t_20 (append _t_21 _v_18)) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (len (cons _t_20 _t_21)) _v_19)) (zip _v_18 (drop (len (cons _t_20 _t_21)) _v_19))))
+NOW TESTING (forall ((Nat) (Lst) (Lst)) ((take _qv_12 (drop _qv_13 _qv_14))=(drop (take _qv_12 _qv_13) (take _qv_12 _qv_14))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (cons _t_20 (append _t_21 _v_18)) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (len (cons _t_20 _t_21)) _v_19)) (zip _v_18 (drop (len (cons _t_20 _t_21)) _v_19))))
+NOW TESTING (forall ((Nat) (Lst) (Lst)) ((drop _qv_15 (take _qv_16 _qv_17))=(take (drop _qv_15 _qv_16) (drop _qv_15 _qv_17))))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((zip (cons _t_20 (append _t_21 _v_18)) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (len (cons _t_20 _t_21)) _v_19)) (zip _v_18 (drop (len (cons _t_20 _t_21)) _v_19))))
+  rewritten [2]: ((zip (cons _t_20 (append _t_21 _v_18)) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (succ (len _t_21)) _v_19)) (zip _v_18 (drop (succ (len _t_21)) _v_19))))
+CURRENT SUBGOAL ((zip (cons _t_20 (append _t_21 _v_18)) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (len (cons _t_20 _t_21)) _v_19)) (zip _v_18 (drop (len (cons _t_20 _t_21)) _v_19))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (cons _t_20 (append _t_21 _v_18)) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (len (cons _t_20 _t_21)) _v_19)) (zip _v_18 (drop (len (cons _t_20 _t_21)) _v_19))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (cons _t_20 (append _t_21 _v_18)) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (len (cons _t_20 _t_21)) _v_19)) (zip _v_18 (drop (len (cons _t_20 _t_21)) _v_19))))
+NOW TESTING (forall ((Lst) (Lst)) ((zip _qv_5 _qv_6)=(zip _qv_6 _qv_5)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (cons _t_20 (append _t_21 _v_18)) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (len (cons _t_20 _t_21)) _v_19)) (zip _v_18 (drop (len (cons _t_20 _t_21)) _v_19))))
+NOW TESTING (forall ((ZLst) (ZLst)) ((zappend _qv_7 _qv_8)=(zappend _qv_8 _qv_7)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (cons _t_20 (append _t_21 _v_18)) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (len (cons _t_20 _t_21)) _v_19)) (zip _v_18 (drop (len (cons _t_20 _t_21)) _v_19))))
+NOW TESTING (forall ((ZLst) (ZLst) (ZLst)) ((zappend (zappend _qv_9 _qv_10) _qv_11)=(zappend _qv_9 (zappend _qv_10 _qv_11))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (cons _t_20 (append _t_21 _v_18)) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (len (cons _t_20 _t_21)) _v_19)) (zip _v_18 (drop (len (cons _t_20 _t_21)) _v_19))))
+NOW TESTING (forall ((Nat) (Lst) (Lst)) ((take _qv_12 (drop _qv_13 _qv_14))=(drop (take _qv_12 _qv_13) (take _qv_12 _qv_14))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (cons _t_20 (append _t_21 _v_18)) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (len (cons _t_20 _t_21)) _v_19)) (zip _v_18 (drop (len (cons _t_20 _t_21)) _v_19))))
+NOW TESTING (forall ((Nat) (Lst) (Lst)) ((drop _qv_15 (take _qv_16 _qv_17))=(take (drop _qv_15 _qv_16) (drop _qv_15 _qv_17))))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((zip (cons _t_20 (append _t_21 _v_18)) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (len (cons _t_20 _t_21)) _v_19)) (zip _v_18 (drop (len (cons _t_20 _t_21)) _v_19))))
+CURRENT SUBGOAL ((zip (append (cons _t_20 _t_21) _v_18) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (len (cons _t_20 _t_21)) _v_19)) (zip _v_18 (drop (len (cons _t_20 _t_21)) _v_19))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (append (cons _t_20 _t_21) _v_18) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (len (cons _t_20 _t_21)) _v_19)) (zip _v_18 (drop (len (cons _t_20 _t_21)) _v_19))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (append (cons _t_20 _t_21) _v_18) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (len (cons _t_20 _t_21)) _v_19)) (zip _v_18 (drop (len (cons _t_20 _t_21)) _v_19))))
+NOW TESTING (forall ((Lst) (Lst)) ((zip _qv_5 _qv_6)=(zip _qv_6 _qv_5)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (append (cons _t_20 _t_21) _v_18) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (len (cons _t_20 _t_21)) _v_19)) (zip _v_18 (drop (len (cons _t_20 _t_21)) _v_19))))
+NOW TESTING (forall ((ZLst) (ZLst)) ((zappend _qv_7 _qv_8)=(zappend _qv_8 _qv_7)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (append (cons _t_20 _t_21) _v_18) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (len (cons _t_20 _t_21)) _v_19)) (zip _v_18 (drop (len (cons _t_20 _t_21)) _v_19))))
+NOW TESTING (forall ((ZLst) (ZLst) (ZLst)) ((zappend (zappend _qv_9 _qv_10) _qv_11)=(zappend _qv_9 (zappend _qv_10 _qv_11))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (append (cons _t_20 _t_21) _v_18) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (len (cons _t_20 _t_21)) _v_19)) (zip _v_18 (drop (len (cons _t_20 _t_21)) _v_19))))
+NOW TESTING (forall ((Nat) (Lst) (Lst)) ((take _qv_12 (drop _qv_13 _qv_14))=(drop (take _qv_12 _qv_13) (take _qv_12 _qv_14))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (append (cons _t_20 _t_21) _v_18) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (len (cons _t_20 _t_21)) _v_19)) (zip _v_18 (drop (len (cons _t_20 _t_21)) _v_19))))
+NOW TESTING (forall ((Nat) (Lst) (Lst)) ((drop _qv_15 (take _qv_16 _qv_17))=(take (drop _qv_15 _qv_16) (drop _qv_15 _qv_17))))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((zip (append (cons _t_20 _t_21) _v_18) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (len (cons _t_20 _t_21)) _v_19)) (zip _v_18 (drop (len (cons _t_20 _t_21)) _v_19))))
+  rewritten [2]: ((zip (append (cons _t_20 _t_21) _v_18) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (succ (len _t_21)) _v_19)) (zip _v_18 (drop (succ (len _t_21)) _v_19))))
+  rewritten [1]: ((zip (cons _t_20 (append _t_21 _v_18)) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (succ (len _t_21)) _v_19)) (zip _v_18 (drop (succ (len _t_21)) _v_19))))
+CURRENT SUBGOAL ((zip (append (cons _t_20 _t_21) _v_18) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (succ (len _t_21)) _v_19)) (zip _v_18 (drop (succ (len _t_21)) _v_19))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (append (cons _t_20 _t_21) _v_18) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (succ (len _t_21)) _v_19)) (zip _v_18 (drop (succ (len _t_21)) _v_19))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (append (cons _t_20 _t_21) _v_18) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (succ (len _t_21)) _v_19)) (zip _v_18 (drop (succ (len _t_21)) _v_19))))
+NOW TESTING (forall ((Lst) (Lst)) ((zip _qv_5 _qv_6)=(zip _qv_6 _qv_5)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (append (cons _t_20 _t_21) _v_18) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (succ (len _t_21)) _v_19)) (zip _v_18 (drop (succ (len _t_21)) _v_19))))
+NOW TESTING (forall ((ZLst) (ZLst)) ((zappend _qv_7 _qv_8)=(zappend _qv_8 _qv_7)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (append (cons _t_20 _t_21) _v_18) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (succ (len _t_21)) _v_19)) (zip _v_18 (drop (succ (len _t_21)) _v_19))))
+NOW TESTING (forall ((ZLst) (ZLst) (ZLst)) ((zappend (zappend _qv_9 _qv_10) _qv_11)=(zappend _qv_9 (zappend _qv_10 _qv_11))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (append (cons _t_20 _t_21) _v_18) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (succ (len _t_21)) _v_19)) (zip _v_18 (drop (succ (len _t_21)) _v_19))))
+NOW TESTING (forall ((Nat) (Lst) (Lst)) ((take _qv_12 (drop _qv_13 _qv_14))=(drop (take _qv_12 _qv_13) (take _qv_12 _qv_14))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (append (cons _t_20 _t_21) _v_18) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (succ (len _t_21)) _v_19)) (zip _v_18 (drop (succ (len _t_21)) _v_19))))
+NOW TESTING (forall ((Nat) (Lst) (Lst)) ((drop _qv_15 (take _qv_16 _qv_17))=(take (drop _qv_15 _qv_16) (drop _qv_15 _qv_17))))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((zip (append (cons _t_20 _t_21) _v_18) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (succ (len _t_21)) _v_19)) (zip _v_18 (drop (succ (len _t_21)) _v_19))))
+  rewritten [1]: ((zip (cons _t_20 (append _t_21 _v_18)) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (succ (len _t_21)) _v_19)) (zip _v_18 (drop (succ (len _t_21)) _v_19))))
+CURRENT SUBGOAL ((zip (append (cons _t_20 _t_21) _v_18) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (succ (len _t_21)) _v_19)) (zip _v_18 (drop (succ (len _t_21)) _v_19))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (append (cons _t_20 _t_21) _v_18) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (succ (len _t_21)) _v_19)) (zip _v_18 (drop (succ (len _t_21)) _v_19))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (append (cons _t_20 _t_21) _v_18) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (succ (len _t_21)) _v_19)) (zip _v_18 (drop (succ (len _t_21)) _v_19))))
+NOW TESTING (forall ((Lst) (Lst)) ((zip _qv_5 _qv_6)=(zip _qv_6 _qv_5)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (append (cons _t_20 _t_21) _v_18) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (succ (len _t_21)) _v_19)) (zip _v_18 (drop (succ (len _t_21)) _v_19))))
+NOW TESTING (forall ((ZLst) (ZLst)) ((zappend _qv_7 _qv_8)=(zappend _qv_8 _qv_7)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (append (cons _t_20 _t_21) _v_18) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (succ (len _t_21)) _v_19)) (zip _v_18 (drop (succ (len _t_21)) _v_19))))
+NOW TESTING (forall ((ZLst) (ZLst) (ZLst)) ((zappend (zappend _qv_9 _qv_10) _qv_11)=(zappend _qv_9 (zappend _qv_10 _qv_11))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (append (cons _t_20 _t_21) _v_18) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (succ (len _t_21)) _v_19)) (zip _v_18 (drop (succ (len _t_21)) _v_19))))
+NOW TESTING (forall ((Nat) (Lst) (Lst)) ((take _qv_12 (drop _qv_13 _qv_14))=(drop (take _qv_12 _qv_13) (take _qv_12 _qv_14))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (append (cons _t_20 _t_21) _v_18) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (succ (len _t_21)) _v_19)) (zip _v_18 (drop (succ (len _t_21)) _v_19))))
+NOW TESTING (forall ((Nat) (Lst) (Lst)) ((drop _qv_15 (take _qv_16 _qv_17))=(take (drop _qv_15 _qv_16) (drop _qv_15 _qv_17))))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((zip (append (cons _t_20 _t_21) _v_18) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (succ (len _t_21)) _v_19)) (zip _v_18 (drop (succ (len _t_21)) _v_19))))
+CURRENT SUBGOAL ((zip (append (cons _t_20 _t_21) _v_18) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (len (cons _t_20 _t_21)) _v_19)) (zip _v_18 (drop (len (cons _t_20 _t_21)) _v_19))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (append (cons _t_20 _t_21) _v_18) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (len (cons _t_20 _t_21)) _v_19)) (zip _v_18 (drop (len (cons _t_20 _t_21)) _v_19))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (append (cons _t_20 _t_21) _v_18) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (len (cons _t_20 _t_21)) _v_19)) (zip _v_18 (drop (len (cons _t_20 _t_21)) _v_19))))
+NOW TESTING (forall ((Lst) (Lst)) ((zip _qv_5 _qv_6)=(zip _qv_6 _qv_5)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (append (cons _t_20 _t_21) _v_18) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (len (cons _t_20 _t_21)) _v_19)) (zip _v_18 (drop (len (cons _t_20 _t_21)) _v_19))))
+NOW TESTING (forall ((ZLst) (ZLst)) ((zappend _qv_7 _qv_8)=(zappend _qv_8 _qv_7)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (append (cons _t_20 _t_21) _v_18) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (len (cons _t_20 _t_21)) _v_19)) (zip _v_18 (drop (len (cons _t_20 _t_21)) _v_19))))
+NOW TESTING (forall ((ZLst) (ZLst) (ZLst)) ((zappend (zappend _qv_9 _qv_10) _qv_11)=(zappend _qv_9 (zappend _qv_10 _qv_11))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (append (cons _t_20 _t_21) _v_18) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (len (cons _t_20 _t_21)) _v_19)) (zip _v_18 (drop (len (cons _t_20 _t_21)) _v_19))))
+NOW TESTING (forall ((Nat) (Lst) (Lst)) ((take _qv_12 (drop _qv_13 _qv_14))=(drop (take _qv_12 _qv_13) (take _qv_12 _qv_14))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (append (cons _t_20 _t_21) _v_18) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (len (cons _t_20 _t_21)) _v_19)) (zip _v_18 (drop (len (cons _t_20 _t_21)) _v_19))))
+NOW TESTING (forall ((Nat) (Lst) (Lst)) ((drop _qv_15 (take _qv_16 _qv_17))=(take (drop _qv_15 _qv_16) (drop _qv_15 _qv_17))))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((zip (append (cons _t_20 _t_21) _v_18) _v_19)=(zappend (zip (cons _t_20 _t_21) (take (len (cons _t_20 _t_21)) _v_19)) (zip _v_18 (drop (len (cons _t_20 _t_21)) _v_19))))
+
+Base case:       ((zip (append _v_48 nil) _v_49)=(zappend (zip _v_48 (take (len _v_48) _v_49)) (zip nil (drop (len _v_48) _v_49))))
+{
+  {
+    ====================
+    | Assumptions [0]: (forall ((Lst)) ((append nil _qv_1)=_qv_1))
+    | Assumptions [1]: (forall ((Nat) (Lst) (Lst)) ((append (cons _qv_2 _qv_3) _qv_4)=(cons _qv_2 (append _qv_3 _qv_4))))
+    | Assumptions [2]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+    | Assumptions [3]: (forall ((Nat)) ((drop _qv_7 nil)=nil))
+    | Assumptions [4]: (forall ((Nat) (Nat) (Lst)) ((drop (succ _qv_9) (cons _qv_10 _qv_11))=(drop _qv_9 _qv_11)))
+    | Assumptions [5]: (forall ((Nat)) ((take _qv_12 nil)=nil))
+    | Assumptions [6]: (forall ((Nat) (Nat) (Lst)) ((take (succ _qv_14) (cons _qv_15 _qv_16))=(cons _qv_15 (take _qv_14 _qv_16))))
+    | Assumptions [7]: (forall ((Lst)) ((zip nil _qv_17)=znil))
+    | Assumptions [8]: (forall ((Lst)) ((zip _qv_18 nil)=znil))
+    | Assumptions [9]: (forall ((Nat) (Lst) (Nat) (Lst)) ((zip (cons _qv_19 _qv_20) (cons _qv_21 _qv_22))=(zcons (mkpair _qv_19 _qv_21) (zip _qv_20 _qv_22))))
+    | Assumptions [10]: (forall ((ZLst)) ((zappend znil _qv_23)=_qv_23))
+    | Assumptions [11]: (forall ((Pair) (ZLst) (ZLst)) ((zappend (zcons _qv_24 _qv_25) _qv_26)=(zcons _qv_24 (zappend _qv_25 _qv_26))))
+    | Assumptions [12]: (forall ((Lst) (Lst)) ((zip (append _t_21 ys) zs)=(zappend (zip _t_21 (take (len _t_21) zs)) (zip ys (drop (len _t_21) zs)))))
+    | Assumptions [13]: (forall ((Lst) (Lst)) ((zappend (zip _t_21 (take (len _t_21) zs)) (zip ys (drop (len _t_21) zs)))=(zip (append _t_21 ys) zs)))
+    | Assumptions [14]: (forall ((Lst)) ((drop (len nil) _qv_8)=_qv_8))
+    | Assumptions [15]: (forall ((Lst)) ((take (len nil) _qv_13)=nil))
+    ====================
+  }
+  rewritten [7]: ((zip (append _v_48 nil) _v_49)=(zappend (zip _v_48 (take (len _v_48) _v_49)) znil))
+CURRENT SUBGOAL ((zip (append _v_48 nil) _v_49)=(zappend (zip _v_48 (take (len _v_48) _v_49)) (zip nil (drop (len _v_48) _v_49))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (append _v_48 nil) _v_49)=(zappend (zip _v_48 (take (len _v_48) _v_49)) (zip nil (drop (len _v_48) _v_49))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (append _v_48 nil) _v_49)=(zappend (zip _v_48 (take (len _v_48) _v_49)) (zip nil (drop (len _v_48) _v_49))))
+NOW TESTING (forall ((Lst) (Lst)) ((zip _qv_5 _qv_6)=(zip _qv_6 _qv_5)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (append _v_48 nil) _v_49)=(zappend (zip _v_48 (take (len _v_48) _v_49)) (zip nil (drop (len _v_48) _v_49))))
+NOW TESTING (forall ((ZLst) (ZLst)) ((zappend _qv_7 _qv_8)=(zappend _qv_8 _qv_7)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (append _v_48 nil) _v_49)=(zappend (zip _v_48 (take (len _v_48) _v_49)) (zip nil (drop (len _v_48) _v_49))))
+NOW TESTING (forall ((ZLst) (ZLst) (ZLst)) ((zappend (zappend _qv_9 _qv_10) _qv_11)=(zappend _qv_9 (zappend _qv_10 _qv_11))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (append _v_48 nil) _v_49)=(zappend (zip _v_48 (take (len _v_48) _v_49)) (zip nil (drop (len _v_48) _v_49))))
+NOW TESTING (forall ((Nat) (Lst) (Lst)) ((take _qv_12 (drop _qv_13 _qv_14))=(drop (take _qv_12 _qv_13) (take _qv_12 _qv_14))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (append _v_48 nil) _v_49)=(zappend (zip _v_48 (take (len _v_48) _v_49)) (zip nil (drop (len _v_48) _v_49))))
+NOW TESTING (forall ((Nat) (Lst) (Lst)) ((drop _qv_15 (take _qv_16 _qv_17))=(take (drop _qv_15 _qv_16) (drop _qv_15 _qv_17))))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((zip (append _v_48 nil) _v_49)=(zappend (zip _v_48 (take (len _v_48) _v_49)) (zip nil (drop (len _v_48) _v_49))))
+  rewritten [7]: ((zip (append _v_48 nil) _v_49)=(zappend (zip _v_48 (take (len _v_48) _v_49)) znil))
+CURRENT SUBGOAL ((zip (append _v_48 nil) _v_49)=(zappend (zip _v_48 (take (len _v_48) _v_49)) (zip nil (drop (len _v_48) _v_49))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (append _v_48 nil) _v_49)=(zappend (zip _v_48 (take (len _v_48) _v_49)) (zip nil (drop (len _v_48) _v_49))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (append _v_48 nil) _v_49)=(zappend (zip _v_48 (take (len _v_48) _v_49)) (zip nil (drop (len _v_48) _v_49))))
+NOW TESTING (forall ((Lst) (Lst)) ((zip _qv_5 _qv_6)=(zip _qv_6 _qv_5)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (append _v_48 nil) _v_49)=(zappend (zip _v_48 (take (len _v_48) _v_49)) (zip nil (drop (len _v_48) _v_49))))
+NOW TESTING (forall ((ZLst) (ZLst)) ((zappend _qv_7 _qv_8)=(zappend _qv_8 _qv_7)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (append _v_48 nil) _v_49)=(zappend (zip _v_48 (take (len _v_48) _v_49)) (zip nil (drop (len _v_48) _v_49))))
+NOW TESTING (forall ((ZLst) (ZLst) (ZLst)) ((zappend (zappend _qv_9 _qv_10) _qv_11)=(zappend _qv_9 (zappend _qv_10 _qv_11))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (append _v_48 nil) _v_49)=(zappend (zip _v_48 (take (len _v_48) _v_49)) (zip nil (drop (len _v_48) _v_49))))
+NOW TESTING (forall ((Nat) (Lst) (Lst)) ((take _qv_12 (drop _qv_13 _qv_14))=(drop (take _qv_12 _qv_13) (take _qv_12 _qv_14))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((zip (append _v_48 nil) _v_49)=(zappend (zip _v_48 (take (len _v_48) _v_49)) (zip nil (drop (len _v_48) _v_49))))
+NOW TESTING (forall ((Nat) (Lst) (Lst)) ((drop _qv_15 (take _qv_16 _qv_17))=(take (drop _qv_15 _qv_16) (drop _qv_15 _qv_17))))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((zip (append _v_48 nil) _v_49)=(zappend (zip _v_48 (take (len _v_48) _v_49)) (zip nil (drop (len _v_48) _v_49))))
+}
+
+Base case:       ((zip (append _v_50 _v_51) nil)=(zappend (zip _v_50 (take (len _v_50) nil)) (zip _v_51 (drop (len _v_50) nil))))
+{
+  proven trivially
+}
+Inductive step:  ((zip (append _v_50 _v_51) (cons _t_52 _t_53))=(zappend (zip _v_50 (take (len _v_50) (cons _t_52 _t_53))) (zip _v_51 (drop (len _v_50) (cons _t_52 _t_53)))))
+{
+  {
+    ====================
+    | Assumptions [0]: (forall ((Lst)) ((append nil _qv_1)=_qv_1))
+    | Assumptions [1]: (forall ((Nat) (Lst) (Lst)) ((append (cons _qv_2 _qv_3) _qv_4)=(cons _qv_2 (append _qv_3 _qv_4))))
+    | Assumptions [2]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+    | Assumptions [3]: (forall ((Nat)) ((drop _qv_7 nil)=nil))
+    | Assumptions [4]: (forall ((Nat) (Nat) (Lst)) ((drop (succ _qv_9) (cons _qv_10 _qv_11))=(drop _qv_9 _qv_11)))
+    | Assumptions [5]: (forall ((Nat)) ((take _qv_12 nil)=nil))
+    | Assumptions [6]: (forall ((Nat) (Nat) (Lst)) ((take (succ _qv_14) (cons _qv_15 _qv_16))=(cons _qv_15 (take _qv_14 _qv_16))))
+    | Assumptions [7]: (forall ((Lst)) ((zip nil _qv_17)=znil))
+    | Assumptions [8]: (forall ((Lst)) ((zip _qv_18 nil)=znil))
+    | Assumptions [9]: (forall ((Nat) (Lst) (Nat) (Lst)) ((zip (cons _qv_19 _qv_20) (cons _qv_21 _qv_22))=(zcons (mkpair _qv_19 _qv_21) (zip _qv_20 _qv_22))))
+    | Assumptions [10]: (forall ((ZLst)) ((zappend znil _qv_23)=_qv_23))
+    | Assumptions [11]: (forall ((Pair) (ZLst) (ZLst)) ((zappend (zcons _qv_24 _qv_25) _qv_26)=(zcons _qv_24 (zappend _qv_25 _qv_26))))
+    | Assumptions [12]: (forall ((Lst) (Lst)) ((zip (append _t_21 ys) zs)=(zappend (zip _t_21 (take (len _t_21) zs)) (zip ys (drop (len _t_21) zs)))))
+    | Assumptions [13]: (forall ((Lst) (Lst)) ((zappend (zip _t_21 (take (len _t_21) zs)) (zip ys (drop (len _t_21) zs)))=(zip (append _t_21 ys) zs)))
+    | Assumptions [14]: (forall ((Lst)) ((drop (len nil) _qv_8)=_qv_8))
+    | Assumptions [15]: (forall ((Lst)) ((take (len nil) _qv_13)=nil))
+    | Assumptions [16]: (forall ((Lst) (Lst)) ((zip (append xs ys) _t_53)=(zappend (zip xs (take (len xs) _t_53)) (zip ys (drop (len xs) _t_53)))))
+    | Assumptions [17]: (forall ((Lst) (Lst)) ((zappend (zip xs (take (len xs) _t_53)) (zip ys (drop (len xs) _t_53)))=(zip (append xs ys) _t_53)))
+    ====================
+  }
+Unknown
+sat

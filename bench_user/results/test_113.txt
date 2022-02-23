@@ -1,0 +1,61 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+	(forall ((Nat)) (0<=(nat-to-int _qv_1)))
+	(forall ((Lst) (Lst)) ((append _qv_2 _qv_3)=(append _qv_3 _qv_2)))
+	(forall ((Lst) (Lst) (Lst)) ((append (append _qv_4 _qv_5) _qv_6)=(append _qv_4 (append _qv_5 _qv_6))))
+	(forall ((Lst)) ((butlast (butlast _qv_7))=_qv_7))
+	(forall ((Nat)) ((nat-to-int (succ _qv_8))=(nat-to-int _qv_8)))
+	(forall ((Lst) (Lst)) ((butlast (append _qv_9 _qv_10))=(append (butlast _qv_9) (butlast _qv_10))))
+	(forall ((Lst) (Lst)) ((butlast (append _qv_9 _qv_10))=(append (butlast _qv_10) (butlast _qv_9))))
+
+Simplified goal: (forall ((Lst) (Lst)) (((ys=nil)&&((butlast (append xs ys))=(butlast xs)))||(((butlast (append xs ys))=(append xs (butlast ys)))&&(ys!=nil))))
+
+
+Base case:       (((_v_11=nil)&&((butlast (append nil _v_11))=(butlast nil)))||(((butlast (append nil _v_11))=(append nil (butlast _v_11)))&&(_v_11!=nil)))
+{
+  proven trivially
+}
+Inductive step:  (((_v_11=nil)&&((butlast (append (cons _t_12 _t_13) _v_11))=(butlast (cons _t_12 _t_13))))||(((butlast (append (cons _t_12 _t_13) _v_11))=(append (cons _t_12 _t_13) (butlast _v_11)))&&(_v_11!=nil)))
+{
+  {
+    ====================
+    | Assumptions [0]: ((nat-to-int zero)=0)
+    | Assumptions [1]: ((butlast nil)=nil)
+    | Assumptions [2]: (forall ((Nat)) ((nat-to-int _qv_1)>=0))
+    | Assumptions [3]: (forall ((Nat) (Nat)) (((nat-to-int _qv_2)=(nat-to-int _qv_3))->(_qv_2=_qv_3)))
+    | Assumptions [4]: (forall ((Nat)) ((nat-to-int (succ _qv_4))=(1+(nat-to-int _qv_4))))
+    | Assumptions [5]: (forall ((Lst)) ((append nil _qv_5)=_qv_5))
+    | Assumptions [6]: (forall ((Nat) (Lst) (Lst)) ((append (cons _qv_6 _qv_7) _qv_8)=(cons _qv_6 (append _qv_7 _qv_8))))
+    | Assumptions [7]: (forall ((Nat) (Lst)) ((last (cons _qv_9 _qv_10))=ite(_qv_10=nil, _qv_9, (last _qv_10))))
+    | Assumptions [8]: (forall ((Nat) (Lst)) ((butlast (cons _qv_11 _qv_12))=ite(_qv_12=nil, nil, (cons _qv_11 (butlast _qv_12)))))
+    | Assumptions [9]: (forall ((Lst)) (((ys=nil)&&((butlast (append _t_13 ys))=(butlast _t_13)))||((ys!=nil)&&((butlast (append _t_13 ys))=(append _t_13 (butlast ys))))))
+    ====================
+  }
+  rewritten [6]: (((_v_11=nil)&&((butlast (cons _t_12 (append _t_13 _v_11)))=(butlast (cons _t_12 _t_13))))||((_v_11!=nil)&&((butlast (cons _t_12 (append _t_13 _v_11)))=(append (cons _t_12 _t_13) (butlast _v_11)))))
+  rewritten [6]: (((_v_11=nil)&&((butlast (cons _t_12 (append _t_13 _v_11)))=(butlast (cons _t_12 _t_13))))||((_v_11!=nil)&&((butlast (cons _t_12 (append _t_13 _v_11)))=(cons _t_12 (append _t_13 (butlast _v_11))))))
+  rewritten [8]: (((_v_11=nil)&&((butlast (cons _t_12 (append _t_13 _v_11)))=ite(_t_13=nil, nil, (cons _t_12 (butlast _t_13)))))||((_v_11!=nil)&&((butlast (cons _t_12 (append _t_13 _v_11)))=(cons _t_12 (append _t_13 (butlast _v_11))))))
+  rewritten [8]: (((_v_11!=nil)&&(ite((append _t_13 _v_11)=nil, nil, (cons _t_12 (butlast (append _t_13 _v_11))))=(cons _t_12 (append _t_13 (butlast _v_11)))))||((_v_11=nil)&&ite(_t_13=nil, ite((append _t_13 _v_11)=nil, nil, (cons _t_12 (butlast (append _t_13 _v_11))))=nil, ite((append _t_13 _v_11)=nil, nil, (cons _t_12 (butlast (append _t_13 _v_11))))=(cons _t_12 (butlast _t_13)))))
+  sequence of rewrites only grows
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_18))=_qv_18))
+	(forall ((Nat)) (0<=(nat-to-int _qv_19)))
+	(forall ((Lst) (Lst)) ((append _qv_20 _qv_21)=(append _qv_21 _qv_20)))
+	(forall ((Lst) (Lst) (Lst)) ((append (append _qv_22 _qv_23) _qv_24)=(append _qv_22 (append _qv_23 _qv_24))))
+	(forall ((Lst)) ((butlast (butlast _qv_25))=_qv_25))
+	(forall ((Nat)) ((nat-to-int (succ _qv_26))=(nat-to-int _qv_26)))
+	(forall ((Lst) (Lst)) ((butlast (append _qv_27 _qv_28))=(append (butlast _qv_27) (butlast _qv_28))))
+	(forall ((Lst) (Lst)) ((butlast (append _qv_27 _qv_28))=(append (butlast _qv_28) (butlast _qv_27))))
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_32))=_qv_32))
+	(forall ((Nat)) (0<=(nat-to-int _qv_33)))
+	(forall ((Lst) (Lst)) ((append _qv_34 _qv_35)=(append _qv_35 _qv_34)))
+	(forall ((Lst) (Lst) (Lst)) ((append (append _qv_36 _qv_37) _qv_38)=(append _qv_36 (append _qv_37 _qv_38))))
+	(forall ((Lst)) ((butlast (butlast _qv_39))=_qv_39))
+	(forall ((Nat)) ((nat-to-int (succ _qv_40))=(nat-to-int _qv_40)))
+	(forall ((Lst) (Lst)) ((butlast (append _qv_41 _qv_42))=(append (butlast _qv_41) (butlast _qv_42))))
+	(forall ((Lst) (Lst)) ((butlast (append _qv_41 _qv_42))=(append (butlast _qv_42) (butlast _qv_41))))
+

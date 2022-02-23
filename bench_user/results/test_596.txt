@@ -1,0 +1,234 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+
+Simplified goal: (forall ((Nat) (Nat) (Nat) (Nat) (Nat) (Lst)) ((drop (succ u) (drop v (drop (succ w) (cons x (cons y z)))))=(drop (succ u) (drop v (drop w (cons x z))))))
+
+
+Base case:       ((drop (succ zero) (drop _v_0 (drop (succ _v_1) (cons _v_2 (cons _v_3 _v_4)))))=(drop (succ zero) (drop _v_0 (drop _v_1 (cons _v_2 _v_4)))))
+{
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat)) ((drop _qv_1 nil)=nil))
+    | Assumptions [1]: (forall ((Lst)) ((drop zero _qv_2)=_qv_2))
+    | Assumptions [2]: (forall ((Nat) (Nat) (Lst)) ((drop (succ _qv_3) (cons _qv_4 _qv_5))=(drop _qv_3 _qv_5)))
+    ====================
+  }
+  rewritten [2]: ((drop (succ zero) (drop _v_0 (drop _v_1 (cons _v_3 _v_4))))=(drop (succ zero) (drop _v_0 (drop _v_1 (cons _v_2 _v_4)))))
+  backtrack to: ((drop (succ zero) (drop _v_0 (drop (succ _v_1) (cons _v_2 (cons _v_3 _v_4)))))=(drop (succ zero) (drop _v_0 (drop _v_1 (cons _v_2 _v_4)))))
+  rewritten [2]: ((drop (succ zero) (drop _v_0 (drop _v_1 (cons _v_3 _v_4))))=(drop (succ zero) (drop _v_0 (drop _v_1 (cons _v_2 _v_4)))))
+  backtrack to: ((drop (succ zero) (drop _v_0 (drop (succ _v_1) (cons _v_2 (cons _v_3 _v_4)))))=(drop (succ zero) (drop _v_0 (drop _v_1 (cons _v_2 _v_4)))))
+}
+
+Base case:       ((drop (succ _v_7) (drop zero (drop (succ _v_8) (cons _v_9 (cons _v_10 _v_11)))))=(drop (succ _v_7) (drop zero (drop _v_8 (cons _v_9 _v_11)))))
+{
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat)) ((drop _qv_1 nil)=nil))
+    | Assumptions [1]: (forall ((Lst)) ((drop zero _qv_2)=_qv_2))
+    | Assumptions [2]: (forall ((Nat) (Nat) (Lst)) ((drop (succ _qv_3) (cons _qv_4 _qv_5))=(drop _qv_3 _qv_5)))
+    ====================
+  }
+  rewritten [1]: ((drop (succ _v_7) (drop (succ _v_8) (cons _v_9 (cons _v_10 _v_11))))=(drop (succ _v_7) (drop zero (drop _v_8 (cons _v_9 _v_11)))))
+  rewritten [1]: ((drop (succ _v_7) (drop (succ _v_8) (cons _v_9 (cons _v_10 _v_11))))=(drop (succ _v_7) (drop _v_8 (cons _v_9 _v_11))))
+  rewritten [2]: ((drop (succ _v_7) (drop _v_8 (cons _v_10 _v_11)))=(drop (succ _v_7) (drop _v_8 (cons _v_9 _v_11))))
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+  proven by induction: ((drop (succ _v_7) (drop _v_8 (cons _v_10 _v_11)))=(drop (succ _v_7) (drop _v_8 (cons _v_9 _v_11))))
+  rewriting done
+  rewriting done
+}
+Inductive step:  ((drop (succ _v_7) (drop (succ _t_13) (drop (succ _v_8) (cons _v_9 (cons _v_10 _v_11)))))=(drop (succ _v_7) (drop (succ _t_13) (drop _v_8 (cons _v_9 _v_11)))))
+{
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat)) ((drop _qv_1 nil)=nil))
+    | Assumptions [1]: (forall ((Lst)) ((drop zero _qv_2)=_qv_2))
+    | Assumptions [2]: (forall ((Nat) (Nat) (Lst)) ((drop (succ _qv_3) (cons _qv_4 _qv_5))=(drop _qv_3 _qv_5)))
+    | Assumptions [3]: (forall ((Nat) (Nat) (Nat) (Nat) (Lst)) ((drop (succ u) (drop _t_13 (drop (succ w) (cons x (cons y z)))))=(drop (succ u) (drop _t_13 (drop w (cons x z))))))
+    | Assumptions [4]: (forall ((Nat) (Nat) (Nat) (Nat) (Lst)) ((drop (succ u) (drop _t_13 (drop w (cons x z))))=(drop (succ u) (drop _t_13 (drop (succ w) (cons x (cons y z)))))))
+    ====================
+  }
+  rewritten [2]: ((drop (succ _v_7) (drop (succ _t_13) (drop _v_8 (cons _v_10 _v_11))))=(drop (succ _v_7) (drop (succ _t_13) (drop _v_8 (cons _v_9 _v_11)))))
+  backtrack to: ((drop (succ _v_7) (drop (succ _t_13) (drop (succ _v_8) (cons _v_9 (cons _v_10 _v_11)))))=(drop (succ _v_7) (drop (succ _t_13) (drop _v_8 (cons _v_9 _v_11)))))
+  rewritten [2]: ((drop (succ _v_7) (drop (succ _t_13) (drop _v_8 (cons _v_10 _v_11))))=(drop (succ _v_7) (drop (succ _t_13) (drop _v_8 (cons _v_9 _v_11)))))
+  backtrack to: ((drop (succ _v_7) (drop (succ _t_13) (drop (succ _v_8) (cons _v_9 (cons _v_10 _v_11)))))=(drop (succ _v_7) (drop (succ _t_13) (drop _v_8 (cons _v_9 _v_11)))))
+
+Base case:       ((drop (succ _v_18) (drop _v_19 (drop (succ zero) (cons _v_20 (cons _v_21 _v_22)))))=(drop (succ _v_18) (drop _v_19 (drop zero (cons _v_20 _v_22)))))
+{
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat)) ((drop _qv_1 nil)=nil))
+    | Assumptions [1]: (forall ((Lst)) ((drop zero _qv_2)=_qv_2))
+    | Assumptions [2]: (forall ((Nat) (Nat) (Lst)) ((drop (succ _qv_3) (cons _qv_4 _qv_5))=(drop _qv_3 _qv_5)))
+    | Assumptions [3]: (forall ((Nat) (Nat) (Nat) (Nat) (Lst)) ((drop (succ u) (drop _t_13 (drop (succ w) (cons x (cons y z)))))=(drop (succ u) (drop _t_13 (drop w (cons x z))))))
+    | Assumptions [4]: (forall ((Nat) (Nat) (Nat) (Nat) (Lst)) ((drop (succ u) (drop _t_13 (drop w (cons x z))))=(drop (succ u) (drop _t_13 (drop (succ w) (cons x (cons y z)))))))
+    ====================
+  }
+  rewritten [1]: ((drop (succ _v_18) (drop _v_19 (drop (succ zero) (cons _v_20 (cons _v_21 _v_22)))))=(drop (succ _v_18) (drop _v_19 (cons _v_20 _v_22))))
+  rewritten [2]: ((drop (succ _v_18) (drop _v_19 (drop zero (cons _v_21 _v_22))))=(drop (succ _v_18) (drop _v_19 (cons _v_20 _v_22))))
+  rewritten [1]: ((drop (succ _v_18) (drop _v_19 (cons _v_21 _v_22)))=(drop (succ _v_18) (drop _v_19 (cons _v_20 _v_22))))
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+  proven by induction: ((drop (succ _v_18) (drop _v_19 (cons _v_21 _v_22)))=(drop (succ _v_18) (drop _v_19 (cons _v_20 _v_22))))
+  rewriting done
+  rewriting done
+}
+Inductive step:  ((drop (succ _v_18) (drop _v_19 (drop (succ (succ _t_24)) (cons _v_20 (cons _v_21 _v_22)))))=(drop (succ _v_18) (drop _v_19 (drop (succ _t_24) (cons _v_20 _v_22)))))
+{
+  proven trivially
+}
+
+Proved
+unsat

@@ -1,0 +1,20 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+	(forall ((Nat)) (0<=(nat-to-int _qv_1)))
+	(forall ((Nat)) ((nat-to-int (succ _qv_2))=(nat-to-int _qv_2)))
+
+Simplified goal: (forall ((Lst)) ((take zero xs)=nil))
+
+
+Base case:       ((take zero nil)=nil)
+{
+  proven trivially
+}
+Inductive step:  ((take zero (cons _t_3 _t_4))=(take zero _t_4))
+{
+  proven trivially
+}
+
+Proved
+unsat

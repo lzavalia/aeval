@@ -1,0 +1,1 @@
+./ind/benchmarks-dti/clam/goal16.smt2

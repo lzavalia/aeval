@@ -1,0 +1,1151 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+	(forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+
+Simplified goal: (forall ((Lst) (Lst)) ((ys=nil)->((last (append xs ys))=(last xs))))
+
+
+Base case:       ((last (append nil _v_5))=(last nil))
+{
+  proven trivially
+}
+Inductive step:  ((last (append (cons _t_6 _t_7) nil))=(last (cons _t_6 _t_7)))
+{
+  {
+    ====================
+    | Assumptions [0]: (forall ((Lst)) ((append nil _qv_1)=_qv_1))
+    | Assumptions [1]: (forall (INT (Lst) (Lst)) ((append (cons _qv_2 _qv_3) _qv_4)=(cons _qv_2 (append _qv_3 _qv_4))))
+    | Assumptions [2]: (forall (INT (Lst)) ((last (cons _qv_5 _qv_6))=ite(_qv_6=nil, _qv_5, (last _qv_6))))
+    | Assumptions [3]: (forall ((Lst)) ((ys=nil)->((last (append _t_7 ys))=(last _t_7))))
+    ====================
+  }
+  rewritten [1]: ((last (cons _t_6 (append _t_7 nil)))=(last (cons _t_6 _t_7)))
+  rewritten [2]: ((last (cons _t_6 (append _t_7 nil)))=ite(_t_7=nil, _t_6, (last _t_7)))
+  proceed with (part 1/2): ((_t_7=nil)->((last (cons _t_6 (append _t_7 nil)))=_t_6))
+  {
+      proven trivially (with Z3)
+  }
+  adding ((_t_7=nil)->((last (cons _t_6 (append _t_7 nil)))=_t_6)) to assumptions
+  proceed with (part 2/2): ((_t_7!=nil)->((last (cons _t_6 (append _t_7 nil)))=(last _t_7)))
+  {
+    {
+      ====================
+      | Assumptions [0]: (forall ((Lst)) ((append nil _qv_1)=_qv_1))
+      | Assumptions [1]: (forall (INT (Lst) (Lst)) ((append (cons _qv_2 _qv_3) _qv_4)=(cons _qv_2 (append _qv_3 _qv_4))))
+      | Assumptions [2]: (forall (INT (Lst)) ((last (cons _qv_5 _qv_6))=ite(_qv_6=nil, _qv_5, (last _qv_6))))
+      | Assumptions [3]: (forall ((Lst)) ((ys=nil)->((last (append _t_7 ys))=(last _t_7))))
+      | Assumptions [4]: ((_t_7=nil)->((last (cons _t_6 (append _t_7 nil)))=_t_6))
+      | Assumptions [5]: (_t_7!=nil)
+      | Assumptions [6]: ((_t_7=nil)->(ite((append _t_7 nil)=nil, _t_6, (last (append _t_7 nil)))=_t_6))
+      ====================
+    }
+    current subgoal: ((last (cons _t_6 (append _t_7 nil)))=(last _t_7))
+    rewritten [2]: (ite((append _t_7 nil)=nil, _t_6, (last (append _t_7 nil)))=(last _t_7))
+    proceed with (part 1/2): (((append _t_7 nil)=nil)->(_t_6=(last _t_7)))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Lst)) ((append nil _qv_1)=_qv_1))
+        | Assumptions [1]: (forall (INT (Lst) (Lst)) ((append (cons _qv_2 _qv_3) _qv_4)=(cons _qv_2 (append _qv_3 _qv_4))))
+        | Assumptions [2]: (forall (INT (Lst)) ((last (cons _qv_5 _qv_6))=ite(_qv_6=nil, _qv_5, (last _qv_6))))
+        | Assumptions [3]: (forall ((Lst)) ((ys=nil)->((last (append _t_7 ys))=(last _t_7))))
+        | Assumptions [4]: ((append _t_7 nil)=nil)
+        | Assumptions [5]: ((_t_7=nil)->((last (cons _t_6 (append _t_7 nil)))=_t_6))
+        | Assumptions [6]: (_t_7!=nil)
+        | Assumptions [7]: ((_t_7=nil)->(ite((append _t_7 nil)=nil, _t_6, (last (append _t_7 nil)))=_t_6))
+        | Assumptions [8]: ((last (append _t_7 nil))=(last _t_7))
+        | Assumptions [9]: ((_t_7=nil)->((last (cons _t_6 nil))=_t_6))
+        | Assumptions [10]: ((append nil nil)=nil)
+        | Assumptions [11]: ((last (append _t_7 (append _t_7 nil)))=(last _t_7))
+        | Assumptions [12]: ((last (append _t_7 (append nil nil)))=(last _t_7))
+        | Assumptions [13]: ((_t_7=nil)->(ite((append _t_7 nil)=nil, _t_6, (last _t_7))=_t_6))
+        | Assumptions [14]: ((last nil)=(last _t_7))
+        ====================
+      }
+      current subgoal: (_t_6=(last _t_7))
+    }
+    proceed with (part 2/2): (((append _t_7 nil)!=nil)->((last (append _t_7 nil))=(last _t_7)))
+    {
+        proven trivially (with Z3)
+    }
+    adding (((append _t_7 nil)!=nil)->((last (append _t_7 nil))=(last _t_7))) to assumptions
+    will try subgoals again
+    proceed with (part 1/1): (((append _t_7 nil)=nil)->(_t_6=(last _t_7)))
+    {
+      {
+        ====================
+        | Assumptions [0]: (forall ((Lst)) ((append nil _qv_1)=_qv_1))
+        | Assumptions [1]: (forall (INT (Lst) (Lst)) ((append (cons _qv_2 _qv_3) _qv_4)=(cons _qv_2 (append _qv_3 _qv_4))))
+        | Assumptions [2]: (forall (INT (Lst)) ((last (cons _qv_5 _qv_6))=ite(_qv_6=nil, _qv_5, (last _qv_6))))
+        | Assumptions [3]: (forall ((Lst)) ((ys=nil)->((last (append _t_7 ys))=(last _t_7))))
+        | Assumptions [4]: ((append _t_7 nil)=nil)
+        | Assumptions [5]: ((_t_7=nil)->((last (cons _t_6 (append _t_7 nil)))=_t_6))
+        | Assumptions [6]: (_t_7!=nil)
+        | Assumptions [7]: ((_t_7=nil)->(ite((append _t_7 nil)=nil, _t_6, (last (append _t_7 nil)))=_t_6))
+        | Assumptions [8]: ((last (append _t_7 nil))=(last _t_7))
+        | Assumptions [9]: (((append _t_7 nil)!=nil)->((last (append _t_7 nil))=(last _t_7)))
+        | Assumptions [10]: ((_t_7=nil)->((last (cons _t_6 nil))=_t_6))
+        | Assumptions [11]: ((append nil nil)=nil)
+        | Assumptions [12]: ((last (append _t_7 (append _t_7 nil)))=(last _t_7))
+        | Assumptions [13]: ((last (append _t_7 (append nil nil)))=(last _t_7))
+        | Assumptions [14]: ((_t_7=nil)->(ite((append _t_7 nil)=nil, _t_6, (last _t_7))=_t_6))
+        | Assumptions [15]: ((last nil)=(last _t_7))
+        ====================
+      }
+      current subgoal: (_t_6=(last _t_7))
+    }
+    cannot prove 1 of the subgoals
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Lst) (Lst)) ((append _qv_9 _qv_10)=(append _qv_10 _qv_9)))
+	(forall ((Lst) (Lst) (Lst)) ((append (append _qv_11 _qv_12) _qv_13)=(append _qv_11 (append _qv_12 _qv_13))))
+	(forall ((Lst)) (0<=(last _qv_14)))
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+	(forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+	(forall ((Lst)) (0<=(last _qv_23)))
+
+CURRENT SUBGOAL (((-1*(last _v_25))+_v_26)=0)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(last _v_25))+_v_26)=0)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(last _v_25))+_v_26)=0)
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(last _v_25))+_v_26)=0)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(last _v_25))+_v_26)=0)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(last _v_25))+_v_26)=0)
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(last _v_25))+_v_26)=0)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(last _v_25))+_v_26)=0)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(last _v_25))+_v_26)=0)
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(last _v_25))+_v_26)=0)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(last _v_25))+_v_26)=0)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(last _v_25))+_v_26)=0)
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL [||    (_v_25!=nil)&&((cons _v_24 _v_25)=nil)    (_v_25!=nil)&&(((-1*(last _v_25))+_v_26)=0)    (_v_25=nil)&&(((-1*_v_24)+_v_26)=0)]
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL [||    (_v_25!=nil)&&((cons _v_24 _v_25)=nil)    (_v_25!=nil)&&(((-1*(last _v_25))+_v_26)=0)    (_v_25=nil)&&(((-1*_v_24)+_v_26)=0)]
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL [||    (_v_25!=nil)&&((cons _v_24 _v_25)=nil)    (_v_25!=nil)&&(((-1*(last _v_25))+_v_26)=0)    (_v_25=nil)&&(((-1*_v_24)+_v_26)=0)]
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(last _v_25))+_v_26)=0)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(last _v_25))+_v_26)=0)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(last _v_25))+_v_26)=0)
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(last _v_25))+_v_26)=0)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(last _v_25))+_v_26)=0)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(last _v_25))+_v_26)=0)
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(last _v_25))+_v_26)=0)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(last _v_25))+_v_26)=0)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(last _v_25))+_v_26)=0)
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(last _v_25))+_v_26)=0)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(last _v_25))+_v_26)=0)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*(last _v_25))+_v_26)=0)
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL [||    (_v_25!=nil)&&((cons _v_24 _v_25)=nil)    (_v_25!=nil)&&(((-1*(last _v_25))+_v_26)=0)    (_v_25=nil)&&(((-1*_v_24)+_v_26)=0)]
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL [||    (_v_25!=nil)&&((cons _v_24 _v_25)=nil)    (_v_25!=nil)&&(((-1*(last _v_25))+_v_26)=0)    (_v_25=nil)&&(((-1*_v_24)+_v_26)=0)]
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL [||    (_v_25!=nil)&&((cons _v_24 _v_25)=nil)    (_v_25!=nil)&&(((-1*(last _v_25))+_v_26)=0)    (_v_25=nil)&&(((-1*_v_24)+_v_26)=0)]
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_25!=nil)&&(((-1*(last _v_25))+_v_26)=0))||((_v_25=nil)&&(((-1*_v_24)+_v_26)=0)))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_25!=nil)&&(((-1*(last _v_25))+_v_26)=0))||((_v_25=nil)&&(((-1*_v_24)+_v_26)=0)))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_25!=nil)&&(((-1*(last _v_25))+_v_26)=0))||((_v_25=nil)&&(((-1*_v_24)+_v_26)=0)))
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*_v_24)+_v_26)=0)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*_v_24)+_v_26)=0)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*_v_24)+_v_26)=0)
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*_v_24)+_v_26)=0)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*_v_24)+_v_26)=0)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*_v_24)+_v_26)=0)
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*_v_24)+_v_26)=0)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*_v_24)+_v_26)=0)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*_v_24)+_v_26)=0)
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*_v_24)+_v_26)=0)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*_v_24)+_v_26)=0)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((-1*_v_24)+_v_26)=0)
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_25!=nil)&&(((-1*(last _v_25))+_v_26)=0))||((_v_25=nil)&&(((-1*_v_24)+_v_26)=0)))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_25!=nil)&&(((-1*(last _v_25))+_v_26)=0))||((_v_25=nil)&&(((-1*_v_24)+_v_26)=0)))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_25!=nil)&&(((-1*(last _v_25))+_v_26)=0))||((_v_25=nil)&&(((-1*_v_24)+_v_26)=0)))
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (_v_25=nil)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (_v_25=nil)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (_v_25=nil)
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL [||    ((cons _v_24 (append _v_25 nil))!=nil)&&(_v_25!=nil)    (_v_25=nil)&&((cons _v_24 _v_25)=nil)    ((cons _v_24 (append _v_25 nil))!=nil)&&(_v_25=nil)    (_v_25!=nil)&&((cons _v_24 _v_25)=nil)    (_v_25!=nil)&&(((-1*(last _v_25))+_v_26)=0)    (_v_25=nil)&&(((-1*_v_24)+_v_26)=0)    [&&    (cons _v_24 (append _v_25 nil))!=nil    _v_25!=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25!=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25=nil    (cons _v_24 _v_25)=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25!=nil    (cons _v_24 _v_25)=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]]
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL [||    ((cons _v_24 (append _v_25 nil))!=nil)&&(_v_25!=nil)    (_v_25=nil)&&((cons _v_24 _v_25)=nil)    ((cons _v_24 (append _v_25 nil))!=nil)&&(_v_25=nil)    (_v_25!=nil)&&((cons _v_24 _v_25)=nil)    (_v_25!=nil)&&(((-1*(last _v_25))+_v_26)=0)    (_v_25=nil)&&(((-1*_v_24)+_v_26)=0)    [&&    (cons _v_24 (append _v_25 nil))!=nil    _v_25!=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25!=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25=nil    (cons _v_24 _v_25)=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25!=nil    (cons _v_24 _v_25)=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]]
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL [||    ((cons _v_24 (append _v_25 nil))!=nil)&&(_v_25!=nil)    (_v_25=nil)&&((cons _v_24 _v_25)=nil)    ((cons _v_24 (append _v_25 nil))!=nil)&&(_v_25=nil)    (_v_25!=nil)&&((cons _v_24 _v_25)=nil)    (_v_25!=nil)&&(((-1*(last _v_25))+_v_26)=0)    (_v_25=nil)&&(((-1*_v_24)+_v_26)=0)    [&&    (cons _v_24 (append _v_25 nil))!=nil    _v_25!=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25!=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25=nil    (cons _v_24 _v_25)=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25!=nil    (cons _v_24 _v_25)=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]]
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL [||    ((cons _v_24 (append _v_25 nil))!=nil)&&(_v_25!=nil)    (_v_25=nil)&&((cons _v_24 _v_25)=nil)    ((cons _v_24 (append _v_25 nil))!=nil)&&(_v_25=nil)    (_v_25!=nil)&&((cons _v_24 _v_25)=nil)    (_v_25!=nil)&&(((-1*(last _v_25))+_v_26)=0)    (_v_25=nil)&&(((-1*_v_24)+_v_26)=0)    [&&    (cons _v_24 (append _v_25 nil))!=nil    _v_25!=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25!=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25=nil    (cons _v_24 _v_25)=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25!=nil    (cons _v_24 _v_25)=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]]
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL [||    ((cons _v_24 (append _v_25 nil))!=nil)&&(_v_25!=nil)    (_v_25=nil)&&((cons _v_24 _v_25)=nil)    ((cons _v_24 (append _v_25 nil))!=nil)&&(_v_25=nil)    (_v_25!=nil)&&((cons _v_24 _v_25)=nil)    (_v_25!=nil)&&(((-1*(last _v_25))+_v_26)=0)    (_v_25=nil)&&(((-1*_v_24)+_v_26)=0)    [&&    (cons _v_24 (append _v_25 nil))!=nil    _v_25!=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25!=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25=nil    (cons _v_24 _v_25)=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25!=nil    (cons _v_24 _v_25)=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]]
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL [||    ((cons _v_24 (append _v_25 nil))!=nil)&&(_v_25!=nil)    (_v_25=nil)&&((cons _v_24 _v_25)=nil)    ((cons _v_24 (append _v_25 nil))!=nil)&&(_v_25=nil)    (_v_25!=nil)&&((cons _v_24 _v_25)=nil)    (_v_25!=nil)&&(((-1*(last _v_25))+_v_26)=0)    (_v_25=nil)&&(((-1*_v_24)+_v_26)=0)    [&&    (cons _v_24 (append _v_25 nil))!=nil    _v_25!=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25!=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25=nil    (cons _v_24 _v_25)=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25!=nil    (cons _v_24 _v_25)=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]]
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL [||    ((cons _v_24 (append _v_25 nil))!=nil)&&(_v_25!=nil)    (_v_25=nil)&&((cons _v_24 _v_25)=nil)    ((cons _v_24 (append _v_25 nil))!=nil)&&(_v_25=nil)    (_v_25!=nil)&&((cons _v_24 _v_25)=nil)    (_v_25!=nil)&&(((-1*(last _v_25))+_v_26)=0)    (_v_25=nil)&&(((-1*_v_24)+_v_26)=0)    [&&    (cons _v_24 (append _v_25 nil))!=nil    _v_25!=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25!=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25=nil    (cons _v_24 _v_25)=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25!=nil    (cons _v_24 _v_25)=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]]
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL [||    ((cons _v_24 (append _v_25 nil))!=nil)&&(_v_25!=nil)    (_v_25=nil)&&((cons _v_24 _v_25)=nil)    ((cons _v_24 (append _v_25 nil))!=nil)&&(_v_25=nil)    (_v_25!=nil)&&((cons _v_24 _v_25)=nil)    (_v_25!=nil)&&(((-1*(last _v_25))+_v_26)=0)    (_v_25=nil)&&(((-1*_v_24)+_v_26)=0)    [&&    (cons _v_24 (append _v_25 nil))!=nil    _v_25!=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25!=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25=nil    (cons _v_24 _v_25)=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25!=nil    (cons _v_24 _v_25)=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]]
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL [||    ((cons _v_24 (append _v_25 nil))!=nil)&&(_v_25!=nil)    (_v_25=nil)&&((cons _v_24 _v_25)=nil)    ((cons _v_24 (append _v_25 nil))!=nil)&&(_v_25=nil)    (_v_25!=nil)&&((cons _v_24 _v_25)=nil)    (_v_25!=nil)&&(((-1*(last _v_25))+_v_26)=0)    (_v_25=nil)&&(((-1*_v_24)+_v_26)=0)    [&&    (cons _v_24 (append _v_25 nil))!=nil    _v_25!=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25!=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25=nil    (cons _v_24 _v_25)=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25!=nil    (cons _v_24 _v_25)=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]]
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL [||    ((cons _v_24 (append _v_25 nil))!=nil)&&(_v_25!=nil)    (_v_25=nil)&&((cons _v_24 _v_25)=nil)    ((cons _v_24 (append _v_25 nil))!=nil)&&(_v_25=nil)    (_v_25!=nil)&&((cons _v_24 _v_25)=nil)    (_v_25!=nil)&&(((-1*(last _v_25))+_v_26)=0)    (_v_25=nil)&&(((-1*_v_24)+_v_26)=0)    [&&    (cons _v_24 (append _v_25 nil))!=nil    _v_25!=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25!=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25=nil    (cons _v_24 _v_25)=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25!=nil    (cons _v_24 _v_25)=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]]
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL [||    ((cons _v_24 (append _v_25 nil))!=nil)&&(_v_25!=nil)    (_v_25=nil)&&((cons _v_24 _v_25)=nil)    ((cons _v_24 (append _v_25 nil))!=nil)&&(_v_25=nil)    (_v_25!=nil)&&((cons _v_24 _v_25)=nil)    (_v_25!=nil)&&(((-1*(last _v_25))+_v_26)=0)    (_v_25=nil)&&(((-1*_v_24)+_v_26)=0)    [&&    (cons _v_24 (append _v_25 nil))!=nil    _v_25!=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25!=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25=nil    (cons _v_24 _v_25)=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25!=nil    (cons _v_24 _v_25)=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]]
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL [||    ((cons _v_24 (append _v_25 nil))!=nil)&&(_v_25!=nil)    (_v_25=nil)&&((cons _v_24 _v_25)=nil)    ((cons _v_24 (append _v_25 nil))!=nil)&&(_v_25=nil)    (_v_25!=nil)&&((cons _v_24 _v_25)=nil)    (_v_25!=nil)&&(((-1*(last _v_25))+_v_26)=0)    (_v_25=nil)&&(((-1*_v_24)+_v_26)=0)    [&&    (cons _v_24 (append _v_25 nil))!=nil    _v_25!=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25!=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25=nil    (cons _v_24 _v_25)=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25!=nil    (cons _v_24 _v_25)=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]]
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL [||    (_v_25=nil)&&((cons _v_24 _v_25)=nil)    ((cons _v_24 (append _v_25 nil))!=nil)&&(_v_25=nil)    (_v_25!=nil)&&((cons _v_24 _v_25)=nil)    (_v_25!=nil)&&(((-1*(last _v_25))+_v_26)=0)    (_v_25=nil)&&(((-1*_v_24)+_v_26)=0)    [&&    (cons _v_24 (append _v_25 nil))!=nil    _v_25!=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25!=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25=nil    (cons _v_24 _v_25)=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25!=nil    (cons _v_24 _v_25)=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]]
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL [||    (_v_25=nil)&&((cons _v_24 _v_25)=nil)    ((cons _v_24 (append _v_25 nil))!=nil)&&(_v_25=nil)    (_v_25!=nil)&&((cons _v_24 _v_25)=nil)    (_v_25!=nil)&&(((-1*(last _v_25))+_v_26)=0)    (_v_25=nil)&&(((-1*_v_24)+_v_26)=0)    [&&    (cons _v_24 (append _v_25 nil))!=nil    _v_25!=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25!=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25=nil    (cons _v_24 _v_25)=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25!=nil    (cons _v_24 _v_25)=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]]
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL [||    (_v_25=nil)&&((cons _v_24 _v_25)=nil)    ((cons _v_24 (append _v_25 nil))!=nil)&&(_v_25=nil)    (_v_25!=nil)&&((cons _v_24 _v_25)=nil)    (_v_25!=nil)&&(((-1*(last _v_25))+_v_26)=0)    (_v_25=nil)&&(((-1*_v_24)+_v_26)=0)    [&&    (cons _v_24 (append _v_25 nil))!=nil    _v_25!=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25!=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25=nil    (cons _v_24 _v_25)=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25!=nil    (cons _v_24 _v_25)=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]]
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL [||    (_v_25=nil)&&((cons _v_24 _v_25)=nil)    ((cons _v_24 (append _v_25 nil))!=nil)&&(_v_25=nil)    (_v_25!=nil)&&((cons _v_24 _v_25)=nil)    (_v_25!=nil)&&(((-1*(last _v_25))+_v_26)=0)    (_v_25=nil)&&(((-1*_v_24)+_v_26)=0)    [&&    (cons _v_24 (append _v_25 nil))!=nil    _v_25!=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25!=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25=nil    (cons _v_24 _v_25)=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25!=nil    (cons _v_24 _v_25)=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]]
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL [||    (_v_25=nil)&&((cons _v_24 _v_25)=nil)    ((cons _v_24 (append _v_25 nil))!=nil)&&(_v_25=nil)    (_v_25!=nil)&&((cons _v_24 _v_25)=nil)    (_v_25!=nil)&&(((-1*(last _v_25))+_v_26)=0)    (_v_25=nil)&&(((-1*_v_24)+_v_26)=0)    [&&    (cons _v_24 (append _v_25 nil))!=nil    _v_25!=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25!=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25=nil    (cons _v_24 _v_25)=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25!=nil    (cons _v_24 _v_25)=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]]
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL [||    (_v_25=nil)&&((cons _v_24 _v_25)=nil)    ((cons _v_24 (append _v_25 nil))!=nil)&&(_v_25=nil)    (_v_25!=nil)&&((cons _v_24 _v_25)=nil)    (_v_25!=nil)&&(((-1*(last _v_25))+_v_26)=0)    (_v_25=nil)&&(((-1*_v_24)+_v_26)=0)    [&&    (cons _v_24 (append _v_25 nil))!=nil    _v_25!=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25!=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25=nil    (cons _v_24 _v_25)=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25!=nil    (cons _v_24 _v_25)=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]]
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL [||    (_v_25=nil)&&((cons _v_24 _v_25)=nil)    ((cons _v_24 (append _v_25 nil))!=nil)&&(_v_25=nil)    (_v_25!=nil)&&((cons _v_24 _v_25)=nil)    (_v_25!=nil)&&(((-1*(last _v_25))+_v_26)=0)    (_v_25=nil)&&(((-1*_v_24)+_v_26)=0)    [&&    (cons _v_24 (append _v_25 nil))!=nil    _v_25!=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25!=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25=nil    (cons _v_24 _v_25)=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25!=nil    (cons _v_24 _v_25)=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]]
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL [||    (_v_25=nil)&&((cons _v_24 _v_25)=nil)    ((cons _v_24 (append _v_25 nil))!=nil)&&(_v_25=nil)    (_v_25!=nil)&&((cons _v_24 _v_25)=nil)    (_v_25!=nil)&&(((-1*(last _v_25))+_v_26)=0)    (_v_25=nil)&&(((-1*_v_24)+_v_26)=0)    [&&    (cons _v_24 (append _v_25 nil))!=nil    _v_25!=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25!=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25=nil    (cons _v_24 _v_25)=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25!=nil    (cons _v_24 _v_25)=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]]
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL [||    (_v_25=nil)&&((cons _v_24 _v_25)=nil)    ((cons _v_24 (append _v_25 nil))!=nil)&&(_v_25=nil)    (_v_25!=nil)&&((cons _v_24 _v_25)=nil)    (_v_25!=nil)&&(((-1*(last _v_25))+_v_26)=0)    (_v_25=nil)&&(((-1*_v_24)+_v_26)=0)    [&&    (cons _v_24 (append _v_25 nil))!=nil    _v_25!=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25!=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25=nil    (cons _v_24 _v_25)=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25!=nil    (cons _v_24 _v_25)=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]]
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL [||    (_v_25=nil)&&((cons _v_24 _v_25)=nil)    ((cons _v_24 (append _v_25 nil))!=nil)&&(_v_25=nil)    (_v_25!=nil)&&((cons _v_24 _v_25)=nil)    (_v_25!=nil)&&(((-1*(last _v_25))+_v_26)=0)    (_v_25=nil)&&(((-1*_v_24)+_v_26)=0)    [&&    (cons _v_24 (append _v_25 nil))!=nil    _v_25!=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25!=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25=nil    (cons _v_24 _v_25)=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25!=nil    (cons _v_24 _v_25)=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]]
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL [||    (_v_25=nil)&&((cons _v_24 _v_25)=nil)    ((cons _v_24 (append _v_25 nil))!=nil)&&(_v_25=nil)    (_v_25!=nil)&&((cons _v_24 _v_25)=nil)    (_v_25!=nil)&&(((-1*(last _v_25))+_v_26)=0)    (_v_25=nil)&&(((-1*_v_24)+_v_26)=0)    [&&    (cons _v_24 (append _v_25 nil))!=nil    _v_25!=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25!=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25=nil    (cons _v_24 _v_25)=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25!=nil    (cons _v_24 _v_25)=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]]
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL [||    (_v_25=nil)&&((cons _v_24 _v_25)=nil)    ((cons _v_24 (append _v_25 nil))!=nil)&&(_v_25=nil)    (_v_25!=nil)&&((cons _v_24 _v_25)=nil)    (_v_25!=nil)&&(((-1*(last _v_25))+_v_26)=0)    (_v_25=nil)&&(((-1*_v_24)+_v_26)=0)    [&&    (cons _v_24 (append _v_25 nil))!=nil    _v_25!=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25!=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25=nil    (cons _v_24 _v_25)=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    [&&    _v_25!=nil    (cons _v_24 _v_25)=nil    ((last (cons _t_27 (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0    ((last (cons _t_27 (append _t_28 (cons _v_24 (append _v_25 nil)))))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]]
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL [||    ((-1*(last _v_25))+_v_26)=0    ((cons _v_24 _v_25)=nil)&&((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))<0    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))>0]
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL [||    ((-1*(last _v_25))+_v_26)=0    ((cons _v_24 _v_25)=nil)&&((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))<0    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))>0]
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL [||    ((-1*(last _v_25))+_v_26)=0    ((cons _v_24 _v_25)=nil)&&((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))<0    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))>0]
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL [||    ((-1*(last _v_25))+_v_26)=0    ((cons _v_24 _v_25)=nil)&&((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))<0    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))>0]
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL [||    ((-1*(last _v_25))+_v_26)=0    ((cons _v_24 _v_25)=nil)&&((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))<0    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))>0]
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL [||    ((-1*(last _v_25))+_v_26)=0    ((cons _v_24 _v_25)=nil)&&((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))<0    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))>0]
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL [||    ((cons _v_24 _v_25)=nil)&&((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))<0    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))>0]
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL [||    ((cons _v_24 _v_25)=nil)&&((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))<0    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))>0]
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL [||    ((cons _v_24 _v_25)=nil)&&((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))<0    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))>0]
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL [||    ((cons _v_24 _v_25)=nil)&&((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))<0    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))>0]
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL [||    ((cons _v_24 _v_25)=nil)&&((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))<0    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))>0]
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL [||    ((cons _v_24 _v_25)=nil)&&((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))<0    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))>0]
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL [||    (_v_25!=nil)&&((cons _v_24 _v_25)=nil)    (_v_25!=nil)&&(((-1*(last _v_25))+_v_26)=0)    (_v_25=nil)&&(((-1*_v_24)+_v_26)=0)    (_v_25!=nil)&&((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)    [&&    _v_25=nil    (cons _v_24 _v_25)=nil    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    (_v_25=nil)&&((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)    [&&    _v_25!=nil    (cons _v_24 _v_25)=nil    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]]
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL [||    (_v_25!=nil)&&((cons _v_24 _v_25)=nil)    (_v_25!=nil)&&(((-1*(last _v_25))+_v_26)=0)    (_v_25=nil)&&(((-1*_v_24)+_v_26)=0)    (_v_25!=nil)&&((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)    [&&    _v_25=nil    (cons _v_24 _v_25)=nil    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    (_v_25=nil)&&((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)    [&&    _v_25!=nil    (cons _v_24 _v_25)=nil    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]]
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL [||    (_v_25!=nil)&&((cons _v_24 _v_25)=nil)    (_v_25!=nil)&&(((-1*(last _v_25))+_v_26)=0)    (_v_25=nil)&&(((-1*_v_24)+_v_26)=0)    (_v_25!=nil)&&((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)    [&&    _v_25=nil    (cons _v_24 _v_25)=nil    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    (_v_25=nil)&&((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)    [&&    _v_25!=nil    (cons _v_24 _v_25)=nil    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]]
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL [||    ((-1*(last _v_25))+_v_26)=0    ((cons _v_24 _v_25)=nil)&&((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))<0    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))>0]
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL [||    ((-1*(last _v_25))+_v_26)=0    ((cons _v_24 _v_25)=nil)&&((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))<0    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))>0]
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL [||    ((-1*(last _v_25))+_v_26)=0    ((cons _v_24 _v_25)=nil)&&((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))<0    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))>0]
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL [||    ((-1*(last _v_25))+_v_26)=0    ((cons _v_24 _v_25)=nil)&&((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))<0    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))>0]
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL [||    ((-1*(last _v_25))+_v_26)=0    ((cons _v_24 _v_25)=nil)&&((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))<0    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))>0]
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL [||    ((-1*(last _v_25))+_v_26)=0    ((cons _v_24 _v_25)=nil)&&((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))<0    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))>0]
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL [||    ((cons _v_24 _v_25)=nil)&&((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))<0    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))>0]
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL [||    ((cons _v_24 _v_25)=nil)&&((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))<0    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))>0]
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL [||    ((cons _v_24 _v_25)=nil)&&((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))<0    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))>0]
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL [||    ((cons _v_24 _v_25)=nil)&&((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))<0    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))>0]
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL [||    ((cons _v_24 _v_25)=nil)&&((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))<0    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))>0]
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL [||    ((cons _v_24 _v_25)=nil)&&((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))<0    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))>0]
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL [||    (_v_25!=nil)&&((cons _v_24 _v_25)=nil)    (_v_25!=nil)&&(((-1*(last _v_25))+_v_26)=0)    (_v_25=nil)&&(((-1*_v_24)+_v_26)=0)    (_v_25!=nil)&&((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)    [&&    _v_25=nil    (cons _v_24 _v_25)=nil    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    (_v_25=nil)&&((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)    [&&    _v_25!=nil    (cons _v_24 _v_25)=nil    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]]
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL [||    (_v_25!=nil)&&((cons _v_24 _v_25)=nil)    (_v_25!=nil)&&(((-1*(last _v_25))+_v_26)=0)    (_v_25=nil)&&(((-1*_v_24)+_v_26)=0)    (_v_25!=nil)&&((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)    [&&    _v_25=nil    (cons _v_24 _v_25)=nil    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    (_v_25=nil)&&((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)    [&&    _v_25!=nil    (cons _v_24 _v_25)=nil    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]]
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL [||    (_v_25!=nil)&&((cons _v_24 _v_25)=nil)    (_v_25!=nil)&&(((-1*(last _v_25))+_v_26)=0)    (_v_25=nil)&&(((-1*_v_24)+_v_26)=0)    (_v_25!=nil)&&((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)    [&&    _v_25=nil    (cons _v_24 _v_25)=nil    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]    (_v_25=nil)&&((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)    [&&    _v_25!=nil    (cons _v_24 _v_25)=nil    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0]]
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL [||    ((-1*(last _v_25))+_v_26)=0    ((cons _v_24 _v_25)=nil)&&((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))<0    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))>0]
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL [||    ((-1*(last _v_25))+_v_26)=0    ((cons _v_24 _v_25)=nil)&&((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))<0    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))>0]
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL [||    ((-1*(last _v_25))+_v_26)=0    ((cons _v_24 _v_25)=nil)&&((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))<0    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))>0]
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((_v_26+(-1*(last nil)))=0)
+NOW TESTING (forall ((Lst)) (0<=(last _qv_23)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL [||    ((-1*(last _v_25))+_v_26)=0    ((cons _v_24 _v_25)=nil)&&((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))<0    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))>0]
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_18 _qv_19)=(append _qv_19 _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL [||    ((-1*(last _v_25))+_v_26)=0    ((cons _v_24 _v_25)=nil)&&((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))<0    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))>0]
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_20 _qv_21) _qv_22)=(append _qv_20 (append _qv_21 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL [||    ((-1*(last _v_25))+_v_26)=0    ((cons _v_24 _v_25)=nil)&&((ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite(_t_28=nil, -_t_27, -(last _t_28)))!=0)    (ite((append _t_28 nil)=nil, _t_27, (last (append _t_28 nil)))+ite

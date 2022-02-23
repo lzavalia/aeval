@@ -1,0 +1,22 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+	(forall ((Nat) (Nat)) ((plus _qv_1 _qv_2)=(plus _qv_2 _qv_1)))
+	(forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_3 _qv_4) _qv_5)=(plus _qv_3 (plus _qv_4 _qv_5))))
+	(forall ((Nat) (Nat)) ((succ (plus _qv_6 _qv_7))=(plus (succ _qv_6) (succ _qv_7))))
+	(forall ((Nat) (Nat)) ((succ (plus _qv_6 _qv_7))=(plus (succ _qv_7) (succ _qv_6))))
+
+Simplified goal: (forall ((Nat) (Nat)) ((even (plus x y))=(even (plus x (succ (succ y))))))
+
+
+Base case:       ((even (plus zero _v_8))=(even (plus zero (succ (succ _v_8)))))
+{
+  proven trivially
+}
+Inductive step:  ((even (plus (succ _t_9) _v_8))=(even (plus (succ _t_9) (succ (succ _v_8)))))
+{
+  proven trivially
+}
+
+Proved
+unsat

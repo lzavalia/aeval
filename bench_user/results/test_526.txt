@@ -1,0 +1,62 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+
+Simplified goal: (forall ((Nat) (Nat) (Lst)) ((mem x (drop y z))->(mem x z)))
+
+
+Base case:       (mem zero _v_1)
+{
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat)) ((drop _qv_1 nil)=nil))
+    | Assumptions [1]: (forall ((Lst)) ((drop zero _qv_2)=_qv_2))
+    | Assumptions [2]: (forall ((Nat) (Nat) (Lst)) ((drop (succ _qv_3) (cons _qv_4 _qv_5))=(drop _qv_3 _qv_5)))
+    | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((mem _qv_7 (cons _qv_8 _qv_9))=((_qv_7=_qv_8)||(mem _qv_7 _qv_9))))
+    | Assumptions [4]: (mem zero (drop _v_0 _v_1))
+    | Assumptions [5]: (forall ((Nat)) (!(mem _qv_6 nil)))
+    ====================
+  }
+}
+
+Base case:       (mem _v_2 _v_3)
+{
+  proven trivially
+}
+Inductive step:  (mem _v_2 _v_3)
+{
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat)) ((drop _qv_1 nil)=nil))
+    | Assumptions [1]: (forall ((Lst)) ((drop zero _qv_2)=_qv_2))
+    | Assumptions [2]: (forall ((Nat) (Nat) (Lst)) ((drop (succ _qv_3) (cons _qv_4 _qv_5))=(drop _qv_3 _qv_5)))
+    | Assumptions [3]: (forall ((Nat) (Nat) (Lst)) ((mem _qv_7 (cons _qv_8 _qv_9))=((_qv_7=_qv_8)||(mem _qv_7 _qv_9))))
+    | Assumptions [4]: (mem zero (drop _v_0 _v_1))
+    | Assumptions [5]: (forall ((Nat)) (!(mem _qv_6 nil)))
+    | Assumptions [6]: (forall ((Nat) (Lst)) ((mem x (drop _t_4 z))->(mem x z)))
+    | Assumptions [7]: (mem _v_2 (drop (succ _t_4) _v_3))
+    ====================
+  }
+  rewritten [6]: (mem _v_2 (drop _t_4 _v_3))
+  rewritten [6]: (mem _v_2 (drop _t_4 (drop _t_4 _v_3)))
+  rewritten [6]: (mem _v_2 (drop _t_4 (drop _t_4 (drop _t_4 _v_3))))
+  rewritten [6]: (mem _v_2 (drop _t_4 (drop _t_4 (drop _t_4 (drop _t_4 _v_3)))))
+  sequence of rewrites only grows
+  backtrack to: (mem _v_2 (drop _t_4 (drop _t_4 (drop _t_4 _v_3))))
+  rewritten [6]: (mem _v_2 (drop _t_4 (drop _t_4 (drop _t_4 (drop _t_4 _v_3)))))
+  sequence of rewrites only grows
+  backtrack to: (mem _v_2 (drop _t_4 (drop _t_4 (drop _t_4 _v_3))))
+  backtrack to: (mem _v_2 (drop _t_4 (drop _t_4 _v_3)))
+  rewritten [6]: (mem _v_2 (drop _t_4 (drop _t_4 (drop _t_4 _v_3))))
+  rewritten [6]: (mem _v_2 (drop _t_4 (drop _t_4 (drop _t_4 (drop _t_4 _v_3)))))
+  sequence of rewrites only grows
+  backtrack to: (mem _v_2 (drop _t_4 (drop _t_4 (drop _t_4 _v_3))))
+  rewritten [6]: (mem _v_2 (drop _t_4 (drop _t_4 (drop _t_4 (drop _t_4 _v_3)))))
+  sequence of rewrites only grows
+  backtrack to: (mem _v_2 (drop _t_4 (drop _t_4 (drop _t_4 _v_3))))
+  backtrack to: (mem _v_2 (drop _t_4 (drop _t_4 _v_3)))
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+

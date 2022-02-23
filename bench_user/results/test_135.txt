@@ -1,0 +1,25 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+	(forall ((Nat)) (0<=(nat-to-int _qv_1)))
+	(forall ((Lst) (Lst)) ((append _qv_2 _qv_3)=(append _qv_3 _qv_2)))
+	(forall ((Lst) (Lst) (Lst)) ((append (append _qv_4 _qv_5) _qv_6)=(append _qv_4 (append _qv_5 _qv_6))))
+	(forall ((Lst)) ((butlast (butlast _qv_7))=_qv_7))
+	(forall ((Nat)) ((nat-to-int (succ _qv_8))=(nat-to-int _qv_8)))
+	(forall ((Lst) (Lst)) ((butlast (append _qv_9 _qv_10))=(append (butlast _qv_9) (butlast _qv_10))))
+	(forall ((Lst) (Lst)) ((butlast (append _qv_9 _qv_10))=(append (butlast _qv_10) (butlast _qv_9))))
+
+Simplified goal: (forall ((Lst)) ((!(xs=nil))->((butlast (append xs (cons (last xs) nil)))=xs)))
+
+
+Base case:       ((butlast (append nil (cons (last nil) nil)))=nil)
+{
+  proven trivially
+}
+Inductive step:  ((butlast (append (cons _t_11 _t_12) (cons (last (cons _t_11 _t_12)) nil)))=(cons _t_11 _t_12))
+{
+  proven trivially
+}
+
+Proved
+unsat

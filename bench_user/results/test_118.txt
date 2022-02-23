@@ -1,0 +1,538 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+	(forall ((Nat)) (0<=(nat-to-int _qv_1)))
+	(forall ((Lst) (Lst)) ((append _qv_2 _qv_3)=(append _qv_3 _qv_2)))
+	(forall ((Lst) (Lst) (Lst)) ((append (append _qv_4 _qv_5) _qv_6)=(append _qv_4 (append _qv_5 _qv_6))))
+	(forall ((Nat)) ((nat-to-int (succ _qv_7))=(nat-to-int _qv_7)))
+
+Simplified goal: (forall ((Lst) (Lst)) (((ys=nil)&&((last (append xs ys))=(last xs)))||(((last (append xs ys))=(last ys))&&(ys!=nil))))
+
+
+Base case:       (((_v_8=nil)&&((last (append nil _v_8))=(last nil)))||(((last (append nil _v_8))=(last _v_8))&&(_v_8!=nil)))
+{
+  proven trivially
+}
+Inductive step:  (((_v_8=nil)&&((last (append (cons _t_9 _t_10) _v_8))=(last (cons _t_9 _t_10))))||(((last (append (cons _t_9 _t_10) _v_8))=(last _v_8))&&(_v_8!=nil)))
+{
+  {
+    ====================
+    | Assumptions [0]: ((nat-to-int zero)=0)
+    | Assumptions [1]: (forall ((Nat)) ((nat-to-int _qv_1)>=0))
+    | Assumptions [2]: (forall ((Nat) (Nat)) (((nat-to-int _qv_2)=(nat-to-int _qv_3))->(_qv_2=_qv_3)))
+    | Assumptions [3]: (forall ((Nat)) ((nat-to-int (succ _qv_4))=(1+(nat-to-int _qv_4))))
+    | Assumptions [4]: (forall ((Lst)) ((append nil _qv_5)=_qv_5))
+    | Assumptions [5]: (forall ((Nat) (Lst) (Lst)) ((append (cons _qv_6 _qv_7) _qv_8)=(cons _qv_6 (append _qv_7 _qv_8))))
+    | Assumptions [6]: (forall ((Nat) (Lst)) ((last (cons _qv_9 _qv_10))=ite(_qv_10=nil, _qv_9, (last _qv_10))))
+    | Assumptions [7]: (forall ((Lst)) (((ys=nil)&&((last (append _t_10 ys))=(last _t_10)))||((ys!=nil)&&((last (append _t_10 ys))=(last ys)))))
+    ====================
+  }
+  rewritten [2]: (((_v_8=nil)&&((last (append (cons _t_9 _t_10) _v_8))=(last (cons _t_9 _t_10))))||((_v_8!=nil)&&((nat-to-int (last (append (cons _t_9 _t_10) _v_8)))=(nat-to-int (last _v_8)))))
+  rewritten [2]: (((_v_8=nil)&&((nat-to-int (last (append (cons _t_9 _t_10) _v_8)))=(nat-to-int (last (cons _t_9 _t_10)))))||((_v_8!=nil)&&(((nat-to-int (last (append (cons _t_9 _t_10) _v_8)))+(-(nat-to-int (last _v_8))))=0)))
+  rewritten [5]: (((_v_8!=nil)&&(((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int (last _v_8))))=0))||((_v_8=nil)&&(((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int (last (cons _t_9 _t_10)))))=0)))
+  rewritten [6]: (((_v_8=nil)&&(((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10)))))=0))||((_v_8!=nil)&&(((-(nat-to-int (last _v_8)))+(nat-to-int (last (cons _t_9 (append _t_10 _v_8)))))=0)))
+  sequence of rewrites only grows
+CURRENT SUBGOAL (((_v_8=nil)&&(((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int (last (cons _t_9 _t_10)))))=0))||((_v_8!=nil)&&(((-(nat-to-int (last _v_8)))+(nat-to-int (last (cons _t_9 (append _t_10 _v_8)))))=0)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_8=nil)&&(((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int (last (cons _t_9 _t_10)))))=0))||((_v_8!=nil)&&(((-(nat-to-int (last _v_8)))+(nat-to-int (last (cons _t_9 (append _t_10 _v_8)))))=0)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_8=nil)&&(((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int (last (cons _t_9 _t_10)))))=0))||((_v_8!=nil)&&(((-(nat-to-int (last _v_8)))+(nat-to-int (last (cons _t_9 (append _t_10 _v_8)))))=0)))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_2 _qv_3)=(append _qv_3 _qv_2)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_8=nil)&&(((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int (last (cons _t_9 _t_10)))))=0))||((_v_8!=nil)&&(((-(nat-to-int (last _v_8)))+(nat-to-int (last (cons _t_9 (append _t_10 _v_8)))))=0)))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_4 _qv_5) _qv_6)=(append _qv_4 (append _qv_5 _qv_6))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_8=nil)&&(((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int (last (cons _t_9 _t_10)))))=0))||((_v_8!=nil)&&(((-(nat-to-int (last _v_8)))+(nat-to-int (last (cons _t_9 (append _t_10 _v_8)))))=0)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_7))=(nat-to-int _qv_7)))
+USE ASSUMPTION FAILED
+
+  backtrack to: (((_v_8=nil)&&(((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int (last (cons _t_9 _t_10)))))=0))||((_v_8!=nil)&&(((-(nat-to-int (last _v_8)))+(nat-to-int (last (cons _t_9 (append _t_10 _v_8)))))=0)))
+  rewritten [6]: (((_v_8=nil)&&(((nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8))))+(-(nat-to-int (last (cons _t_9 _t_10)))))=0))||((_v_8!=nil)&&(((-(nat-to-int (last _v_8)))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))=0)))
+  sequence of rewrites only grows
+CURRENT SUBGOAL (((_v_8=nil)&&(((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int (last (cons _t_9 _t_10)))))=0))||((_v_8!=nil)&&(((-(nat-to-int (last _v_8)))+(nat-to-int (last (cons _t_9 (append _t_10 _v_8)))))=0)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_8=nil)&&(((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int (last (cons _t_9 _t_10)))))=0))||((_v_8!=nil)&&(((-(nat-to-int (last _v_8)))+(nat-to-int (last (cons _t_9 (append _t_10 _v_8)))))=0)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_8=nil)&&(((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int (last (cons _t_9 _t_10)))))=0))||((_v_8!=nil)&&(((-(nat-to-int (last _v_8)))+(nat-to-int (last (cons _t_9 (append _t_10 _v_8)))))=0)))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_2 _qv_3)=(append _qv_3 _qv_2)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_8=nil)&&(((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int (last (cons _t_9 _t_10)))))=0))||((_v_8!=nil)&&(((-(nat-to-int (last _v_8)))+(nat-to-int (last (cons _t_9 (append _t_10 _v_8)))))=0)))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_4 _qv_5) _qv_6)=(append _qv_4 (append _qv_5 _qv_6))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_8=nil)&&(((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int (last (cons _t_9 _t_10)))))=0))||((_v_8!=nil)&&(((-(nat-to-int (last _v_8)))+(nat-to-int (last (cons _t_9 (append _t_10 _v_8)))))=0)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_7))=(nat-to-int _qv_7)))
+USE ASSUMPTION FAILED
+
+  backtrack to: (((_v_8=nil)&&(((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int (last (cons _t_9 _t_10)))))=0))||((_v_8!=nil)&&(((-(nat-to-int (last _v_8)))+(nat-to-int (last (cons _t_9 (append _t_10 _v_8)))))=0)))
+  rewritten [6]: (((_v_8=nil)&&(((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10)))))=0))||((_v_8!=nil)&&(((-(nat-to-int (last _v_8)))+(nat-to-int (last (cons _t_9 (append _t_10 _v_8)))))=0)))
+  sequence of rewrites only grows
+CURRENT SUBGOAL (((_v_8=nil)&&(((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int (last (cons _t_9 _t_10)))))=0))||((_v_8!=nil)&&(((-(nat-to-int (last _v_8)))+(nat-to-int (last (cons _t_9 (append _t_10 _v_8)))))=0)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_8=nil)&&(((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int (last (cons _t_9 _t_10)))))=0))||((_v_8!=nil)&&(((-(nat-to-int (last _v_8)))+(nat-to-int (last (cons _t_9 (append _t_10 _v_8)))))=0)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_8=nil)&&(((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int (last (cons _t_9 _t_10)))))=0))||((_v_8!=nil)&&(((-(nat-to-int (last _v_8)))+(nat-to-int (last (cons _t_9 (append _t_10 _v_8)))))=0)))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_2 _qv_3)=(append _qv_3 _qv_2)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_8=nil)&&(((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int (last (cons _t_9 _t_10)))))=0))||((_v_8!=nil)&&(((-(nat-to-int (last _v_8)))+(nat-to-int (last (cons _t_9 (append _t_10 _v_8)))))=0)))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_4 _qv_5) _qv_6)=(append _qv_4 (append _qv_5 _qv_6))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_8=nil)&&(((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int (last (cons _t_9 _t_10)))))=0))||((_v_8!=nil)&&(((-(nat-to-int (last _v_8)))+(nat-to-int (last (cons _t_9 (append _t_10 _v_8)))))=0)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_7))=(nat-to-int _qv_7)))
+USE ASSUMPTION FAILED
+
+  backtrack to: (((_v_8=nil)&&(((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int (last (cons _t_9 _t_10)))))=0))||((_v_8!=nil)&&(((-(nat-to-int (last _v_8)))+(nat-to-int (last (cons _t_9 (append _t_10 _v_8)))))=0)))
+  rewritten [6]: (((_v_8=nil)&&(((nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8))))+(-(nat-to-int (last (cons _t_9 _t_10)))))=0))||((_v_8!=nil)&&(((-(nat-to-int (last _v_8)))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))=0)))
+  sequence of rewrites only grows
+CURRENT SUBGOAL (((_v_8=nil)&&(((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int (last (cons _t_9 _t_10)))))=0))||((_v_8!=nil)&&(((-(nat-to-int (last _v_8)))+(nat-to-int (last (cons _t_9 (append _t_10 _v_8)))))=0)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_8=nil)&&(((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int (last (cons _t_9 _t_10)))))=0))||((_v_8!=nil)&&(((-(nat-to-int (last _v_8)))+(nat-to-int (last (cons _t_9 (append _t_10 _v_8)))))=0)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_8=nil)&&(((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int (last (cons _t_9 _t_10)))))=0))||((_v_8!=nil)&&(((-(nat-to-int (last _v_8)))+(nat-to-int (last (cons _t_9 (append _t_10 _v_8)))))=0)))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_2 _qv_3)=(append _qv_3 _qv_2)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_8=nil)&&(((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int (last (cons _t_9 _t_10)))))=0))||((_v_8!=nil)&&(((-(nat-to-int (last _v_8)))+(nat-to-int (last (cons _t_9 (append _t_10 _v_8)))))=0)))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_4 _qv_5) _qv_6)=(append _qv_4 (append _qv_5 _qv_6))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_8=nil)&&(((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int (last (cons _t_9 _t_10)))))=0))||((_v_8!=nil)&&(((-(nat-to-int (last _v_8)))+(nat-to-int (last (cons _t_9 (append _t_10 _v_8)))))=0)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_7))=(nat-to-int _qv_7)))
+USE ASSUMPTION FAILED
+
+  backtrack to: (((_v_8=nil)&&(((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int (last (cons _t_9 _t_10)))))=0))||((_v_8!=nil)&&(((-(nat-to-int (last _v_8)))+(nat-to-int (last (cons _t_9 (append _t_10 _v_8)))))=0)))
+  deciding: ((_v_8=nil)&&(((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int (last (cons _t_9 _t_10)))))=0))
+  {
+    ====================
+    | Assumptions [0]: ((nat-to-int zero)=0)
+    | Assumptions [1]: (forall ((Nat)) ((nat-to-int _qv_1)>=0))
+    | Assumptions [2]: (forall ((Nat) (Nat)) (((nat-to-int _qv_2)=(nat-to-int _qv_3))->(_qv_2=_qv_3)))
+    | Assumptions [3]: (forall ((Nat)) ((nat-to-int (succ _qv_4))=(1+(nat-to-int _qv_4))))
+    | Assumptions [4]: (forall ((Lst)) ((append nil _qv_5)=_qv_5))
+    | Assumptions [5]: (forall ((Nat) (Lst) (Lst)) ((append (cons _qv_6 _qv_7) _qv_8)=(cons _qv_6 (append _qv_7 _qv_8))))
+    | Assumptions [6]: (forall ((Nat) (Lst)) ((last (cons _qv_9 _qv_10))=ite(_qv_10=nil, _qv_9, (last _qv_10))))
+    | Assumptions [7]: (forall ((Lst)) (((ys=nil)&&((last (append _t_10 ys))=(last _t_10)))||((ys!=nil)&&((last (append _t_10 ys))=(last ys)))))
+    | Assumptions [8]: ((_v_8!=nil)||(((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int (last (cons _t_9 _t_10)))))!=0))
+    | Assumptions [9]: [||    _v_8!=nil    ((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10)))))<0    ((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10)))))>0]
+    | Assumptions [10]: [||    _v_8!=nil    ((-(nat-to-int (last (cons _t_9 _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))<0    ((-(nat-to-int (last (cons _t_9 _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))>0]
+    | Assumptions [11]: [||    _v_8!=nil    ((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))<0    ((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))>0]
+    ====================
+  }
+  current subgoal: ((_v_8!=nil)&&(((-(nat-to-int (last _v_8)))+(nat-to-int (last (cons _t_9 (append _t_10 _v_8)))))=0))
+  {
+    proceed with (part 1/2): (_v_8!=nil)
+    {
+      split for (part 1/2): (_v_8!=nil)
+      {
+        {
+          ====================
+          | Assumptions [0]: ((nat-to-int zero)=0)
+          | Assumptions [1]: (forall ((Nat)) ((nat-to-int _qv_1)>=0))
+          | Assumptions [2]: (forall ((Nat) (Nat)) (((nat-to-int _qv_2)=(nat-to-int _qv_3))->(_qv_2=_qv_3)))
+          | Assumptions [3]: (forall ((Nat)) ((nat-to-int (succ _qv_4))=(1+(nat-to-int _qv_4))))
+          | Assumptions [4]: (forall ((Lst)) ((append nil _qv_5)=_qv_5))
+          | Assumptions [5]: (forall ((Nat) (Lst) (Lst)) ((append (cons _qv_6 _qv_7) _qv_8)=(cons _qv_6 (append _qv_7 _qv_8))))
+          | Assumptions [6]: (forall ((Nat) (Lst)) ((last (cons _qv_9 _qv_10))=ite(_qv_10=nil, _qv_9, (last _qv_10))))
+          | Assumptions [7]: (_v_8!=nil)
+          | Assumptions [8]: (forall ((Lst)) (((ys=nil)&&((last (append _t_10 ys))=(last _t_10)))||((ys!=nil)&&((last (append _t_10 ys))=(last ys)))))
+          | Assumptions [9]: [||    _v_8!=nil    ((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10)))))<0    ((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10)))))>0]
+          | Assumptions [10]: [||    _v_8!=nil    ((-(nat-to-int (last (cons _t_9 _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))<0    ((-(nat-to-int (last (cons _t_9 _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))>0]
+          | Assumptions [11]: [||    _v_8!=nil    ((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))<0    ((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))>0]
+          | Assumptions [12]: ((last (append _t_10 _v_8))=(last _v_8))
+          | Assumptions [13]: (((_v_8=nil)&&((last (append _t_10 _v_8))=(last _t_10)))||((_v_8!=nil)&&((last (append _t_10 _v_8))=(last _v_8))))
+          | Assumptions [14]: [||    _v_8!=nil    ((-(nat-to-int (last (cons _t_9 _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last _v_8))))<0    ((-(nat-to-int (last (cons _t_9 _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last _v_8))))>0]
+          | Assumptions [15]: [||    _v_8!=nil    ((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last _v_8))))<0    ((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last _v_8))))>0]
+          | Assumptions [16]: ((_v_8!=nil)||((_v_8=nil)&&((last _v_8)=(last _t_10))))
+          ====================
+        }
+        rewriting [7] done
+      }
+      split for (part 2/2): (((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int (last (cons _t_9 _t_10)))))!=0)
+      {
+        {
+          ====================
+          | Assumptions [0]: ((nat-to-int zero)=0)
+          | Assumptions [1]: (forall ((Nat)) ((nat-to-int _qv_1)>=0))
+          | Assumptions [2]: (forall ((Nat) (Nat)) (((nat-to-int _qv_2)=(nat-to-int _qv_3))->(_qv_2=_qv_3)))
+          | Assumptions [3]: (forall ((Nat)) ((nat-to-int (succ _qv_4))=(1+(nat-to-int _qv_4))))
+          | Assumptions [4]: (forall ((Lst)) ((append nil _qv_5)=_qv_5))
+          | Assumptions [5]: (forall ((Nat) (Lst) (Lst)) ((append (cons _qv_6 _qv_7) _qv_8)=(cons _qv_6 (append _qv_7 _qv_8))))
+          | Assumptions [6]: (forall ((Nat) (Lst)) ((last (cons _qv_9 _qv_10))=ite(_qv_10=nil, _qv_9, (last _qv_10))))
+          | Assumptions [7]: (forall ((Lst)) (((ys=nil)&&((last (append _t_10 ys))=(last _t_10)))||((ys!=nil)&&((last (append _t_10 ys))=(last ys)))))
+          | Assumptions [8]: (((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int (last (cons _t_9 _t_10)))))!=0)
+          | Assumptions [9]: [||    _v_8!=nil    ((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10)))))<0    ((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10)))))>0]
+          | Assumptions [10]: [||    _v_8!=nil    ((-(nat-to-int (last (cons _t_9 _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))<0    ((-(nat-to-int (last (cons _t_9 _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))>0]
+          | Assumptions [11]: [||    _v_8!=nil    ((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))<0    ((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))>0]
+          | Assumptions [12]: (((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10)))))!=0)
+          | Assumptions [13]: (((-(nat-to-int (last (cons _t_9 _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))!=0)
+          | Assumptions [14]: (((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))!=0)
+          ====================
+        }
+        split for (part 1/3): (_v_8!=nil)
+        {
+          {
+            ====================
+            | Assumptions [0]: ((nat-to-int zero)=0)
+            | Assumptions [1]: (forall ((Nat)) ((nat-to-int _qv_1)>=0))
+            | Assumptions [2]: (forall ((Nat) (Nat)) (((nat-to-int _qv_2)=(nat-to-int _qv_3))->(_qv_2=_qv_3)))
+            | Assumptions [3]: (forall ((Nat)) ((nat-to-int (succ _qv_4))=(1+(nat-to-int _qv_4))))
+            | Assumptions [4]: (forall ((Lst)) ((append nil _qv_5)=_qv_5))
+            | Assumptions [5]: (forall ((Nat) (Lst) (Lst)) ((append (cons _qv_6 _qv_7) _qv_8)=(cons _qv_6 (append _qv_7 _qv_8))))
+            | Assumptions [6]: (forall ((Nat) (Lst)) ((last (cons _qv_9 _qv_10))=ite(_qv_10=nil, _qv_9, (last _qv_10))))
+            | Assumptions [7]: (_v_8!=nil)
+            | Assumptions [8]: (forall ((Lst)) (((ys=nil)&&((last (append _t_10 ys))=(last _t_10)))||((ys!=nil)&&((last (append _t_10 ys))=(last ys)))))
+            | Assumptions [9]: (((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int (last (cons _t_9 _t_10)))))!=0)
+            | Assumptions [10]: [||    _v_8!=nil    ((-(nat-to-int (last (cons _t_9 _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))<0    ((-(nat-to-int (last (cons _t_9 _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))>0]
+            | Assumptions [11]: [||    _v_8!=nil    ((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))<0    ((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))>0]
+            | Assumptions [12]: (((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10)))))!=0)
+            | Assumptions [13]: (((-(nat-to-int (last (cons _t_9 _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))!=0)
+            | Assumptions [14]: (((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))!=0)
+            | Assumptions [15]: ((last (append _t_10 _v_8))=(last _v_8))
+            | Assumptions [16]: (((_v_8=nil)&&((last (append _t_10 _v_8))=(last _t_10)))||((_v_8!=nil)&&((last (append _t_10 _v_8))=(last _v_8))))
+            | Assumptions [17]: [||    _v_8!=nil    ((-(nat-to-int (last (cons _t_9 _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last _v_8))))<0    ((-(nat-to-int (last (cons _t_9 _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last _v_8))))>0]
+            | Assumptions [18]: [||    _v_8!=nil    ((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last _v_8))))<0    ((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last _v_8))))>0]
+            | Assumptions [19]: (((-(nat-to-int (last (cons _t_9 _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last _v_8))))!=0)
+            | Assumptions [20]: (((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last _v_8))))!=0)
+            | Assumptions [21]: ((_v_8!=nil)||((_v_8=nil)&&((last _v_8)=(last _t_10))))
+            ====================
+          }
+          rewriting [7] done
+        }
+        split for (part 2/3): (((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10)))))<0)
+        {
+          {
+            ====================
+            | Assumptions [0]: ((nat-to-int zero)=0)
+            | Assumptions [1]: (forall ((Nat)) ((nat-to-int _qv_1)>=0))
+            | Assumptions [2]: (forall ((Nat) (Nat)) (((nat-to-int _qv_2)=(nat-to-int _qv_3))->(_qv_2=_qv_3)))
+            | Assumptions [3]: (forall ((Nat)) ((nat-to-int (succ _qv_4))=(1+(nat-to-int _qv_4))))
+            | Assumptions [4]: (forall ((Lst)) ((append nil _qv_5)=_qv_5))
+            | Assumptions [5]: (forall ((Nat) (Lst) (Lst)) ((append (cons _qv_6 _qv_7) _qv_8)=(cons _qv_6 (append _qv_7 _qv_8))))
+            | Assumptions [6]: (forall ((Nat) (Lst)) ((last (cons _qv_9 _qv_10))=ite(_qv_10=nil, _qv_9, (last _qv_10))))
+            | Assumptions [7]: (forall ((Lst)) (((ys=nil)&&((last (append _t_10 ys))=(last _t_10)))||((ys!=nil)&&((last (append _t_10 ys))=(last ys)))))
+            | Assumptions [8]: (((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int (last (cons _t_9 _t_10)))))!=0)
+            | Assumptions [9]: (((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10)))))<0)
+            | Assumptions [10]: [||    _v_8!=nil    ((-(nat-to-int (last (cons _t_9 _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))<0    ((-(nat-to-int (last (cons _t_9 _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))>0]
+            | Assumptions [11]: (((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))<0)
+            | Assumptions [12]: [||    _v_8!=nil    ((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))<0    ((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))>0]
+            | Assumptions [13]: (((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10)))))!=0)
+            | Assumptions [14]: (((-(nat-to-int (last (cons _t_9 _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))!=0)
+            | Assumptions [15]: (((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))!=0)
+            | Assumptions [16]: ((_v_8!=nil)||(((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10)))))<0))
+            | Assumptions [17]: ((_v_8!=nil)||(((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))<0))
+            ====================
+          }
+          split for (part 1/2): (_v_8!=nil)
+          {
+            {
+              ====================
+              | Assumptions [0]: ((nat-to-int zero)=0)
+              | Assumptions [1]: (forall ((Nat)) ((nat-to-int _qv_1)>=0))
+              | Assumptions [2]: (forall ((Nat) (Nat)) (((nat-to-int _qv_2)=(nat-to-int _qv_3))->(_qv_2=_qv_3)))
+              | Assumptions [3]: (forall ((Nat)) ((nat-to-int (succ _qv_4))=(1+(nat-to-int _qv_4))))
+              | Assumptions [4]: (forall ((Lst)) ((append nil _qv_5)=_qv_5))
+              | Assumptions [5]: (forall ((Nat) (Lst) (Lst)) ((append (cons _qv_6 _qv_7) _qv_8)=(cons _qv_6 (append _qv_7 _qv_8))))
+              | Assumptions [6]: (forall ((Nat) (Lst)) ((last (cons _qv_9 _qv_10))=ite(_qv_10=nil, _qv_9, (last _qv_10))))
+              | Assumptions [7]: (_v_8!=nil)
+              | Assumptions [8]: (forall ((Lst)) (((ys=nil)&&((last (append _t_10 ys))=(last _t_10)))||((ys!=nil)&&((last (append _t_10 ys))=(last ys)))))
+              | Assumptions [9]: (((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int (last (cons _t_9 _t_10)))))!=0)
+              | Assumptions [10]: (((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10)))))<0)
+              | Assumptions [11]: [||    _v_8!=nil    ((-(nat-to-int (last (cons _t_9 _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))<0    ((-(nat-to-int (last (cons _t_9 _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))>0]
+              | Assumptions [12]: (((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))<0)
+              | Assumptions [13]: [||    _v_8!=nil    ((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))<0    ((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))>0]
+              | Assumptions [14]: (((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10)))))!=0)
+              | Assumptions [15]: (((-(nat-to-int (last (cons _t_9 _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))!=0)
+              | Assumptions [16]: (((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))!=0)
+              | Assumptions [17]: ((_v_8!=nil)||(((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))<0))
+              | Assumptions [18]: ((last (append _t_10 _v_8))=(last _v_8))
+              | Assumptions [19]: (((_v_8=nil)&&((last (append _t_10 _v_8))=(last _t_10)))||((_v_8!=nil)&&((last (append _t_10 _v_8))=(last _v_8))))
+              | Assumptions [20]: [||    _v_8!=nil    ((-(nat-to-int (last (cons _t_9 _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last _v_8))))<0    ((-(nat-to-int (last (cons _t_9 _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last _v_8))))>0]
+              | Assumptions [21]: (((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last _v_8))))<0)
+              | Assumptions [22]: [||    _v_8!=nil    ((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last _v_8))))<0    ((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last _v_8))))>0]
+              | Assumptions [23]: (((-(nat-to-int (last (cons _t_9 _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last _v_8))))!=0)
+              | Assumptions [24]: (((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last _v_8))))!=0)
+              | Assumptions [25]: ((_v_8!=nil)||(((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last _v_8))))<0))
+              | Assumptions [26]: ((_v_8!=nil)||((_v_8=nil)&&((last _v_8)=(last _t_10))))
+              ====================
+            }
+            rewriting [7] done
+          }
+          split for (part 2/2): (((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10)))))<0)
+          {
+            {
+              ====================
+              | Assumptions [0]: ((nat-to-int zero)=0)
+              | Assumptions [1]: (forall ((Nat)) ((nat-to-int _qv_1)>=0))
+              | Assumptions [2]: (forall ((Nat) (Nat)) (((nat-to-int _qv_2)=(nat-to-int _qv_3))->(_qv_2=_qv_3)))
+              | Assumptions [3]: (forall ((Nat)) ((nat-to-int (succ _qv_4))=(1+(nat-to-int _qv_4))))
+              | Assumptions [4]: (forall ((Lst)) ((append nil _qv_5)=_qv_5))
+              | Assumptions [5]: (forall ((Nat) (Lst) (Lst)) ((append (cons _qv_6 _qv_7) _qv_8)=(cons _qv_6 (append _qv_7 _qv_8))))
+              | Assumptions [6]: (forall ((Nat) (Lst)) ((last (cons _qv_9 _qv_10))=ite(_qv_10=nil, _qv_9, (last _qv_10))))
+              | Assumptions [7]: (forall ((Lst)) (((ys=nil)&&((last (append _t_10 ys))=(last _t_10)))||((ys!=nil)&&((last (append _t_10 ys))=(last ys)))))
+              | Assumptions [8]: (((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int (last (cons _t_9 _t_10)))))!=0)
+              | Assumptions [9]: (((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10)))))<0)
+              | Assumptions [10]: [||    _v_8!=nil    ((-(nat-to-int (last (cons _t_9 _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))<0    ((-(nat-to-int (last (cons _t_9 _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))>0]
+              | Assumptions [11]: (((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))<0)
+              | Assumptions [12]: [||    _v_8!=nil    ((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))<0    ((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))>0]
+              | Assumptions [13]: (((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10)))))!=0)
+              | Assumptions [14]: (((-(nat-to-int (last (cons _t_9 _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))!=0)
+              | Assumptions [15]: (((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))!=0)
+              | Assumptions [16]: ((_v_8!=nil)||(((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))<0))
+              ====================
+            }
+            split for (part 1/3): (_v_8!=nil)
+            {
+              {
+                ====================
+                | Assumptions [0]: ((nat-to-int zero)=0)
+                | Assumptions [1]: (forall ((Nat)) ((nat-to-int _qv_1)>=0))
+                | Assumptions [2]: (forall ((Nat) (Nat)) (((nat-to-int _qv_2)=(nat-to-int _qv_3))->(_qv_2=_qv_3)))
+                | Assumptions [3]: (forall ((Nat)) ((nat-to-int (succ _qv_4))=(1+(nat-to-int _qv_4))))
+                | Assumptions [4]: (forall ((Lst)) ((append nil _qv_5)=_qv_5))
+                | Assumptions [5]: (forall ((Nat) (Lst) (Lst)) ((append (cons _qv_6 _qv_7) _qv_8)=(cons _qv_6 (append _qv_7 _qv_8))))
+                | Assumptions [6]: (forall ((Nat) (Lst)) ((last (cons _qv_9 _qv_10))=ite(_qv_10=nil, _qv_9, (last _qv_10))))
+                | Assumptions [7]: (_v_8!=nil)
+                | Assumptions [8]: (forall ((Lst)) (((ys=nil)&&((last (append _t_10 ys))=(last _t_10)))||((ys!=nil)&&((last (append _t_10 ys))=(last ys)))))
+                | Assumptions [9]: (((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int (last (cons _t_9 _t_10)))))!=0)
+                | Assumptions [10]: (((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10)))))<0)
+                | Assumptions [11]: (((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))<0)
+                | Assumptions [12]: [||    _v_8!=nil    ((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))<0    ((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))>0]
+                | Assumptions [13]: (((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10)))))!=0)
+                | Assumptions [14]: (((-(nat-to-int (last (cons _t_9 _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))!=0)
+                | Assumptions [15]: (((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))!=0)
+                | Assumptions [16]: ((_v_8!=nil)||(((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))<0))
+                | Assumptions [17]: ((last (append _t_10 _v_8))=(last _v_8))
+                | Assumptions [18]: (((_v_8=nil)&&((last (append _t_10 _v_8))=(last _t_10)))||((_v_8!=nil)&&((last (append _t_10 _v_8))=(last _v_8))))
+                | Assumptions [19]: (((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last _v_8))))<0)
+                | Assumptions [20]: [||    _v_8!=nil    ((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last _v_8))))<0    ((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last _v_8))))>0]
+                | Assumptions [21]: (((-(nat-to-int (last (cons _t_9 _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last _v_8))))!=0)
+                | Assumptions [22]: (((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last _v_8))))!=0)
+                | Assumptions [23]: ((_v_8!=nil)||(((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last _v_8))))<0))
+                | Assumptions [24]: ((_v_8!=nil)||((_v_8=nil)&&((last _v_8)=(last _t_10))))
+                ====================
+              }
+              rewriting [7] done
+            }
+            split for (part 2/3): (((-(nat-to-int (last (cons _t_9 _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))<0)
+            {
+              {
+                ====================
+                | Assumptions [0]: ((nat-to-int zero)=0)
+                | Assumptions [1]: (forall ((Nat)) ((nat-to-int _qv_1)>=0))
+                | Assumptions [2]: (forall ((Nat) (Nat)) (((nat-to-int _qv_2)=(nat-to-int _qv_3))->(_qv_2=_qv_3)))
+                | Assumptions [3]: (forall ((Nat)) ((nat-to-int (succ _qv_4))=(1+(nat-to-int _qv_4))))
+                | Assumptions [4]: (forall ((Lst)) ((append nil _qv_5)=_qv_5))
+                | Assumptions [5]: (forall ((Nat) (Lst) (Lst)) ((append (cons _qv_6 _qv_7) _qv_8)=(cons _qv_6 (append _qv_7 _qv_8))))
+                | Assumptions [6]: (forall ((Nat) (Lst)) ((last (cons _qv_9 _qv_10))=ite(_qv_10=nil, _qv_9, (last _qv_10))))
+                | Assumptions [7]: (forall ((Lst)) (((ys=nil)&&((last (append _t_10 ys))=(last _t_10)))||((ys!=nil)&&((last (append _t_10 ys))=(last ys)))))
+                | Assumptions [8]: (((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int (last (cons _t_9 _t_10)))))!=0)
+                | Assumptions [9]: (((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10)))))<0)
+                | Assumptions [10]: (((-(nat-to-int (last (cons _t_9 _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))<0)
+                | Assumptions [11]: (((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))<0)
+                | Assumptions [12]: [||    _v_8!=nil    ((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))<0    ((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))>0]
+                | Assumptions [13]: (((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10)))))!=0)
+                | Assumptions [14]: (((-(nat-to-int (last (cons _t_9 _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))!=0)
+                | Assumptions [15]: (((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))!=0)
+                | Assumptions [16]: ((_v_8!=nil)||(((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))<0))
+                | Assumptions [17]: ((_v_8!=nil)||(((-(nat-to-int (last (cons _t_9 _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))<0))
+                ====================
+              }
+              split for (part 1/2): (_v_8!=nil)
+              {
+                {
+                  ====================
+                  | Assumptions [0]: ((nat-to-int zero)=0)
+                  | Assumptions [1]: (forall ((Nat)) ((nat-to-int _qv_1)>=0))
+                  | Assumptions [2]: (forall ((Nat) (Nat)) (((nat-to-int _qv_2)=(nat-to-int _qv_3))->(_qv_2=_qv_3)))
+                  | Assumptions [3]: (forall ((Nat)) ((nat-to-int (succ _qv_4))=(1+(nat-to-int _qv_4))))
+                  | Assumptions [4]: (forall ((Lst)) ((append nil _qv_5)=_qv_5))
+                  | Assumptions [5]: (forall ((Nat) (Lst) (Lst)) ((append (cons _qv_6 _qv_7) _qv_8)=(cons _qv_6 (append _qv_7 _qv_8))))
+                  | Assumptions [6]: (forall ((Nat) (Lst)) ((last (cons _qv_9 _qv_10))=ite(_qv_10=nil, _qv_9, (last _qv_10))))
+                  | Assumptions [7]: (_v_8!=nil)
+                  | Assumptions [8]: (forall ((Lst)) (((ys=nil)&&((last (append _t_10 ys))=(last _t_10)))||((ys!=nil)&&((last (append _t_10 ys))=(last ys)))))
+                  | Assumptions [9]: (((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int (last (cons _t_9 _t_10)))))!=0)
+                  | Assumptions [10]: (((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10)))))<0)
+                  | Assumptions [11]: (((-(nat-to-int (last (cons _t_9 _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))<0)
+                  | Assumptions [12]: (((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))<0)
+                  | Assumptions [13]: [||    _v_8!=nil    ((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))<0    ((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))>0]
+                  | Assumptions [14]: (((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10)))))!=0)
+                  | Assumptions [15]: (((-(nat-to-int (last (cons _t_9 _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))!=0)
+                  | Assumptions [16]: (((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))!=0)
+                  | Assumptions [17]: ((_v_8!=nil)||(((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))<0))
+                  | Assumptions [18]: ((last (append _t_10 _v_8))=(last _v_8))
+                  | Assumptions [19]: (((_v_8=nil)&&((last (append _t_10 _v_8))=(last _t_10)))||((_v_8!=nil)&&((last (append _t_10 _v_8))=(last _v_8))))
+                  | Assumptions [20]: (((-(nat-to-int (last (cons _t_9 _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last _v_8))))<0)
+                  | Assumptions [21]: (((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last _v_8))))<0)
+                  | Assumptions [22]: [||    _v_8!=nil    ((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last _v_8))))<0    ((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last _v_8))))>0]
+                  | Assumptions [23]: (((-(nat-to-int (last (cons _t_9 _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last _v_8))))!=0)
+                  | Assumptions [24]: (((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last _v_8))))!=0)
+                  | Assumptions [25]: ((_v_8!=nil)||(((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last _v_8))))<0))
+                  | Assumptions [26]: ((_v_8!=nil)||((_v_8=nil)&&((last _v_8)=(last _t_10))))
+                  ====================
+                }
+                rewriting [7] done
+              }
+              split for (part 2/2): (((-(nat-to-int (last (cons _t_9 _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))<0)
+              {
+                {
+                  ====================
+                  | Assumptions [0]: ((nat-to-int zero)=0)
+                  | Assumptions [1]: (forall ((Nat)) ((nat-to-int _qv_1)>=0))
+                  | Assumptions [2]: (forall ((Nat) (Nat)) (((nat-to-int _qv_2)=(nat-to-int _qv_3))->(_qv_2=_qv_3)))
+                  | Assumptions [3]: (forall ((Nat)) ((nat-to-int (succ _qv_4))=(1+(nat-to-int _qv_4))))
+                  | Assumptions [4]: (forall ((Lst)) ((append nil _qv_5)=_qv_5))
+                  | Assumptions [5]: (forall ((Nat) (Lst) (Lst)) ((append (cons _qv_6 _qv_7) _qv_8)=(cons _qv_6 (append _qv_7 _qv_8))))
+                  | Assumptions [6]: (forall ((Nat) (Lst)) ((last (cons _qv_9 _qv_10))=ite(_qv_10=nil, _qv_9, (last _qv_10))))
+                  | Assumptions [7]: (forall ((Lst)) (((ys=nil)&&((last (append _t_10 ys))=(last _t_10)))||((ys!=nil)&&((last (append _t_10 ys))=(last ys)))))
+                  | Assumptions [8]: (((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int (last (cons _t_9 _t_10)))))!=0)
+                  | Assumptions [9]: (((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10)))))<0)
+                  | Assumptions [10]: (((-(nat-to-int (last (cons _t_9 _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))<0)
+                  | Assumptions [11]: (((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))<0)
+                  | Assumptions [12]: [||    _v_8!=nil    ((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))<0    ((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))>0]
+                  | Assumptions [13]: (((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10)))))!=0)
+                  | Assumptions [14]: (((-(nat-to-int (last (cons _t_9 _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))!=0)
+                  | Assumptions [15]: (((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))!=0)
+                  | Assumptions [16]: ((_v_8!=nil)||(((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))<0))
+                  ====================
+                }
+                split for (part 1/2): (_v_8!=nil)
+                {
+                  {
+                    ====================
+                    | Assumptions [0]: ((nat-to-int zero)=0)
+                    | Assumptions [1]: (forall ((Nat)) ((nat-to-int _qv_1)>=0))
+                    | Assumptions [2]: (forall ((Nat) (Nat)) (((nat-to-int _qv_2)=(nat-to-int _qv_3))->(_qv_2=_qv_3)))
+                    | Assumptions [3]: (forall ((Nat)) ((nat-to-int (succ _qv_4))=(1+(nat-to-int _qv_4))))
+                    | Assumptions [4]: (forall ((Lst)) ((append nil _qv_5)=_qv_5))
+                    | Assumptions [5]: (forall ((Nat) (Lst) (Lst)) ((append (cons _qv_6 _qv_7) _qv_8)=(cons _qv_6 (append _qv_7 _qv_8))))
+                    | Assumptions [6]: (forall ((Nat) (Lst)) ((last (cons _qv_9 _qv_10))=ite(_qv_10=nil, _qv_9, (last _qv_10))))
+                    | Assumptions [7]: (_v_8!=nil)
+                    | Assumptions [8]: (forall ((Lst)) (((ys=nil)&&((last (append _t_10 ys))=(last _t_10)))||((ys!=nil)&&((last (append _t_10 ys))=(last ys)))))
+                    | Assumptions [9]: (((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int (last (cons _t_9 _t_10)))))!=0)
+                    | Assumptions [10]: (((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10)))))<0)
+                    | Assumptions [11]: (((-(nat-to-int (last (cons _t_9 _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))<0)
+                    | Assumptions [12]: (((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))<0)
+                    | Assumptions [13]: [||    _v_8!=nil    ((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))<0    ((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))>0]
+                    | Assumptions [14]: (((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10)))))!=0)
+                    | Assumptions [15]: (((-(nat-to-int (last (cons _t_9 _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))!=0)
+                    | Assumptions [16]: (((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))!=0)
+                    | Assumptions [17]: ((last (append _t_10 _v_8))=(last _v_8))
+                    | Assumptions [18]: (((_v_8=nil)&&((last (append _t_10 _v_8))=(last _t_10)))||((_v_8!=nil)&&((last (append _t_10 _v_8))=(last _v_8))))
+                    | Assumptions [19]: (((-(nat-to-int (last (cons _t_9 _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last _v_8))))<0)
+                    | Assumptions [20]: (((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last _v_8))))<0)
+                    | Assumptions [21]: [||    _v_8!=nil    ((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last _v_8))))<0    ((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last _v_8))))>0]
+                    | Assumptions [22]: (((-(nat-to-int (last (cons _t_9 _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last _v_8))))!=0)
+                    | Assumptions [23]: (((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last _v_8))))!=0)
+                    | Assumptions [24]: ((_v_8!=nil)||((_v_8=nil)&&((last _v_8)=(last _t_10))))
+                    ====================
+                  }
+                  rewriting [7] done
+                }
+                split for (part 2/2): (((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))<0)
+                {
+                  {
+                    ====================
+                    | Assumptions [0]: ((nat-to-int zero)=0)
+                    | Assumptions [1]: (forall ((Nat)) ((nat-to-int _qv_1)>=0))
+                    | Assumptions [2]: (forall ((Nat) (Nat)) (((nat-to-int _qv_2)=(nat-to-int _qv_3))->(_qv_2=_qv_3)))
+                    | Assumptions [3]: (forall ((Nat)) ((nat-to-int (succ _qv_4))=(1+(nat-to-int _qv_4))))
+                    | Assumptions [4]: (forall ((Lst)) ((append nil _qv_5)=_qv_5))
+                    | Assumptions [5]: (forall ((Nat) (Lst) (Lst)) ((append (cons _qv_6 _qv_7) _qv_8)=(cons _qv_6 (append _qv_7 _qv_8))))
+                    | Assumptions [6]: (forall ((Nat) (Lst)) ((last (cons _qv_9 _qv_10))=ite(_qv_10=nil, _qv_9, (last _qv_10))))
+                    | Assumptions [7]: (forall ((Lst)) (((ys=nil)&&((last (append _t_10 ys))=(last _t_10)))||((ys!=nil)&&((last (append _t_10 ys))=(last ys)))))
+                    | Assumptions [8]: (((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int (last (cons _t_9 _t_10)))))!=0)
+                    | Assumptions [9]: (((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10)))))<0)
+                    | Assumptions [10]: (((-(nat-to-int (last (cons _t_9 _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))<0)
+                    | Assumptions [11]: (((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))<0)
+                    | Assumptions [12]: [||    _v_8!=nil    ((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))<0    ((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))>0]
+                    | Assumptions [13]: (((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10)))))!=0)
+                    | Assumptions [14]: (((-(nat-to-int (last (cons _t_9 _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))!=0)
+                    | Assumptions [15]: (((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))!=0)
+                    ====================
+                  }
+                  split for (part 1/3): (_v_8!=nil)
+                  {
+                    {
+                      ====================
+                      | Assumptions [0]: ((nat-to-int zero)=0)
+                      | Assumptions [1]: (forall ((Nat)) ((nat-to-int _qv_1)>=0))
+                      | Assumptions [2]: (forall ((Nat) (Nat)) (((nat-to-int _qv_2)=(nat-to-int _qv_3))->(_qv_2=_qv_3)))
+                      | Assumptions [3]: (forall ((Nat)) ((nat-to-int (succ _qv_4))=(1+(nat-to-int _qv_4))))
+                      | Assumptions [4]: (forall ((Lst)) ((append nil _qv_5)=_qv_5))
+                      | Assumptions [5]: (forall ((Nat) (Lst) (Lst)) ((append (cons _qv_6 _qv_7) _qv_8)=(cons _qv_6 (append _qv_7 _qv_8))))
+                      | Assumptions [6]: (forall ((Nat) (Lst)) ((last (cons _qv_9 _qv_10))=ite(_qv_10=nil, _qv_9, (last _qv_10))))
+                      | Assumptions [7]: (_v_8!=nil)
+                      | Assumptions [8]: (forall ((Lst)) (((ys=nil)&&((last (append _t_10 ys))=(last _t_10)))||((ys!=nil)&&((last (append _t_10 ys))=(last ys)))))
+                      | Assumptions [9]: (((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int (last (cons _t_9 _t_10)))))!=0)
+                      | Assumptions [10]: (((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10)))))<0)
+                      | Assumptions [11]: (((-(nat-to-int (last (cons _t_9 _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))<0)
+                      | Assumptions [12]: (((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))<0)
+                      | Assumptions [13]: (((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10)))))!=0)
+                      | Assumptions [14]: (((-(nat-to-int (last (cons _t_9 _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))!=0)
+                      | Assumptions [15]: (((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))!=0)
+                      | Assumptions [16]: ((last (append _t_10 _v_8))=(last _v_8))
+                      | Assumptions [17]: (((_v_8=nil)&&((last (append _t_10 _v_8))=(last _t_10)))||((_v_8!=nil)&&((last (append _t_10 _v_8))=(last _v_8))))
+                      | Assumptions [18]: (((-(nat-to-int (last (cons _t_9 _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last _v_8))))<0)
+                      | Assumptions [19]: (((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last _v_8))))<0)
+                      | Assumptions [20]: (((-(nat-to-int (last (cons _t_9 _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last _v_8))))!=0)
+                      | Assumptions [21]: (((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last _v_8))))!=0)
+                      | Assumptions [22]: ((_v_8!=nil)||((_v_8=nil)&&((last _v_8)=(last _t_10))))
+                      ====================
+                    }
+                    rewriting [7] done
+                  }
+                  split for (part 2/3): (((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))<0)
+                  {
+                    {
+                      ====================
+                      | Assumptions [0]: ((nat-to-int zero)=0)
+                      | Assumptions [1]: (forall ((Nat)) ((nat-to-int _qv_1)>=0))
+                      | Assumptions [2]: (forall ((Nat) (Nat)) (((nat-to-int _qv_2)=(nat-to-int _qv_3))->(_qv_2=_qv_3)))
+                      | Assumptions [3]: (forall ((Nat)) ((nat-to-int (succ _qv_4))=(1+(nat-to-int _qv_4))))
+                      | Assumptions [4]: (forall ((Lst)) ((append nil _qv_5)=_qv_5))
+                      | Assumptions [5]: (forall ((Nat) (Lst) (Lst)) ((append (cons _qv_6 _qv_7) _qv_8)=(cons _qv_6 (append _qv_7 _qv_8))))
+                      | Assumptions [6]: (forall ((Nat) (Lst)) ((last (cons _qv_9 _qv_10))=ite(_qv_10=nil, _qv_9, (last _qv_10))))
+                      | Assumptions [7]: (forall ((Lst)) (((ys=nil)&&((last (append _t_10 ys))=(last _t_10)))||((ys!=nil)&&((last (append _t_10 ys))=(last ys)))))
+                      | Assumptions [8]: (((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int (last (cons _t_9 _t_10)))))!=0)
+                      | Assumptions [9]: (((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10)))))<0)
+                      | Assumptions [10]: (((-(nat-to-int (last (cons _t_9 _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))<0)
+                      | Assumptions [11]: (((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))<0)
+                      | Assumptions [12]: (((nat-to-int (last (cons _t_9 (append _t_10 _v_8))))+(-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10)))))!=0)
+                      | Assumptions [13]: (((-(nat-to-int (last (cons _t_9 _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))!=0)
+                      | Assumptions [14]: (((-(nat-to-int ite(_t_10=nil, _t_9, (last _t_10))))+(nat-to-int ite((append _t_10 _v_8)=nil, _t_9, (last (append _t_10 _v_8)))))!=0)
+                      ====================
+                    }
+                  }
+                  unable to succeed
+                }
+                unable to succeed
+              }
+              unable to succeed
+            }
+            unable to succeed
+          }
+          unable to succeed
+        }
+        unable to succeed
+      }

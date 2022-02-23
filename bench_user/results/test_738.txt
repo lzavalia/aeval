@@ -1,0 +1,90 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall (INT INT) ((minus _qv_0 _qv_1)=(minus _qv_1 _qv_0)))
+	(forall (INT INT INT) ((minus (minus _qv_2 _qv_3) _qv_4)=(minus _qv_2 (minus _qv_3 _qv_4))))
+	(forall ((Lst)) (0<=(len _qv_5)))
+	(forall ((Lst)) ((butlast (butlast _qv_6))=_qv_6))
+	(forall ((Lst)) ((len (butlast _qv_7))=(len _qv_7)))
+
+Simplified goal: (forall ((Lst)) ((len (butlast xs))=(minus (len xs) 1)))
+
+
+Base case:       ((len (butlast nil))=(minus (len nil) 1))
+{
+  proven trivially
+}
+Inductive step:  ((len (butlast (cons _t_8 _t_9)))=(minus (len (cons _t_8 _t_9)) 1))
+{
+  {
+    ====================
+    | Assumptions [0]: ((len nil)=0)
+    | Assumptions [1]: ((butlast nil)=nil)
+    | Assumptions [2]: (forall (INT) ((_qv_1>=0)->((minus 0 _qv_1)=0)))
+    | Assumptions [3]: (forall (INT) ((_qv_2>=0)->((minus _qv_2 0)=_qv_2)))
+    | Assumptions [4]: (forall (INT INT) (((_qv_3>=0)&&(_qv_4>=0))->((minus 1+_qv_3 1+_qv_4)=(minus _qv_3 _qv_4))))
+    | Assumptions [5]: (forall (INT INT) (((_qv_5>=0)&&(_qv_6>=0))->((minus _qv_5 _qv_6)=ite(_qv_5<_qv_6, 0, _qv_5-_qv_6))))
+    | Assumptions [6]: (forall (INT (Lst)) ((len (cons _qv_7 _qv_8))=(1+(len _qv_8))))
+    | Assumptions [7]: (forall ((Lst)) ((len _qv_9)>=0))
+    | Assumptions [8]: (forall (INT (Lst)) ((last (cons _qv_10 _qv_11))=ite(_qv_11=nil, _qv_10, (last _qv_11))))
+    | Assumptions [9]: (forall (INT (Lst)) ((butlast (cons _qv_12 _qv_13))=ite(_qv_13=nil, nil, (cons _qv_12 (butlast _qv_13)))))
+    | Assumptions [10]: ((len (butlast _t_9))=(minus (len _t_9) 1))
+    | Assumptions [11]: ((minus (len _t_9) 1)=(len (butlast _t_9)))
+    ====================
+  }
+  rewritten [0]: ((len (butlast (cons _t_8 _t_9)))=(minus (len (cons _t_8 _t_9)) 1))
+  rewritten [6]: ((len (butlast (cons _t_8 _t_9)))=(minus 1+(len _t_9) 1))
+  rewritten [0]: ((len (butlast (cons _t_8 _t_9)))=(minus (len _t_9)+1 1))
+  rewritten [9]: ((len ite(_t_9=nil, nil, (cons _t_8 (butlast _t_9))))=(minus (len _t_9)+1 1))
+  proceed with (part 1/2): ((_t_9=nil)->((len nil)=(minus (len _t_9)+1 1)))
+  {
+      proven trivially (with Z3)
+  }
+  adding ((_t_9=nil)->((len nil)=(minus (len _t_9)+1 1))) to assumptions
+  proceed with (part 2/2): ((_t_9!=nil)->((len (cons _t_8 (butlast _t_9)))=(minus (len _t_9)+1 1)))
+  {
+    {
+      ====================
+      | Assumptions [0]: ((len nil)=0)
+      | Assumptions [1]: ((butlast nil)=nil)
+      | Assumptions [2]: (forall (INT) ((_qv_1>=0)->((minus 0 _qv_1)=0)))
+      | Assumptions [3]: (forall (INT) ((_qv_2>=0)->((minus _qv_2 0)=_qv_2)))
+      | Assumptions [4]: (forall (INT INT) (((_qv_3>=0)&&(_qv_4>=0))->((minus 1+_qv_3 1+_qv_4)=(minus _qv_3 _qv_4))))
+      | Assumptions [5]: (forall (INT INT) (((_qv_5>=0)&&(_qv_6>=0))->((minus _qv_5 _qv_6)=ite(_qv_5<_qv_6, 0, _qv_5-_qv_6))))
+      | Assumptions [6]: (forall (INT (Lst)) ((len (cons _qv_7 _qv_8))=(1+(len _qv_8))))
+      | Assumptions [7]: (forall ((Lst)) ((len _qv_9)>=0))
+      | Assumptions [8]: (forall (INT (Lst)) ((last (cons _qv_10 _qv_11))=ite(_qv_11=nil, _qv_10, (last _qv_11))))
+      | Assumptions [9]: (forall (INT (Lst)) ((butlast (cons _qv_12 _qv_13))=ite(_qv_13=nil, nil, (cons _qv_12 (butlast _qv_13)))))
+      | Assumptions [10]: ((len (butlast _t_9))=(minus (len _t_9) 1))
+      | Assumptions [11]: ((minus (len _t_9) 1)=(len (butlast _t_9)))
+      | Assumptions [12]: ((_t_9=nil)->((len nil)=(minus (len _t_9)+1 1)))
+      | Assumptions [13]: (_t_9!=nil)
+      | Assumptions [14]: ((_t_9=nil)->(0=(minus (len _t_9)+1 1)))
+      ====================
+    }
+    current subgoal: ((len (cons _t_8 (butlast _t_9)))=(minus (len _t_9)+1 1))
+    rewritten [0]: ((len (cons _t_8 (butlast _t_9)))=(minus (len _t_9)+1 1))
+    rewritten [6]: ((1+(len (butlast _t_9)))=(minus (len _t_9)+1 1))
+    rewritten [0]: ((len (butlast _t_9))=(-1+(minus (len _t_9)+1 1)))
+    Maximum recursion depth reached
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall (INT INT) ((minus _qv_10 _qv_11)=(minus _qv_11 _qv_10)))
+	(forall (INT INT INT) ((minus (minus _qv_12 _qv_13) _qv_14)=(minus _qv_12 (minus _qv_13 _qv_14))))
+	(forall ((Lst)) (0<=(len _qv_15)))
+	(forall ((Lst)) ((butlast (butlast _qv_16))=_qv_16))
+	(forall ((Lst)) ((len (butlast _qv_17))=(len _qv_17)))
+
+    proven by induction: ((len (butlast _t_9))=(-1+(minus (len _t_9)+1 1)))
+    rewriting done
+    rewriting done
+  }
+  adding ((_t_9!=nil)->((len (cons _t_8 (butlast _t_9)))=(minus (len _t_9)+1 1))) to assumptions
+  all subgoals are proven
+  rewriting done
+  rewriting done
+  rewriting done
+  rewriting done
+}
+
+Proved
+unsat

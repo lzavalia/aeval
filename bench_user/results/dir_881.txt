@@ -1,0 +1,1 @@
+./ind/benchmarks-dtt/clam/sg/goal-sg15.smt2

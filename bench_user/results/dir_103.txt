@@ -1,0 +1,1 @@
+./ind/benchmarks-dti/isaplanner/goal3.smt2

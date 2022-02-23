@@ -1,0 +1,223 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+	(forall ((Lst) (Lst)) ((append _qv_1 _qv_2)=(append _qv_2 _qv_1)))
+	(forall ((Lst) (Lst) (Lst)) ((append (append _qv_3 _qv_4) _qv_5)=(append _qv_3 (append _qv_4 _qv_5))))
+
+Simplified goal: (forall ((Lst)) (even (len (append x x))))
+
+
+Base case:       (even (len (append nil nil)))
+{
+  proven trivially
+}
+Inductive step:  (even (len (append (cons _t_6 _t_7) (cons _t_6 _t_7))))
+{
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat)) ((even (succ _qv_1))=(!(even _qv_1))))
+    | Assumptions [1]: (forall ((Lst)) ((append nil _qv_2)=_qv_2))
+    | Assumptions [2]: (forall ((Nat) (Lst) (Lst)) ((append (cons _qv_3 _qv_4) _qv_5)=(cons _qv_3 (append _qv_4 _qv_5))))
+    | Assumptions [3]: (forall ((Nat) (Lst)) ((len (cons _qv_6 _qv_7))=(succ (len _qv_7))))
+    | Assumptions [4]: (even (len (append _t_7 _t_7)))
+    | Assumptions [5]: (even (len nil))
+    ====================
+  }
+  rewritten [2]: (even (len (cons _t_6 (append _t_7 (cons _t_6 _t_7)))))
+  rewritten [3]: (even (succ (len (append _t_7 (cons _t_6 _t_7)))))
+  rewritten [0]: (!(even (len (append _t_7 (cons _t_6 _t_7)))))
+CURRENT SUBGOAL (even (succ (len (append _t_7 (cons _t_6 _t_7)))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (even (succ (len (append _t_7 (cons _t_6 _t_7)))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_1 _qv_2)=(append _qv_2 _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (even (succ (len (append _t_7 (cons _t_6 _t_7)))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_3 _qv_4) _qv_5)=(append _qv_3 (append _qv_4 _qv_5))))
+USE ASSUMPTION FAILED
+
+  backtrack to: (even (succ (len (append _t_7 (cons _t_6 _t_7)))))
+  rewritten [0]: (!(even (len (append _t_7 (cons _t_6 _t_7)))))
+CURRENT SUBGOAL (even (succ (len (append _t_7 (cons _t_6 _t_7)))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (even (succ (len (append _t_7 (cons _t_6 _t_7)))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_1 _qv_2)=(append _qv_2 _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (even (succ (len (append _t_7 (cons _t_6 _t_7)))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_3 _qv_4) _qv_5)=(append _qv_3 (append _qv_4 _qv_5))))
+USE ASSUMPTION FAILED
+
+  backtrack to: (even (succ (len (append _t_7 (cons _t_6 _t_7)))))
+CURRENT SUBGOAL (even (len (cons _t_6 (append _t_7 (cons _t_6 _t_7)))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (even (len (cons _t_6 (append _t_7 (cons _t_6 _t_7)))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_1 _qv_2)=(append _qv_2 _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (even (len (cons _t_6 (append _t_7 (cons _t_6 _t_7)))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_3 _qv_4) _qv_5)=(append _qv_3 (append _qv_4 _qv_5))))
+USE ASSUMPTION FAILED
+
+  backtrack to: (even (len (cons _t_6 (append _t_7 (cons _t_6 _t_7)))))
+  rewritten [3]: (even (succ (len (append _t_7 (cons _t_6 _t_7)))))
+  rewritten [0]: (!(even (len (append _t_7 (cons _t_6 _t_7)))))
+CURRENT SUBGOAL (even (succ (len (append _t_7 (cons _t_6 _t_7)))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (even (succ (len (append _t_7 (cons _t_6 _t_7)))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_1 _qv_2)=(append _qv_2 _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (even (succ (len (append _t_7 (cons _t_6 _t_7)))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_3 _qv_4) _qv_5)=(append _qv_3 (append _qv_4 _qv_5))))
+USE ASSUMPTION FAILED
+
+  backtrack to: (even (succ (len (append _t_7 (cons _t_6 _t_7)))))
+  rewritten [0]: (!(even (len (append _t_7 (cons _t_6 _t_7)))))
+CURRENT SUBGOAL (even (succ (len (append _t_7 (cons _t_6 _t_7)))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (even (succ (len (append _t_7 (cons _t_6 _t_7)))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_1 _qv_2)=(append _qv_2 _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (even (succ (len (append _t_7 (cons _t_6 _t_7)))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_3 _qv_4) _qv_5)=(append _qv_3 (append _qv_4 _qv_5))))
+USE ASSUMPTION FAILED
+
+  backtrack to: (even (succ (len (append _t_7 (cons _t_6 _t_7)))))
+CURRENT SUBGOAL (even (len (cons _t_6 (append _t_7 (cons _t_6 _t_7)))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (even (len (cons _t_6 (append _t_7 (cons _t_6 _t_7)))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_1 _qv_2)=(append _qv_2 _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (even (len (cons _t_6 (append _t_7 (cons _t_6 _t_7)))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_3 _qv_4) _qv_5)=(append _qv_3 (append _qv_4 _qv_5))))
+USE ASSUMPTION FAILED
+
+  backtrack to: (even (len (cons _t_6 (append _t_7 (cons _t_6 _t_7)))))
+CURRENT SUBGOAL (even (len (append (cons _t_6 _t_7) (cons _t_6 _t_7))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (even (len (append (cons _t_6 _t_7) (cons _t_6 _t_7))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_1 _qv_2)=(append _qv_2 _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (even (len (append (cons _t_6 _t_7) (cons _t_6 _t_7))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_3 _qv_4) _qv_5)=(append _qv_3 (append _qv_4 _qv_5))))
+USE ASSUMPTION FAILED
+
+  backtrack to: (even (len (append (cons _t_6 _t_7) (cons _t_6 _t_7))))
+  rewritten [2]: (even (len (cons _t_6 (append _t_7 (cons _t_6 _t_7)))))
+  rewritten [3]: (even (succ (len (append _t_7 (cons _t_6 _t_7)))))
+  rewritten [0]: (!(even (len (append _t_7 (cons _t_6 _t_7)))))
+CURRENT SUBGOAL (even (succ (len (append _t_7 (cons _t_6 _t_7)))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (even (succ (len (append _t_7 (cons _t_6 _t_7)))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_1 _qv_2)=(append _qv_2 _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (even (succ (len (append _t_7 (cons _t_6 _t_7)))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_3 _qv_4) _qv_5)=(append _qv_3 (append _qv_4 _qv_5))))
+USE ASSUMPTION FAILED
+
+  backtrack to: (even (succ (len (append _t_7 (cons _t_6 _t_7)))))
+  rewritten [0]: (!(even (len (append _t_7 (cons _t_6 _t_7)))))
+CURRENT SUBGOAL (even (succ (len (append _t_7 (cons _t_6 _t_7)))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (even (succ (len (append _t_7 (cons _t_6 _t_7)))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_1 _qv_2)=(append _qv_2 _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (even (succ (len (append _t_7 (cons _t_6 _t_7)))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_3 _qv_4) _qv_5)=(append _qv_3 (append _qv_4 _qv_5))))
+USE ASSUMPTION FAILED
+
+  backtrack to: (even (succ (len (append _t_7 (cons _t_6 _t_7)))))
+CURRENT SUBGOAL (even (len (cons _t_6 (append _t_7 (cons _t_6 _t_7)))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (even (len (cons _t_6 (append _t_7 (cons _t_6 _t_7)))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_1 _qv_2)=(append _qv_2 _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (even (len (cons _t_6 (append _t_7 (cons _t_6 _t_7)))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_3 _qv_4) _qv_5)=(append _qv_3 (append _qv_4 _qv_5))))
+USE ASSUMPTION FAILED
+
+  backtrack to: (even (len (cons _t_6 (append _t_7 (cons _t_6 _t_7)))))
+  rewritten [3]: (even (succ (len (append _t_7 (cons _t_6 _t_7)))))
+  rewritten [0]: (!(even (len (append _t_7 (cons _t_6 _t_7)))))
+CURRENT SUBGOAL (even (succ (len (append _t_7 (cons _t_6 _t_7)))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (even (succ (len (append _t_7 (cons _t_6 _t_7)))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_1 _qv_2)=(append _qv_2 _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (even (succ (len (append _t_7 (cons _t_6 _t_7)))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_3 _qv_4) _qv_5)=(append _qv_3 (append _qv_4 _qv_5))))
+USE ASSUMPTION FAILED
+
+  backtrack to: (even (succ (len (append _t_7 (cons _t_6 _t_7)))))
+  rewritten [0]: (!(even (len (append _t_7 (cons _t_6 _t_7)))))
+CURRENT SUBGOAL (even (succ (len (append _t_7 (cons _t_6 _t_7)))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (even (succ (len (append _t_7 (cons _t_6 _t_7)))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_1 _qv_2)=(append _qv_2 _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (even (succ (len (append _t_7 (cons _t_6 _t_7)))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_3 _qv_4) _qv_5)=(append _qv_3 (append _qv_4 _qv_5))))
+USE ASSUMPTION FAILED
+
+  backtrack to: (even (succ (len (append _t_7 (cons _t_6 _t_7)))))
+CURRENT SUBGOAL (even (len (cons _t_6 (append _t_7 (cons _t_6 _t_7)))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (even (len (cons _t_6 (append _t_7 (cons _t_6 _t_7)))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_1 _qv_2)=(append _qv_2 _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (even (len (cons _t_6 (append _t_7 (cons _t_6 _t_7)))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_3 _qv_4) _qv_5)=(append _qv_3 (append _qv_4 _qv_5))))
+USE ASSUMPTION FAILED
+
+  backtrack to: (even (len (cons _t_6 (append _t_7 (cons _t_6 _t_7)))))
+CURRENT SUBGOAL (even (len (append (cons _t_6 _t_7) (cons _t_6 _t_7))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (even (len (append (cons _t_6 _t_7) (cons _t_6 _t_7))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_1 _qv_2)=(append _qv_2 _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (even (len (append (cons _t_6 _t_7) (cons _t_6 _t_7))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_3 _qv_4) _qv_5)=(append _qv_3 (append _qv_4 _qv_5))))
+USE ASSUMPTION FAILED
+
+  backtrack to: (even (len (append (cons _t_6 _t_7) (cons _t_6 _t_7))))
+Unknown
+sat

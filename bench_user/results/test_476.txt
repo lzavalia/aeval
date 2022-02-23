@@ -1,0 +1,96 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+	(forall ((Lst)) ((sort (sort _qv_2))=_qv_2))
+	(forall ((Nat) (Lst) (Lst)) ((insort _qv_3 (cons _qv_4 _qv_5))=(cons (insort _qv_3 _qv_4) (insort _qv_3 _qv_5))))
+	(forall ((Nat) (Lst) (Lst)) ((cons _qv_6 (insort _qv_7 _qv_8))=(insort (cons _qv_6 _qv_7) (cons _qv_6 _qv_8))))
+
+Simplified goal: (forall ((Nat) (Nat) (Lst)) ((less x y)->((mem x (insort y l))=(mem x l))))
+
+
+Base case:       ((mem zero (insort _v_9 _v_10))=(mem zero _v_10))
+{
+  {
+    ====================
+    | Assumptions [0]: ((sort nil)=nil)
+    | Assumptions [1]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+    | Assumptions [2]: (forall ((Nat) (Nat) (Lst)) ((mem _qv_6 (cons _qv_7 _qv_8))=((_qv_6=_qv_7)||(mem _qv_6 _qv_8))))
+    | Assumptions [3]: (forall ((Nat)) ((insort _qv_9 nil)=(cons _qv_9 nil)))
+    | Assumptions [4]: (forall ((Nat) (Nat) (Lst)) ((insort _qv_10 (cons _qv_11 _qv_12))=ite((less _qv_10 _qv_11), (cons _qv_10 (cons _qv_11 _qv_12)), (cons _qv_11 (insort _qv_10 _qv_12)))))
+    | Assumptions [5]: (forall ((Nat) (Lst)) ((sort (cons _qv_13 _qv_14))=(insort _qv_13 (sort _qv_14))))
+    | Assumptions [6]: (less zero _v_9)
+    | Assumptions [7]: (forall ((Nat)) (!(less _qv_1 zero)))
+    | Assumptions [8]: (forall ((Nat)) (less zero (succ _qv_2)))
+    | Assumptions [9]: (forall ((Nat)) (!(mem _qv_5 nil)))
+    | Assumptions [10]: (!(less zero zero))
+    | Assumptions [11]: ((less (succ zero) (succ _v_9))=(less zero _v_9))
+    ====================
+  }
+}
+
+Base case:       ((mem _v_11 (insort zero _v_12))=(mem _v_11 _v_12))
+{
+  proven trivially
+}
+Inductive step:  ((mem _v_11 (insort (succ _t_13) _v_12))=(mem _v_11 _v_12))
+{
+  {
+    ====================
+    | Assumptions [0]: ((sort nil)=nil)
+    | Assumptions [1]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+    | Assumptions [2]: (forall ((Nat) (Nat) (Lst)) ((mem _qv_6 (cons _qv_7 _qv_8))=((_qv_6=_qv_7)||(mem _qv_6 _qv_8))))
+    | Assumptions [3]: (forall ((Nat)) ((insort _qv_9 nil)=(cons _qv_9 nil)))
+    | Assumptions [4]: (forall ((Nat) (Nat) (Lst)) ((insort _qv_10 (cons _qv_11 _qv_12))=ite((less _qv_10 _qv_11), (cons _qv_10 (cons _qv_11 _qv_12)), (cons _qv_11 (insort _qv_10 _qv_12)))))
+    | Assumptions [5]: (forall ((Nat) (Lst)) ((sort (cons _qv_13 _qv_14))=(insort _qv_13 (sort _qv_14))))
+    | Assumptions [6]: (less zero _v_9)
+    | Assumptions [7]: (forall ((Nat)) (!(less _qv_1 zero)))
+    | Assumptions [8]: (forall ((Nat)) (less zero (succ _qv_2)))
+    | Assumptions [9]: (forall ((Nat)) (!(mem _qv_5 nil)))
+    | Assumptions [10]: (!(less zero zero))
+    | Assumptions [11]: ((less (succ zero) (succ _v_9))=(less zero _v_9))
+    | Assumptions [12]: (forall ((Nat) (Lst)) ((less x _t_13)->((mem x (insort _t_13 l))=(mem x l))))
+    | Assumptions [13]: (less _v_11 (succ _t_13))
+    ====================
+  }
+
+Base case:       ((mem _v_14 (insort _v_15 nil))=(mem _v_14 nil))
+{
+  {
+    ====================
+    | Assumptions [0]: ((sort nil)=nil)
+    | Assumptions [1]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+    | Assumptions [2]: (forall ((Nat) (Nat) (Lst)) ((mem _qv_6 (cons _qv_7 _qv_8))=((_qv_6=_qv_7)||(mem _qv_6 _qv_8))))
+    | Assumptions [3]: (forall ((Nat)) ((insort _qv_9 nil)=(cons _qv_9 nil)))
+    | Assumptions [4]: (forall ((Nat) (Nat) (Lst)) ((insort _qv_10 (cons _qv_11 _qv_12))=ite((less _qv_10 _qv_11), (cons _qv_10 (cons _qv_11 _qv_12)), (cons _qv_11 (insort _qv_10 _qv_12)))))
+    | Assumptions [5]: (forall ((Nat) (Lst)) ((sort (cons _qv_13 _qv_14))=(insort _qv_13 (sort _qv_14))))
+    | Assumptions [6]: (less zero _v_9)
+    | Assumptions [7]: (forall ((Nat)) (!(less _qv_1 zero)))
+    | Assumptions [8]: (forall ((Nat)) (less zero (succ _qv_2)))
+    | Assumptions [9]: (forall ((Nat)) (!(mem _qv_5 nil)))
+    | Assumptions [10]: (!(less zero zero))
+    | Assumptions [11]: ((less (succ zero) (succ _v_9))=(less zero _v_9))
+    | Assumptions [12]: (forall ((Nat) (Lst)) ((less x _t_13)->((mem x (insort _t_13 l))=(mem x l))))
+    | Assumptions [13]: (less _v_11 (succ _t_13))
+    | Assumptions [14]: (less _v_14 _v_15)
+    | Assumptions [15]: ((less (succ _v_14) (succ _v_15))=(less _v_14 _v_15))
+    | Assumptions [16]: (!(less _v_14 zero))
+    ====================
+  }
+  rewritten [3]: ((mem _v_14 (cons _v_15 nil))=(mem _v_14 nil))
+  rewritten [2]: (((_v_14=_v_15)||(mem _v_14 nil))=(mem _v_14 nil))
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_17))=_qv_17))
+	(forall ((Nat) (Nat)) ((less _qv_18 _qv_19)=(less _qv_19 _qv_18)))
+	(forall ((Lst)) ((sort (sort _qv_20))=_qv_20))
+	(forall ((Nat) (Lst) (Lst)) ((insort _qv_21 (cons _qv_22 _qv_23))=(cons (insort _qv_21 _qv_22) (insort _qv_21 _qv_23))))
+	(forall ((Nat) (Lst) (Lst)) ((cons _qv_24 (insort _qv_25 _qv_26))=(insort (cons _qv_24 _qv_25) (cons _qv_24 _qv_26))))
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_34))=_qv_34))
+	(forall ((Nat) (Nat)) ((less _qv_35 _qv_36)=(less _qv_36 _qv_35)))
+	(forall ((Lst)) ((sort (sort _qv_37))=_qv_37))
+	(forall ((Nat) (Lst) (Lst)) ((insort _qv_38 (cons _qv_39 _qv_40))=(cons (insort _qv_38 _qv_39) (insort _qv_38 _qv_40))))
+	(forall ((Nat) (Lst) (Lst)) ((cons _qv_41 (insort _qv_42 _qv_43))=(insort (cons _qv_41 _qv_42) (cons _qv_41 _qv_43))))
+

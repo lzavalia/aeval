@@ -1,0 +1,22 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+
+Simplified goal: (forall (INT INT INT INT INT (Lst)) ([&&    v>=0    w>=0    u>=0]->((drop 1+u (drop v (drop 1+w (cons x (cons y z)))))=(drop 1+u (drop v (drop w (cons x z)))))))
+
+
+Base case:       ((drop 1+_v_0 (drop _v_1 (drop 1+_v_2 (cons _v_3 (cons _v_4 nil)))))=(drop 1+_v_0 (drop _v_1 (drop _v_2 (cons _v_3 nil)))))
+{
+  {
+    ====================
+    | Assumptions [0]: (forall (INT) ((drop _qv_1 nil)=nil))
+    | Assumptions [1]: (forall ((Lst)) ((drop 0 _qv_2)=_qv_2))
+    | Assumptions [2]: (forall (INT INT (Lst)) ((_qv_3>=0)->((drop _qv_3+1 (cons _qv_4 _qv_5))=(drop _qv_3 _qv_5))))
+    | Assumptions [3]: (_v_0>=0)
+    | Assumptions [4]: (_v_1>=0)
+    | Assumptions [5]: (_v_2>=0)
+    | Assumptions [6]: (forall (INT (Lst)) ((drop _v_0+1 (cons _qv_4 _qv_5))=(drop _v_0 _qv_5)))
+    ====================
+  }
+}
+Unknown
+sat

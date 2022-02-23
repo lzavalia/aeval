@@ -1,0 +1,29 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+
+Simplified goal: (forall ((Nat) (Lst)) (!(mem x (delete x l))))
+
+
+Base case:       (!(mem zero (delete zero _v_0)))
+{
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat) (Nat) (Lst)) ((mem _qv_2 (cons _qv_3 _qv_4))=((_qv_2=_qv_3)||(mem _qv_2 _qv_4))))
+    | Assumptions [1]: (forall ((Nat)) ((delete _qv_5 nil)=nil))
+    | Assumptions [2]: (forall ((Nat) (Nat) (Lst)) ((delete _qv_6 (cons _qv_7 _qv_8))=ite(_qv_6=_qv_7, (delete _qv_6 _qv_8), (cons _qv_7 (delete _qv_6 _qv_8)))))
+    | Assumptions [3]: (forall ((Nat)) (!(mem _qv_1 nil)))
+    ====================
+  }
+}
+
+Base case:       (!(mem _v_1 (delete _v_1 nil)))
+{
+  proven trivially
+}
+Inductive step:  (!(mem _v_1 (delete _v_1 (cons _t_2 _t_3))))
+{
+  proven trivially
+}
+
+Proved
+unsat

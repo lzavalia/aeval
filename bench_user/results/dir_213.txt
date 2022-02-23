@@ -1,0 +1,1 @@
+./ind/benchmarks-dti/clam/goal38.smt2

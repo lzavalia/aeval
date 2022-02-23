@@ -1,0 +1,1 @@
+./ind/benchmarks-dt/clam/goal50.smt2

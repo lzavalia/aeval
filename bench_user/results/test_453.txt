@@ -1,0 +1,1688 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((minus _qv_0 _qv_1)=(minus _qv_1 _qv_0)))
+	(forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_2 _qv_3) _qv_4)=(minus _qv_2 (minus _qv_3 _qv_4))))
+
+Simplified goal: (forall ((Nat) (Nat) (Nat)) ((minus (minus (succ m) n) (succ k))=(minus (minus m n) k)))
+
+
+Base case:       ((minus (minus (succ zero) _v_5) (succ _v_6))=(minus (minus zero _v_5) _v_6))
+{
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat)) ((minus zero _qv_1)=zero))
+    | Assumptions [1]: (forall ((Nat)) ((minus _qv_2 zero)=_qv_2))
+    | Assumptions [2]: (forall ((Nat) (Nat)) ((minus (succ _qv_3) (succ _qv_4))=(minus _qv_3 _qv_4)))
+    ====================
+  }
+  rewritten [0]: ((minus (minus (succ zero) _v_5) (succ _v_6))=(minus zero _v_6))
+  rewritten [0]: ((minus (minus (succ zero) _v_5) (succ _v_6))=zero)
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((minus _qv_7 _qv_8)=(minus _qv_8 _qv_7)))
+	(forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_9 _qv_10) _qv_11)=(minus _qv_9 (minus _qv_10 _qv_11))))
+
+  proven by induction: ((minus (minus (succ zero) _v_5) (succ _v_6))=zero)
+  rewriting done
+}
+Inductive step:  ((minus (minus (succ (succ _t_7)) _v_5) (succ _v_6))=(minus (minus (succ _t_7) _v_5) _v_6))
+{
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat)) ((minus zero _qv_1)=zero))
+    | Assumptions [1]: (forall ((Nat)) ((minus _qv_2 zero)=_qv_2))
+    | Assumptions [2]: (forall ((Nat) (Nat)) ((minus (succ _qv_3) (succ _qv_4))=(minus _qv_3 _qv_4)))
+    | Assumptions [3]: (forall ((Nat) (Nat)) ((minus (minus (succ _t_7) n) (succ k))=(minus (minus _t_7 n) k)))
+    | Assumptions [4]: (forall ((Nat) (Nat)) ((minus (minus _t_7 n) k)=(minus (minus (succ _t_7) n) (succ k))))
+    ====================
+  }
+
+Base case:       ((minus (minus (succ _v_8) zero) (succ _v_9))=(minus (minus _v_8 zero) _v_9))
+{
+  proven trivially
+}
+Inductive step:  ((minus (minus (succ _v_8) (succ _t_10)) (succ _v_9))=(minus (minus _v_8 (succ _t_10)) _v_9))
+{
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat)) ((minus zero _qv_1)=zero))
+    | Assumptions [1]: (forall ((Nat)) ((minus _qv_2 zero)=_qv_2))
+    | Assumptions [2]: (forall ((Nat) (Nat)) ((minus (succ _qv_3) (succ _qv_4))=(minus _qv_3 _qv_4)))
+    | Assumptions [3]: (forall ((Nat) (Nat)) ((minus (minus (succ _t_7) n) (succ k))=(minus (minus _t_7 n) k)))
+    | Assumptions [4]: (forall ((Nat) (Nat)) ((minus (minus _t_7 n) k)=(minus (minus (succ _t_7) n) (succ k))))
+    | Assumptions [5]: (forall ((Nat) (Nat)) ((minus (minus (succ m) _t_10) (succ k))=(minus (minus m _t_10) k)))
+    | Assumptions [6]: (forall ((Nat) (Nat)) ((minus (minus m _t_10) k)=(minus (minus (succ m) _t_10) (succ k))))
+    ====================
+  }
+  rewritten [2]: ((minus (minus _v_8 _t_10) (succ _v_9))=(minus (minus _v_8 (succ _t_10)) _v_9))
+  rewritten [6]: ((minus (minus (succ _v_8) _t_10) (succ (succ _v_9)))=(minus (minus _v_8 (succ _t_10)) _v_9))
+  rewritten [6]: ((minus (minus (succ (succ _v_8)) _t_10) (succ (succ (succ _v_9))))=(minus (minus _v_8 (succ _t_10)) _v_9))
+  rewritten [6]: ((minus (minus (succ (succ (succ _v_8))) _t_10) (succ (succ (succ (succ _v_9)))))=(minus (minus _v_8 (succ _t_10)) _v_9))
+  sequence of rewrites only grows
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_8)) _t_10) (succ (succ (succ _v_9))))=(minus (minus _v_8 (succ _t_10)) _v_9))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_0 _qv_1)=(minus _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_8)) _t_10) (succ (succ (succ _v_9))))=(minus (minus _v_8 (succ _t_10)) _v_9))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_2 _qv_3) _qv_4)=(minus _qv_2 (minus _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((minus (minus (succ (succ _v_8)) _t_10) (succ (succ (succ _v_9))))=(minus (minus _v_8 (succ _t_10)) _v_9))
+  rewritten [6]: ((minus (minus (succ (succ (succ _v_8))) _t_10) (succ (succ (succ (succ _v_9)))))=(minus (minus _v_8 (succ _t_10)) _v_9))
+  sequence of rewrites only grows
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_8)) _t_10) (succ (succ (succ _v_9))))=(minus (minus _v_8 (succ _t_10)) _v_9))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_0 _qv_1)=(minus _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_8)) _t_10) (succ (succ (succ _v_9))))=(minus (minus _v_8 (succ _t_10)) _v_9))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_2 _qv_3) _qv_4)=(minus _qv_2 (minus _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((minus (minus (succ (succ _v_8)) _t_10) (succ (succ (succ _v_9))))=(minus (minus _v_8 (succ _t_10)) _v_9))
+CURRENT SUBGOAL ((minus (minus (succ _v_8) _t_10) (succ (succ _v_9)))=(minus (minus _v_8 (succ _t_10)) _v_9))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_0 _qv_1)=(minus _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _v_8) _t_10) (succ (succ _v_9)))=(minus (minus _v_8 (succ _t_10)) _v_9))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_2 _qv_3) _qv_4)=(minus _qv_2 (minus _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((minus (minus (succ _v_8) _t_10) (succ (succ _v_9)))=(minus (minus _v_8 (succ _t_10)) _v_9))
+  rewritten [6]: ((minus (minus (succ (succ _v_8)) _t_10) (succ (succ (succ _v_9))))=(minus (minus _v_8 (succ _t_10)) _v_9))
+  rewritten [6]: ((minus (minus (succ (succ (succ _v_8))) _t_10) (succ (succ (succ (succ _v_9)))))=(minus (minus _v_8 (succ _t_10)) _v_9))
+  sequence of rewrites only grows
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_8)) _t_10) (succ (succ (succ _v_9))))=(minus (minus _v_8 (succ _t_10)) _v_9))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_0 _qv_1)=(minus _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_8)) _t_10) (succ (succ (succ _v_9))))=(minus (minus _v_8 (succ _t_10)) _v_9))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_2 _qv_3) _qv_4)=(minus _qv_2 (minus _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((minus (minus (succ (succ _v_8)) _t_10) (succ (succ (succ _v_9))))=(minus (minus _v_8 (succ _t_10)) _v_9))
+  rewritten [6]: ((minus (minus (succ (succ (succ _v_8))) _t_10) (succ (succ (succ (succ _v_9)))))=(minus (minus _v_8 (succ _t_10)) _v_9))
+  sequence of rewrites only grows
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_8)) _t_10) (succ (succ (succ _v_9))))=(minus (minus _v_8 (succ _t_10)) _v_9))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_0 _qv_1)=(minus _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_8)) _t_10) (succ (succ (succ _v_9))))=(minus (minus _v_8 (succ _t_10)) _v_9))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_2 _qv_3) _qv_4)=(minus _qv_2 (minus _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((minus (minus (succ (succ _v_8)) _t_10) (succ (succ (succ _v_9))))=(minus (minus _v_8 (succ _t_10)) _v_9))
+CURRENT SUBGOAL ((minus (minus (succ _v_8) _t_10) (succ (succ _v_9)))=(minus (minus _v_8 (succ _t_10)) _v_9))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_0 _qv_1)=(minus _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _v_8) _t_10) (succ (succ _v_9)))=(minus (minus _v_8 (succ _t_10)) _v_9))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_2 _qv_3) _qv_4)=(minus _qv_2 (minus _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((minus (minus (succ _v_8) _t_10) (succ (succ _v_9)))=(minus (minus _v_8 (succ _t_10)) _v_9))
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((minus _qv_11 _qv_12)=(minus _qv_12 _qv_11)))
+	(forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_13 _qv_14) _qv_15)=(minus _qv_13 (minus _qv_14 _qv_15))))
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((minus _qv_18 _qv_19)=(minus _qv_19 _qv_18)))
+	(forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_20 _qv_21) _qv_22)=(minus _qv_20 (minus _qv_21 _qv_22))))
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+	(forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus zero _v_25))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus zero _v_25))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus zero _v_25))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus zero _v_25))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus (minus zero _v_24) _v_25))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus (minus zero _v_24) _v_25))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus zero _v_25))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus zero _v_25))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus zero _v_25))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus zero _v_25))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus (minus zero _v_24) _v_25))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus (minus zero _v_24) _v_25))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_26)) (succ _t_28)) (succ (succ _v_27)))=(minus (minus _v_26 (succ _t_28)) _v_27))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_26)) (succ _t_28)) (succ (succ _v_27)))=(minus (minus _v_26 (succ _t_28)) _v_27))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_26)) (succ _t_28)) (succ (succ _v_27)))=(minus (minus _v_26 (succ _t_28)) _v_27))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_26)) (succ _t_28)) (succ (succ _v_27)))=(minus (minus _v_26 (succ _t_28)) _v_27))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_29)) _v_30) (succ (succ zero)))=(minus (minus _v_29 _v_30) zero))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_29)) _v_30) (succ (succ zero)))=(minus (minus _v_29 _v_30) zero))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_29)) _v_30) (succ (succ zero)))=(minus (minus _v_29 _v_30) zero))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_29)) _v_30) (succ (succ zero)))=(minus (minus _v_29 _v_30) zero))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _t_18)) _v_16) (succ (succ _v_17)))=(minus (minus (succ _t_18) (succ _v_16)) _v_17))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_11 _qv_12)=(minus _qv_12 _qv_11)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _t_18)) _v_16) (succ (succ _v_17)))=(minus (minus (succ _t_18) (succ _v_16)) _v_17))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_13 _qv_14) _qv_15)=(minus _qv_13 (minus _qv_14 _qv_15))))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+	(forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus zero _v_25))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus zero _v_25))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus zero _v_25))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus zero _v_25))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus (minus zero _v_24) _v_25))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus (minus zero _v_24) _v_25))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus zero _v_25))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus zero _v_25))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus zero _v_25))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus zero _v_25))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus (minus zero _v_24) _v_25))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus (minus zero _v_24) _v_25))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_26)) (succ _t_28)) (succ (succ _v_27)))=(minus (minus _v_26 (succ _t_28)) _v_27))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_26)) (succ _t_28)) (succ (succ _v_27)))=(minus (minus _v_26 (succ _t_28)) _v_27))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_26)) (succ _t_28)) (succ (succ _v_27)))=(minus (minus _v_26 (succ _t_28)) _v_27))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_26)) (succ _t_28)) (succ (succ _v_27)))=(minus (minus _v_26 (succ _t_28)) _v_27))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_29)) _v_30) (succ (succ zero)))=(minus (minus _v_29 _v_30) zero))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_29)) _v_30) (succ (succ zero)))=(minus (minus _v_29 _v_30) zero))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_29)) _v_30) (succ (succ zero)))=(minus (minus _v_29 _v_30) zero))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_29)) _v_30) (succ (succ zero)))=(minus (minus _v_29 _v_30) zero))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _t_18)) _v_16) (succ (succ _v_17)))=(minus (minus (succ _t_18) (succ _v_16)) _v_17))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_11 _qv_12)=(minus _qv_12 _qv_11)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _t_18)) _v_16) (succ (succ _v_17)))=(minus (minus (succ _t_18) (succ _v_16)) _v_17))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_13 _qv_14) _qv_15)=(minus _qv_13 (minus _qv_14 _qv_15))))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((minus _qv_21 _qv_22)=(minus _qv_22 _qv_21)))
+	(forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_23 _qv_24) _qv_25)=(minus _qv_23 (minus _qv_24 _qv_25))))
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((minus _qv_22 _qv_23)=(minus _qv_23 _qv_22)))
+	(forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_24 _qv_25) _qv_26)=(minus _qv_24 (minus _qv_25 _qv_26))))
+
+CURRENT SUBGOAL ((minus (minus (succ _t_29) _v_27) (succ (succ _v_28)))=(minus (minus (succ _t_29) (succ (succ _v_27))) _v_28))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_22 _qv_23)=(minus _qv_23 _qv_22)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _t_29) _v_27) (succ (succ _v_28)))=(minus (minus (succ _t_29) (succ (succ _v_27))) _v_28))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_24 _qv_25) _qv_26)=(minus _qv_24 (minus _qv_25 _qv_26))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _t_29) _v_27) (succ (succ _v_28)))=(minus (minus (succ _t_29) (succ (succ _v_27))) _v_28))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_22 _qv_23)=(minus _qv_23 _qv_22)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _t_29) _v_27) (succ (succ _v_28)))=(minus (minus (succ _t_29) (succ (succ _v_27))) _v_28))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_24 _qv_25) _qv_26)=(minus _qv_24 (minus _qv_25 _qv_26))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus _v_30 zero) (succ (succ _v_31)))=(minus (minus _v_30 (succ (succ zero))) _v_31))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_22 _qv_23)=(minus _qv_23 _qv_22)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus _v_30 zero) (succ (succ _v_31)))=(minus (minus _v_30 (succ (succ zero))) _v_31))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_24 _qv_25) _qv_26)=(minus _qv_24 (minus _qv_25 _qv_26))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus _v_30 zero) (succ (succ _v_31)))=(minus (minus _v_30 (succ (succ zero))) _v_31))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_22 _qv_23)=(minus _qv_23 _qv_22)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus _v_30 zero) (succ (succ _v_31)))=(minus (minus _v_30 (succ (succ zero))) _v_31))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_24 _qv_25) _qv_26)=(minus _qv_24 (minus _qv_25 _qv_26))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus _v_32 _v_33) (succ (succ zero)))=(minus (minus _v_32 (succ (succ _v_33))) zero))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_22 _qv_23)=(minus _qv_23 _qv_22)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus _v_32 _v_33) (succ (succ zero)))=(minus (minus _v_32 (succ (succ _v_33))) zero))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_24 _qv_25) _qv_26)=(minus _qv_24 (minus _qv_25 _qv_26))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus _v_32 _v_33) (succ (succ zero)))=(minus (minus _v_32 (succ (succ _v_33))) zero))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_22 _qv_23)=(minus _qv_23 _qv_22)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus _v_32 _v_33) (succ (succ zero)))=(minus (minus _v_32 (succ (succ _v_33))) zero))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_24 _qv_25) _qv_26)=(minus _qv_24 (minus _qv_25 _qv_26))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _v_19) (succ _t_21)) (succ (succ _v_20)))=(minus (minus _v_19 (succ (succ _t_21))) _v_20))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_11 _qv_12)=(minus _qv_12 _qv_11)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _v_19) (succ _t_21)) (succ (succ _v_20)))=(minus (minus _v_19 (succ (succ _t_21))) _v_20))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_13 _qv_14) _qv_15)=(minus _qv_13 (minus _qv_14 _qv_15))))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((minus _qv_22 _qv_23)=(minus _qv_23 _qv_22)))
+	(forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_24 _qv_25) _qv_26)=(minus _qv_24 (minus _qv_25 _qv_26))))
+
+CURRENT SUBGOAL ((minus (minus (succ _t_29) _v_27) (succ (succ _v_28)))=(minus (minus (succ _t_29) (succ (succ _v_27))) _v_28))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_22 _qv_23)=(minus _qv_23 _qv_22)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _t_29) _v_27) (succ (succ _v_28)))=(minus (minus (succ _t_29) (succ (succ _v_27))) _v_28))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_24 _qv_25) _qv_26)=(minus _qv_24 (minus _qv_25 _qv_26))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _t_29) _v_27) (succ (succ _v_28)))=(minus (minus (succ _t_29) (succ (succ _v_27))) _v_28))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_22 _qv_23)=(minus _qv_23 _qv_22)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _t_29) _v_27) (succ (succ _v_28)))=(minus (minus (succ _t_29) (succ (succ _v_27))) _v_28))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_24 _qv_25) _qv_26)=(minus _qv_24 (minus _qv_25 _qv_26))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus _v_30 zero) (succ (succ _v_31)))=(minus (minus _v_30 (succ (succ zero))) _v_31))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_22 _qv_23)=(minus _qv_23 _qv_22)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus _v_30 zero) (succ (succ _v_31)))=(minus (minus _v_30 (succ (succ zero))) _v_31))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_24 _qv_25) _qv_26)=(minus _qv_24 (minus _qv_25 _qv_26))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus _v_30 zero) (succ (succ _v_31)))=(minus (minus _v_30 (succ (succ zero))) _v_31))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_22 _qv_23)=(minus _qv_23 _qv_22)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus _v_30 zero) (succ (succ _v_31)))=(minus (minus _v_30 (succ (succ zero))) _v_31))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_24 _qv_25) _qv_26)=(minus _qv_24 (minus _qv_25 _qv_26))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus _v_32 _v_33) (succ (succ zero)))=(minus (minus _v_32 (succ (succ _v_33))) zero))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_22 _qv_23)=(minus _qv_23 _qv_22)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus _v_32 _v_33) (succ (succ zero)))=(minus (minus _v_32 (succ (succ _v_33))) zero))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_24 _qv_25) _qv_26)=(minus _qv_24 (minus _qv_25 _qv_26))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus _v_32 _v_33) (succ (succ zero)))=(minus (minus _v_32 (succ (succ _v_33))) zero))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_22 _qv_23)=(minus _qv_23 _qv_22)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus _v_32 _v_33) (succ (succ zero)))=(minus (minus _v_32 (succ (succ _v_33))) zero))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_24 _qv_25) _qv_26)=(minus _qv_24 (minus _qv_25 _qv_26))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _v_19) (succ _t_21)) (succ (succ _v_20)))=(minus (minus _v_19 (succ (succ _t_21))) _v_20))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_11 _qv_12)=(minus _qv_12 _qv_11)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _v_19) (succ _t_21)) (succ (succ _v_20)))=(minus (minus _v_19 (succ (succ _t_21))) _v_20))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_13 _qv_14) _qv_15)=(minus _qv_13 (minus _qv_14 _qv_15))))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((minus _qv_24 _qv_25)=(minus _qv_25 _qv_24)))
+	(forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_26 _qv_27) _qv_28)=(minus _qv_26 (minus _qv_27 _qv_28))))
+
+CURRENT SUBGOAL ((minus (minus (succ zero) _v_29) (succ (succ zero)))=(minus zero (succ _v_29)))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_24 _qv_25)=(minus _qv_25 _qv_24)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ zero) _v_29) (succ (succ zero)))=(minus zero (succ _v_29)))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_26 _qv_27) _qv_28)=(minus _qv_26 (minus _qv_27 _qv_28))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ zero) _v_29) (succ (succ zero)))=(minus zero (succ _v_29)))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_24 _qv_25)=(minus _qv_25 _qv_24)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ zero) _v_29) (succ (succ zero)))=(minus zero (succ _v_29)))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_26 _qv_27) _qv_28)=(minus _qv_26 (minus _qv_27 _qv_28))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _v_30) (succ _t_31)) (succ (succ zero)))=(minus _v_30 (succ (succ _t_31))))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_24 _qv_25)=(minus _qv_25 _qv_24)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _v_30) (succ _t_31)) (succ (succ zero)))=(minus _v_30 (succ (succ _t_31))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_26 _qv_27) _qv_28)=(minus _qv_26 (minus _qv_27 _qv_28))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _v_30) (succ _t_31)) (succ (succ zero)))=(minus _v_30 (succ (succ _t_31))))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_24 _qv_25)=(minus _qv_25 _qv_24)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _v_30) (succ _t_31)) (succ (succ zero)))=(minus _v_30 (succ (succ _t_31))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_26 _qv_27) _qv_28)=(minus _qv_26 (minus _qv_27 _qv_28))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _v_22) _v_23) (succ (succ zero)))=(minus (minus _v_22 (succ _v_23)) zero))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_11 _qv_12)=(minus _qv_12 _qv_11)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _v_22) _v_23) (succ (succ zero)))=(minus (minus _v_22 (succ _v_23)) zero))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_13 _qv_14) _qv_15)=(minus _qv_13 (minus _qv_14 _qv_15))))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((minus _qv_24 _qv_25)=(minus _qv_25 _qv_24)))
+	(forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_26 _qv_27) _qv_28)=(minus _qv_26 (minus _qv_27 _qv_28))))
+
+CURRENT SUBGOAL ((minus (minus (succ zero) _v_29) (succ (succ zero)))=(minus zero (succ _v_29)))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_24 _qv_25)=(minus _qv_25 _qv_24)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ zero) _v_29) (succ (succ zero)))=(minus zero (succ _v_29)))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_26 _qv_27) _qv_28)=(minus _qv_26 (minus _qv_27 _qv_28))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ zero) _v_29) (succ (succ zero)))=(minus zero (succ _v_29)))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_24 _qv_25)=(minus _qv_25 _qv_24)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ zero) _v_29) (succ (succ zero)))=(minus zero (succ _v_29)))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_26 _qv_27) _qv_28)=(minus _qv_26 (minus _qv_27 _qv_28))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _v_30) (succ _t_31)) (succ (succ zero)))=(minus _v_30 (succ (succ _t_31))))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_24 _qv_25)=(minus _qv_25 _qv_24)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _v_30) (succ _t_31)) (succ (succ zero)))=(minus _v_30 (succ (succ _t_31))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_26 _qv_27) _qv_28)=(minus _qv_26 (minus _qv_27 _qv_28))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _v_30) (succ _t_31)) (succ (succ zero)))=(minus _v_30 (succ (succ _t_31))))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_24 _qv_25)=(minus _qv_25 _qv_24)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _v_30) (succ _t_31)) (succ (succ zero)))=(minus _v_30 (succ (succ _t_31))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_26 _qv_27) _qv_28)=(minus _qv_26 (minus _qv_27 _qv_28))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _v_22) _v_23) (succ (succ zero)))=(minus (minus _v_22 (succ _v_23)) zero))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_11 _qv_12)=(minus _qv_12 _qv_11)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _v_22) _v_23) (succ (succ zero)))=(minus (minus _v_22 (succ _v_23)) zero))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_13 _qv_14) _qv_15)=(minus _qv_13 (minus _qv_14 _qv_15))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus _v_8 _t_10) (succ _v_9))=(minus (minus _v_8 (succ _t_10)) _v_9))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_0 _qv_1)=(minus _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus _v_8 _t_10) (succ _v_9))=(minus (minus _v_8 (succ _t_10)) _v_9))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_2 _qv_3) _qv_4)=(minus _qv_2 (minus _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((minus (minus _v_8 _t_10) (succ _v_9))=(minus (minus _v_8 (succ _t_10)) _v_9))
+  rewritten [6]: ((minus (minus (succ _v_8) _t_10) (succ (succ _v_9)))=(minus (minus _v_8 (succ _t_10)) _v_9))
+  rewritten [6]: ((minus (minus (succ (succ _v_8)) _t_10) (succ (succ (succ _v_9))))=(minus (minus _v_8 (succ _t_10)) _v_9))
+  rewritten [6]: ((minus (minus (succ (succ (succ _v_8))) _t_10) (succ (succ (succ (succ _v_9)))))=(minus (minus _v_8 (succ _t_10)) _v_9))
+  sequence of rewrites only grows
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_8)) _t_10) (succ (succ (succ _v_9))))=(minus (minus _v_8 (succ _t_10)) _v_9))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_0 _qv_1)=(minus _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_8)) _t_10) (succ (succ (succ _v_9))))=(minus (minus _v_8 (succ _t_10)) _v_9))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_2 _qv_3) _qv_4)=(minus _qv_2 (minus _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((minus (minus (succ (succ _v_8)) _t_10) (succ (succ (succ _v_9))))=(minus (minus _v_8 (succ _t_10)) _v_9))
+  rewritten [6]: ((minus (minus (succ (succ (succ _v_8))) _t_10) (succ (succ (succ (succ _v_9)))))=(minus (minus _v_8 (succ _t_10)) _v_9))
+  sequence of rewrites only grows
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_8)) _t_10) (succ (succ (succ _v_9))))=(minus (minus _v_8 (succ _t_10)) _v_9))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_0 _qv_1)=(minus _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_8)) _t_10) (succ (succ (succ _v_9))))=(minus (minus _v_8 (succ _t_10)) _v_9))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_2 _qv_3) _qv_4)=(minus _qv_2 (minus _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((minus (minus (succ (succ _v_8)) _t_10) (succ (succ (succ _v_9))))=(minus (minus _v_8 (succ _t_10)) _v_9))
+CURRENT SUBGOAL ((minus (minus (succ _v_8) _t_10) (succ (succ _v_9)))=(minus (minus _v_8 (succ _t_10)) _v_9))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_0 _qv_1)=(minus _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _v_8) _t_10) (succ (succ _v_9)))=(minus (minus _v_8 (succ _t_10)) _v_9))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_2 _qv_3) _qv_4)=(minus _qv_2 (minus _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((minus (minus (succ _v_8) _t_10) (succ (succ _v_9)))=(minus (minus _v_8 (succ _t_10)) _v_9))
+  rewritten [6]: ((minus (minus (succ (succ _v_8)) _t_10) (succ (succ (succ _v_9))))=(minus (minus _v_8 (succ _t_10)) _v_9))
+  rewritten [6]: ((minus (minus (succ (succ (succ _v_8))) _t_10) (succ (succ (succ (succ _v_9)))))=(minus (minus _v_8 (succ _t_10)) _v_9))
+  sequence of rewrites only grows
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_8)) _t_10) (succ (succ (succ _v_9))))=(minus (minus _v_8 (succ _t_10)) _v_9))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_0 _qv_1)=(minus _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_8)) _t_10) (succ (succ (succ _v_9))))=(minus (minus _v_8 (succ _t_10)) _v_9))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_2 _qv_3) _qv_4)=(minus _qv_2 (minus _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((minus (minus (succ (succ _v_8)) _t_10) (succ (succ (succ _v_9))))=(minus (minus _v_8 (succ _t_10)) _v_9))
+  rewritten [6]: ((minus (minus (succ (succ (succ _v_8))) _t_10) (succ (succ (succ (succ _v_9)))))=(minus (minus _v_8 (succ _t_10)) _v_9))
+  sequence of rewrites only grows
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_8)) _t_10) (succ (succ (succ _v_9))))=(minus (minus _v_8 (succ _t_10)) _v_9))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_0 _qv_1)=(minus _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_8)) _t_10) (succ (succ (succ _v_9))))=(minus (minus _v_8 (succ _t_10)) _v_9))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_2 _qv_3) _qv_4)=(minus _qv_2 (minus _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((minus (minus (succ (succ _v_8)) _t_10) (succ (succ (succ _v_9))))=(minus (minus _v_8 (succ _t_10)) _v_9))
+CURRENT SUBGOAL ((minus (minus (succ _v_8) _t_10) (succ (succ _v_9)))=(minus (minus _v_8 (succ _t_10)) _v_9))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_0 _qv_1)=(minus _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _v_8) _t_10) (succ (succ _v_9)))=(minus (minus _v_8 (succ _t_10)) _v_9))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_2 _qv_3) _qv_4)=(minus _qv_2 (minus _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((minus (minus (succ _v_8) _t_10) (succ (succ _v_9)))=(minus (minus _v_8 (succ _t_10)) _v_9))
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((minus _qv_11 _qv_12)=(minus _qv_12 _qv_11)))
+	(forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_13 _qv_14) _qv_15)=(minus _qv_13 (minus _qv_14 _qv_15))))
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((minus _qv_18 _qv_19)=(minus _qv_19 _qv_18)))
+	(forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_20 _qv_21) _qv_22)=(minus _qv_20 (minus _qv_21 _qv_22))))
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+	(forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus zero _v_25))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus zero _v_25))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus zero _v_25))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus zero _v_25))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus (minus zero _v_24) _v_25))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus (minus zero _v_24) _v_25))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus zero _v_25))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus zero _v_25))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus zero _v_25))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus zero _v_25))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus (minus zero _v_24) _v_25))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus (minus zero _v_24) _v_25))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_26)) (succ _t_28)) (succ (succ _v_27)))=(minus (minus _v_26 (succ _t_28)) _v_27))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_26)) (succ _t_28)) (succ (succ _v_27)))=(minus (minus _v_26 (succ _t_28)) _v_27))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_26)) (succ _t_28)) (succ (succ _v_27)))=(minus (minus _v_26 (succ _t_28)) _v_27))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_26)) (succ _t_28)) (succ (succ _v_27)))=(minus (minus _v_26 (succ _t_28)) _v_27))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_29)) _v_30) (succ (succ zero)))=(minus (minus _v_29 _v_30) zero))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_29)) _v_30) (succ (succ zero)))=(minus (minus _v_29 _v_30) zero))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_29)) _v_30) (succ (succ zero)))=(minus (minus _v_29 _v_30) zero))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_29)) _v_30) (succ (succ zero)))=(minus (minus _v_29 _v_30) zero))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _t_18)) _v_16) (succ (succ _v_17)))=(minus (minus (succ _t_18) (succ _v_16)) _v_17))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_11 _qv_12)=(minus _qv_12 _qv_11)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _t_18)) _v_16) (succ (succ _v_17)))=(minus (minus (succ _t_18) (succ _v_16)) _v_17))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_13 _qv_14) _qv_15)=(minus _qv_13 (minus _qv_14 _qv_15))))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+	(forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus zero _v_25))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus zero _v_25))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus zero _v_25))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus zero _v_25))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus (minus zero _v_24) _v_25))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus (minus zero _v_24) _v_25))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus zero _v_25))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus zero _v_25))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus zero _v_25))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus zero _v_25))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus (minus zero _v_24) _v_25))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus (minus zero _v_24) _v_25))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_26)) (succ _t_28)) (succ (succ _v_27)))=(minus (minus _v_26 (succ _t_28)) _v_27))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_26)) (succ _t_28)) (succ (succ _v_27)))=(minus (minus _v_26 (succ _t_28)) _v_27))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_26)) (succ _t_28)) (succ (succ _v_27)))=(minus (minus _v_26 (succ _t_28)) _v_27))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_26)) (succ _t_28)) (succ (succ _v_27)))=(minus (minus _v_26 (succ _t_28)) _v_27))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_29)) _v_30) (succ (succ zero)))=(minus (minus _v_29 _v_30) zero))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_29)) _v_30) (succ (succ zero)))=(minus (minus _v_29 _v_30) zero))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_29)) _v_30) (succ (succ zero)))=(minus (minus _v_29 _v_30) zero))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_29)) _v_30) (succ (succ zero)))=(minus (minus _v_29 _v_30) zero))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _t_18)) _v_16) (succ (succ _v_17)))=(minus (minus (succ _t_18) (succ _v_16)) _v_17))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_11 _qv_12)=(minus _qv_12 _qv_11)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _t_18)) _v_16) (succ (succ _v_17)))=(minus (minus (succ _t_18) (succ _v_16)) _v_17))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_13 _qv_14) _qv_15)=(minus _qv_13 (minus _qv_14 _qv_15))))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((minus _qv_21 _qv_22)=(minus _qv_22 _qv_21)))
+	(forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_23 _qv_24) _qv_25)=(minus _qv_23 (minus _qv_24 _qv_25))))
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((minus _qv_22 _qv_23)=(minus _qv_23 _qv_22)))
+	(forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_24 _qv_25) _qv_26)=(minus _qv_24 (minus _qv_25 _qv_26))))
+
+CURRENT SUBGOAL ((minus (minus (succ _t_29) _v_27) (succ (succ _v_28)))=(minus (minus (succ _t_29) (succ (succ _v_27))) _v_28))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_22 _qv_23)=(minus _qv_23 _qv_22)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _t_29) _v_27) (succ (succ _v_28)))=(minus (minus (succ _t_29) (succ (succ _v_27))) _v_28))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_24 _qv_25) _qv_26)=(minus _qv_24 (minus _qv_25 _qv_26))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _t_29) _v_27) (succ (succ _v_28)))=(minus (minus (succ _t_29) (succ (succ _v_27))) _v_28))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_22 _qv_23)=(minus _qv_23 _qv_22)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _t_29) _v_27) (succ (succ _v_28)))=(minus (minus (succ _t_29) (succ (succ _v_27))) _v_28))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_24 _qv_25) _qv_26)=(minus _qv_24 (minus _qv_25 _qv_26))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus _v_30 zero) (succ (succ _v_31)))=(minus (minus _v_30 (succ (succ zero))) _v_31))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_22 _qv_23)=(minus _qv_23 _qv_22)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus _v_30 zero) (succ (succ _v_31)))=(minus (minus _v_30 (succ (succ zero))) _v_31))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_24 _qv_25) _qv_26)=(minus _qv_24 (minus _qv_25 _qv_26))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus _v_30 zero) (succ (succ _v_31)))=(minus (minus _v_30 (succ (succ zero))) _v_31))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_22 _qv_23)=(minus _qv_23 _qv_22)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus _v_30 zero) (succ (succ _v_31)))=(minus (minus _v_30 (succ (succ zero))) _v_31))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_24 _qv_25) _qv_26)=(minus _qv_24 (minus _qv_25 _qv_26))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus _v_32 _v_33) (succ (succ zero)))=(minus (minus _v_32 (succ (succ _v_33))) zero))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_22 _qv_23)=(minus _qv_23 _qv_22)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus _v_32 _v_33) (succ (succ zero)))=(minus (minus _v_32 (succ (succ _v_33))) zero))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_24 _qv_25) _qv_26)=(minus _qv_24 (minus _qv_25 _qv_26))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus _v_32 _v_33) (succ (succ zero)))=(minus (minus _v_32 (succ (succ _v_33))) zero))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_22 _qv_23)=(minus _qv_23 _qv_22)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus _v_32 _v_33) (succ (succ zero)))=(minus (minus _v_32 (succ (succ _v_33))) zero))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_24 _qv_25) _qv_26)=(minus _qv_24 (minus _qv_25 _qv_26))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _v_19) (succ _t_21)) (succ (succ _v_20)))=(minus (minus _v_19 (succ (succ _t_21))) _v_20))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_11 _qv_12)=(minus _qv_12 _qv_11)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _v_19) (succ _t_21)) (succ (succ _v_20)))=(minus (minus _v_19 (succ (succ _t_21))) _v_20))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_13 _qv_14) _qv_15)=(minus _qv_13 (minus _qv_14 _qv_15))))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((minus _qv_22 _qv_23)=(minus _qv_23 _qv_22)))
+	(forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_24 _qv_25) _qv_26)=(minus _qv_24 (minus _qv_25 _qv_26))))
+
+CURRENT SUBGOAL ((minus (minus (succ _t_29) _v_27) (succ (succ _v_28)))=(minus (minus (succ _t_29) (succ (succ _v_27))) _v_28))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_22 _qv_23)=(minus _qv_23 _qv_22)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _t_29) _v_27) (succ (succ _v_28)))=(minus (minus (succ _t_29) (succ (succ _v_27))) _v_28))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_24 _qv_25) _qv_26)=(minus _qv_24 (minus _qv_25 _qv_26))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _t_29) _v_27) (succ (succ _v_28)))=(minus (minus (succ _t_29) (succ (succ _v_27))) _v_28))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_22 _qv_23)=(minus _qv_23 _qv_22)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _t_29) _v_27) (succ (succ _v_28)))=(minus (minus (succ _t_29) (succ (succ _v_27))) _v_28))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_24 _qv_25) _qv_26)=(minus _qv_24 (minus _qv_25 _qv_26))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus _v_30 zero) (succ (succ _v_31)))=(minus (minus _v_30 (succ (succ zero))) _v_31))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_22 _qv_23)=(minus _qv_23 _qv_22)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus _v_30 zero) (succ (succ _v_31)))=(minus (minus _v_30 (succ (succ zero))) _v_31))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_24 _qv_25) _qv_26)=(minus _qv_24 (minus _qv_25 _qv_26))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus _v_30 zero) (succ (succ _v_31)))=(minus (minus _v_30 (succ (succ zero))) _v_31))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_22 _qv_23)=(minus _qv_23 _qv_22)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus _v_30 zero) (succ (succ _v_31)))=(minus (minus _v_30 (succ (succ zero))) _v_31))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_24 _qv_25) _qv_26)=(minus _qv_24 (minus _qv_25 _qv_26))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus _v_32 _v_33) (succ (succ zero)))=(minus (minus _v_32 (succ (succ _v_33))) zero))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_22 _qv_23)=(minus _qv_23 _qv_22)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus _v_32 _v_33) (succ (succ zero)))=(minus (minus _v_32 (succ (succ _v_33))) zero))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_24 _qv_25) _qv_26)=(minus _qv_24 (minus _qv_25 _qv_26))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus _v_32 _v_33) (succ (succ zero)))=(minus (minus _v_32 (succ (succ _v_33))) zero))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_22 _qv_23)=(minus _qv_23 _qv_22)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus _v_32 _v_33) (succ (succ zero)))=(minus (minus _v_32 (succ (succ _v_33))) zero))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_24 _qv_25) _qv_26)=(minus _qv_24 (minus _qv_25 _qv_26))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _v_19) (succ _t_21)) (succ (succ _v_20)))=(minus (minus _v_19 (succ (succ _t_21))) _v_20))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_11 _qv_12)=(minus _qv_12 _qv_11)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _v_19) (succ _t_21)) (succ (succ _v_20)))=(minus (minus _v_19 (succ (succ _t_21))) _v_20))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_13 _qv_14) _qv_15)=(minus _qv_13 (minus _qv_14 _qv_15))))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((minus _qv_24 _qv_25)=(minus _qv_25 _qv_24)))
+	(forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_26 _qv_27) _qv_28)=(minus _qv_26 (minus _qv_27 _qv_28))))
+
+CURRENT SUBGOAL ((minus (minus (succ zero) _v_29) (succ (succ zero)))=(minus zero (succ _v_29)))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_24 _qv_25)=(minus _qv_25 _qv_24)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ zero) _v_29) (succ (succ zero)))=(minus zero (succ _v_29)))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_26 _qv_27) _qv_28)=(minus _qv_26 (minus _qv_27 _qv_28))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ zero) _v_29) (succ (succ zero)))=(minus zero (succ _v_29)))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_24 _qv_25)=(minus _qv_25 _qv_24)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ zero) _v_29) (succ (succ zero)))=(minus zero (succ _v_29)))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_26 _qv_27) _qv_28)=(minus _qv_26 (minus _qv_27 _qv_28))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _v_30) (succ _t_31)) (succ (succ zero)))=(minus _v_30 (succ (succ _t_31))))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_24 _qv_25)=(minus _qv_25 _qv_24)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _v_30) (succ _t_31)) (succ (succ zero)))=(minus _v_30 (succ (succ _t_31))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_26 _qv_27) _qv_28)=(minus _qv_26 (minus _qv_27 _qv_28))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _v_30) (succ _t_31)) (succ (succ zero)))=(minus _v_30 (succ (succ _t_31))))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_24 _qv_25)=(minus _qv_25 _qv_24)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _v_30) (succ _t_31)) (succ (succ zero)))=(minus _v_30 (succ (succ _t_31))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_26 _qv_27) _qv_28)=(minus _qv_26 (minus _qv_27 _qv_28))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _v_22) _v_23) (succ (succ zero)))=(minus (minus _v_22 (succ _v_23)) zero))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_11 _qv_12)=(minus _qv_12 _qv_11)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _v_22) _v_23) (succ (succ zero)))=(minus (minus _v_22 (succ _v_23)) zero))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_13 _qv_14) _qv_15)=(minus _qv_13 (minus _qv_14 _qv_15))))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((minus _qv_24 _qv_25)=(minus _qv_25 _qv_24)))
+	(forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_26 _qv_27) _qv_28)=(minus _qv_26 (minus _qv_27 _qv_28))))
+
+CURRENT SUBGOAL ((minus (minus (succ zero) _v_29) (succ (succ zero)))=(minus zero (succ _v_29)))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_24 _qv_25)=(minus _qv_25 _qv_24)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ zero) _v_29) (succ (succ zero)))=(minus zero (succ _v_29)))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_26 _qv_27) _qv_28)=(minus _qv_26 (minus _qv_27 _qv_28))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ zero) _v_29) (succ (succ zero)))=(minus zero (succ _v_29)))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_24 _qv_25)=(minus _qv_25 _qv_24)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ zero) _v_29) (succ (succ zero)))=(minus zero (succ _v_29)))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_26 _qv_27) _qv_28)=(minus _qv_26 (minus _qv_27 _qv_28))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _v_30) (succ _t_31)) (succ (succ zero)))=(minus _v_30 (succ (succ _t_31))))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_24 _qv_25)=(minus _qv_25 _qv_24)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _v_30) (succ _t_31)) (succ (succ zero)))=(minus _v_30 (succ (succ _t_31))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_26 _qv_27) _qv_28)=(minus _qv_26 (minus _qv_27 _qv_28))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _v_30) (succ _t_31)) (succ (succ zero)))=(minus _v_30 (succ (succ _t_31))))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_24 _qv_25)=(minus _qv_25 _qv_24)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _v_30) (succ _t_31)) (succ (succ zero)))=(minus _v_30 (succ (succ _t_31))))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_26 _qv_27) _qv_28)=(minus _qv_26 (minus _qv_27 _qv_28))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _v_22) _v_23) (succ (succ zero)))=(minus (minus _v_22 (succ _v_23)) zero))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_11 _qv_12)=(minus _qv_12 _qv_11)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _v_22) _v_23) (succ (succ zero)))=(minus (minus _v_22 (succ _v_23)) zero))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_13 _qv_14) _qv_15)=(minus _qv_13 (minus _qv_14 _qv_15))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus _v_8 _t_10) (succ _v_9))=(minus (minus _v_8 (succ _t_10)) _v_9))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_0 _qv_1)=(minus _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus _v_8 _t_10) (succ _v_9))=(minus (minus _v_8 (succ _t_10)) _v_9))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_2 _qv_3) _qv_4)=(minus _qv_2 (minus _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((minus (minus _v_8 _t_10) (succ _v_9))=(minus (minus _v_8 (succ _t_10)) _v_9))
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((minus _qv_11 _qv_12)=(minus _qv_12 _qv_11)))
+	(forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_13 _qv_14) _qv_15)=(minus _qv_13 (minus _qv_14 _qv_15))))
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+	(forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+
+CURRENT SUBGOAL ((minus (minus (succ zero) _v_24) (succ _v_25))=(minus zero _v_25))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ zero) _v_24) (succ _v_25))=(minus zero _v_25))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ zero) _v_24) (succ _v_25))=(minus zero _v_25))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ zero) _v_24) (succ _v_25))=(minus zero _v_25))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ zero) _v_24) (succ _v_25))=(minus (minus zero _v_24) _v_25))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ zero) _v_24) (succ _v_25))=(minus (minus zero _v_24) _v_25))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ zero) _v_24) (succ _v_25))=(minus zero _v_25))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ zero) _v_24) (succ _v_25))=(minus zero _v_25))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ zero) _v_24) (succ _v_25))=(minus zero _v_25))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ zero) _v_24) (succ _v_25))=(minus zero _v_25))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ zero) _v_24) (succ _v_25))=(minus (minus zero _v_24) _v_25))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ zero) _v_24) (succ _v_25))=(minus (minus zero _v_24) _v_25))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _v_26) (succ _t_28)) (succ _v_27))=(minus (minus _v_26 (succ _t_28)) _v_27))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _v_26) (succ _t_28)) (succ _v_27))=(minus (minus _v_26 (succ _t_28)) _v_27))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _v_26) (succ _t_28)) (succ _v_27))=(minus (minus _v_26 (succ _t_28)) _v_27))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _v_26) (succ _t_28)) (succ _v_27))=(minus (minus _v_26 (succ _t_28)) _v_27))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _v_29) _v_30) (succ zero))=(minus (minus _v_29 _v_30) zero))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _v_29) _v_30) (succ zero))=(minus (minus _v_29 _v_30) zero))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _v_29) _v_30) (succ zero))=(minus (minus _v_29 _v_30) zero))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _v_29) _v_30) (succ zero))=(minus (minus _v_29 _v_30) zero))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _t_18) _v_16) (succ _v_17))=(minus (minus (succ _t_18) (succ _v_16)) _v_17))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_11 _qv_12)=(minus _qv_12 _qv_11)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _t_18) _v_16) (succ _v_17))=(minus (minus (succ _t_18) (succ _v_16)) _v_17))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_13 _qv_14) _qv_15)=(minus _qv_13 (minus _qv_14 _qv_15))))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+	(forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+
+CURRENT SUBGOAL ((minus (minus (succ zero) _v_24) (succ _v_25))=(minus zero _v_25))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ zero) _v_24) (succ _v_25))=(minus zero _v_25))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ zero) _v_24) (succ _v_25))=(minus zero _v_25))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ zero) _v_24) (succ _v_25))=(minus zero _v_25))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ zero) _v_24) (succ _v_25))=(minus (minus zero _v_24) _v_25))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ zero) _v_24) (succ _v_25))=(minus (minus zero _v_24) _v_25))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ zero) _v_24) (succ _v_25))=(minus zero _v_25))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ zero) _v_24) (succ _v_25))=(minus zero _v_25))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ zero) _v_24) (succ _v_25))=(minus zero _v_25))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ zero) _v_24) (succ _v_25))=(minus zero _v_25))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ zero) _v_24) (succ _v_25))=(minus (minus zero _v_24) _v_25))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ zero) _v_24) (succ _v_25))=(minus (minus zero _v_24) _v_25))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _v_26) (succ _t_28)) (succ _v_27))=(minus (minus _v_26 (succ _t_28)) _v_27))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _v_26) (succ _t_28)) (succ _v_27))=(minus (minus _v_26 (succ _t_28)) _v_27))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _v_26) (succ _t_28)) (succ _v_27))=(minus (minus _v_26 (succ _t_28)) _v_27))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _v_26) (succ _t_28)) (succ _v_27))=(minus (minus _v_26 (succ _t_28)) _v_27))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _v_29) _v_30) (succ zero))=(minus (minus _v_29 _v_30) zero))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _v_29) _v_30) (succ zero))=(minus (minus _v_29 _v_30) zero))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _v_29) _v_30) (succ zero))=(minus (minus _v_29 _v_30) zero))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _v_29) _v_30) (succ zero))=(minus (minus _v_29 _v_30) zero))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _t_18) _v_16) (succ _v_17))=(minus (minus (succ _t_18) (succ _v_16)) _v_17))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_11 _qv_12)=(minus _qv_12 _qv_11)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _t_18) _v_16) (succ _v_17))=(minus (minus (succ _t_18) (succ _v_16)) _v_17))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_13 _qv_14) _qv_15)=(minus _qv_13 (minus _qv_14 _qv_15))))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((minus _qv_21 _qv_22)=(minus _qv_22 _qv_21)))
+	(forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_23 _qv_24) _qv_25)=(minus _qv_23 (minus _qv_24 _qv_25))))
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((minus _qv_24 _qv_25)=(minus _qv_25 _qv_24)))
+	(forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_26 _qv_27) _qv_28)=(minus _qv_26 (minus _qv_27 _qv_28))))
+
+CURRENT SUBGOAL ((minus (minus (succ _t_30) _v_29) (succ zero))=(minus (succ _t_30) (succ _v_29)))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_24 _qv_25)=(minus _qv_25 _qv_24)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _t_30) _v_29) (succ zero))=(minus (succ _t_30) (succ _v_29)))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_26 _qv_27) _qv_28)=(minus _qv_26 (minus _qv_27 _qv_28))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _t_30) _v_29) (succ zero))=(minus (succ _t_30) (succ _v_29)))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_24 _qv_25)=(minus _qv_25 _qv_24)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _t_30) _v_29) (succ zero))=(minus (succ _t_30) (succ _v_29)))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_26 _qv_27) _qv_28)=(minus _qv_26 (minus _qv_27 _qv_28))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus _v_22 _v_23) (succ zero))=(minus (minus _v_22 (succ _v_23)) zero))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_11 _qv_12)=(minus _qv_12 _qv_11)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus _v_22 _v_23) (succ zero))=(minus (minus _v_22 (succ _v_23)) zero))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_13 _qv_14) _qv_15)=(minus _qv_13 (minus _qv_14 _qv_15))))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((minus _qv_24 _qv_25)=(minus _qv_25 _qv_24)))
+	(forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_26 _qv_27) _qv_28)=(minus _qv_26 (minus _qv_27 _qv_28))))
+
+CURRENT SUBGOAL ((minus (minus (succ _t_30) _v_29) (succ zero))=(minus (succ _t_30) (succ _v_29)))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_24 _qv_25)=(minus _qv_25 _qv_24)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _t_30) _v_29) (succ zero))=(minus (succ _t_30) (succ _v_29)))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_26 _qv_27) _qv_28)=(minus _qv_26 (minus _qv_27 _qv_28))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _t_30) _v_29) (succ zero))=(minus (succ _t_30) (succ _v_29)))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_24 _qv_25)=(minus _qv_25 _qv_24)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _t_30) _v_29) (succ zero))=(minus (succ _t_30) (succ _v_29)))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_26 _qv_27) _qv_28)=(minus _qv_26 (minus _qv_27 _qv_28))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus _v_22 _v_23) (succ zero))=(minus (minus _v_22 (succ _v_23)) zero))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_11 _qv_12)=(minus _qv_12 _qv_11)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus _v_22 _v_23) (succ zero))=(minus (minus _v_22 (succ _v_23)) zero))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_13 _qv_14) _qv_15)=(minus _qv_13 (minus _qv_14 _qv_15))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _v_8) (succ _t_10)) (succ _v_9))=(minus (minus _v_8 (succ _t_10)) _v_9))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_0 _qv_1)=(minus _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _v_8) (succ _t_10)) (succ _v_9))=(minus (minus _v_8 (succ _t_10)) _v_9))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_2 _qv_3) _qv_4)=(minus _qv_2 (minus _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((minus (minus (succ _v_8) (succ _t_10)) (succ _v_9))=(minus (minus _v_8 (succ _t_10)) _v_9))
+  rewritten [2]: ((minus (minus _v_8 _t_10) (succ _v_9))=(minus (minus _v_8 (succ _t_10)) _v_9))
+  rewritten [6]: ((minus (minus (succ _v_8) _t_10) (succ (succ _v_9)))=(minus (minus _v_8 (succ _t_10)) _v_9))
+  rewritten [6]: ((minus (minus (succ (succ _v_8)) _t_10) (succ (succ (succ _v_9))))=(minus (minus _v_8 (succ _t_10)) _v_9))
+  rewritten [6]: ((minus (minus (succ (succ (succ _v_8))) _t_10) (succ (succ (succ (succ _v_9)))))=(minus (minus _v_8 (succ _t_10)) _v_9))
+  sequence of rewrites only grows
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_8)) _t_10) (succ (succ (succ _v_9))))=(minus (minus _v_8 (succ _t_10)) _v_9))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_0 _qv_1)=(minus _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_8)) _t_10) (succ (succ (succ _v_9))))=(minus (minus _v_8 (succ _t_10)) _v_9))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_2 _qv_3) _qv_4)=(minus _qv_2 (minus _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((minus (minus (succ (succ _v_8)) _t_10) (succ (succ (succ _v_9))))=(minus (minus _v_8 (succ _t_10)) _v_9))
+  rewritten [6]: ((minus (minus (succ (succ (succ _v_8))) _t_10) (succ (succ (succ (succ _v_9)))))=(minus (minus _v_8 (succ _t_10)) _v_9))
+  sequence of rewrites only grows
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_8)) _t_10) (succ (succ (succ _v_9))))=(minus (minus _v_8 (succ _t_10)) _v_9))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_0 _qv_1)=(minus _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_8)) _t_10) (succ (succ (succ _v_9))))=(minus (minus _v_8 (succ _t_10)) _v_9))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_2 _qv_3) _qv_4)=(minus _qv_2 (minus _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((minus (minus (succ (succ _v_8)) _t_10) (succ (succ (succ _v_9))))=(minus (minus _v_8 (succ _t_10)) _v_9))
+CURRENT SUBGOAL ((minus (minus (succ _v_8) _t_10) (succ (succ _v_9)))=(minus (minus _v_8 (succ _t_10)) _v_9))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_0 _qv_1)=(minus _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _v_8) _t_10) (succ (succ _v_9)))=(minus (minus _v_8 (succ _t_10)) _v_9))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_2 _qv_3) _qv_4)=(minus _qv_2 (minus _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((minus (minus (succ _v_8) _t_10) (succ (succ _v_9)))=(minus (minus _v_8 (succ _t_10)) _v_9))
+  rewritten [6]: ((minus (minus (succ (succ _v_8)) _t_10) (succ (succ (succ _v_9))))=(minus (minus _v_8 (succ _t_10)) _v_9))
+  rewritten [6]: ((minus (minus (succ (succ (succ _v_8))) _t_10) (succ (succ (succ (succ _v_9)))))=(minus (minus _v_8 (succ _t_10)) _v_9))
+  sequence of rewrites only grows
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_8)) _t_10) (succ (succ (succ _v_9))))=(minus (minus _v_8 (succ _t_10)) _v_9))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_0 _qv_1)=(minus _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_8)) _t_10) (succ (succ (succ _v_9))))=(minus (minus _v_8 (succ _t_10)) _v_9))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_2 _qv_3) _qv_4)=(minus _qv_2 (minus _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((minus (minus (succ (succ _v_8)) _t_10) (succ (succ (succ _v_9))))=(minus (minus _v_8 (succ _t_10)) _v_9))
+  rewritten [6]: ((minus (minus (succ (succ (succ _v_8))) _t_10) (succ (succ (succ (succ _v_9)))))=(minus (minus _v_8 (succ _t_10)) _v_9))
+  sequence of rewrites only grows
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_8)) _t_10) (succ (succ (succ _v_9))))=(minus (minus _v_8 (succ _t_10)) _v_9))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_0 _qv_1)=(minus _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_8)) _t_10) (succ (succ (succ _v_9))))=(minus (minus _v_8 (succ _t_10)) _v_9))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_2 _qv_3) _qv_4)=(minus _qv_2 (minus _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((minus (minus (succ (succ _v_8)) _t_10) (succ (succ (succ _v_9))))=(minus (minus _v_8 (succ _t_10)) _v_9))
+CURRENT SUBGOAL ((minus (minus (succ _v_8) _t_10) (succ (succ _v_9)))=(minus (minus _v_8 (succ _t_10)) _v_9))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_0 _qv_1)=(minus _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _v_8) _t_10) (succ (succ _v_9)))=(minus (minus _v_8 (succ _t_10)) _v_9))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_2 _qv_3) _qv_4)=(minus _qv_2 (minus _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((minus (minus (succ _v_8) _t_10) (succ (succ _v_9)))=(minus (minus _v_8 (succ _t_10)) _v_9))
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((minus _qv_11 _qv_12)=(minus _qv_12 _qv_11)))
+	(forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_13 _qv_14) _qv_15)=(minus _qv_13 (minus _qv_14 _qv_15))))
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((minus _qv_18 _qv_19)=(minus _qv_19 _qv_18)))
+	(forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_20 _qv_21) _qv_22)=(minus _qv_20 (minus _qv_21 _qv_22))))
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+	(forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus zero _v_25))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus zero _v_25))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus zero _v_25))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus zero _v_25))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus (minus zero _v_24) _v_25))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus (minus zero _v_24) _v_25))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus zero _v_25))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus zero _v_25))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus zero _v_25))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus zero _v_25))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus (minus zero _v_24) _v_25))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus (minus zero _v_24) _v_25))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_26)) (succ _t_28)) (succ (succ _v_27)))=(minus (minus _v_26 (succ _t_28)) _v_27))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_26)) (succ _t_28)) (succ (succ _v_27)))=(minus (minus _v_26 (succ _t_28)) _v_27))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_26)) (succ _t_28)) (succ (succ _v_27)))=(minus (minus _v_26 (succ _t_28)) _v_27))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_26)) (succ _t_28)) (succ (succ _v_27)))=(minus (minus _v_26 (succ _t_28)) _v_27))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_29)) _v_30) (succ (succ zero)))=(minus (minus _v_29 _v_30) zero))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_29)) _v_30) (succ (succ zero)))=(minus (minus _v_29 _v_30) zero))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_29)) _v_30) (succ (succ zero)))=(minus (minus _v_29 _v_30) zero))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_29)) _v_30) (succ (succ zero)))=(minus (minus _v_29 _v_30) zero))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _t_18)) _v_16) (succ (succ _v_17)))=(minus (minus (succ _t_18) (succ _v_16)) _v_17))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_11 _qv_12)=(minus _qv_12 _qv_11)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _t_18)) _v_16) (succ (succ _v_17)))=(minus (minus (succ _t_18) (succ _v_16)) _v_17))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_13 _qv_14) _qv_15)=(minus _qv_13 (minus _qv_14 _qv_15))))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+	(forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus zero _v_25))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus zero _v_25))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus zero _v_25))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus zero _v_25))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus (minus zero _v_24) _v_25))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus (minus zero _v_24) _v_25))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus zero _v_25))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus zero _v_25))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus zero _v_25))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus zero _v_25))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus (minus zero _v_24) _v_25))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ zero)) _v_24) (succ (succ _v_25)))=(minus (minus zero _v_24) _v_25))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_26)) (succ _t_28)) (succ (succ _v_27)))=(minus (minus _v_26 (succ _t_28)) _v_27))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_26)) (succ _t_28)) (succ (succ _v_27)))=(minus (minus _v_26 (succ _t_28)) _v_27))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_26)) (succ _t_28)) (succ (succ _v_27)))=(minus (minus _v_26 (succ _t_28)) _v_27))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_26)) (succ _t_28)) (succ (succ _v_27)))=(minus (minus _v_26 (succ _t_28)) _v_27))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_29)) _v_30) (succ (succ zero)))=(minus (minus _v_29 _v_30) zero))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_29)) _v_30) (succ (succ zero)))=(minus (minus _v_29 _v_30) zero))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_29)) _v_30) (succ (succ zero)))=(minus (minus _v_29 _v_30) zero))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_19 _qv_20)=(minus _qv_20 _qv_19)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _v_29)) _v_30) (succ (succ zero)))=(minus (minus _v_29 _v_30) zero))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_21 _qv_22) _qv_23)=(minus _qv_21 (minus _qv_22 _qv_23))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _t_18)) _v_16) (succ (succ _v_17)))=(minus (minus (succ _t_18) (succ _v_16)) _v_17))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_11 _qv_12)=(minus _qv_12 _qv_11)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ (succ _t_18)) _v_16) (succ (succ _v_17)))=(minus (minus (succ _t_18) (succ _v_16)) _v_17))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_13 _qv_14) _qv_15)=(minus _qv_13 (minus _qv_14 _qv_15))))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((minus _qv_21 _qv_22)=(minus _qv_22 _qv_21)))
+	(forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_23 _qv_24) _qv_25)=(minus _qv_23 (minus _qv_24 _qv_25))))
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((minus _qv_22 _qv_23)=(minus _qv_23 _qv_22)))
+	(forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_24 _qv_25) _qv_26)=(minus _qv_24 (minus _qv_25 _qv_26))))
+
+CURRENT SUBGOAL ((minus (minus (succ _t_29) _v_27) (succ (succ _v_28)))=(minus (minus (succ _t_29) (succ (succ _v_27))) _v_28))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_22 _qv_23)=(minus _qv_23 _qv_22)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _t_29) _v_27) (succ (succ _v_28)))=(minus (minus (succ _t_29) (succ (succ _v_27))) _v_28))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_24 _qv_25) _qv_26)=(minus _qv_24 (minus _qv_25 _qv_26))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _t_29) _v_27) (succ (succ _v_28)))=(minus (minus (succ _t_29) (succ (succ _v_27))) _v_28))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_22 _qv_23)=(minus _qv_23 _qv_22)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _t_29) _v_27) (succ (succ _v_28)))=(minus (minus (succ _t_29) (succ (succ _v_27))) _v_28))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_24 _qv_25) _qv_26)=(minus _qv_24 (minus _qv_25 _qv_26))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus _v_30 zero) (succ (succ _v_31)))=(minus (minus _v_30 (succ (succ zero))) _v_31))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_22 _qv_23)=(minus _qv_23 _qv_22)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus _v_30 zero) (succ (succ _v_31)))=(minus (minus _v_30 (succ (succ zero))) _v_31))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_24 _qv_25) _qv_26)=(minus _qv_24 (minus _qv_25 _qv_26))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus _v_30 zero) (succ (succ _v_31)))=(minus (minus _v_30 (succ (succ zero))) _v_31))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_22 _qv_23)=(minus _qv_23 _qv_22)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus _v_30 zero) (succ (succ _v_31)))=(minus (minus _v_30 (succ (succ zero))) _v_31))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_24 _qv_25) _qv_26)=(minus _qv_24 (minus _qv_25 _qv_26))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus _v_32 _v_33) (succ (succ zero)))=(minus (minus _v_32 (succ (succ _v_33))) zero))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_22 _qv_23)=(minus _qv_23 _qv_22)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus _v_32 _v_33) (succ (succ zero)))=(minus (minus _v_32 (succ (succ _v_33))) zero))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_24 _qv_25) _qv_26)=(minus _qv_24 (minus _qv_25 _qv_26))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus _v_32 _v_33) (succ (succ zero)))=(minus (minus _v_32 (succ (succ _v_33))) zero))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_22 _qv_23)=(minus _qv_23 _qv_22)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus _v_32 _v_33) (succ (succ zero)))=(minus (minus _v_32 (succ (succ _v_33))) zero))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_24 _qv_25) _qv_26)=(minus _qv_24 (minus _qv_25 _qv_26))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _v_19) (succ _t_21)) (succ (succ _v_20)))=(minus (minus _v_19 (succ (succ _t_21))) _v_20))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_11 _qv_12)=(minus _qv_12 _qv_11)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _v_19) (succ _t_21)) (succ (succ _v_20)))=(minus (minus _v_19 (succ (succ _t_21))) _v_20))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_13 _qv_14) _qv_15)=(minus _qv_13 (minus _qv_14 _qv_15))))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((minus _qv_22 _qv_23)=(minus _qv_23 _qv_22)))
+	(forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_24 _qv_25) _qv_26)=(minus _qv_24 (minus _qv_25 _qv_26))))
+
+CURRENT SUBGOAL ((minus (minus (succ _t_29) _v_27) (succ (succ _v_28)))=(minus (minus (succ _t_29) (succ (succ _v_27))) _v_28))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_22 _qv_23)=(minus _qv_23 _qv_22)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _t_29) _v_27) (succ (succ _v_28)))=(minus (minus (succ _t_29) (succ (succ _v_27))) _v_28))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_24 _qv_25) _qv_26)=(minus _qv_24 (minus _qv_25 _qv_26))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _t_29) _v_27) (succ (succ _v_28)))=(minus (minus (succ _t_29) (succ (succ _v_27))) _v_28))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_22 _qv_23)=(minus _qv_23 _qv_22)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _t_29) _v_27) (succ (succ _v_28)))=(minus (minus (succ _t_29) (succ (succ _v_27))) _v_28))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_24 _qv_25) _qv_26)=(minus _qv_24 (minus _qv_25 _qv_26))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus _v_30 zero) (succ (succ _v_31)))=(minus (minus _v_30 (succ (succ zero))) _v_31))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_22 _qv_23)=(minus _qv_23 _qv_22)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus _v_30 zero) (succ (succ _v_31)))=(minus (minus _v_30 (succ (succ zero))) _v_31))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_24 _qv_25) _qv_26)=(minus _qv_24 (minus _qv_25 _qv_26))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus _v_30 zero) (succ (succ _v_31)))=(minus (minus _v_30 (succ (succ zero))) _v_31))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_22 _qv_23)=(minus _qv_23 _qv_22)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus _v_30 zero) (succ (succ _v_31)))=(minus (minus _v_30 (succ (succ zero))) _v_31))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_24 _qv_25) _qv_26)=(minus _qv_24 (minus _qv_25 _qv_26))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus _v_32 _v_33) (succ (succ zero)))=(minus (minus _v_32 (succ (succ _v_33))) zero))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_22 _qv_23)=(minus _qv_23 _qv_22)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus _v_32 _v_33) (succ (succ zero)))=(minus (minus _v_32 (succ (succ _v_33))) zero))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_24 _qv_25) _qv_26)=(minus _qv_24 (minus _qv_25 _qv_26))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus _v_32 _v_33) (succ (succ zero)))=(minus (minus _v_32 (succ (succ _v_33))) zero))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_22 _qv_23)=(minus _qv_23 _qv_22)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus _v_32 _v_33) (succ (succ zero)))=(minus (minus _v_32 (succ (succ _v_33))) zero))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_24 _qv_25) _qv_26)=(minus _qv_24 (minus _qv_25 _qv_26))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _v_19) (succ _t_21)) (succ (succ _v_20)))=(minus (minus _v_19 (succ (succ _t_21))) _v_20))
+NOW TESTING (forall ((Nat) (Nat)) ((minus _qv_11 _qv_12)=(minus _qv_12 _qv_11)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((minus (minus (succ _v_19) (succ _t_21)) (succ (succ _v_20)))=(minus (minus _v_19 (succ (succ _t_21))) _v_20))
+NOW TESTING (forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_13 _qv_14) _qv_15)=(minus _qv_13 (minus _qv_14 _qv_15))))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((minus _qv_24 _qv_25)=(minus _qv_25 _qv_24)))
+	(forall ((Nat) (Nat) (Nat)) ((minus (minus _qv_26 _qv_27) _qv_28)=(minus _qv_26 (minus _qv_27 _qv_28))))
+

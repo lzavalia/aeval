@@ -1,0 +1,45 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Lst)) (0<=(len _qv_0)))
+	(forall ((Lst) (Lst)) ((append _qv_1 _qv_2)=(append _qv_2 _qv_1)))
+	(forall ((Lst) (Lst) (Lst)) ((append (append _qv_3 _qv_4) _qv_5)=(append _qv_3 (append _qv_4 _qv_5))))
+	(forall (INT INT) ((plus _qv_6 _qv_7)=(plus _qv_7 _qv_6)))
+	(forall (INT INT INT) ((plus (plus _qv_8 _qv_9) _qv_10)=(plus _qv_8 (plus _qv_9 _qv_10))))
+
+Simplified goal: (forall (INT INT (Lst)) (((n>=0)&&(m>=0))->((rotate 1+n (rotate m x))=(rotate 1+m (rotate n x)))))
+
+
+Base case:       ((rotate 1+_v_11 (rotate _v_12 nil))=(rotate 1+_v_12 (rotate _v_11 nil)))
+{
+  proven trivially
+}
+Inductive step:  ((rotate 1+_v_11 (rotate _v_12 (cons _t_13 _t_14)))=(rotate 1+_v_12 (rotate _v_11 (cons _t_13 _t_14))))
+{
+  {
+    ====================
+    | Assumptions [0]: ((len nil)=0)
+    | Assumptions [1]: (forall (INT (Lst)) ((len (cons _qv_1 _qv_2))=(1+(len _qv_2))))
+    | Assumptions [2]: (forall ((Lst)) ((len _qv_3)>=0))
+    | Assumptions [3]: (forall ((Lst)) ((append nil _qv_4)=_qv_4))
+    | Assumptions [4]: (forall (INT (Lst) (Lst)) ((append (cons _qv_5 _qv_6) _qv_7)=(cons _qv_5 (append _qv_6 _qv_7))))
+    | Assumptions [5]: (forall ((Lst)) ((rotate 0 _qv_8)=_qv_8))
+    | Assumptions [6]: (forall (INT) ((_qv_9>=0)->((rotate 1+_qv_9 nil)=nil)))
+    | Assumptions [7]: (forall (INT INT (Lst)) ((_qv_10>=0)->((rotate 1+_qv_10 (cons _qv_11 _qv_12))=(rotate _qv_10 (append _qv_12 (cons _qv_11 nil))))))
+    | Assumptions [8]: (forall (INT) ((_qv_13>=0)->((plus 0 _qv_13)=_qv_13)))
+    | Assumptions [9]: (forall (INT INT) (((_qv_14>=0)&&(_qv_15>=0))->((plus 1+_qv_14 _qv_15)=(1+(plus _qv_14 _qv_15)))))
+    | Assumptions [10]: (forall (INT INT) (((_qv_16>=0)&&(_qv_17>=0))->((plus _qv_16 _qv_17)=(_qv_16+_qv_17))))
+    | Assumptions [11]: (_v_11>=0)
+    | Assumptions [12]: (_v_12>=0)
+    | Assumptions [13]: (forall (INT INT) (((n>=0)&&(m>=0))->((rotate 1+n (rotate m _t_14))=(rotate 1+m (rotate n _t_14)))))
+    | Assumptions [14]: ((rotate _v_11+1 nil)=nil)
+    | Assumptions [15]: (forall (INT (Lst)) ((rotate _v_11+1 (cons _qv_11 _qv_12))=(rotate _v_11 (append _qv_12 (cons _qv_11 nil)))))
+    | Assumptions [16]: ((plus 0 _v_11)=_v_11)
+    | Assumptions [17]: ((plus _v_11+1 _v_12)=((plus _v_11 _v_12)+1))
+    | Assumptions [18]: ((plus _v_11 _v_12)=(_v_11+_v_12))
+    | Assumptions [19]: ((rotate _v_11+1 (rotate _v_12 _t_14))=(rotate _v_12+1 (rotate _v_11 _t_14)))
+    | Assumptions [20]: ((plus _v_11+1 _v_12)=[+    _v_11    _v_12    1])
+    | Assumptions [21]: ((_v_11+_v_12)=(plus _v_11 _v_12))
+    ====================
+  }
+Unknown
+sat

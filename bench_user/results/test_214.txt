@@ -1,0 +1,1583 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+	(forall ((Nat)) (0<=(nat-to-int _qv_1)))
+	(forall ((Nat)) ((nat-to-int (succ _qv_2))=(nat-to-int _qv_2)))
+
+Simplified goal: (forall ((Nat) (Nat) (Nat) (Lst)) ((drop (succ w) (drop x (cons y z)))=(drop w (drop x z))))
+
+
+Base case:       ((drop (succ zero) (drop _v_3 (cons _v_4 _v_5)))=(drop zero (drop _v_3 _v_5)))
+{
+  {
+    ====================
+    | Assumptions [0]: ((nat-to-int zero)=0)
+    | Assumptions [1]: (forall ((Nat)) ((nat-to-int _qv_1)>=0))
+    | Assumptions [2]: (forall ((Nat) (Nat)) (((nat-to-int _qv_2)=(nat-to-int _qv_3))->(_qv_2=_qv_3)))
+    | Assumptions [3]: (forall ((Nat)) ((nat-to-int (succ _qv_4))=(1+(nat-to-int _qv_4))))
+    | Assumptions [4]: (forall ((Nat)) ((drop _qv_5 nil)=nil))
+    | Assumptions [5]: (forall ((Lst)) ((drop zero _qv_6)=_qv_6))
+    | Assumptions [6]: (forall ((Nat) (Nat) (Lst)) ((drop (succ _qv_7) (cons _qv_8 _qv_9))=(drop _qv_7 _qv_9)))
+    ====================
+  }
+  rewritten [5]: ((drop (succ zero) (drop _v_3 (cons _v_4 _v_5)))=(drop _v_3 _v_5))
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_6))=_qv_6))
+	(forall ((Nat)) (0<=(nat-to-int _qv_7)))
+	(forall ((Nat)) ((nat-to-int (succ _qv_8))=(nat-to-int _qv_8)))
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_12))=_qv_12))
+	(forall ((Nat)) (0<=(nat-to-int _qv_13)))
+	(forall ((Nat)) ((nat-to-int (succ _qv_14))=(nat-to-int _qv_14)))
+
+CURRENT SUBGOAL ((drop (succ zero) (drop _v_17 (cons _t_18 _t_19)))=(drop (succ _v_17) (cons _t_18 _t_19)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_12))=_qv_12))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ zero) (drop _v_17 (cons _t_18 _t_19)))=(drop (succ _v_17) (cons _t_18 _t_19)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_13)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ zero) (drop _v_17 (cons _t_18 _t_19)))=(drop (succ _v_17) (cons _t_18 _t_19)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_14))=(nat-to-int _qv_14)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ zero) (drop _v_17 (cons _t_18 _t_19)))=(drop (succ _v_17) (cons _t_18 _t_19)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_12))=_qv_12))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ zero) (drop _v_17 (cons _t_18 _t_19)))=(drop (succ _v_17) (cons _t_18 _t_19)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_13)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ zero) (drop _v_17 (cons _t_18 _t_19)))=(drop (succ _v_17) (cons _t_18 _t_19)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_14))=(nat-to-int _qv_14)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ zero) (drop (succ _t_11) (cons _v_9 _v_10)))=(drop (succ _t_11) _v_10))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_6))=_qv_6))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ zero) (drop (succ _t_11) (cons _v_9 _v_10)))=(drop (succ _t_11) _v_10))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_7)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ zero) (drop (succ _t_11) (cons _v_9 _v_10)))=(drop (succ _t_11) _v_10))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_8))=(nat-to-int _qv_8)))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_12))=_qv_12))
+	(forall ((Nat)) (0<=(nat-to-int _qv_13)))
+	(forall ((Nat)) ((nat-to-int (succ _qv_14))=(nat-to-int _qv_14)))
+
+CURRENT SUBGOAL ((drop (succ zero) (drop _v_17 (cons _t_18 _t_19)))=(drop (succ _v_17) (cons _t_18 _t_19)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_12))=_qv_12))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ zero) (drop _v_17 (cons _t_18 _t_19)))=(drop (succ _v_17) (cons _t_18 _t_19)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_13)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ zero) (drop _v_17 (cons _t_18 _t_19)))=(drop (succ _v_17) (cons _t_18 _t_19)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_14))=(nat-to-int _qv_14)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ zero) (drop _v_17 (cons _t_18 _t_19)))=(drop (succ _v_17) (cons _t_18 _t_19)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_12))=_qv_12))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ zero) (drop _v_17 (cons _t_18 _t_19)))=(drop (succ _v_17) (cons _t_18 _t_19)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_13)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ zero) (drop _v_17 (cons _t_18 _t_19)))=(drop (succ _v_17) (cons _t_18 _t_19)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_14))=(nat-to-int _qv_14)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ zero) (drop (succ _t_11) (cons _v_9 _v_10)))=(drop (succ _t_11) _v_10))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_6))=_qv_6))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ zero) (drop (succ _t_11) (cons _v_9 _v_10)))=(drop (succ _t_11) _v_10))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_7)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ zero) (drop (succ _t_11) (cons _v_9 _v_10)))=(drop (succ _t_11) _v_10))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_8))=(nat-to-int _qv_8)))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_16))=_qv_16))
+	(forall ((Nat)) (0<=(nat-to-int _qv_17)))
+	(forall ((Nat)) ((nat-to-int (succ _qv_18))=(nat-to-int _qv_18)))
+
+CURRENT SUBGOAL ((drop (succ zero) (drop _v_3 (cons _v_4 _v_5)))=(drop zero (drop _v_3 _v_5)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ zero) (drop _v_3 (cons _v_4 _v_5)))=(drop zero (drop _v_3 _v_5)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ zero) (drop _v_3 (cons _v_4 _v_5)))=(drop zero (drop _v_3 _v_5)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_2))=(nat-to-int _qv_2)))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((drop (succ zero) (drop _v_3 (cons _v_4 _v_5)))=(drop zero (drop _v_3 _v_5)))
+  rewritten [5]: ((drop (succ zero) (drop _v_3 (cons _v_4 _v_5)))=(drop _v_3 _v_5))
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_6))=_qv_6))
+	(forall ((Nat)) (0<=(nat-to-int _qv_7)))
+	(forall ((Nat)) ((nat-to-int (succ _qv_8))=(nat-to-int _qv_8)))
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_12))=_qv_12))
+	(forall ((Nat)) (0<=(nat-to-int _qv_13)))
+	(forall ((Nat)) ((nat-to-int (succ _qv_14))=(nat-to-int _qv_14)))
+
+CURRENT SUBGOAL ((drop (succ zero) (drop _v_17 (cons _t_18 _t_19)))=(drop (succ _v_17) (cons _t_18 _t_19)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_12))=_qv_12))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ zero) (drop _v_17 (cons _t_18 _t_19)))=(drop (succ _v_17) (cons _t_18 _t_19)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_13)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ zero) (drop _v_17 (cons _t_18 _t_19)))=(drop (succ _v_17) (cons _t_18 _t_19)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_14))=(nat-to-int _qv_14)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ zero) (drop _v_17 (cons _t_18 _t_19)))=(drop (succ _v_17) (cons _t_18 _t_19)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_12))=_qv_12))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ zero) (drop _v_17 (cons _t_18 _t_19)))=(drop (succ _v_17) (cons _t_18 _t_19)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_13)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ zero) (drop _v_17 (cons _t_18 _t_19)))=(drop (succ _v_17) (cons _t_18 _t_19)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_14))=(nat-to-int _qv_14)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ zero) (drop (succ _t_11) (cons _v_9 _v_10)))=(drop (succ _t_11) _v_10))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_6))=_qv_6))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ zero) (drop (succ _t_11) (cons _v_9 _v_10)))=(drop (succ _t_11) _v_10))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_7)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ zero) (drop (succ _t_11) (cons _v_9 _v_10)))=(drop (succ _t_11) _v_10))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_8))=(nat-to-int _qv_8)))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_12))=_qv_12))
+	(forall ((Nat)) (0<=(nat-to-int _qv_13)))
+	(forall ((Nat)) ((nat-to-int (succ _qv_14))=(nat-to-int _qv_14)))
+
+CURRENT SUBGOAL ((drop (succ zero) (drop _v_17 (cons _t_18 _t_19)))=(drop (succ _v_17) (cons _t_18 _t_19)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_12))=_qv_12))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ zero) (drop _v_17 (cons _t_18 _t_19)))=(drop (succ _v_17) (cons _t_18 _t_19)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_13)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ zero) (drop _v_17 (cons _t_18 _t_19)))=(drop (succ _v_17) (cons _t_18 _t_19)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_14))=(nat-to-int _qv_14)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ zero) (drop _v_17 (cons _t_18 _t_19)))=(drop (succ _v_17) (cons _t_18 _t_19)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_12))=_qv_12))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ zero) (drop _v_17 (cons _t_18 _t_19)))=(drop (succ _v_17) (cons _t_18 _t_19)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_13)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ zero) (drop _v_17 (cons _t_18 _t_19)))=(drop (succ _v_17) (cons _t_18 _t_19)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_14))=(nat-to-int _qv_14)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ zero) (drop (succ _t_11) (cons _v_9 _v_10)))=(drop (succ _t_11) _v_10))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_6))=_qv_6))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ zero) (drop (succ _t_11) (cons _v_9 _v_10)))=(drop (succ _t_11) _v_10))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_7)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ zero) (drop (succ _t_11) (cons _v_9 _v_10)))=(drop (succ _t_11) _v_10))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_8))=(nat-to-int _qv_8)))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_16))=_qv_16))
+	(forall ((Nat)) (0<=(nat-to-int _qv_17)))
+	(forall ((Nat)) ((nat-to-int (succ _qv_18))=(nat-to-int _qv_18)))
+
+CURRENT SUBGOAL ((drop (succ zero) (drop _v_3 (cons _v_4 _v_5)))=(drop zero (drop _v_3 _v_5)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ zero) (drop _v_3 (cons _v_4 _v_5)))=(drop zero (drop _v_3 _v_5)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ zero) (drop _v_3 (cons _v_4 _v_5)))=(drop zero (drop _v_3 _v_5)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_2))=(nat-to-int _qv_2)))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((drop (succ zero) (drop _v_3 (cons _v_4 _v_5)))=(drop zero (drop _v_3 _v_5)))
+}
+
+Base case:       ((drop (succ _v_6) (drop zero (cons _v_7 _v_8)))=(drop _v_6 (drop zero _v_8)))
+{
+  proven trivially
+}
+Inductive step:  ((drop (succ _v_6) (drop (succ _t_9) (cons _v_7 _v_8)))=(drop _v_6 (drop (succ _t_9) _v_8)))
+{
+  {
+    ====================
+    | Assumptions [0]: ((nat-to-int zero)=0)
+    | Assumptions [1]: (forall ((Nat)) ((nat-to-int _qv_1)>=0))
+    | Assumptions [2]: (forall ((Nat) (Nat)) (((nat-to-int _qv_2)=(nat-to-int _qv_3))->(_qv_2=_qv_3)))
+    | Assumptions [3]: (forall ((Nat)) ((nat-to-int (succ _qv_4))=(1+(nat-to-int _qv_4))))
+    | Assumptions [4]: (forall ((Nat)) ((drop _qv_5 nil)=nil))
+    | Assumptions [5]: (forall ((Lst)) ((drop zero _qv_6)=_qv_6))
+    | Assumptions [6]: (forall ((Nat) (Nat) (Lst)) ((drop (succ _qv_7) (cons _qv_8 _qv_9))=(drop _qv_7 _qv_9)))
+    | Assumptions [7]: (forall ((Nat) (Nat) (Lst)) ((drop (succ w) (drop _t_9 (cons y z)))=(drop w (drop _t_9 z))))
+    | Assumptions [8]: (forall ((Nat) (Nat) (Lst)) ((drop w (drop _t_9 z))=(drop (succ w) (drop _t_9 (cons y z)))))
+    ====================
+  }
+  rewritten [6]: ((drop (succ _v_6) (drop _t_9 _v_8))=(drop _v_6 (drop (succ _t_9) _v_8)))
+  rewritten [8]: ((drop (succ (succ _v_6)) (drop _t_9 (cons y _v_8)))=(drop _v_6 (drop (succ _t_9) _v_8)))
+  rewritten [8]: ((drop (succ (succ (succ _v_6))) (drop _t_9 (cons y (cons y _v_8))))=(drop _v_6 (drop (succ _t_9) _v_8)))
+  rewritten [8]: ((drop (succ (succ (succ (succ _v_6)))) (drop _t_9 (cons y (cons y (cons y _v_8)))))=(drop _v_6 (drop (succ _t_9) _v_8)))
+  sequence of rewrites only grows
+CURRENT SUBGOAL ((drop (succ (succ (succ _v_6))) (drop _t_9 (cons y (cons y _v_8))))=(drop _v_6 (drop (succ _t_9) _v_8)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ (succ _v_6))) (drop _t_9 (cons y (cons y _v_8))))=(drop _v_6 (drop (succ _t_9) _v_8)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ (succ _v_6))) (drop _t_9 (cons y (cons y _v_8))))=(drop _v_6 (drop (succ _t_9) _v_8)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_2))=(nat-to-int _qv_2)))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((drop (succ (succ (succ _v_6))) (drop _t_9 (cons y (cons y _v_8))))=(drop _v_6 (drop (succ _t_9) _v_8)))
+  rewritten [8]: ((drop (succ (succ (succ (succ _v_6)))) (drop _t_9 (cons y (cons y (cons y _v_8)))))=(drop _v_6 (drop (succ _t_9) _v_8)))
+  sequence of rewrites only grows
+CURRENT SUBGOAL ((drop (succ (succ (succ _v_6))) (drop _t_9 (cons y (cons y _v_8))))=(drop _v_6 (drop (succ _t_9) _v_8)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ (succ _v_6))) (drop _t_9 (cons y (cons y _v_8))))=(drop _v_6 (drop (succ _t_9) _v_8)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ (succ _v_6))) (drop _t_9 (cons y (cons y _v_8))))=(drop _v_6 (drop (succ _t_9) _v_8)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_2))=(nat-to-int _qv_2)))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((drop (succ (succ (succ _v_6))) (drop _t_9 (cons y (cons y _v_8))))=(drop _v_6 (drop (succ _t_9) _v_8)))
+CURRENT SUBGOAL ((drop (succ (succ _v_6)) (drop _t_9 (cons y _v_8)))=(drop _v_6 (drop (succ _t_9) _v_8)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_6)) (drop _t_9 (cons y _v_8)))=(drop _v_6 (drop (succ _t_9) _v_8)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_6)) (drop _t_9 (cons y _v_8)))=(drop _v_6 (drop (succ _t_9) _v_8)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_2))=(nat-to-int _qv_2)))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((drop (succ (succ _v_6)) (drop _t_9 (cons y _v_8)))=(drop _v_6 (drop (succ _t_9) _v_8)))
+  rewritten [8]: ((drop (succ (succ (succ _v_6))) (drop _t_9 (cons y (cons y _v_8))))=(drop _v_6 (drop (succ _t_9) _v_8)))
+  rewritten [8]: ((drop (succ (succ (succ (succ _v_6)))) (drop _t_9 (cons y (cons y (cons y _v_8)))))=(drop _v_6 (drop (succ _t_9) _v_8)))
+  sequence of rewrites only grows
+CURRENT SUBGOAL ((drop (succ (succ (succ _v_6))) (drop _t_9 (cons y (cons y _v_8))))=(drop _v_6 (drop (succ _t_9) _v_8)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ (succ _v_6))) (drop _t_9 (cons y (cons y _v_8))))=(drop _v_6 (drop (succ _t_9) _v_8)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ (succ _v_6))) (drop _t_9 (cons y (cons y _v_8))))=(drop _v_6 (drop (succ _t_9) _v_8)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_2))=(nat-to-int _qv_2)))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((drop (succ (succ (succ _v_6))) (drop _t_9 (cons y (cons y _v_8))))=(drop _v_6 (drop (succ _t_9) _v_8)))
+  rewritten [8]: ((drop (succ (succ (succ (succ _v_6)))) (drop _t_9 (cons y (cons y (cons y _v_8)))))=(drop _v_6 (drop (succ _t_9) _v_8)))
+  sequence of rewrites only grows
+CURRENT SUBGOAL ((drop (succ (succ (succ _v_6))) (drop _t_9 (cons y (cons y _v_8))))=(drop _v_6 (drop (succ _t_9) _v_8)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ (succ _v_6))) (drop _t_9 (cons y (cons y _v_8))))=(drop _v_6 (drop (succ _t_9) _v_8)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ (succ _v_6))) (drop _t_9 (cons y (cons y _v_8))))=(drop _v_6 (drop (succ _t_9) _v_8)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_2))=(nat-to-int _qv_2)))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((drop (succ (succ (succ _v_6))) (drop _t_9 (cons y (cons y _v_8))))=(drop _v_6 (drop (succ _t_9) _v_8)))
+CURRENT SUBGOAL ((drop (succ (succ _v_6)) (drop _t_9 (cons y _v_8)))=(drop _v_6 (drop (succ _t_9) _v_8)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_6)) (drop _t_9 (cons y _v_8)))=(drop _v_6 (drop (succ _t_9) _v_8)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_6)) (drop _t_9 (cons y _v_8)))=(drop _v_6 (drop (succ _t_9) _v_8)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_2))=(nat-to-int _qv_2)))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((drop (succ (succ _v_6)) (drop _t_9 (cons y _v_8)))=(drop _v_6 (drop (succ _t_9) _v_8)))
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_10))=_qv_10))
+	(forall ((Nat)) (0<=(nat-to-int _qv_11)))
+	(forall ((Nat)) ((nat-to-int (succ _qv_12))=(nat-to-int _qv_12)))
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_16))=_qv_16))
+	(forall ((Nat)) (0<=(nat-to-int _qv_17)))
+	(forall ((Nat)) ((nat-to-int (succ _qv_18))=(nat-to-int _qv_18)))
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop (succ _t_21) (cons _v_19 _v_20)))=(drop (succ (succ _t_21)) _v_20))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_16))=_qv_16))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop (succ _t_21) (cons _v_19 _v_20)))=(drop (succ (succ _t_21)) _v_20))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_17)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop (succ _t_21) (cons _v_19 _v_20)))=(drop (succ (succ _t_21)) _v_20))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_18))=(nat-to-int _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop (succ _t_21) (cons _v_19 _v_20)))=(drop (succ (succ _t_21)) _v_20))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_16))=_qv_16))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop (succ _t_21) (cons _v_19 _v_20)))=(drop (succ (succ _t_21)) _v_20))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_17)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop (succ _t_21) (cons _v_19 _v_20)))=(drop (succ (succ _t_21)) _v_20))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_18))=(nat-to-int _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_24 (cons _v_25 nil)))=(drop (succ _v_24) nil))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_16))=_qv_16))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_24 (cons _v_25 nil)))=(drop (succ _v_24) nil))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_17)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_24 (cons _v_25 nil)))=(drop (succ _v_24) nil))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_18))=(nat-to-int _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_24 (cons _v_25 nil)))=(drop (succ _v_24) nil))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_16))=_qv_16))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_24 (cons _v_25 nil)))=(drop (succ _v_24) nil))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_17)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_24 (cons _v_25 nil)))=(drop (succ _v_24) nil))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_18))=(nat-to-int _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_13 (cons _v_14 _v_15)))=(drop zero (drop (succ _v_13) _v_15)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_10))=_qv_10))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_13 (cons _v_14 _v_15)))=(drop zero (drop (succ _v_13) _v_15)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_11)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_13 (cons _v_14 _v_15)))=(drop zero (drop (succ _v_13) _v_15)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_12))=(nat-to-int _qv_12)))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_16))=_qv_16))
+	(forall ((Nat)) (0<=(nat-to-int _qv_17)))
+	(forall ((Nat)) ((nat-to-int (succ _qv_18))=(nat-to-int _qv_18)))
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop (succ _t_21) (cons _v_19 _v_20)))=(drop (succ (succ _t_21)) _v_20))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_16))=_qv_16))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop (succ _t_21) (cons _v_19 _v_20)))=(drop (succ (succ _t_21)) _v_20))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_17)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop (succ _t_21) (cons _v_19 _v_20)))=(drop (succ (succ _t_21)) _v_20))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_18))=(nat-to-int _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop (succ _t_21) (cons _v_19 _v_20)))=(drop (succ (succ _t_21)) _v_20))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_16))=_qv_16))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop (succ _t_21) (cons _v_19 _v_20)))=(drop (succ (succ _t_21)) _v_20))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_17)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop (succ _t_21) (cons _v_19 _v_20)))=(drop (succ (succ _t_21)) _v_20))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_18))=(nat-to-int _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_24 (cons _v_25 nil)))=(drop (succ _v_24) nil))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_16))=_qv_16))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_24 (cons _v_25 nil)))=(drop (succ _v_24) nil))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_17)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_24 (cons _v_25 nil)))=(drop (succ _v_24) nil))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_18))=(nat-to-int _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_24 (cons _v_25 nil)))=(drop (succ _v_24) nil))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_16))=_qv_16))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_24 (cons _v_25 nil)))=(drop (succ _v_24) nil))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_17)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_24 (cons _v_25 nil)))=(drop (succ _v_24) nil))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_18))=(nat-to-int _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_13 (cons _v_14 _v_15)))=(drop zero (drop (succ _v_13) _v_15)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_10))=_qv_10))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_13 (cons _v_14 _v_15)))=(drop zero (drop (succ _v_13) _v_15)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_11)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_13 (cons _v_14 _v_15)))=(drop zero (drop (succ _v_13) _v_15)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_12))=(nat-to-int _qv_12)))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_19))=_qv_19))
+	(forall ((Nat)) (0<=(nat-to-int _qv_20)))
+	(forall ((Nat)) ((nat-to-int (succ _qv_21))=(nat-to-int _qv_21)))
+
+CURRENT SUBGOAL ((drop (succ (succ _t_23)) _v_22)=(drop (succ _t_23) (drop (succ zero) _v_22)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_19))=_qv_19))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _t_23)) _v_22)=(drop (succ _t_23) (drop (succ zero) _v_22)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_20)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _t_23)) _v_22)=(drop (succ _t_23) (drop (succ zero) _v_22)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_21))=(nat-to-int _qv_21)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _t_23)) _v_22)=(drop (succ _t_23) (drop (succ zero) _v_22)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_19))=_qv_19))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _t_23)) _v_22)=(drop (succ _t_23) (drop (succ zero) _v_22)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_20)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _t_23)) _v_22)=(drop (succ _t_23) (drop (succ zero) _v_22)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_21))=(nat-to-int _qv_21)))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_20))=_qv_20))
+	(forall ((Nat)) (0<=(nat-to-int _qv_21)))
+	(forall ((Nat)) ((nat-to-int (succ _qv_22))=(nat-to-int _qv_22)))
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_23 _v_24))=(drop zero (drop (succ (succ _v_23)) _v_24)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_20))=_qv_20))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_23 _v_24))=(drop zero (drop (succ (succ _v_23)) _v_24)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_21)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_23 _v_24))=(drop zero (drop (succ (succ _v_23)) _v_24)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_22))=(nat-to-int _qv_22)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_23 _v_24))=(drop zero (drop (succ (succ _v_23)) _v_24)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_20))=_qv_20))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_23 _v_24))=(drop zero (drop (succ (succ _v_23)) _v_24)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_21)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_23 _v_24))=(drop zero (drop (succ (succ _v_23)) _v_24)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_22))=(nat-to-int _qv_22)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_25)) (drop zero _v_26))=(drop _v_25 (drop (succ (succ zero)) _v_26)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_20))=_qv_20))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_25)) (drop zero _v_26))=(drop _v_25 (drop (succ (succ zero)) _v_26)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_21)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_25)) (drop zero _v_26))=(drop _v_25 (drop (succ (succ zero)) _v_26)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_22))=(nat-to-int _qv_22)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_25)) (drop zero _v_26))=(drop _v_25 (drop (succ (succ zero)) _v_26)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_20))=_qv_20))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_25)) (drop zero _v_26))=(drop _v_25 (drop (succ (succ zero)) _v_26)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_21)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_25)) (drop zero _v_26))=(drop _v_25 (drop (succ (succ zero)) _v_26)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_22))=(nat-to-int _qv_22)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_27)) (drop _v_28 (cons _t_29 _t_30)))=(drop _v_27 (drop (succ (succ _v_28)) (cons _t_29 _t_30))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_20))=_qv_20))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_27)) (drop _v_28 (cons _t_29 _t_30)))=(drop _v_27 (drop (succ (succ _v_28)) (cons _t_29 _t_30))))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_21)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_27)) (drop _v_28 (cons _t_29 _t_30)))=(drop _v_27 (drop (succ (succ _v_28)) (cons _t_29 _t_30))))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_22))=(nat-to-int _qv_22)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_27)) (drop _v_28 (cons _t_29 _t_30)))=(drop _v_27 (drop (succ (succ _v_28)) (cons _t_29 _t_30))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_20))=_qv_20))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_27)) (drop _v_28 (cons _t_29 _t_30)))=(drop _v_27 (drop (succ (succ _v_28)) (cons _t_29 _t_30))))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_21)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_27)) (drop _v_28 (cons _t_29 _t_30)))=(drop _v_27 (drop (succ (succ _v_28)) (cons _t_29 _t_30))))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_22))=(nat-to-int _qv_22)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_16)) (drop (succ _t_19) (cons _v_17 _v_18)))=(drop _v_16 (drop (succ (succ _t_19)) _v_18)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_10))=_qv_10))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_16)) (drop (succ _t_19) (cons _v_17 _v_18)))=(drop _v_16 (drop (succ (succ _t_19)) _v_18)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_11)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_16)) (drop (succ _t_19) (cons _v_17 _v_18)))=(drop _v_16 (drop (succ (succ _t_19)) _v_18)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_12))=(nat-to-int _qv_12)))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_20))=_qv_20))
+	(forall ((Nat)) (0<=(nat-to-int _qv_21)))
+	(forall ((Nat)) ((nat-to-int (succ _qv_22))=(nat-to-int _qv_22)))
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_23 _v_24))=(drop zero (drop (succ (succ _v_23)) _v_24)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_20))=_qv_20))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_23 _v_24))=(drop zero (drop (succ (succ _v_23)) _v_24)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_21)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_23 _v_24))=(drop zero (drop (succ (succ _v_23)) _v_24)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_22))=(nat-to-int _qv_22)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_23 _v_24))=(drop zero (drop (succ (succ _v_23)) _v_24)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_20))=_qv_20))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_23 _v_24))=(drop zero (drop (succ (succ _v_23)) _v_24)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_21)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_23 _v_24))=(drop zero (drop (succ (succ _v_23)) _v_24)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_22))=(nat-to-int _qv_22)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_25)) (drop zero _v_26))=(drop _v_25 (drop (succ (succ zero)) _v_26)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_20))=_qv_20))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_25)) (drop zero _v_26))=(drop _v_25 (drop (succ (succ zero)) _v_26)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_21)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_25)) (drop zero _v_26))=(drop _v_25 (drop (succ (succ zero)) _v_26)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_22))=(nat-to-int _qv_22)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_25)) (drop zero _v_26))=(drop _v_25 (drop (succ (succ zero)) _v_26)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_20))=_qv_20))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_25)) (drop zero _v_26))=(drop _v_25 (drop (succ (succ zero)) _v_26)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_21)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_25)) (drop zero _v_26))=(drop _v_25 (drop (succ (succ zero)) _v_26)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_22))=(nat-to-int _qv_22)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_27)) (drop _v_28 (cons _t_29 _t_30)))=(drop _v_27 (drop (succ (succ _v_28)) (cons _t_29 _t_30))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_20))=_qv_20))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_27)) (drop _v_28 (cons _t_29 _t_30)))=(drop _v_27 (drop (succ (succ _v_28)) (cons _t_29 _t_30))))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_21)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_27)) (drop _v_28 (cons _t_29 _t_30)))=(drop _v_27 (drop (succ (succ _v_28)) (cons _t_29 _t_30))))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_22))=(nat-to-int _qv_22)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_27)) (drop _v_28 (cons _t_29 _t_30)))=(drop _v_27 (drop (succ (succ _v_28)) (cons _t_29 _t_30))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_20))=_qv_20))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_27)) (drop _v_28 (cons _t_29 _t_30)))=(drop _v_27 (drop (succ (succ _v_28)) (cons _t_29 _t_30))))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_21)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_27)) (drop _v_28 (cons _t_29 _t_30)))=(drop _v_27 (drop (succ (succ _v_28)) (cons _t_29 _t_30))))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_22))=(nat-to-int _qv_22)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_16)) (drop (succ _t_19) (cons _v_17 _v_18)))=(drop _v_16 (drop (succ (succ _t_19)) _v_18)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_10))=_qv_10))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_16)) (drop (succ _t_19) (cons _v_17 _v_18)))=(drop _v_16 (drop (succ (succ _t_19)) _v_18)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_11)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_16)) (drop (succ _t_19) (cons _v_17 _v_18)))=(drop _v_16 (drop (succ (succ _t_19)) _v_18)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_12))=(nat-to-int _qv_12)))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_26))=_qv_26))
+	(forall ((Nat)) (0<=(nat-to-int _qv_27)))
+	(forall ((Nat)) ((nat-to-int (succ _qv_28))=(nat-to-int _qv_28)))
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_28))=_qv_28))
+	(forall ((Nat)) (0<=(nat-to-int _qv_29)))
+	(forall ((Nat)) ((nat-to-int (succ _qv_30))=(nat-to-int _qv_30)))
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_31 (cons _v_32 (cons _v_33 _v_34))))=(drop zero (drop _v_31 _v_34)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_28))=_qv_28))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_31 (cons _v_32 (cons _v_33 _v_34))))=(drop zero (drop _v_31 _v_34)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_29)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_31 (cons _v_32 (cons _v_33 _v_34))))=(drop zero (drop _v_31 _v_34)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_30))=(nat-to-int _qv_30)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_31 (cons _v_32 (cons _v_33 _v_34))))=(drop zero (drop _v_31 _v_34)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_28))=_qv_28))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_31 (cons _v_32 (cons _v_33 _v_34))))=(drop zero (drop _v_31 _v_34)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_29)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_31 (cons _v_32 (cons _v_33 _v_34))))=(drop zero (drop _v_31 _v_34)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_30))=(nat-to-int _qv_30)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_35)) (drop (succ _t_39) (cons _v_36 (cons _v_37 _v_38))))=(drop _v_35 (drop (succ _t_39) _v_38)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_28))=_qv_28))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_35)) (drop (succ _t_39) (cons _v_36 (cons _v_37 _v_38))))=(drop _v_35 (drop (succ _t_39) _v_38)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_29)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_35)) (drop (succ _t_39) (cons _v_36 (cons _v_37 _v_38))))=(drop _v_35 (drop (succ _t_39) _v_38)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_30))=(nat-to-int _qv_30)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_35)) (drop (succ _t_39) (cons _v_36 (cons _v_37 _v_38))))=(drop _v_35 (drop (succ _t_39) _v_38)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_28))=_qv_28))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_35)) (drop (succ _t_39) (cons _v_36 (cons _v_37 _v_38))))=(drop _v_35 (drop (succ _t_39) _v_38)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_29)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_35)) (drop (succ _t_39) (cons _v_36 (cons _v_37 _v_38))))=(drop _v_35 (drop (succ _t_39) _v_38)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_30))=(nat-to-int _qv_30)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_48)) (drop _v_49 (cons _v_50 (cons _v_51 nil))))=(drop _v_48 nil))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_28))=_qv_28))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_48)) (drop _v_49 (cons _v_50 (cons _v_51 nil))))=(drop _v_48 nil))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_29)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_48)) (drop _v_49 (cons _v_50 (cons _v_51 nil))))=(drop _v_48 nil))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_30))=(nat-to-int _qv_30)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_48)) (drop _v_49 (cons _v_50 (cons _v_51 nil))))=(drop _v_48 nil))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_28))=_qv_28))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_48)) (drop _v_49 (cons _v_50 (cons _v_51 nil))))=(drop _v_48 nil))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_29)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_48)) (drop _v_49 (cons _v_50 (cons _v_51 nil))))=(drop _v_48 nil))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_30))=(nat-to-int _qv_30)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_48)) (drop _v_49 (cons _v_50 (cons _v_51 nil))))=(drop _v_48 (drop _v_49 nil)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_28))=_qv_28))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_48)) (drop _v_49 (cons _v_50 (cons _v_51 nil))))=(drop _v_48 (drop _v_49 nil)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_29)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_48)) (drop _v_49 (cons _v_50 (cons _v_51 nil))))=(drop _v_48 (drop _v_49 nil)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_30))=(nat-to-int _qv_30)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_48)) (drop _v_49 (cons _v_50 (cons _v_51 nil))))=(drop _v_48 nil))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_28))=_qv_28))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_48)) (drop _v_49 (cons _v_50 (cons _v_51 nil))))=(drop _v_48 nil))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_29)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_48)) (drop _v_49 (cons _v_50 (cons _v_51 nil))))=(drop _v_48 nil))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_30))=(nat-to-int _qv_30)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_48)) (drop _v_49 (cons _v_50 (cons _v_51 nil))))=(drop _v_48 nil))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_28))=_qv_28))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_48)) (drop _v_49 (cons _v_50 (cons _v_51 nil))))=(drop _v_48 nil))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_29)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_48)) (drop _v_49 (cons _v_50 (cons _v_51 nil))))=(drop _v_48 nil))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_30))=(nat-to-int _qv_30)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_48)) (drop _v_49 (cons _v_50 (cons _v_51 nil))))=(drop _v_48 (drop _v_49 nil)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_28))=_qv_28))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_48)) (drop _v_49 (cons _v_50 (cons _v_51 nil))))=(drop _v_48 (drop _v_49 nil)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_29)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_48)) (drop _v_49 (cons _v_50 (cons _v_51 nil))))=(drop _v_48 (drop _v_49 nil)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_30))=(nat-to-int _qv_30)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_23)) (drop _v_24 (cons _v_25 (cons _t_26 _t_27))))=(drop _v_23 (drop (succ _v_24) (cons _t_26 _t_27))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_10))=_qv_10))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_23)) (drop _v_24 (cons _v_25 (cons _t_26 _t_27))))=(drop _v_23 (drop (succ _v_24) (cons _t_26 _t_27))))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_11)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_23)) (drop _v_24 (cons _v_25 (cons _t_26 _t_27))))=(drop _v_23 (drop (succ _v_24) (cons _t_26 _t_27))))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_12))=(nat-to-int _qv_12)))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_28))=_qv_28))
+	(forall ((Nat)) (0<=(nat-to-int _qv_29)))
+	(forall ((Nat)) ((nat-to-int (succ _qv_30))=(nat-to-int _qv_30)))
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_31 (cons _v_32 (cons _v_33 _v_34))))=(drop zero (drop _v_31 _v_34)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_28))=_qv_28))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_31 (cons _v_32 (cons _v_33 _v_34))))=(drop zero (drop _v_31 _v_34)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_29)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_31 (cons _v_32 (cons _v_33 _v_34))))=(drop zero (drop _v_31 _v_34)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_30))=(nat-to-int _qv_30)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_31 (cons _v_32 (cons _v_33 _v_34))))=(drop zero (drop _v_31 _v_34)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_28))=_qv_28))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_31 (cons _v_32 (cons _v_33 _v_34))))=(drop zero (drop _v_31 _v_34)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_29)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_31 (cons _v_32 (cons _v_33 _v_34))))=(drop zero (drop _v_31 _v_34)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_30))=(nat-to-int _qv_30)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_35)) (drop (succ _t_39) (cons _v_36 (cons _v_37 _v_38))))=(drop _v_35 (drop (succ _t_39) _v_38)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_28))=_qv_28))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_35)) (drop (succ _t_39) (cons _v_36 (cons _v_37 _v_38))))=(drop _v_35 (drop (succ _t_39) _v_38)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_29)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_35)) (drop (succ _t_39) (cons _v_36 (cons _v_37 _v_38))))=(drop _v_35 (drop (succ _t_39) _v_38)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_30))=(nat-to-int _qv_30)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_35)) (drop (succ _t_39) (cons _v_36 (cons _v_37 _v_38))))=(drop _v_35 (drop (succ _t_39) _v_38)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_28))=_qv_28))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_35)) (drop (succ _t_39) (cons _v_36 (cons _v_37 _v_38))))=(drop _v_35 (drop (succ _t_39) _v_38)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_29)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_35)) (drop (succ _t_39) (cons _v_36 (cons _v_37 _v_38))))=(drop _v_35 (drop (succ _t_39) _v_38)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_30))=(nat-to-int _qv_30)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_48)) (drop _v_49 (cons _v_50 (cons _v_51 nil))))=(drop _v_48 nil))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_28))=_qv_28))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_48)) (drop _v_49 (cons _v_50 (cons _v_51 nil))))=(drop _v_48 nil))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_29)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_48)) (drop _v_49 (cons _v_50 (cons _v_51 nil))))=(drop _v_48 nil))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_30))=(nat-to-int _qv_30)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_48)) (drop _v_49 (cons _v_50 (cons _v_51 nil))))=(drop _v_48 nil))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_28))=_qv_28))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_48)) (drop _v_49 (cons _v_50 (cons _v_51 nil))))=(drop _v_48 nil))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_29)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_48)) (drop _v_49 (cons _v_50 (cons _v_51 nil))))=(drop _v_48 nil))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_30))=(nat-to-int _qv_30)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_48)) (drop _v_49 (cons _v_50 (cons _v_51 nil))))=(drop _v_48 (drop _v_49 nil)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_28))=_qv_28))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_48)) (drop _v_49 (cons _v_50 (cons _v_51 nil))))=(drop _v_48 (drop _v_49 nil)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_29)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_48)) (drop _v_49 (cons _v_50 (cons _v_51 nil))))=(drop _v_48 (drop _v_49 nil)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_30))=(nat-to-int _qv_30)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_48)) (drop _v_49 (cons _v_50 (cons _v_51 nil))))=(drop _v_48 nil))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_28))=_qv_28))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_48)) (drop _v_49 (cons _v_50 (cons _v_51 nil))))=(drop _v_48 nil))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_29)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_48)) (drop _v_49 (cons _v_50 (cons _v_51 nil))))=(drop _v_48 nil))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_30))=(nat-to-int _qv_30)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_48)) (drop _v_49 (cons _v_50 (cons _v_51 nil))))=(drop _v_48 nil))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_28))=_qv_28))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_48)) (drop _v_49 (cons _v_50 (cons _v_51 nil))))=(drop _v_48 nil))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_29)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_48)) (drop _v_49 (cons _v_50 (cons _v_51 nil))))=(drop _v_48 nil))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_30))=(nat-to-int _qv_30)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_48)) (drop _v_49 (cons _v_50 (cons _v_51 nil))))=(drop _v_48 (drop _v_49 nil)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_28))=_qv_28))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_48)) (drop _v_49 (cons _v_50 (cons _v_51 nil))))=(drop _v_48 (drop _v_49 nil)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_29)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_48)) (drop _v_49 (cons _v_50 (cons _v_51 nil))))=(drop _v_48 (drop _v_49 nil)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_30))=(nat-to-int _qv_30)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_23)) (drop _v_24 (cons _v_25 (cons _t_26 _t_27))))=(drop _v_23 (drop (succ _v_24) (cons _t_26 _t_27))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_10))=_qv_10))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_23)) (drop _v_24 (cons _v_25 (cons _t_26 _t_27))))=(drop _v_23 (drop (succ _v_24) (cons _t_26 _t_27))))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_11)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_23)) (drop _v_24 (cons _v_25 (cons _t_26 _t_27))))=(drop _v_23 (drop (succ _v_24) (cons _t_26 _t_27))))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_12))=(nat-to-int _qv_12)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ _v_6) (drop _t_9 _v_8))=(drop _v_6 (drop (succ _t_9) _v_8)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ _v_6) (drop _t_9 _v_8))=(drop _v_6 (drop (succ _t_9) _v_8)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ _v_6) (drop _t_9 _v_8))=(drop _v_6 (drop (succ _t_9) _v_8)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_2))=(nat-to-int _qv_2)))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((drop (succ _v_6) (drop _t_9 _v_8))=(drop _v_6 (drop (succ _t_9) _v_8)))
+  rewritten [8]: ((drop (succ (succ _v_6)) (drop _t_9 (cons y _v_8)))=(drop _v_6 (drop (succ _t_9) _v_8)))
+  rewritten [8]: ((drop (succ (succ (succ _v_6))) (drop _t_9 (cons y (cons y _v_8))))=(drop _v_6 (drop (succ _t_9) _v_8)))
+  rewritten [8]: ((drop (succ (succ (succ (succ _v_6)))) (drop _t_9 (cons y (cons y (cons y _v_8)))))=(drop _v_6 (drop (succ _t_9) _v_8)))
+  sequence of rewrites only grows
+CURRENT SUBGOAL ((drop (succ (succ (succ _v_6))) (drop _t_9 (cons y (cons y _v_8))))=(drop _v_6 (drop (succ _t_9) _v_8)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ (succ _v_6))) (drop _t_9 (cons y (cons y _v_8))))=(drop _v_6 (drop (succ _t_9) _v_8)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ (succ _v_6))) (drop _t_9 (cons y (cons y _v_8))))=(drop _v_6 (drop (succ _t_9) _v_8)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_2))=(nat-to-int _qv_2)))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((drop (succ (succ (succ _v_6))) (drop _t_9 (cons y (cons y _v_8))))=(drop _v_6 (drop (succ _t_9) _v_8)))
+  rewritten [8]: ((drop (succ (succ (succ (succ _v_6)))) (drop _t_9 (cons y (cons y (cons y _v_8)))))=(drop _v_6 (drop (succ _t_9) _v_8)))
+  sequence of rewrites only grows
+CURRENT SUBGOAL ((drop (succ (succ (succ _v_6))) (drop _t_9 (cons y (cons y _v_8))))=(drop _v_6 (drop (succ _t_9) _v_8)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ (succ _v_6))) (drop _t_9 (cons y (cons y _v_8))))=(drop _v_6 (drop (succ _t_9) _v_8)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ (succ _v_6))) (drop _t_9 (cons y (cons y _v_8))))=(drop _v_6 (drop (succ _t_9) _v_8)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_2))=(nat-to-int _qv_2)))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((drop (succ (succ (succ _v_6))) (drop _t_9 (cons y (cons y _v_8))))=(drop _v_6 (drop (succ _t_9) _v_8)))
+CURRENT SUBGOAL ((drop (succ (succ _v_6)) (drop _t_9 (cons y _v_8)))=(drop _v_6 (drop (succ _t_9) _v_8)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_6)) (drop _t_9 (cons y _v_8)))=(drop _v_6 (drop (succ _t_9) _v_8)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_6)) (drop _t_9 (cons y _v_8)))=(drop _v_6 (drop (succ _t_9) _v_8)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_2))=(nat-to-int _qv_2)))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((drop (succ (succ _v_6)) (drop _t_9 (cons y _v_8)))=(drop _v_6 (drop (succ _t_9) _v_8)))
+  rewritten [8]: ((drop (succ (succ (succ _v_6))) (drop _t_9 (cons y (cons y _v_8))))=(drop _v_6 (drop (succ _t_9) _v_8)))
+  rewritten [8]: ((drop (succ (succ (succ (succ _v_6)))) (drop _t_9 (cons y (cons y (cons y _v_8)))))=(drop _v_6 (drop (succ _t_9) _v_8)))
+  sequence of rewrites only grows
+CURRENT SUBGOAL ((drop (succ (succ (succ _v_6))) (drop _t_9 (cons y (cons y _v_8))))=(drop _v_6 (drop (succ _t_9) _v_8)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ (succ _v_6))) (drop _t_9 (cons y (cons y _v_8))))=(drop _v_6 (drop (succ _t_9) _v_8)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ (succ _v_6))) (drop _t_9 (cons y (cons y _v_8))))=(drop _v_6 (drop (succ _t_9) _v_8)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_2))=(nat-to-int _qv_2)))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((drop (succ (succ (succ _v_6))) (drop _t_9 (cons y (cons y _v_8))))=(drop _v_6 (drop (succ _t_9) _v_8)))
+  rewritten [8]: ((drop (succ (succ (succ (succ _v_6)))) (drop _t_9 (cons y (cons y (cons y _v_8)))))=(drop _v_6 (drop (succ _t_9) _v_8)))
+  sequence of rewrites only grows
+CURRENT SUBGOAL ((drop (succ (succ (succ _v_6))) (drop _t_9 (cons y (cons y _v_8))))=(drop _v_6 (drop (succ _t_9) _v_8)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ (succ _v_6))) (drop _t_9 (cons y (cons y _v_8))))=(drop _v_6 (drop (succ _t_9) _v_8)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ (succ _v_6))) (drop _t_9 (cons y (cons y _v_8))))=(drop _v_6 (drop (succ _t_9) _v_8)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_2))=(nat-to-int _qv_2)))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((drop (succ (succ (succ _v_6))) (drop _t_9 (cons y (cons y _v_8))))=(drop _v_6 (drop (succ _t_9) _v_8)))
+CURRENT SUBGOAL ((drop (succ (succ _v_6)) (drop _t_9 (cons y _v_8)))=(drop _v_6 (drop (succ _t_9) _v_8)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_6)) (drop _t_9 (cons y _v_8)))=(drop _v_6 (drop (succ _t_9) _v_8)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_6)) (drop _t_9 (cons y _v_8)))=(drop _v_6 (drop (succ _t_9) _v_8)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_2))=(nat-to-int _qv_2)))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((drop (succ (succ _v_6)) (drop _t_9 (cons y _v_8)))=(drop _v_6 (drop (succ _t_9) _v_8)))
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_10))=_qv_10))
+	(forall ((Nat)) (0<=(nat-to-int _qv_11)))
+	(forall ((Nat)) ((nat-to-int (succ _qv_12))=(nat-to-int _qv_12)))
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_16))=_qv_16))
+	(forall ((Nat)) (0<=(nat-to-int _qv_17)))
+	(forall ((Nat)) ((nat-to-int (succ _qv_18))=(nat-to-int _qv_18)))
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop (succ _t_21) (cons _v_19 _v_20)))=(drop (succ (succ _t_21)) _v_20))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_16))=_qv_16))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop (succ _t_21) (cons _v_19 _v_20)))=(drop (succ (succ _t_21)) _v_20))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_17)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop (succ _t_21) (cons _v_19 _v_20)))=(drop (succ (succ _t_21)) _v_20))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_18))=(nat-to-int _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop (succ _t_21) (cons _v_19 _v_20)))=(drop (succ (succ _t_21)) _v_20))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_16))=_qv_16))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop (succ _t_21) (cons _v_19 _v_20)))=(drop (succ (succ _t_21)) _v_20))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_17)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop (succ _t_21) (cons _v_19 _v_20)))=(drop (succ (succ _t_21)) _v_20))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_18))=(nat-to-int _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_24 (cons _v_25 nil)))=(drop (succ _v_24) nil))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_16))=_qv_16))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_24 (cons _v_25 nil)))=(drop (succ _v_24) nil))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_17)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_24 (cons _v_25 nil)))=(drop (succ _v_24) nil))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_18))=(nat-to-int _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_24 (cons _v_25 nil)))=(drop (succ _v_24) nil))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_16))=_qv_16))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_24 (cons _v_25 nil)))=(drop (succ _v_24) nil))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_17)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_24 (cons _v_25 nil)))=(drop (succ _v_24) nil))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_18))=(nat-to-int _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_13 (cons _v_14 _v_15)))=(drop zero (drop (succ _v_13) _v_15)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_10))=_qv_10))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_13 (cons _v_14 _v_15)))=(drop zero (drop (succ _v_13) _v_15)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_11)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_13 (cons _v_14 _v_15)))=(drop zero (drop (succ _v_13) _v_15)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_12))=(nat-to-int _qv_12)))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_16))=_qv_16))
+	(forall ((Nat)) (0<=(nat-to-int _qv_17)))
+	(forall ((Nat)) ((nat-to-int (succ _qv_18))=(nat-to-int _qv_18)))
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop (succ _t_21) (cons _v_19 _v_20)))=(drop (succ (succ _t_21)) _v_20))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_16))=_qv_16))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop (succ _t_21) (cons _v_19 _v_20)))=(drop (succ (succ _t_21)) _v_20))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_17)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop (succ _t_21) (cons _v_19 _v_20)))=(drop (succ (succ _t_21)) _v_20))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_18))=(nat-to-int _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop (succ _t_21) (cons _v_19 _v_20)))=(drop (succ (succ _t_21)) _v_20))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_16))=_qv_16))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop (succ _t_21) (cons _v_19 _v_20)))=(drop (succ (succ _t_21)) _v_20))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_17)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop (succ _t_21) (cons _v_19 _v_20)))=(drop (succ (succ _t_21)) _v_20))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_18))=(nat-to-int _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_24 (cons _v_25 nil)))=(drop (succ _v_24) nil))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_16))=_qv_16))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_24 (cons _v_25 nil)))=(drop (succ _v_24) nil))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_17)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_24 (cons _v_25 nil)))=(drop (succ _v_24) nil))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_18))=(nat-to-int _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_24 (cons _v_25 nil)))=(drop (succ _v_24) nil))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_16))=_qv_16))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_24 (cons _v_25 nil)))=(drop (succ _v_24) nil))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_17)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_24 (cons _v_25 nil)))=(drop (succ _v_24) nil))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_18))=(nat-to-int _qv_18)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_13 (cons _v_14 _v_15)))=(drop zero (drop (succ _v_13) _v_15)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_10))=_qv_10))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_13 (cons _v_14 _v_15)))=(drop zero (drop (succ _v_13) _v_15)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_11)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_13 (cons _v_14 _v_15)))=(drop zero (drop (succ _v_13) _v_15)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_12))=(nat-to-int _qv_12)))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_19))=_qv_19))
+	(forall ((Nat)) (0<=(nat-to-int _qv_20)))
+	(forall ((Nat)) ((nat-to-int (succ _qv_21))=(nat-to-int _qv_21)))
+
+CURRENT SUBGOAL ((drop (succ (succ _t_23)) _v_22)=(drop (succ _t_23) (drop (succ zero) _v_22)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_19))=_qv_19))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _t_23)) _v_22)=(drop (succ _t_23) (drop (succ zero) _v_22)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_20)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _t_23)) _v_22)=(drop (succ _t_23) (drop (succ zero) _v_22)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_21))=(nat-to-int _qv_21)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _t_23)) _v_22)=(drop (succ _t_23) (drop (succ zero) _v_22)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_19))=_qv_19))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _t_23)) _v_22)=(drop (succ _t_23) (drop (succ zero) _v_22)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_20)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _t_23)) _v_22)=(drop (succ _t_23) (drop (succ zero) _v_22)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_21))=(nat-to-int _qv_21)))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_20))=_qv_20))
+	(forall ((Nat)) (0<=(nat-to-int _qv_21)))
+	(forall ((Nat)) ((nat-to-int (succ _qv_22))=(nat-to-int _qv_22)))
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_23 _v_24))=(drop zero (drop (succ (succ _v_23)) _v_24)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_20))=_qv_20))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_23 _v_24))=(drop zero (drop (succ (succ _v_23)) _v_24)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_21)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_23 _v_24))=(drop zero (drop (succ (succ _v_23)) _v_24)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_22))=(nat-to-int _qv_22)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_23 _v_24))=(drop zero (drop (succ (succ _v_23)) _v_24)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_20))=_qv_20))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_23 _v_24))=(drop zero (drop (succ (succ _v_23)) _v_24)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_21)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_23 _v_24))=(drop zero (drop (succ (succ _v_23)) _v_24)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_22))=(nat-to-int _qv_22)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_25)) (drop zero _v_26))=(drop _v_25 (drop (succ (succ zero)) _v_26)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_20))=_qv_20))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_25)) (drop zero _v_26))=(drop _v_25 (drop (succ (succ zero)) _v_26)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_21)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_25)) (drop zero _v_26))=(drop _v_25 (drop (succ (succ zero)) _v_26)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_22))=(nat-to-int _qv_22)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_25)) (drop zero _v_26))=(drop _v_25 (drop (succ (succ zero)) _v_26)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_20))=_qv_20))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_25)) (drop zero _v_26))=(drop _v_25 (drop (succ (succ zero)) _v_26)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_21)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_25)) (drop zero _v_26))=(drop _v_25 (drop (succ (succ zero)) _v_26)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_22))=(nat-to-int _qv_22)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_27)) (drop _v_28 (cons _t_29 _t_30)))=(drop _v_27 (drop (succ (succ _v_28)) (cons _t_29 _t_30))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_20))=_qv_20))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_27)) (drop _v_28 (cons _t_29 _t_30)))=(drop _v_27 (drop (succ (succ _v_28)) (cons _t_29 _t_30))))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_21)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_27)) (drop _v_28 (cons _t_29 _t_30)))=(drop _v_27 (drop (succ (succ _v_28)) (cons _t_29 _t_30))))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_22))=(nat-to-int _qv_22)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_27)) (drop _v_28 (cons _t_29 _t_30)))=(drop _v_27 (drop (succ (succ _v_28)) (cons _t_29 _t_30))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_20))=_qv_20))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_27)) (drop _v_28 (cons _t_29 _t_30)))=(drop _v_27 (drop (succ (succ _v_28)) (cons _t_29 _t_30))))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_21)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_27)) (drop _v_28 (cons _t_29 _t_30)))=(drop _v_27 (drop (succ (succ _v_28)) (cons _t_29 _t_30))))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_22))=(nat-to-int _qv_22)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_16)) (drop (succ _t_19) (cons _v_17 _v_18)))=(drop _v_16 (drop (succ (succ _t_19)) _v_18)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_10))=_qv_10))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_16)) (drop (succ _t_19) (cons _v_17 _v_18)))=(drop _v_16 (drop (succ (succ _t_19)) _v_18)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_11)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_16)) (drop (succ _t_19) (cons _v_17 _v_18)))=(drop _v_16 (drop (succ (succ _t_19)) _v_18)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_12))=(nat-to-int _qv_12)))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_20))=_qv_20))
+	(forall ((Nat)) (0<=(nat-to-int _qv_21)))
+	(forall ((Nat)) ((nat-to-int (succ _qv_22))=(nat-to-int _qv_22)))
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_23 _v_24))=(drop zero (drop (succ (succ _v_23)) _v_24)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_20))=_qv_20))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_23 _v_24))=(drop zero (drop (succ (succ _v_23)) _v_24)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_21)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_23 _v_24))=(drop zero (drop (succ (succ _v_23)) _v_24)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_22))=(nat-to-int _qv_22)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_23 _v_24))=(drop zero (drop (succ (succ _v_23)) _v_24)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_20))=_qv_20))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_23 _v_24))=(drop zero (drop (succ (succ _v_23)) _v_24)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_21)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_23 _v_24))=(drop zero (drop (succ (succ _v_23)) _v_24)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_22))=(nat-to-int _qv_22)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_25)) (drop zero _v_26))=(drop _v_25 (drop (succ (succ zero)) _v_26)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_20))=_qv_20))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_25)) (drop zero _v_26))=(drop _v_25 (drop (succ (succ zero)) _v_26)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_21)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_25)) (drop zero _v_26))=(drop _v_25 (drop (succ (succ zero)) _v_26)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_22))=(nat-to-int _qv_22)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_25)) (drop zero _v_26))=(drop _v_25 (drop (succ (succ zero)) _v_26)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_20))=_qv_20))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_25)) (drop zero _v_26))=(drop _v_25 (drop (succ (succ zero)) _v_26)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_21)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_25)) (drop zero _v_26))=(drop _v_25 (drop (succ (succ zero)) _v_26)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_22))=(nat-to-int _qv_22)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_27)) (drop _v_28 (cons _t_29 _t_30)))=(drop _v_27 (drop (succ (succ _v_28)) (cons _t_29 _t_30))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_20))=_qv_20))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_27)) (drop _v_28 (cons _t_29 _t_30)))=(drop _v_27 (drop (succ (succ _v_28)) (cons _t_29 _t_30))))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_21)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_27)) (drop _v_28 (cons _t_29 _t_30)))=(drop _v_27 (drop (succ (succ _v_28)) (cons _t_29 _t_30))))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_22))=(nat-to-int _qv_22)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_27)) (drop _v_28 (cons _t_29 _t_30)))=(drop _v_27 (drop (succ (succ _v_28)) (cons _t_29 _t_30))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_20))=_qv_20))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_27)) (drop _v_28 (cons _t_29 _t_30)))=(drop _v_27 (drop (succ (succ _v_28)) (cons _t_29 _t_30))))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_21)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_27)) (drop _v_28 (cons _t_29 _t_30)))=(drop _v_27 (drop (succ (succ _v_28)) (cons _t_29 _t_30))))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_22))=(nat-to-int _qv_22)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_16)) (drop (succ _t_19) (cons _v_17 _v_18)))=(drop _v_16 (drop (succ (succ _t_19)) _v_18)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_10))=_qv_10))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_16)) (drop (succ _t_19) (cons _v_17 _v_18)))=(drop _v_16 (drop (succ (succ _t_19)) _v_18)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_11)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_16)) (drop (succ _t_19) (cons _v_17 _v_18)))=(drop _v_16 (drop (succ (succ _t_19)) _v_18)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_12))=(nat-to-int _qv_12)))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_26))=_qv_26))
+	(forall ((Nat)) (0<=(nat-to-int _qv_27)))
+	(forall ((Nat)) ((nat-to-int (succ _qv_28))=(nat-to-int _qv_28)))
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_28))=_qv_28))
+	(forall ((Nat)) (0<=(nat-to-int _qv_29)))
+	(forall ((Nat)) ((nat-to-int (succ _qv_30))=(nat-to-int _qv_30)))
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_31 (cons _v_32 (cons _v_33 _v_34))))=(drop zero (drop _v_31 _v_34)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_28))=_qv_28))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_31 (cons _v_32 (cons _v_33 _v_34))))=(drop zero (drop _v_31 _v_34)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_29)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_31 (cons _v_32 (cons _v_33 _v_34))))=(drop zero (drop _v_31 _v_34)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_30))=(nat-to-int _qv_30)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_31 (cons _v_32 (cons _v_33 _v_34))))=(drop zero (drop _v_31 _v_34)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_28))=_qv_28))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_31 (cons _v_32 (cons _v_33 _v_34))))=(drop zero (drop _v_31 _v_34)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_29)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ zero)) (drop _v_31 (cons _v_32 (cons _v_33 _v_34))))=(drop zero (drop _v_31 _v_34)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_30))=(nat-to-int _qv_30)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_35)) (drop (succ _t_39) (cons _v_36 (cons _v_37 _v_38))))=(drop _v_35 (drop (succ _t_39) _v_38)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_28))=_qv_28))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_35)) (drop (succ _t_39) (cons _v_36 (cons _v_37 _v_38))))=(drop _v_35 (drop (succ _t_39) _v_38)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_29)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_35)) (drop (succ _t_39) (cons _v_36 (cons _v_37 _v_38))))=(drop _v_35 (drop (succ _t_39) _v_38)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_30))=(nat-to-int _qv_30)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_35)) (drop (succ _t_39) (cons _v_36 (cons _v_37 _v_38))))=(drop _v_35 (drop (succ _t_39) _v_38)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_28))=_qv_28))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_35)) (drop (succ _t_39) (cons _v_36 (cons _v_37 _v_38))))=(drop _v_35 (drop (succ _t_39) _v_38)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_29)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_35)) (drop (succ _t_39) (cons _v_36 (cons _v_37 _v_38))))=(drop _v_35 (drop (succ _t_39) _v_38)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_30))=(nat-to-int _qv_30)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_48)) (drop _v_49 (cons _v_50 (cons _v_51 nil))))=(drop _v_48 nil))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_28))=_qv_28))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_48)) (drop _v_49 (cons _v_50 (cons _v_51 nil))))=(drop _v_48 nil))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_29)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_48)) (drop _v_49 (cons _v_50 (cons _v_51 nil))))=(drop _v_48 nil))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_30))=(nat-to-int _qv_30)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_48)) (drop _v_49 (cons _v_50 (cons _v_51 nil))))=(drop _v_48 nil))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_28))=_qv_28))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_48)) (drop _v_49 (cons _v_50 (cons _v_51 nil))))=(drop _v_48 nil))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_29)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_48)) (drop _v_49 (cons _v_50 (cons _v_51 nil))))=(drop _v_48 nil))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_30))=(nat-to-int _qv_30)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_48)) (drop _v_49 (cons _v_50 (cons _v_51 nil))))=(drop _v_48 (drop _v_49 nil)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_28))=_qv_28))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_48)) (drop _v_49 (cons _v_50 (cons _v_51 nil))))=(drop _v_48 (drop _v_49 nil)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_29)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_48)) (drop _v_49 (cons _v_50 (cons _v_51 nil))))=(drop _v_48 (drop _v_49 nil)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_30))=(nat-to-int _qv_30)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_48)) (drop _v_49 (cons _v_50 (cons _v_51 nil))))=(drop _v_48 nil))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_28))=_qv_28))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_48)) (drop _v_49 (cons _v_50 (cons _v_51 nil))))=(drop _v_48 nil))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_29)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_48)) (drop _v_49 (cons _v_50 (cons _v_51 nil))))=(drop _v_48 nil))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_30))=(nat-to-int _qv_30)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_48)) (drop _v_49 (cons _v_50 (cons _v_51 nil))))=(drop _v_48 nil))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_28))=_qv_28))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_48)) (drop _v_49 (cons _v_50 (cons _v_51 nil))))=(drop _v_48 nil))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_29)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_48)) (drop _v_49 (cons _v_50 (cons _v_51 nil))))=(drop _v_48 nil))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_30))=(nat-to-int _qv_30)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_48)) (drop _v_49 (cons _v_50 (cons _v_51 nil))))=(drop _v_48 (drop _v_49 nil)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_28))=_qv_28))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_48)) (drop _v_49 (cons _v_50 (cons _v_51 nil))))=(drop _v_48 (drop _v_49 nil)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_29)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_48)) (drop _v_49 (cons _v_50 (cons _v_51 nil))))=(drop _v_48 (drop _v_49 nil)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_30))=(nat-to-int _qv_30)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_23)) (drop _v_24 (cons _v_25 (cons _t_26 _t_27))))=(drop _v_23 (drop (succ _v_24) (cons _t_26 _t_27))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_10))=_qv_10))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_23)) (drop _v_24 (cons _v_25 (cons _t_26 _t_27))))=(drop _v_23 (drop (succ _v_24) (cons _t_26 _t_27))))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_11)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop (succ (succ _v_23)) (drop _v_24 (cons _v_25 (cons _t_26 _t_27))))=(drop _v_23 (drop (succ _v_24) (cons _t_26 _t_27))))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_12))=(nat-to-int _qv_12)))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_28))=_qv_28))
+	(forall ((Nat)) (0<=(nat-to-int _qv_29)))
+	(forall ((Nat)) ((nat-to-int (succ _qv_30))=(nat-to-int _qv_30)))
+

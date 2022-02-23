@@ -1,0 +1,17 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+
+Simplified goal: (forall ((Lst)) ((drop zero xs)=xs))
+
+
+Base case:       ((drop zero nil)=nil)
+{
+  proven trivially
+}
+Inductive step:  ((drop zero (cons _t_0 _t_1))=(cons _t_0 _t_1))
+{
+  proven trivially
+}
+
+Proved
+unsat

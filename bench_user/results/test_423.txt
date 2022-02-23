@@ -1,0 +1,80 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Lst) (Lst)) ((zip _qv_0 _qv_1)=(zip _qv_1 _qv_0)))
+
+Simplified goal: (forall ((Nat) (Lst) (Lst)) ((ztake n (zip xs ys))=(zip (take n xs) (take n ys))))
+
+
+Base case:       ((ztake zero (zip _v_2 _v_3))=(zip (take zero _v_2) (take zero _v_3)))
+{
+  proven trivially
+}
+Inductive step:  ((ztake (succ _t_4) (zip _v_2 _v_3))=(zip (take (succ _t_4) _v_2) (take (succ _t_4) _v_3)))
+{
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat)) ((take _qv_1 nil)=nil))
+    | Assumptions [1]: (forall ((Lst)) ((take zero _qv_2)=nil))
+    | Assumptions [2]: (forall ((Nat) (Nat) (Lst)) ((take (succ _qv_3) (cons _qv_4 _qv_5))=(cons _qv_4 (take _qv_3 _qv_5))))
+    | Assumptions [3]: (forall ((Lst)) ((zip nil _qv_6)=znil))
+    | Assumptions [4]: (forall ((Lst)) ((zip _qv_7 nil)=znil))
+    | Assumptions [5]: (forall ((Nat) (Lst) (Nat) (Lst)) ((zip (cons _qv_8 _qv_9) (cons _qv_10 _qv_11))=(zcons (mkpair _qv_8 _qv_10) (zip _qv_9 _qv_11))))
+    | Assumptions [6]: (forall ((Nat)) ((ztake _qv_12 znil)=znil))
+    | Assumptions [7]: (forall ((ZLst)) ((ztake zero _qv_13)=znil))
+    | Assumptions [8]: (forall ((Nat) (Pair) (ZLst)) ((ztake (succ _qv_14) (zcons _qv_15 _qv_16))=(zcons _qv_15 (ztake _qv_14 _qv_16))))
+    | Assumptions [9]: (forall ((Lst) (Lst)) ((ztake _t_4 (zip xs ys))=(zip (take _t_4 xs) (take _t_4 ys))))
+    | Assumptions [10]: (forall ((Lst) (Lst)) ((zip (take _t_4 xs) (take _t_4 ys))=(ztake _t_4 (zip xs ys))))
+    ====================
+  }
+
+Base case:       ((ztake _v_5 (zip nil _v_6))=(zip (take _v_5 nil) (take _v_5 _v_6)))
+{
+  proven trivially
+}
+Inductive step:  ((ztake _v_5 (zip (cons _t_7 _t_8) _v_6))=(zip (take _v_5 (cons _t_7 _t_8)) (take _v_5 _v_6)))
+{
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat)) ((take _qv_1 nil)=nil))
+    | Assumptions [1]: (forall ((Lst)) ((take zero _qv_2)=nil))
+    | Assumptions [2]: (forall ((Nat) (Nat) (Lst)) ((take (succ _qv_3) (cons _qv_4 _qv_5))=(cons _qv_4 (take _qv_3 _qv_5))))
+    | Assumptions [3]: (forall ((Lst)) ((zip nil _qv_6)=znil))
+    | Assumptions [4]: (forall ((Lst)) ((zip _qv_7 nil)=znil))
+    | Assumptions [5]: (forall ((Nat) (Lst) (Nat) (Lst)) ((zip (cons _qv_8 _qv_9) (cons _qv_10 _qv_11))=(zcons (mkpair _qv_8 _qv_10) (zip _qv_9 _qv_11))))
+    | Assumptions [6]: (forall ((Nat)) ((ztake _qv_12 znil)=znil))
+    | Assumptions [7]: (forall ((ZLst)) ((ztake zero _qv_13)=znil))
+    | Assumptions [8]: (forall ((Nat) (Pair) (ZLst)) ((ztake (succ _qv_14) (zcons _qv_15 _qv_16))=(zcons _qv_15 (ztake _qv_14 _qv_16))))
+    | Assumptions [9]: (forall ((Lst) (Lst)) ((ztake _t_4 (zip xs ys))=(zip (take _t_4 xs) (take _t_4 ys))))
+    | Assumptions [10]: (forall ((Lst) (Lst)) ((zip (take _t_4 xs) (take _t_4 ys))=(ztake _t_4 (zip xs ys))))
+    | Assumptions [11]: (forall ((Nat) (Lst)) ((ztake n (zip _t_8 ys))=(zip (take n _t_8) (take n ys))))
+    | Assumptions [12]: (forall ((Nat) (Lst)) ((zip (take n _t_8) (take n ys))=(ztake n (zip _t_8 ys))))
+    ====================
+  }
+
+Base case:       ((ztake _v_9 (zip _v_10 nil))=(zip (take _v_9 _v_10) (take _v_9 nil)))
+{
+  proven trivially
+}
+Inductive step:  ((ztake _v_9 (zip _v_10 (cons _t_11 _t_12)))=(zip (take _v_9 _v_10) (take _v_9 (cons _t_11 _t_12))))
+{
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat)) ((take _qv_1 nil)=nil))
+    | Assumptions [1]: (forall ((Lst)) ((take zero _qv_2)=nil))
+    | Assumptions [2]: (forall ((Nat) (Nat) (Lst)) ((take (succ _qv_3) (cons _qv_4 _qv_5))=(cons _qv_4 (take _qv_3 _qv_5))))
+    | Assumptions [3]: (forall ((Lst)) ((zip nil _qv_6)=znil))
+    | Assumptions [4]: (forall ((Lst)) ((zip _qv_7 nil)=znil))
+    | Assumptions [5]: (forall ((Nat) (Lst) (Nat) (Lst)) ((zip (cons _qv_8 _qv_9) (cons _qv_10 _qv_11))=(zcons (mkpair _qv_8 _qv_10) (zip _qv_9 _qv_11))))
+    | Assumptions [6]: (forall ((Nat)) ((ztake _qv_12 znil)=znil))
+    | Assumptions [7]: (forall ((ZLst)) ((ztake zero _qv_13)=znil))
+    | Assumptions [8]: (forall ((Nat) (Pair) (ZLst)) ((ztake (succ _qv_14) (zcons _qv_15 _qv_16))=(zcons _qv_15 (ztake _qv_14 _qv_16))))
+    | Assumptions [9]: (forall ((Lst) (Lst)) ((ztake _t_4 (zip xs ys))=(zip (take _t_4 xs) (take _t_4 ys))))
+    | Assumptions [10]: (forall ((Lst) (Lst)) ((zip (take _t_4 xs) (take _t_4 ys))=(ztake _t_4 (zip xs ys))))
+    | Assumptions [11]: (forall ((Nat) (Lst)) ((ztake n (zip _t_8 ys))=(zip (take n _t_8) (take n ys))))
+    | Assumptions [12]: (forall ((Nat) (Lst)) ((zip (take n _t_8) (take n ys))=(ztake n (zip _t_8 ys))))
+    | Assumptions [13]: (forall ((Nat) (Lst)) ((ztake n (zip xs _t_12))=(zip (take n xs) (take n _t_12))))
+    | Assumptions [14]: (forall ((Nat) (Lst)) ((zip (take n xs) (take n _t_12))=(ztake n (zip xs _t_12))))
+    ====================
+  }
+Unknown
+sat

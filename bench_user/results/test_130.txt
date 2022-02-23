@@ -1,0 +1,21 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+	(forall ((Nat)) (0<=(nat-to-int _qv_1)))
+	(forall ((Nat) (Nat)) ((less _qv_2 _qv_3)=(less _qv_3 _qv_2)))
+	(forall ((Nat)) ((nat-to-int (succ _qv_4))=(nat-to-int _qv_4)))
+
+Simplified goal: (forall ((Nat) (Nat)) [||    [&&    !(less a b)    b=a    !(less b a)]    [&&    (less a b)    (less b a)    a=b]    (less b a)&&(!(less a b))    (less a b)&&(!(less b a))])
+
+
+Base case:       [||    [&&    !(less zero _v_5)    _v_5=zero    !(less _v_5 zero)]    [&&    (less zero _v_5)    (less _v_5 zero)    zero=_v_5]    (less _v_5 zero)&&(!(less zero _v_5))    (less zero _v_5)&&(!(less _v_5 zero))]
+{
+  proven trivially
+}
+Inductive step:  [||    [&&    !(less (succ _t_6) _v_5)    _v_5=(succ _t_6)    !(less _v_5 (succ _t_6))]    [&&    (less (succ _t_6) _v_5)    (less _v_5 (succ _t_6))    (succ _t_6)=_v_5]    (less _v_5 (succ _t_6))&&(!(less (succ _t_6) _v_5))    (less (succ _t_6) _v_5)&&(!(less _v_5 (succ _t_6)))]
+{
+  proven trivially
+}
+
+Proved
+unsat

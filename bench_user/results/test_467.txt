@@ -1,0 +1,420 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+
+Simplified goal: (forall ((Nat) (Nat)) (((less a b)&&((b=a)=((b=a)||(less b a))))||(((b=a)||(less b a))&&(!(less a b)))))
+
+
+Base case:       (((less zero _v_2)&&((_v_2=zero)=((_v_2=zero)||(less _v_2 zero))))||(((_v_2=zero)||(less _v_2 zero))&&(!(less zero _v_2))))
+{
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+    | Assumptions [1]: (forall ((Nat) (Nat)) ((nmax _qv_5 _qv_6)=ite((less _qv_5 _qv_6), _qv_6, _qv_5)))
+    | Assumptions [2]: (forall ((Nat)) (!(less _qv_1 zero)))
+    | Assumptions [3]: (forall ((Nat)) (less zero (succ _qv_2)))
+    ====================
+  }
+  deciding: ((less zero _v_2)&&((_v_2=zero)=((_v_2=zero)||(less _v_2 zero))))
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+    | Assumptions [1]: (forall ((Nat) (Nat)) ((nmax _qv_5 _qv_6)=ite((less _qv_5 _qv_6), _qv_6, _qv_5)))
+    | Assumptions [2]: (forall ((Nat)) (!(less _qv_1 zero)))
+    | Assumptions [3]: (forall ((Nat)) (less zero (succ _qv_2)))
+    | Assumptions [4]: ((!(less zero _v_2))||((_v_2=zero)!=((_v_2=zero)||(less _v_2 zero))))
+    ====================
+  }
+  current subgoal: (((_v_2=zero)||(less _v_2 zero))&&(!(less zero _v_2)))
+  {
+    proceed with (part 1/2): ((_v_2=zero)||(less _v_2 zero))
+    {
+      split for (part 1/2): (!(less zero _v_2))
+      {
+        {
+          ====================
+          | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+          | Assumptions [1]: (forall ((Nat) (Nat)) ((nmax _qv_5 _qv_6)=ite((less _qv_5 _qv_6), _qv_6, _qv_5)))
+          | Assumptions [2]: (!(less zero _v_2))
+          | Assumptions [3]: (forall ((Nat)) (!(less _qv_1 zero)))
+          | Assumptions [4]: (forall ((Nat)) (less zero (succ _qv_2)))
+          | Assumptions [5]: (!(less zero zero))
+          ====================
+        }
+        deciding: (_v_2=zero)
+        {
+          ====================
+          | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+          | Assumptions [1]: (forall ((Nat) (Nat)) ((nmax _qv_5 _qv_6)=ite((less _qv_5 _qv_6), _qv_6, _qv_5)))
+          | Assumptions [2]: (!(less zero _v_2))
+          | Assumptions [3]: (forall ((Nat)) (!(less _qv_1 zero)))
+          | Assumptions [4]: (forall ((Nat)) (less zero (succ _qv_2)))
+          | Assumptions [5]: (!(less zero zero))
+          | Assumptions [6]: (_v_2!=zero)
+          ====================
+        }
+        current subgoal: (less _v_2 zero)
+        {
+        }
+      }
+      unable to succeed
+      deciding: (_v_2=zero)
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Nat)) ((nmax _qv_5 _qv_6)=ite((less _qv_5 _qv_6), _qv_6, _qv_5)))
+        | Assumptions [2]: (forall ((Nat)) (!(less _qv_1 zero)))
+        | Assumptions [3]: (forall ((Nat)) (less zero (succ _qv_2)))
+        | Assumptions [4]: ((!(less zero _v_2))||((_v_2=zero)!=((_v_2=zero)||(less _v_2 zero))))
+        | Assumptions [5]: (_v_2!=zero)
+        | Assumptions [6]: ((less _v_2 zero)||(!(less zero _v_2)))
+        ====================
+      }
+      current subgoal: (less _v_2 zero)
+      {
+        split for (part 1/2): (less _v_2 zero)
+        {
+          inconsistent assumptions: (less _v_2 zero) and (forall ((Nat)) (!(less _qv_1 zero)))
+        }
+        split for (part 2/2): (!(less zero _v_2))
+        {
+          {
+            ====================
+            | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+            | Assumptions [1]: (forall ((Nat) (Nat)) ((nmax _qv_5 _qv_6)=ite((less _qv_5 _qv_6), _qv_6, _qv_5)))
+            | Assumptions [2]: (!(less zero _v_2))
+            | Assumptions [3]: (forall ((Nat)) (!(less _qv_1 zero)))
+            | Assumptions [4]: (forall ((Nat)) (less zero (succ _qv_2)))
+            | Assumptions [5]: ((!(less zero _v_2))||((_v_2=zero)!=((_v_2=zero)||(less _v_2 zero))))
+            | Assumptions [6]: (_v_2!=zero)
+            | Assumptions [7]: (!(less zero zero))
+            ====================
+          }
+          split for (part 1/2): (!(less zero _v_2))
+          {
+            {
+              ====================
+              | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+              | Assumptions [1]: (forall ((Nat) (Nat)) ((nmax _qv_5 _qv_6)=ite((less _qv_5 _qv_6), _qv_6, _qv_5)))
+              | Assumptions [2]: (!(less zero _v_2))
+              | Assumptions [3]: (forall ((Nat)) (!(less _qv_1 zero)))
+              | Assumptions [4]: (forall ((Nat)) (less zero (succ _qv_2)))
+              | Assumptions [5]: (_v_2!=zero)
+              | Assumptions [6]: (!(less zero zero))
+              ====================
+            }
+          }
+          unable to succeed
+        }
+        unable to succeed
+      }
+    }
+    proceed with (part 2/2): (!(less zero _v_2))
+    {
+        proven trivially (with Z3)
+    }
+    adding (!(less zero _v_2)) to assumptions
+    will try subgoals again
+    proceed with (part 1/1): ((_v_2=zero)||(less _v_2 zero))
+    {
+      split for (part 1/2): (!(less zero _v_2))
+      {
+        {
+          ====================
+          | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+          | Assumptions [1]: (forall ((Nat) (Nat)) ((nmax _qv_5 _qv_6)=ite((less _qv_5 _qv_6), _qv_6, _qv_5)))
+          | Assumptions [2]: (!(less zero _v_2))
+          | Assumptions [3]: (forall ((Nat)) (!(less _qv_1 zero)))
+          | Assumptions [4]: (forall ((Nat)) (less zero (succ _qv_2)))
+          | Assumptions [5]: (!(less zero zero))
+          ====================
+        }
+        deciding: (_v_2=zero)
+        {
+          ====================
+          | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+          | Assumptions [1]: (forall ((Nat) (Nat)) ((nmax _qv_5 _qv_6)=ite((less _qv_5 _qv_6), _qv_6, _qv_5)))
+          | Assumptions [2]: (!(less zero _v_2))
+          | Assumptions [3]: (forall ((Nat)) (!(less _qv_1 zero)))
+          | Assumptions [4]: (forall ((Nat)) (less zero (succ _qv_2)))
+          | Assumptions [5]: (!(less zero zero))
+          | Assumptions [6]: (_v_2!=zero)
+          ====================
+        }
+        current subgoal: (less _v_2 zero)
+        {
+        }
+      }
+      unable to succeed
+      deciding: (_v_2=zero)
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Nat)) ((nmax _qv_5 _qv_6)=ite((less _qv_5 _qv_6), _qv_6, _qv_5)))
+        | Assumptions [2]: (!(less zero _v_2))
+        | Assumptions [3]: (forall ((Nat)) (!(less _qv_1 zero)))
+        | Assumptions [4]: (forall ((Nat)) (less zero (succ _qv_2)))
+        | Assumptions [5]: ((!(less zero _v_2))||((_v_2=zero)!=((_v_2=zero)||(less _v_2 zero))))
+        | Assumptions [6]: (_v_2!=zero)
+        | Assumptions [7]: ((less _v_2 zero)||(!(less zero _v_2)))
+        | Assumptions [8]: (!(less zero zero))
+        ====================
+      }
+      current subgoal: (less _v_2 zero)
+      {
+        split for (part 1/2): (less _v_2 zero)
+        {
+          inconsistent assumptions: (less _v_2 zero) and (forall ((Nat)) (!(less _qv_1 zero)))
+        }
+        split for (part 2/2): (!(less zero _v_2))
+        {
+          {
+            ====================
+            | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+            | Assumptions [1]: (forall ((Nat) (Nat)) ((nmax _qv_5 _qv_6)=ite((less _qv_5 _qv_6), _qv_6, _qv_5)))
+            | Assumptions [2]: (!(less zero _v_2))
+            | Assumptions [3]: (forall ((Nat)) (!(less _qv_1 zero)))
+            | Assumptions [4]: (forall ((Nat)) (less zero (succ _qv_2)))
+            | Assumptions [5]: ((!(less zero _v_2))||((_v_2=zero)!=((_v_2=zero)||(less _v_2 zero))))
+            | Assumptions [6]: (_v_2!=zero)
+            | Assumptions [7]: (!(less zero zero))
+            ====================
+          }
+          split for (part 1/2): (!(less zero _v_2))
+          {
+            {
+              ====================
+              | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+              | Assumptions [1]: (forall ((Nat) (Nat)) ((nmax _qv_5 _qv_6)=ite((less _qv_5 _qv_6), _qv_6, _qv_5)))
+              | Assumptions [2]: (!(less zero _v_2))
+              | Assumptions [3]: (forall ((Nat)) (!(less _qv_1 zero)))
+              | Assumptions [4]: (forall ((Nat)) (less zero (succ _qv_2)))
+              | Assumptions [5]: (_v_2!=zero)
+              | Assumptions [6]: (!(less zero zero))
+              ====================
+            }
+          }
+          unable to succeed
+        }
+        unable to succeed
+      }
+    }
+    cannot prove 1 of the subgoals
+  }
+}
+
+Base case:       (((less _v_3 zero)&&((zero=_v_3)=((zero=_v_3)||(less zero _v_3))))||(((zero=_v_3)||(less zero _v_3))&&(!(less _v_3 zero))))
+{
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+    | Assumptions [1]: (forall ((Nat) (Nat)) ((nmax _qv_5 _qv_6)=ite((less _qv_5 _qv_6), _qv_6, _qv_5)))
+    | Assumptions [2]: (forall ((Nat)) (!(less _qv_1 zero)))
+    | Assumptions [3]: (forall ((Nat)) (less zero (succ _qv_2)))
+    ====================
+  }
+  rewritten [2]: (((less _v_3 zero)&&((zero=_v_3)=((zero=_v_3)||(less zero _v_3))))||(((zero=_v_3)||(less zero _v_3))&&true))
+  deciding: (zero=_v_3)
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+    | Assumptions [1]: (forall ((Nat) (Nat)) ((nmax _qv_5 _qv_6)=ite((less _qv_5 _qv_6), _qv_6, _qv_5)))
+    | Assumptions [2]: (forall ((Nat)) (!(less _qv_1 zero)))
+    | Assumptions [3]: (forall ((Nat)) (less zero (succ _qv_2)))
+    | Assumptions [4]: (zero!=_v_3)
+    ====================
+  }
+  current subgoal: ((less zero _v_3)||((less _v_3 zero)&&((zero=_v_3)=((zero=_v_3)||(less zero _v_3)))))
+  {
+    rewritten [4]: ((less zero _v_3)||((less _v_3 zero)&&(!(less zero _v_3))))
+    deciding: (less zero _v_3)
+    {
+      ====================
+      | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+      | Assumptions [1]: (forall ((Nat) (Nat)) ((nmax _qv_5 _qv_6)=ite((less _qv_5 _qv_6), _qv_6, _qv_5)))
+      | Assumptions [2]: (forall ((Nat)) (!(less _qv_1 zero)))
+      | Assumptions [3]: (forall ((Nat)) (less zero (succ _qv_2)))
+      | Assumptions [4]: (zero!=_v_3)
+      | Assumptions [5]: (!(less zero _v_3))
+      | Assumptions [6]: (!(less zero zero))
+      ====================
+    }
+    current subgoal: ((less _v_3 zero)&&(!(less zero _v_3)))
+    {
+      proceed with (part 1/2): (less _v_3 zero)
+      {
+      }
+      proceed with (part 2/2): (!(less zero _v_3))
+      {
+          proven trivially (with Z3)
+      }
+      adding (!(less zero _v_3)) to assumptions
+      will try subgoals again
+      proceed with (part 1/1): (less _v_3 zero)
+      {
+      }
+      cannot prove 1 of the subgoals
+    }
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((less _qv_5 _qv_6)=(less _qv_6 _qv_5)))
+
+    proven by induction: ((less zero _v_3)||((less _v_3 zero)&&(!(less zero _v_3))))
+  }
+  succeeded
+  rewriting done
+}
+Inductive step:  (((less _v_3 (succ _t_5))&&(((succ _t_5)=_v_3)=(((succ _t_5)=_v_3)||(less (succ _t_5) _v_3))))||((((succ _t_5)=_v_3)||(less (succ _t_5) _v_3))&&(!(less _v_3 (succ _t_5)))))
+{
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+    | Assumptions [1]: (forall ((Nat) (Nat)) ((nmax _qv_5 _qv_6)=ite((less _qv_5 _qv_6), _qv_6, _qv_5)))
+    | Assumptions [2]: (forall ((Nat)) (!(less _qv_1 zero)))
+    | Assumptions [3]: (forall ((Nat)) (less zero (succ _qv_2)))
+    | Assumptions [4]: (forall ((Nat)) (((less a _t_5)&&((_t_5=a)=((_t_5=a)||(less _t_5 a))))||(((_t_5=a)||(less _t_5 a))&&(!(less a _t_5)))))
+    ====================
+  }
+  deciding: ((less _v_3 (succ _t_5))&&(((succ _t_5)=_v_3)=(((succ _t_5)=_v_3)||(less (succ _t_5) _v_3))))
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+    | Assumptions [1]: (forall ((Nat) (Nat)) ((nmax _qv_5 _qv_6)=ite((less _qv_5 _qv_6), _qv_6, _qv_5)))
+    | Assumptions [2]: (forall ((Nat)) (!(less _qv_1 zero)))
+    | Assumptions [3]: (forall ((Nat)) (less zero (succ _qv_2)))
+    | Assumptions [4]: (forall ((Nat)) (((less a _t_5)&&((_t_5=a)=((_t_5=a)||(less _t_5 a))))||(((_t_5=a)||(less _t_5 a))&&(!(less a _t_5)))))
+    | Assumptions [5]: ((!(less _v_3 (succ _t_5)))||(((succ _t_5)=_v_3)!=(((succ _t_5)=_v_3)||(less (succ _t_5) _v_3))))
+    ====================
+  }
+  current subgoal: ((((succ _t_5)=_v_3)||(less (succ _t_5) _v_3))&&(!(less _v_3 (succ _t_5))))
+  {
+    proceed with (part 1/2): (((succ _t_5)=_v_3)||(less (succ _t_5) _v_3))
+    {
+      split for (part 1/2): (!(less _v_3 (succ _t_5)))
+      {
+        {
+          ====================
+          | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+          | Assumptions [1]: (forall ((Nat) (Nat)) ((nmax _qv_5 _qv_6)=ite((less _qv_5 _qv_6), _qv_6, _qv_5)))
+          | Assumptions [2]: (forall ((Nat)) (!(less _qv_1 zero)))
+          | Assumptions [3]: (forall ((Nat)) (less zero (succ _qv_2)))
+          | Assumptions [4]: (forall ((Nat)) (((less a _t_5)&&((_t_5=a)=((_t_5=a)||(less _t_5 a))))||(((_t_5=a)||(less _t_5 a))&&(!(less a _t_5)))))
+          | Assumptions [5]: (!(less _v_3 (succ _t_5)))
+          ====================
+        }
+        deciding: ((succ _t_5)=_v_3)
+        {
+          ====================
+          | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+          | Assumptions [1]: (forall ((Nat) (Nat)) ((nmax _qv_5 _qv_6)=ite((less _qv_5 _qv_6), _qv_6, _qv_5)))
+          | Assumptions [2]: (forall ((Nat)) (!(less _qv_1 zero)))
+          | Assumptions [3]: (forall ((Nat)) (less zero (succ _qv_2)))
+          | Assumptions [4]: (forall ((Nat)) (((less a _t_5)&&((_t_5=a)=((_t_5=a)||(less _t_5 a))))||(((_t_5=a)||(less _t_5 a))&&(!(less a _t_5)))))
+          | Assumptions [5]: (!(less _v_3 (succ _t_5)))
+          | Assumptions [6]: ((succ _t_5)!=_v_3)
+          ====================
+        }
+        current subgoal: (less (succ _t_5) _v_3)
+        {
+        }
+      }
+      unable to succeed
+      deciding: ((succ _t_5)=_v_3)
+      {
+        ====================
+        | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+        | Assumptions [1]: (forall ((Nat) (Nat)) ((nmax _qv_5 _qv_6)=ite((less _qv_5 _qv_6), _qv_6, _qv_5)))
+        | Assumptions [2]: (forall ((Nat)) (!(less _qv_1 zero)))
+        | Assumptions [3]: (forall ((Nat)) (less zero (succ _qv_2)))
+        | Assumptions [4]: (forall ((Nat)) (((less a _t_5)&&((_t_5=a)=((_t_5=a)||(less _t_5 a))))||(((_t_5=a)||(less _t_5 a))&&(!(less a _t_5)))))
+        | Assumptions [5]: ((!(less _v_3 (succ _t_5)))||(((succ _t_5)=_v_3)!=(((succ _t_5)=_v_3)||(less (succ _t_5) _v_3))))
+        | Assumptions [6]: ((succ _t_5)!=_v_3)
+        | Assumptions [7]: ((less (succ _t_5) _v_3)||(!(less _v_3 (succ _t_5))))
+        ====================
+      }
+      current subgoal: (less (succ _t_5) _v_3)
+      {
+        split for (part 1/2): (less (succ _t_5) _v_3)
+        {
+          {
+            ====================
+            | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+            | Assumptions [1]: (forall ((Nat) (Nat)) ((nmax _qv_5 _qv_6)=ite((less _qv_5 _qv_6), _qv_6, _qv_5)))
+            | Assumptions [2]: (forall ((Nat)) (!(less _qv_1 zero)))
+            | Assumptions [3]: (forall ((Nat)) (less zero (succ _qv_2)))
+            | Assumptions [4]: (forall ((Nat)) (((less a _t_5)&&((_t_5=a)=((_t_5=a)||(less _t_5 a))))||(((_t_5=a)||(less _t_5 a))&&(!(less a _t_5)))))
+            | Assumptions [5]: (less (succ _t_5) _v_3)
+            | Assumptions [6]: ((!(less _v_3 (succ _t_5)))||(((succ _t_5)=_v_3)!=(((succ _t_5)=_v_3)||(less (succ _t_5) _v_3))))
+            | Assumptions [7]: ((succ _t_5)!=_v_3)
+            ====================
+          }
+          rewriting [5] done
+        }
+        split for (part 2/2): (!(less _v_3 (succ _t_5)))
+        {
+          {
+            ====================
+            | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+            | Assumptions [1]: (forall ((Nat) (Nat)) ((nmax _qv_5 _qv_6)=ite((less _qv_5 _qv_6), _qv_6, _qv_5)))
+            | Assumptions [2]: (forall ((Nat)) (!(less _qv_1 zero)))
+            | Assumptions [3]: (forall ((Nat)) (less zero (succ _qv_2)))
+            | Assumptions [4]: (forall ((Nat)) (((less a _t_5)&&((_t_5=a)=((_t_5=a)||(less _t_5 a))))||(((_t_5=a)||(less _t_5 a))&&(!(less a _t_5)))))
+            | Assumptions [5]: (!(less _v_3 (succ _t_5)))
+            | Assumptions [6]: ((!(less _v_3 (succ _t_5)))||(((succ _t_5)=_v_3)!=(((succ _t_5)=_v_3)||(less (succ _t_5) _v_3))))
+            | Assumptions [7]: ((succ _t_5)!=_v_3)
+            ====================
+          }
+          split for (part 1/2): (!(less _v_3 (succ _t_5)))
+          {
+            {
+              ====================
+              | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+              | Assumptions [1]: (forall ((Nat) (Nat)) ((nmax _qv_5 _qv_6)=ite((less _qv_5 _qv_6), _qv_6, _qv_5)))
+              | Assumptions [2]: (forall ((Nat)) (!(less _qv_1 zero)))
+              | Assumptions [3]: (forall ((Nat)) (less zero (succ _qv_2)))
+              | Assumptions [4]: (forall ((Nat)) (((less a _t_5)&&((_t_5=a)=((_t_5=a)||(less _t_5 a))))||(((_t_5=a)||(less _t_5 a))&&(!(less a _t_5)))))
+              | Assumptions [5]: (!(less _v_3 (succ _t_5)))
+              | Assumptions [6]: ((succ _t_5)!=_v_3)
+              ====================
+            }
+          }
+          unable to succeed
+        }
+        unable to succeed
+      }
+    }
+    proceed with (part 2/2): (!(less _v_3 (succ _t_5)))
+    {
+      split for (part 1/2): (!(less _v_3 (succ _t_5)))
+      {
+        {
+          ====================
+          | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+          | Assumptions [1]: (forall ((Nat) (Nat)) ((nmax _qv_5 _qv_6)=ite((less _qv_5 _qv_6), _qv_6, _qv_5)))
+          | Assumptions [2]: (forall ((Nat)) (!(less _qv_1 zero)))
+          | Assumptions [3]: (forall ((Nat)) (less zero (succ _qv_2)))
+          | Assumptions [4]: (forall ((Nat)) (((less a _t_5)&&((_t_5=a)=((_t_5=a)||(less _t_5 a))))||(((_t_5=a)||(less _t_5 a))&&(!(less a _t_5)))))
+          | Assumptions [5]: (!(less _v_3 (succ _t_5)))
+          ====================
+        }
+        rewriting [5] done
+      }
+      split for (part 2/2): (((succ _t_5)=_v_3)!=(((succ _t_5)=_v_3)||(less (succ _t_5) _v_3)))
+      {
+        {
+          ====================
+          | Assumptions [0]: (forall ((Nat) (Nat)) ((less (succ _qv_3) (succ _qv_4))=(less _qv_3 _qv_4)))
+          | Assumptions [1]: (forall ((Nat) (Nat)) ((nmax _qv_5 _qv_6)=ite((less _qv_5 _qv_6), _qv_6, _qv_5)))
+          | Assumptions [2]: (forall ((Nat)) (!(less _qv_1 zero)))
+          | Assumptions [3]: (forall ((Nat)) (less zero (succ _qv_2)))
+          | Assumptions [4]: (forall ((Nat)) (((less a _t_5)&&((_t_5=a)=((_t_5=a)||(less _t_5 a))))||(((_t_5=a)||(less _t_5 a))&&(!(less a _t_5)))))
+          | Assumptions [5]: (((succ _t_5)=_v_3)!=(((succ _t_5)=_v_3)||(less (succ _t_5) _v_3)))
+          ====================
+        }
+      }
+      unable to succeed
+    }
+    cannot prove 2 of the subgoals
+  }
+Unknown
+sat

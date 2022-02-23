@@ -1,0 +1,93 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+
+Simplified goal: (forall ((Nat) (Nat) (Nat) (Lst)) ((drop w (drop x (drop y z)))=(drop y (drop x (drop w z)))))
+
+
+Base case:       ((drop _v_1 (drop zero (drop _v_0 _v_2)))=(drop _v_0 (drop zero (drop _v_1 _v_2))))
+{
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat)) ((drop _qv_1 nil)=nil))
+    | Assumptions [1]: (forall ((Lst)) ((drop zero _qv_2)=_qv_2))
+    | Assumptions [2]: (forall ((Nat) (Nat) (Lst)) ((drop (succ _qv_3) (cons _qv_4 _qv_5))=(drop _qv_3 _qv_5)))
+    | Assumptions [3]: (forall ((Nat) (Nat) (Nat) (Nat) (Lst)) ((drop (succ _qv_6) (drop _qv_7 (drop _qv_8 (cons _qv_9 _qv_10))))=(drop _qv_6 (drop _qv_7 (drop _qv_8 _qv_10)))))
+    | Assumptions [4]: (forall ((Nat) (Nat) (Nat) (Nat) (Nat) (Lst)) ((drop (succ _qv_11) (drop _qv_12 (drop (succ _qv_13) (cons _qv_14 (cons _qv_15 _qv_16)))))=(drop (succ _qv_11) (drop _qv_12 (drop _qv_13 (cons _qv_14 _qv_16))))))
+    ====================
+  }
+  rewritten [1]: ((drop _v_1 (drop _v_0 _v_2))=(drop _v_0 (drop zero (drop _v_1 _v_2))))
+  rewritten [1]: ((drop _v_1 (drop _v_0 _v_2))=(drop _v_0 (drop _v_1 _v_2)))
+
+The Knowledge Scheme currently contains the following lemmas:
+
+  backtrack to: ((drop _v_1 (drop _v_0 _v_2))=(drop _v_0 (drop zero (drop _v_1 _v_2))))
+  rewritten [1]: ((drop _v_1 (drop _v_0 _v_2))=(drop _v_0 (drop _v_1 _v_2)))
+
+The Knowledge Scheme currently contains the following lemmas:
+
+  backtrack to: ((drop _v_1 (drop _v_0 _v_2))=(drop _v_0 (drop zero (drop _v_1 _v_2))))
+  backtrack to: ((drop _v_1 (drop zero (drop _v_0 _v_2)))=(drop _v_0 (drop zero (drop _v_1 _v_2))))
+  rewritten [1]: ((drop _v_1 (drop zero (drop _v_0 _v_2)))=(drop _v_0 (drop _v_1 _v_2)))
+  rewritten [1]: ((drop _v_1 (drop _v_0 _v_2))=(drop _v_0 (drop _v_1 _v_2)))
+
+The Knowledge Scheme currently contains the following lemmas:
+
+  backtrack to: ((drop _v_1 (drop zero (drop _v_0 _v_2)))=(drop _v_0 (drop _v_1 _v_2)))
+  rewritten [1]: ((drop _v_1 (drop _v_0 _v_2))=(drop _v_0 (drop _v_1 _v_2)))
+
+The Knowledge Scheme currently contains the following lemmas:
+
+  backtrack to: ((drop _v_1 (drop zero (drop _v_0 _v_2)))=(drop _v_0 (drop _v_1 _v_2)))
+  backtrack to: ((drop _v_1 (drop zero (drop _v_0 _v_2)))=(drop _v_0 (drop zero (drop _v_1 _v_2))))
+  rewritten [1]: ((drop _v_1 (drop _v_0 _v_2))=(drop _v_0 (drop zero (drop _v_1 _v_2))))
+  rewritten [1]: ((drop _v_1 (drop _v_0 _v_2))=(drop _v_0 (drop _v_1 _v_2)))
+
+The Knowledge Scheme currently contains the following lemmas:
+
+  backtrack to: ((drop _v_1 (drop _v_0 _v_2))=(drop _v_0 (drop zero (drop _v_1 _v_2))))
+  rewritten [1]: ((drop _v_1 (drop _v_0 _v_2))=(drop _v_0 (drop _v_1 _v_2)))
+
+The Knowledge Scheme currently contains the following lemmas:
+
+  backtrack to: ((drop _v_1 (drop _v_0 _v_2))=(drop _v_0 (drop zero (drop _v_1 _v_2))))
+  backtrack to: ((drop _v_1 (drop zero (drop _v_0 _v_2)))=(drop _v_0 (drop zero (drop _v_1 _v_2))))
+  rewritten [1]: ((drop _v_1 (drop zero (drop _v_0 _v_2)))=(drop _v_0 (drop _v_1 _v_2)))
+  rewritten [1]: ((drop _v_1 (drop _v_0 _v_2))=(drop _v_0 (drop _v_1 _v_2)))
+
+The Knowledge Scheme currently contains the following lemmas:
+
+  backtrack to: ((drop _v_1 (drop zero (drop _v_0 _v_2)))=(drop _v_0 (drop _v_1 _v_2)))
+  rewritten [1]: ((drop _v_1 (drop _v_0 _v_2))=(drop _v_0 (drop _v_1 _v_2)))
+
+The Knowledge Scheme currently contains the following lemmas:
+
+  backtrack to: ((drop _v_1 (drop zero (drop _v_0 _v_2)))=(drop _v_0 (drop _v_1 _v_2)))
+  backtrack to: ((drop _v_1 (drop zero (drop _v_0 _v_2)))=(drop _v_0 (drop zero (drop _v_1 _v_2))))
+}
+
+Base case:       ((drop _v_4 (drop _v_3 (drop zero _v_5)))=(drop zero (drop _v_3 (drop _v_4 _v_5))))
+{
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat)) ((drop _qv_1 nil)=nil))
+    | Assumptions [1]: (forall ((Lst)) ((drop zero _qv_2)=_qv_2))
+    | Assumptions [2]: (forall ((Nat) (Nat) (Lst)) ((drop (succ _qv_3) (cons _qv_4 _qv_5))=(drop _qv_3 _qv_5)))
+    | Assumptions [3]: (forall ((Nat) (Nat) (Nat) (Nat) (Lst)) ((drop (succ _qv_6) (drop _qv_7 (drop _qv_8 (cons _qv_9 _qv_10))))=(drop _qv_6 (drop _qv_7 (drop _qv_8 _qv_10)))))
+    | Assumptions [4]: (forall ((Nat) (Nat) (Nat) (Nat) (Nat) (Lst)) ((drop (succ _qv_11) (drop _qv_12 (drop (succ _qv_13) (cons _qv_14 (cons _qv_15 _qv_16)))))=(drop (succ _qv_11) (drop _qv_12 (drop _qv_13 (cons _qv_14 _qv_16))))))
+    ====================
+  }
+  rewritten [1]: ((drop _v_4 (drop _v_3 _v_5))=(drop zero (drop _v_3 (drop _v_4 _v_5))))
+  rewritten [1]: ((drop _v_4 (drop _v_3 _v_5))=(drop _v_3 (drop _v_4 _v_5)))
+
+The Knowledge Scheme currently contains the following lemmas:
+
+  proven by induction: ((drop _v_4 (drop _v_3 _v_5))=(drop _v_3 (drop _v_4 _v_5)))
+  rewriting done
+}
+Inductive step:  ((drop _v_4 (drop _v_3 (drop (succ _t_6) _v_5)))=(drop (succ _t_6) (drop _v_3 (drop _v_4 _v_5))))
+{
+  proven trivially
+}
+
+Proved
+unsat

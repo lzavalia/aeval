@@ -1,0 +1,43 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+	(forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+	(forall ((Lst)) ((rev (rev _qv_5))=_qv_5))
+	(forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_6) (rev _qv_7))))
+	(forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_7) (rev _qv_6))))
+
+Simplified goal: (forall ((Lst) (Lst)) ((rev (append (rev x) (rev y)))=(append y x)))
+
+
+Base case:       ((rev (append (rev nil) (rev _v_8)))=(append _v_8 nil))
+{
+  {
+    ====================
+    | Assumptions [0]: ((rev nil)=nil)
+    | Assumptions [1]: (forall ((Lst)) ((append nil _qv_1)=_qv_1))
+    | Assumptions [2]: (forall (INT (Lst) (Lst)) ((append (cons _qv_2 _qv_3) _qv_4)=(cons _qv_2 (append _qv_3 _qv_4))))
+    | Assumptions [3]: (forall (INT (Lst)) ((rev (cons _qv_5 _qv_6))=(append (rev _qv_6) (cons _qv_5 nil))))
+    | Assumptions [4]: (forall ((Lst) INT) ((rev (append _qv_7 (cons _qv_8 nil)))=(cons _qv_8 (rev _qv_7))))
+    | Assumptions [5]: (forall ((Lst) INT (Lst)) ((append (append _qv_9 (cons _qv_10 nil)) _qv_11)=(append _qv_9 (cons _qv_10 _qv_11))))
+    ====================
+  }
+  rewritten [0]: ((rev (append nil (rev _v_8)))=(append _v_8 nil))
+  rewritten [1]: ((rev (rev _v_8))=(append _v_8 nil))
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Lst) (Lst)) ((append _qv_9 _qv_10)=(append _qv_10 _qv_9)))
+	(forall ((Lst) (Lst) (Lst)) ((append (append _qv_11 _qv_12) _qv_13)=(append _qv_11 (append _qv_12 _qv_13))))
+	(forall ((Lst)) ((rev (rev _qv_14))=_qv_14))
+	(forall ((Lst) (Lst)) ((rev (append _qv_15 _qv_16))=(append (rev _qv_15) (rev _qv_16))))
+	(forall ((Lst) (Lst)) ((rev (append _qv_15 _qv_16))=(append (rev _qv_16) (rev _qv_15))))
+
+  proven by induction: ((rev (rev _v_8))=(append _v_8 nil))
+  rewriting done
+}
+Inductive step:  ((rev (append (rev (cons _t_9 _t_10)) (rev _v_8)))=(append _v_8 (cons _t_9 _t_10)))
+{
+  proven trivially
+}
+
+Proved
+unsat

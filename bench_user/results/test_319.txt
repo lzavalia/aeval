@@ -1,0 +1,2 @@
+ind: /home/lucas/Desktop/aeval/include/adt/ADTSolver.hpp:2228: void ufo::adtSolve(ufo::EZ3&, expr::Expr, int, int, int, int, bool, int, int): Assertion `0 && "cannot identify goal (two asserts with negged formulas)"' failed.
+timeout: the monitored command dumped core

@@ -1,0 +1,54 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+	(forall ((Nat)) (0<=(nat-to-int _qv_1)))
+	(forall ((Lst) (Lst)) ((append _qv_2 _qv_3)=(append _qv_3 _qv_2)))
+	(forall ((Lst) (Lst) (Lst)) ((append (append _qv_4 _qv_5) _qv_6)=(append _qv_4 (append _qv_5 _qv_6))))
+	(forall ((Lst)) ((rev (rev _qv_7))=_qv_7))
+	(forall ((Nat)) ((nat-to-int (succ _qv_8))=(nat-to-int _qv_8)))
+	(forall ((Lst) (Lst)) ((rev (append _qv_9 _qv_10))=(append (rev _qv_9) (rev _qv_10))))
+	(forall ((Lst) (Lst)) ((rev (append _qv_9 _qv_10))=(append (rev _qv_10) (rev _qv_9))))
+
+Simplified goal: (forall ((Lst) (Lst)) ((append (rev (rev x)) y)=(rev (rev (append x y)))))
+
+
+Base case:       ((append (rev (rev nil)) _v_11)=(rev (rev (append nil _v_11))))
+{
+  {
+    ====================
+    | Assumptions [0]: ((nat-to-int zero)=0)
+    | Assumptions [1]: ((rev nil)=nil)
+    | Assumptions [2]: (forall ((Nat)) ((nat-to-int _qv_1)>=0))
+    | Assumptions [3]: (forall ((Nat) (Nat)) (((nat-to-int _qv_2)=(nat-to-int _qv_3))->(_qv_2=_qv_3)))
+    | Assumptions [4]: (forall ((Nat)) ((nat-to-int (succ _qv_4))=(1+(nat-to-int _qv_4))))
+    | Assumptions [5]: (forall ((Lst)) ((append nil _qv_5)=_qv_5))
+    | Assumptions [6]: (forall ((Nat) (Lst) (Lst)) ((append (cons _qv_6 _qv_7) _qv_8)=(cons _qv_6 (append _qv_7 _qv_8))))
+    | Assumptions [7]: (forall ((Nat) (Lst)) ((rev (cons _qv_9 _qv_10))=(append (rev _qv_10) (cons _qv_9 nil))))
+    | Assumptions [8]: (forall ((Lst) (Nat)) ((rev (append _qv_11 (cons _qv_12 nil)))=(cons _qv_12 (rev _qv_11))))
+    ====================
+  }
+  rewritten [1]: ((append (rev nil) _v_11)=(rev (rev (append nil _v_11))))
+  rewritten [1]: ((append nil _v_11)=(rev (rev (append nil _v_11))))
+  rewritten [5]: (_v_11=(rev (rev _v_11)))
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_12))=_qv_12))
+	(forall ((Nat)) (0<=(nat-to-int _qv_13)))
+	(forall ((Lst) (Lst)) ((append _qv_14 _qv_15)=(append _qv_15 _qv_14)))
+	(forall ((Lst) (Lst) (Lst)) ((append (append _qv_16 _qv_17) _qv_18)=(append _qv_16 (append _qv_17 _qv_18))))
+	(forall ((Lst)) ((rev (rev _qv_19))=_qv_19))
+	(forall ((Nat)) ((nat-to-int (succ _qv_20))=(nat-to-int _qv_20)))
+	(forall ((Lst) (Lst)) ((rev (append _qv_21 _qv_22))=(append (rev _qv_21) (rev _qv_22))))
+	(forall ((Lst) (Lst)) ((rev (append _qv_21 _qv_22))=(append (rev _qv_22) (rev _qv_21))))
+
+  proven by induction: (_v_11=(rev (rev _v_11)))
+  rewriting done
+  rewriting done
+}
+Inductive step:  ((append (rev (rev (cons _t_12 _t_13))) _v_11)=(rev (rev (append (cons _t_12 _t_13) _v_11))))
+{
+  proven trivially
+}
+
+Proved
+unsat

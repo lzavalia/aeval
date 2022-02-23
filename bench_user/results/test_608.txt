@@ -1,0 +1,116 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+
+Simplified goal: (forall ((Nat) (Nat) (Nat) (Nat) (Lst)) ((drop (succ v) (drop (succ w) (cons x (cons y z))))=(drop (succ v) (drop w (cons x z)))))
+
+
+Base case:       ((drop (succ zero) (drop (succ _v_0) (cons _v_1 (cons _v_2 _v_3))))=(drop (succ zero) (drop _v_0 (cons _v_1 _v_3))))
+{
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat)) ((drop _qv_1 nil)=nil))
+    | Assumptions [1]: (forall ((Lst)) ((drop zero _qv_2)=_qv_2))
+    | Assumptions [2]: (forall ((Nat) (Nat) (Lst)) ((drop (succ _qv_3) (cons _qv_4 _qv_5))=(drop _qv_3 _qv_5)))
+    ====================
+  }
+  rewritten [2]: ((drop (succ zero) (drop _v_0 (cons _v_2 _v_3)))=(drop (succ zero) (drop _v_0 (cons _v_1 _v_3))))
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+
+The Knowledge Scheme currently contains the following lemmas:
+
+  proven by induction: ((drop (succ zero) (drop _v_0 (cons _v_2 _v_3)))=(drop (succ zero) (drop _v_0 (cons _v_1 _v_3))))
+}
+Inductive step:  ((drop (succ (succ _t_5)) (drop (succ _v_0) (cons _v_1 (cons _v_2 _v_3))))=(drop (succ (succ _t_5)) (drop _v_0 (cons _v_1 _v_3))))
+{
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat)) ((drop _qv_1 nil)=nil))
+    | Assumptions [1]: (forall ((Lst)) ((drop zero _qv_2)=_qv_2))
+    | Assumptions [2]: (forall ((Nat) (Nat) (Lst)) ((drop (succ _qv_3) (cons _qv_4 _qv_5))=(drop _qv_3 _qv_5)))
+    | Assumptions [3]: (forall ((Nat) (Nat) (Nat) (Lst)) ((drop (succ _t_5) (drop (succ w) (cons x (cons y z))))=(drop (succ _t_5) (drop w (cons x z)))))
+    | Assumptions [4]: (forall ((Nat) (Nat) (Nat) (Lst)) ((drop (succ _t_5) (drop w (cons x z)))=(drop (succ _t_5) (drop (succ w) (cons x (cons y z))))))
+    ====================
+  }
+  rewritten [2]: ((drop (succ (succ _t_5)) (drop _v_0 (cons _v_2 _v_3)))=(drop (succ (succ _t_5)) (drop _v_0 (cons _v_1 _v_3))))
+
+The Knowledge Scheme currently contains the following lemmas:
+
+  proven by induction: ((drop (succ _w_6) (drop _v_0 (cons _v_2 _v_3)))=(drop (succ _w_6) (drop _v_0 (cons _v_1 _v_3))))
+}
+
+Proved
+unsat

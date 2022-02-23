@@ -1,0 +1,311 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+	(forall ((Nat)) (0<=(nat-to-int _qv_1)))
+	(forall ((Nat) (Nat)) ((less _qv_2 _qv_3)=(less _qv_3 _qv_2)))
+	(forall ((Lst)) ((sort (sort _qv_4))=_qv_4))
+	(forall ((Nat)) ((nat-to-int (succ _qv_5))=(nat-to-int _qv_5)))
+	(forall ((Nat) (Lst) (Lst)) ((insort _qv_6 (cons _qv_7 _qv_8))=(cons (insort _qv_6 _qv_7) (insort _qv_6 _qv_8))))
+	(forall ((Nat) (Lst) (Lst)) ((cons _qv_9 (insort _qv_10 _qv_11))=(insort (cons _qv_9 _qv_10) (cons _qv_9 _qv_11))))
+
+Simplified goal: (forall ((Nat) (Lst)) ((sorted l)->(sorted (insort x l))))
+
+
+Base case:       (sorted (insort zero _v_12))
+{
+  {
+    ====================
+    | Assumptions [0]: ((nat-to-int zero)=0)
+    | Assumptions [1]: (sorted nil)
+    | Assumptions [2]: ((sort nil)=nil)
+    | Assumptions [3]: (forall ((Nat)) ((nat-to-int _qv_1)>=0))
+    | Assumptions [4]: (forall ((Nat) (Nat)) (((nat-to-int _qv_2)=(nat-to-int _qv_3))->(_qv_2=_qv_3)))
+    | Assumptions [5]: (forall ((Nat)) ((nat-to-int (succ _qv_4))=(1+(nat-to-int _qv_4))))
+    | Assumptions [6]: (forall ((Nat) (Nat)) ((less (succ _qv_7) (succ _qv_8))=(less _qv_7 _qv_8)))
+    | Assumptions [7]: (forall ((Nat) (Nat)) ((less _qv_9 _qv_10)=((nat-to-int _qv_9)<(nat-to-int _qv_10))))
+    | Assumptions [8]: (forall ((Nat) (Nat)) (((_qv_11=_qv_12)||(less _qv_11 _qv_12))=((nat-to-int _qv_11)<=(nat-to-int _qv_12))))
+    | Assumptions [9]: (forall ((Nat)) ((insort _qv_13 nil)=(cons _qv_13 nil)))
+    | Assumptions [10]: (forall ((Nat) (Nat) (Lst)) ((insort _qv_14 (cons _qv_15 _qv_16))=ite((less _qv_14 _qv_15), (cons _qv_14 (cons _qv_15 _qv_16)), (cons _qv_15 (insort _qv_14 _qv_16)))))
+    | Assumptions [11]: (forall ((Nat) (Nat) (Lst)) ((sorted (cons _qv_18 (cons _qv_19 _qv_20)))=((sorted (cons _qv_19 _qv_20))&&((_qv_18=_qv_19)||(less _qv_18 _qv_19)))))
+    | Assumptions [12]: (forall ((Nat) (Lst)) ((sort (cons _qv_21 _qv_22))=(insort _qv_21 (sort _qv_22))))
+    | Assumptions [13]: (sorted _v_12)
+    | Assumptions [14]: (forall ((Nat)) (!(less _qv_5 zero)))
+    | Assumptions [15]: (forall ((Nat)) (less zero (succ _qv_6)))
+    | Assumptions [16]: (forall ((Nat)) (sorted (cons _qv_17 nil)))
+    ====================
+  }
+}
+
+Base case:       (sorted (insort _v_13 nil))
+{
+  proven trivially
+}
+Inductive step:  (sorted (insort _v_13 (cons _t_14 _t_15)))
+{
+  {
+    ====================
+    | Assumptions [0]: ((nat-to-int zero)=0)
+    | Assumptions [1]: (sorted nil)
+    | Assumptions [2]: ((sort nil)=nil)
+    | Assumptions [3]: (forall ((Nat)) ((nat-to-int _qv_1)>=0))
+    | Assumptions [4]: (forall ((Nat) (Nat)) (((nat-to-int _qv_2)=(nat-to-int _qv_3))->(_qv_2=_qv_3)))
+    | Assumptions [5]: (forall ((Nat)) ((nat-to-int (succ _qv_4))=(1+(nat-to-int _qv_4))))
+    | Assumptions [6]: (forall ((Nat) (Nat)) ((less (succ _qv_7) (succ _qv_8))=(less _qv_7 _qv_8)))
+    | Assumptions [7]: (forall ((Nat) (Nat)) ((less _qv_9 _qv_10)=((nat-to-int _qv_9)<(nat-to-int _qv_10))))
+    | Assumptions [8]: (forall ((Nat) (Nat)) (((_qv_11=_qv_12)||(less _qv_11 _qv_12))=((nat-to-int _qv_11)<=(nat-to-int _qv_12))))
+    | Assumptions [9]: (forall ((Nat)) ((insort _qv_13 nil)=(cons _qv_13 nil)))
+    | Assumptions [10]: (forall ((Nat) (Nat) (Lst)) ((insort _qv_14 (cons _qv_15 _qv_16))=ite((less _qv_14 _qv_15), (cons _qv_14 (cons _qv_15 _qv_16)), (cons _qv_15 (insort _qv_14 _qv_16)))))
+    | Assumptions [11]: (forall ((Nat) (Nat) (Lst)) ((sorted (cons _qv_18 (cons _qv_19 _qv_20)))=((sorted (cons _qv_19 _qv_20))&&((_qv_18=_qv_19)||(less _qv_18 _qv_19)))))
+    | Assumptions [12]: (forall ((Nat) (Lst)) ((sort (cons _qv_21 _qv_22))=(insort _qv_21 (sort _qv_22))))
+    | Assumptions [13]: (sorted _v_12)
+    | Assumptions [14]: (forall ((Nat)) (!(less _qv_5 zero)))
+    | Assumptions [15]: (forall ((Nat)) (less zero (succ _qv_6)))
+    | Assumptions [16]: (forall ((Nat)) (sorted (cons _qv_17 nil)))
+    | Assumptions [17]: (forall ((Nat)) ((sorted _t_15)->(sorted (insort x _t_15))))
+    | Assumptions [18]: (sorted (cons _t_14 _t_15))
+    | Assumptions [19]: ((sorted (cons _qv_18 (cons _t_14 _t_15)))=((sorted (cons _t_14 _t_15))&&((_qv_18=_t_14)||(less _qv_18 _t_14))))
+    | Assumptions [20]: (sorted (cons _t_14 nil))
+    | Assumptions [21]: ((sorted (cons _qv_18 (cons _t_14 _t_15)))=((sorted (cons _t_14 _t_15))&&((_qv_18=_t_14)||(((nat-to-int _qv_18)+(-(nat-to-int _t_14)))<0))))
+    | Assumptions [22]: ((sorted (cons _qv_18 (cons _t_14 _t_15)))=((sorted (cons _t_14 _t_15))&&(((nat-to-int _qv_18)+(-(nat-to-int _t_14)))<=0)))
+    ====================
+  }
+  rewritten [10]: (sorted ite((less _v_13 _t_14), (cons _v_13 (cons _t_14 _t_15)), (cons _t_14 (insort _v_13 _t_15))))
+  proceed with (part 1/2): ((less _v_13 _t_14)->(sorted (cons _v_13 (cons _t_14 _t_15))))
+  {
+      proven trivially (with Z3)
+  }
+  adding ((less _v_13 _t_14)->(sorted (cons _v_13 (cons _t_14 _t_15)))) to assumptions
+  proceed with (part 2/2): ((!(less _v_13 _t_14))->(sorted (cons _t_14 (insort _v_13 _t_15))))
+  {
+    {
+      ====================
+      | Assumptions [0]: ((nat-to-int zero)=0)
+      | Assumptions [1]: (sorted nil)
+      | Assumptions [2]: ((sort nil)=nil)
+      | Assumptions [3]: (forall ((Nat)) ((nat-to-int _qv_1)>=0))
+      | Assumptions [4]: (forall ((Nat) (Nat)) (((nat-to-int _qv_2)=(nat-to-int _qv_3))->(_qv_2=_qv_3)))
+      | Assumptions [5]: (forall ((Nat)) ((nat-to-int (succ _qv_4))=(1+(nat-to-int _qv_4))))
+      | Assumptions [6]: (forall ((Nat) (Nat)) ((less (succ _qv_7) (succ _qv_8))=(less _qv_7 _qv_8)))
+      | Assumptions [7]: (forall ((Nat) (Nat)) ((less _qv_9 _qv_10)=((nat-to-int _qv_9)<(nat-to-int _qv_10))))
+      | Assumptions [8]: (forall ((Nat) (Nat)) (((_qv_11=_qv_12)||(less _qv_11 _qv_12))=((nat-to-int _qv_11)<=(nat-to-int _qv_12))))
+      | Assumptions [9]: (forall ((Nat)) ((insort _qv_13 nil)=(cons _qv_13 nil)))
+      | Assumptions [10]: (forall ((Nat) (Nat) (Lst)) ((insort _qv_14 (cons _qv_15 _qv_16))=ite((less _qv_14 _qv_15), (cons _qv_14 (cons _qv_15 _qv_16)), (cons _qv_15 (insort _qv_14 _qv_16)))))
+      | Assumptions [11]: (forall ((Nat) (Nat) (Lst)) ((sorted (cons _qv_18 (cons _qv_19 _qv_20)))=((sorted (cons _qv_19 _qv_20))&&((_qv_18=_qv_19)||(less _qv_18 _qv_19)))))
+      | Assumptions [12]: (forall ((Nat) (Lst)) ((sort (cons _qv_21 _qv_22))=(insort _qv_21 (sort _qv_22))))
+      | Assumptions [13]: (sorted _v_12)
+      | Assumptions [14]: (forall ((Nat)) (!(less _qv_5 zero)))
+      | Assumptions [15]: (forall ((Nat)) (less zero (succ _qv_6)))
+      | Assumptions [16]: (forall ((Nat)) (sorted (cons _qv_17 nil)))
+      | Assumptions [17]: (forall ((Nat)) ((sorted _t_15)->(sorted (insort x _t_15))))
+      | Assumptions [18]: (sorted (cons _t_14 _t_15))
+      | Assumptions [19]: ((sorted (cons _qv_18 (cons _t_14 _t_15)))=((sorted (cons _t_14 _t_15))&&((_qv_18=_t_14)||(less _qv_18 _t_14))))
+      | Assumptions [20]: (sorted (cons _t_14 nil))
+      | Assumptions [21]: ((sorted (cons _qv_18 (cons _t_14 _t_15)))=((sorted (cons _t_14 _t_15))&&((_qv_18=_t_14)||(((nat-to-int _qv_18)+(-(nat-to-int _t_14)))<0))))
+      | Assumptions [22]: ((sorted (cons _qv_18 (cons _t_14 _t_15)))=((sorted (cons _t_14 _t_15))&&(((nat-to-int _qv_18)+(-(nat-to-int _t_14)))<=0)))
+      | Assumptions [23]: ((less _v_13 _t_14)->(sorted (cons _v_13 (cons _t_14 _t_15))))
+      | Assumptions [24]: (!(less _v_13 _t_14))
+      | Assumptions [25]: (((nat-to-int _v_13)<(nat-to-int _t_14))->(sorted (cons _v_13 (cons _t_14 _t_15))))
+      | Assumptions [26]: ((less _v_13 _t_14)->((sorted (cons _t_14 _t_15))&&((less _v_13 _t_14)||(_v_13=_t_14))))
+      | Assumptions [27]: ((nat-to-int _v_13)>=(nat-to-int _t_14))
+      | Assumptions [28]: (!(less _v_13 zero))
+      | Assumptions [29]: (((nat-to-int _v_13)<(nat-to-int _t_14))->((sorted (cons _t_14 _t_15))&&((less _v_13 _t_14)||(_v_13=_t_14))))
+      | Assumptions [30]: (((nat-to-int _v_13)<(nat-to-int _t_14))->((sorted (cons _t_14 _t_15))&&((_v_13=_t_14)||(((-(nat-to-int _t_14))+(nat-to-int _v_13))<0))))
+      | Assumptions [31]: ((nat-to-int _v_13)>=(nat-to-int zero))
+      | Assumptions [32]: ((nat-to-int _v_13)>=0)
+      ====================
+    }
+    current subgoal: (sorted (cons _t_14 (insort _v_13 _t_15)))
+  }
+  will try subgoals again
+  proceed with (part 1/1): ((!(less _v_13 _t_14))->(sorted (cons _t_14 (insort _v_13 _t_15))))
+  {
+    {
+      ====================
+      | Assumptions [0]: ((nat-to-int zero)=0)
+      | Assumptions [1]: (sorted nil)
+      | Assumptions [2]: ((sort nil)=nil)
+      | Assumptions [3]: (forall ((Nat)) ((nat-to-int _qv_1)>=0))
+      | Assumptions [4]: (forall ((Nat) (Nat)) (((nat-to-int _qv_2)=(nat-to-int _qv_3))->(_qv_2=_qv_3)))
+      | Assumptions [5]: (forall ((Nat)) ((nat-to-int (succ _qv_4))=(1+(nat-to-int _qv_4))))
+      | Assumptions [6]: (forall ((Nat) (Nat)) ((less (succ _qv_7) (succ _qv_8))=(less _qv_7 _qv_8)))
+      | Assumptions [7]: (forall ((Nat) (Nat)) ((less _qv_9 _qv_10)=((nat-to-int _qv_9)<(nat-to-int _qv_10))))
+      | Assumptions [8]: (forall ((Nat) (Nat)) (((_qv_11=_qv_12)||(less _qv_11 _qv_12))=((nat-to-int _qv_11)<=(nat-to-int _qv_12))))
+      | Assumptions [9]: (forall ((Nat)) ((insort _qv_13 nil)=(cons _qv_13 nil)))
+      | Assumptions [10]: (forall ((Nat) (Nat) (Lst)) ((insort _qv_14 (cons _qv_15 _qv_16))=ite((less _qv_14 _qv_15), (cons _qv_14 (cons _qv_15 _qv_16)), (cons _qv_15 (insort _qv_14 _qv_16)))))
+      | Assumptions [11]: (forall ((Nat) (Nat) (Lst)) ((sorted (cons _qv_18 (cons _qv_19 _qv_20)))=((sorted (cons _qv_19 _qv_20))&&((_qv_18=_qv_19)||(less _qv_18 _qv_19)))))
+      | Assumptions [12]: (forall ((Nat) (Lst)) ((sort (cons _qv_21 _qv_22))=(insort _qv_21 (sort _qv_22))))
+      | Assumptions [13]: (sorted _v_12)
+      | Assumptions [14]: (forall ((Nat)) (!(less _qv_5 zero)))
+      | Assumptions [15]: (forall ((Nat)) (less zero (succ _qv_6)))
+      | Assumptions [16]: (forall ((Nat)) (sorted (cons _qv_17 nil)))
+      | Assumptions [17]: (forall ((Nat)) ((sorted _t_15)->(sorted (insort x _t_15))))
+      | Assumptions [18]: (sorted (cons _t_14 _t_15))
+      | Assumptions [19]: ((sorted (cons _qv_18 (cons _t_14 _t_15)))=((sorted (cons _t_14 _t_15))&&((_qv_18=_t_14)||(less _qv_18 _t_14))))
+      | Assumptions [20]: (sorted (cons _t_14 nil))
+      | Assumptions [21]: ((sorted (cons _qv_18 (cons _t_14 _t_15)))=((sorted (cons _t_14 _t_15))&&((_qv_18=_t_14)||(((nat-to-int _qv_18)+(-(nat-to-int _t_14)))<0))))
+      | Assumptions [22]: ((sorted (cons _qv_18 (cons _t_14 _t_15)))=((sorted (cons _t_14 _t_15))&&(((nat-to-int _qv_18)+(-(nat-to-int _t_14)))<=0)))
+      | Assumptions [23]: ((less _v_13 _t_14)->(sorted (cons _v_13 (cons _t_14 _t_15))))
+      | Assumptions [24]: (!(less _v_13 _t_14))
+      | Assumptions [25]: (((nat-to-int _v_13)<(nat-to-int _t_14))->(sorted (cons _v_13 (cons _t_14 _t_15))))
+      | Assumptions [26]: ((less _v_13 _t_14)->((sorted (cons _t_14 _t_15))&&((less _v_13 _t_14)||(_v_13=_t_14))))
+      | Assumptions [27]: ((nat-to-int _v_13)>=(nat-to-int _t_14))
+      | Assumptions [28]: (!(less _v_13 zero))
+      | Assumptions [29]: (((nat-to-int _v_13)<(nat-to-int _t_14))->((sorted (cons _t_14 _t_15))&&((less _v_13 _t_14)||(_v_13=_t_14))))
+      | Assumptions [30]: (((nat-to-int _v_13)<(nat-to-int _t_14))->((sorted (cons _t_14 _t_15))&&((_v_13=_t_14)||(((-(nat-to-int _t_14))+(nat-to-int _v_13))<0))))
+      | Assumptions [31]: ((nat-to-int _v_13)>=(nat-to-int zero))
+      | Assumptions [32]: ((nat-to-int _v_13)>=0)
+      ====================
+    }
+    current subgoal: (sorted (cons _t_14 (insort _v_13 _t_15)))
+  }
+  cannot prove 1 of the subgoals
+CURRENT SUBGOAL (sorted (insort _v_13 (cons _t_14 _t_15)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (sorted (insort _v_13 (cons _t_14 _t_15)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (sorted (insort _v_13 (cons _t_14 _t_15)))
+NOW TESTING (forall ((Nat) (Nat)) ((less _qv_2 _qv_3)=(less _qv_3 _qv_2)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (sorted (insort _v_13 (cons _t_14 _t_15)))
+NOW TESTING (forall ((Lst)) ((sort (sort _qv_4))=_qv_4))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (sorted (insort _v_13 (cons _t_14 _t_15)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_5))=(nat-to-int _qv_5)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (sorted (insort _v_13 (cons _t_14 _t_15)))
+NOW TESTING (forall ((Nat) (Lst) (Lst)) ((insort _qv_6 (cons _qv_7 _qv_8))=(cons (insort _qv_6 _qv_7) (insort _qv_6 _qv_8))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (sorted (insort _v_13 (cons _t_14 _t_15)))
+NOW TESTING (forall ((Nat) (Lst) (Lst)) ((cons _qv_9 (insort _qv_10 _qv_11))=(insort (cons _qv_9 _qv_10) (cons _qv_9 _qv_11))))
+USE ASSUMPTION FAILED
+
+  backtrack to: (sorted (insort _v_13 (cons _t_14 _t_15)))
+  rewritten [10]: (sorted ite((less _v_13 _t_14), (cons _v_13 (cons _t_14 _t_15)), (cons _t_14 (insort _v_13 _t_15))))
+  proceed with (part 1/2): ((less _v_13 _t_14)->(sorted (cons _v_13 (cons _t_14 _t_15))))
+  {
+      proven trivially (with Z3)
+  }
+  adding ((less _v_13 _t_14)->(sorted (cons _v_13 (cons _t_14 _t_15)))) to assumptions
+  proceed with (part 2/2): ((!(less _v_13 _t_14))->(sorted (cons _t_14 (insort _v_13 _t_15))))
+  {
+    {
+      ====================
+      | Assumptions [0]: ((nat-to-int zero)=0)
+      | Assumptions [1]: (sorted nil)
+      | Assumptions [2]: ((sort nil)=nil)
+      | Assumptions [3]: (forall ((Nat)) ((nat-to-int _qv_1)>=0))
+      | Assumptions [4]: (forall ((Nat) (Nat)) (((nat-to-int _qv_2)=(nat-to-int _qv_3))->(_qv_2=_qv_3)))
+      | Assumptions [5]: (forall ((Nat)) ((nat-to-int (succ _qv_4))=(1+(nat-to-int _qv_4))))
+      | Assumptions [6]: (forall ((Nat) (Nat)) ((less (succ _qv_7) (succ _qv_8))=(less _qv_7 _qv_8)))
+      | Assumptions [7]: (forall ((Nat) (Nat)) ((less _qv_9 _qv_10)=((nat-to-int _qv_9)<(nat-to-int _qv_10))))
+      | Assumptions [8]: (forall ((Nat) (Nat)) (((_qv_11=_qv_12)||(less _qv_11 _qv_12))=((nat-to-int _qv_11)<=(nat-to-int _qv_12))))
+      | Assumptions [9]: (forall ((Nat)) ((insort _qv_13 nil)=(cons _qv_13 nil)))
+      | Assumptions [10]: (forall ((Nat) (Nat) (Lst)) ((insort _qv_14 (cons _qv_15 _qv_16))=ite((less _qv_14 _qv_15), (cons _qv_14 (cons _qv_15 _qv_16)), (cons _qv_15 (insort _qv_14 _qv_16)))))
+      | Assumptions [11]: (forall ((Nat) (Nat) (Lst)) ((sorted (cons _qv_18 (cons _qv_19 _qv_20)))=((sorted (cons _qv_19 _qv_20))&&((_qv_18=_qv_19)||(less _qv_18 _qv_19)))))
+      | Assumptions [12]: (forall ((Nat) (Lst)) ((sort (cons _qv_21 _qv_22))=(insort _qv_21 (sort _qv_22))))
+      | Assumptions [13]: (sorted _v_12)
+      | Assumptions [14]: (forall ((Nat)) (!(less _qv_5 zero)))
+      | Assumptions [15]: (forall ((Nat)) (less zero (succ _qv_6)))
+      | Assumptions [16]: (forall ((Nat)) (sorted (cons _qv_17 nil)))
+      | Assumptions [17]: (forall ((Nat)) ((sorted _t_15)->(sorted (insort x _t_15))))
+      | Assumptions [18]: (sorted (cons _t_14 _t_15))
+      | Assumptions [19]: ((sorted (cons _qv_18 (cons _t_14 _t_15)))=((sorted (cons _t_14 _t_15))&&((_qv_18=_t_14)||(less _qv_18 _t_14))))
+      | Assumptions [20]: (sorted (cons _t_14 nil))
+      | Assumptions [21]: ((sorted (cons _qv_18 (cons _t_14 _t_15)))=((sorted (cons _t_14 _t_15))&&((_qv_18=_t_14)||(((nat-to-int _qv_18)+(-(nat-to-int _t_14)))<0))))
+      | Assumptions [22]: ((sorted (cons _qv_18 (cons _t_14 _t_15)))=((sorted (cons _t_14 _t_15))&&(((nat-to-int _qv_18)+(-(nat-to-int _t_14)))<=0)))
+      | Assumptions [23]: ((less _v_13 _t_14)->(sorted (cons _v_13 (cons _t_14 _t_15))))
+      | Assumptions [24]: (!(less _v_13 _t_14))
+      | Assumptions [25]: (((nat-to-int _v_13)<(nat-to-int _t_14))->(sorted (cons _v_13 (cons _t_14 _t_15))))
+      | Assumptions [26]: ((less _v_13 _t_14)->((sorted (cons _t_14 _t_15))&&((less _v_13 _t_14)||(_v_13=_t_14))))
+      | Assumptions [27]: ((nat-to-int _v_13)>=(nat-to-int _t_14))
+      | Assumptions [28]: (!(less _v_13 zero))
+      | Assumptions [29]: (((nat-to-int _v_13)<(nat-to-int _t_14))->((sorted (cons _t_14 _t_15))&&((less _v_13 _t_14)||(_v_13=_t_14))))
+      | Assumptions [30]: (((nat-to-int _v_13)<(nat-to-int _t_14))->((sorted (cons _t_14 _t_15))&&((_v_13=_t_14)||(((-(nat-to-int _t_14))+(nat-to-int _v_13))<0))))
+      | Assumptions [31]: ((nat-to-int _v_13)>=(nat-to-int zero))
+      | Assumptions [32]: ((nat-to-int _v_13)>=0)
+      ====================
+    }
+    current subgoal: (sorted (cons _t_14 (insort _v_13 _t_15)))
+  }
+  will try subgoals again
+  proceed with (part 1/1): ((!(less _v_13 _t_14))->(sorted (cons _t_14 (insort _v_13 _t_15))))
+  {
+    {
+      ====================
+      | Assumptions [0]: ((nat-to-int zero)=0)
+      | Assumptions [1]: (sorted nil)
+      | Assumptions [2]: ((sort nil)=nil)
+      | Assumptions [3]: (forall ((Nat)) ((nat-to-int _qv_1)>=0))
+      | Assumptions [4]: (forall ((Nat) (Nat)) (((nat-to-int _qv_2)=(nat-to-int _qv_3))->(_qv_2=_qv_3)))
+      | Assumptions [5]: (forall ((Nat)) ((nat-to-int (succ _qv_4))=(1+(nat-to-int _qv_4))))
+      | Assumptions [6]: (forall ((Nat) (Nat)) ((less (succ _qv_7) (succ _qv_8))=(less _qv_7 _qv_8)))
+      | Assumptions [7]: (forall ((Nat) (Nat)) ((less _qv_9 _qv_10)=((nat-to-int _qv_9)<(nat-to-int _qv_10))))
+      | Assumptions [8]: (forall ((Nat) (Nat)) (((_qv_11=_qv_12)||(less _qv_11 _qv_12))=((nat-to-int _qv_11)<=(nat-to-int _qv_12))))
+      | Assumptions [9]: (forall ((Nat)) ((insort _qv_13 nil)=(cons _qv_13 nil)))
+      | Assumptions [10]: (forall ((Nat) (Nat) (Lst)) ((insort _qv_14 (cons _qv_15 _qv_16))=ite((less _qv_14 _qv_15), (cons _qv_14 (cons _qv_15 _qv_16)), (cons _qv_15 (insort _qv_14 _qv_16)))))
+      | Assumptions [11]: (forall ((Nat) (Nat) (Lst)) ((sorted (cons _qv_18 (cons _qv_19 _qv_20)))=((sorted (cons _qv_19 _qv_20))&&((_qv_18=_qv_19)||(less _qv_18 _qv_19)))))
+      | Assumptions [12]: (forall ((Nat) (Lst)) ((sort (cons _qv_21 _qv_22))=(insort _qv_21 (sort _qv_22))))
+      | Assumptions [13]: (sorted _v_12)
+      | Assumptions [14]: (forall ((Nat)) (!(less _qv_5 zero)))
+      | Assumptions [15]: (forall ((Nat)) (less zero (succ _qv_6)))
+      | Assumptions [16]: (forall ((Nat)) (sorted (cons _qv_17 nil)))
+      | Assumptions [17]: (forall ((Nat)) ((sorted _t_15)->(sorted (insort x _t_15))))
+      | Assumptions [18]: (sorted (cons _t_14 _t_15))
+      | Assumptions [19]: ((sorted (cons _qv_18 (cons _t_14 _t_15)))=((sorted (cons _t_14 _t_15))&&((_qv_18=_t_14)||(less _qv_18 _t_14))))
+      | Assumptions [20]: (sorted (cons _t_14 nil))
+      | Assumptions [21]: ((sorted (cons _qv_18 (cons _t_14 _t_15)))=((sorted (cons _t_14 _t_15))&&((_qv_18=_t_14)||(((nat-to-int _qv_18)+(-(nat-to-int _t_14)))<0))))
+      | Assumptions [22]: ((sorted (cons _qv_18 (cons _t_14 _t_15)))=((sorted (cons _t_14 _t_15))&&(((nat-to-int _qv_18)+(-(nat-to-int _t_14)))<=0)))
+      | Assumptions [23]: ((less _v_13 _t_14)->(sorted (cons _v_13 (cons _t_14 _t_15))))
+      | Assumptions [24]: (!(less _v_13 _t_14))
+      | Assumptions [25]: (((nat-to-int _v_13)<(nat-to-int _t_14))->(sorted (cons _v_13 (cons _t_14 _t_15))))
+      | Assumptions [26]: ((less _v_13 _t_14)->((sorted (cons _t_14 _t_15))&&((less _v_13 _t_14)||(_v_13=_t_14))))
+      | Assumptions [27]: ((nat-to-int _v_13)>=(nat-to-int _t_14))
+      | Assumptions [28]: (!(less _v_13 zero))
+      | Assumptions [29]: (((nat-to-int _v_13)<(nat-to-int _t_14))->((sorted (cons _t_14 _t_15))&&((less _v_13 _t_14)||(_v_13=_t_14))))
+      | Assumptions [30]: (((nat-to-int _v_13)<(nat-to-int _t_14))->((sorted (cons _t_14 _t_15))&&((_v_13=_t_14)||(((-(nat-to-int _t_14))+(nat-to-int _v_13))<0))))
+      | Assumptions [31]: ((nat-to-int _v_13)>=(nat-to-int zero))
+      | Assumptions [32]: ((nat-to-int _v_13)>=0)
+      ====================
+    }
+    current subgoal: (sorted (cons _t_14 (insort _v_13 _t_15)))
+  }
+  cannot prove 1 of the subgoals
+CURRENT SUBGOAL (sorted (insort _v_13 (cons _t_14 _t_15)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (sorted (insort _v_13 (cons _t_14 _t_15)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (sorted (insort _v_13 (cons _t_14 _t_15)))
+NOW TESTING (forall ((Nat) (Nat)) ((less _qv_2 _qv_3)=(less _qv_3 _qv_2)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (sorted (insort _v_13 (cons _t_14 _t_15)))
+NOW TESTING (forall ((Lst)) ((sort (sort _qv_4))=_qv_4))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (sorted (insort _v_13 (cons _t_14 _t_15)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_5))=(nat-to-int _qv_5)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (sorted (insort _v_13 (cons _t_14 _t_15)))
+NOW TESTING (forall ((Nat) (Lst) (Lst)) ((insort _qv_6 (cons _qv_7 _qv_8))=(cons (insort _qv_6 _qv_7) (insort _qv_6 _qv_8))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (sorted (insort _v_13 (cons _t_14 _t_15)))
+NOW TESTING (forall ((Nat) (Lst) (Lst)) ((cons _qv_9 (insort _qv_10 _qv_11))=(insort (cons _qv_9 _qv_10) (cons _qv_9 _qv_11))))
+USE ASSUMPTION FAILED
+
+  backtrack to: (sorted (insort _v_13 (cons _t_14 _t_15)))
+Unknown
+sat

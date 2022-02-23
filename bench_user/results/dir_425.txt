@@ -1,0 +1,1 @@
+./ind/benchmarks-dt/isaplanner/goal76.smt2

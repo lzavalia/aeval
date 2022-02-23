@@ -1,0 +1,111 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall (INT INT) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+	(forall ((Lst)) ((sort (sort _qv_2))=_qv_2))
+	(forall (INT (Lst) (Lst)) ((insort _qv_3 (cons _qv_4 _qv_5))=(cons (insort _qv_3 _qv_4) (insort _qv_3 _qv_5))))
+	(forall (INT (Lst) (Lst)) ((cons _qv_6 (insort _qv_7 _qv_8))=(insort (cons _qv_6 _qv_7) (cons _qv_6 _qv_8))))
+
+Simplified goal: (forall (INT (Lst)) ((count x (sort y))=(count x y)))
+
+
+Base case:       ((count _v_9 (sort nil))=(count _v_9 nil))
+{
+  proven trivially
+}
+Inductive step:  ((count _v_9 (sort (cons _t_10 _t_11)))=(count _v_9 (cons _t_10 _t_11)))
+{
+  {
+    ====================
+    | Assumptions [0]: ((sort nil)=nil)
+    | Assumptions [1]: (forall (INT INT) (((_qv_2>=0)&&(_qv_3>=0))->((less 1+_qv_2 1+_qv_3)=(less _qv_2 _qv_3))))
+    | Assumptions [2]: (forall (INT INT) (((_qv_4>=0)&&(_qv_5>=0))->((less _qv_4 _qv_5)=(_qv_4<_qv_5))))
+    | Assumptions [3]: (forall (INT) ((count _qv_6 nil)=0))
+    | Assumptions [4]: (forall (INT INT (Lst)) ((count _qv_7 (cons _qv_8 _qv_9))=ite(_qv_7=_qv_8, 1+(count _qv_7 _qv_9), (count _qv_7 _qv_9))))
+    | Assumptions [5]: (forall (INT (Lst)) ((count _qv_10 _qv_11)>=0))
+    | Assumptions [6]: (forall (INT) ((insort _qv_12 nil)=(cons _qv_12 nil)))
+    | Assumptions [7]: (forall (INT INT (Lst)) ((insort _qv_13 (cons _qv_14 _qv_15))=ite((less _qv_13 _qv_14), (cons _qv_13 (cons _qv_14 _qv_15)), (cons _qv_14 (insort _qv_13 _qv_15)))))
+    | Assumptions [8]: (forall (INT (Lst)) ((sort (cons _qv_16 _qv_17))=(insort _qv_16 (sort _qv_17))))
+    | Assumptions [9]: (forall (INT) ((count x (sort _t_11))=(count x _t_11)))
+    | Assumptions [10]: (forall (INT) ((count x _t_11)=(count x (sort _t_11))))
+    | Assumptions [11]: (!(less 0 0))
+    | Assumptions [12]: (forall (INT) ((_qv_1>=0)->(less 0 1+_qv_1)))
+    ====================
+  }
+  rewritten [4]: ((count _v_9 (sort (cons _t_10 _t_11)))=ite(_v_9=_t_10, 1+(count _v_9 _t_11), (count _v_9 _t_11)))
+  proceed with (part 1/2): ((_v_9=_t_10)->((count _v_9 (sort (cons _t_10 _t_11)))=((count _v_9 _t_11)+1)))
+  {
+    {
+      ====================
+      | Assumptions [0]: ((sort nil)=nil)
+      | Assumptions [1]: (forall (INT INT) (((_qv_2>=0)&&(_qv_3>=0))->((less 1+_qv_2 1+_qv_3)=(less _qv_2 _qv_3))))
+      | Assumptions [2]: (forall (INT INT) (((_qv_4>=0)&&(_qv_5>=0))->((less _qv_4 _qv_5)=(_qv_4<_qv_5))))
+      | Assumptions [3]: (forall (INT) ((count _qv_6 nil)=0))
+      | Assumptions [4]: (forall (INT INT (Lst)) ((count _qv_7 (cons _qv_8 _qv_9))=ite(_qv_7=_qv_8, 1+(count _qv_7 _qv_9), (count _qv_7 _qv_9))))
+      | Assumptions [5]: (forall (INT (Lst)) ((count _qv_10 _qv_11)>=0))
+      | Assumptions [6]: (forall (INT) ((insort _qv_12 nil)=(cons _qv_12 nil)))
+      | Assumptions [7]: (forall (INT INT (Lst)) ((insort _qv_13 (cons _qv_14 _qv_15))=ite((less _qv_13 _qv_14), (cons _qv_13 (cons _qv_14 _qv_15)), (cons _qv_14 (insort _qv_13 _qv_15)))))
+      | Assumptions [8]: (forall (INT (Lst)) ((sort (cons _qv_16 _qv_17))=(insort _qv_16 (sort _qv_17))))
+      | Assumptions [9]: (forall (INT) ((count x (sort _t_11))=(count x _t_11)))
+      | Assumptions [10]: (forall (INT) ((count x _t_11)=(count x (sort _t_11))))
+      | Assumptions [11]: (!(less 0 0))
+      | Assumptions [12]: (forall (INT) ((_qv_1>=0)->(less 0 1+_qv_1)))
+      ====================
+    }
+    current subgoal: ((count _t_10 (sort (cons _t_10 _t_11)))=((count _t_10 _t_11)+1))
+    rewritten [8]: ((count _t_10 (insort _t_10 (sort _t_11)))=((count _t_10 _t_11)+1))
+    rewritten [10]: ((count _t_10 (insort _t_10 (sort _t_11)))=((count _t_10 (sort _t_11))+1))
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall (INT INT) ((less _qv_13 _qv_14)=(less _qv_14 _qv_13)))
+	(forall ((Lst)) ((sort (sort _qv_15))=_qv_15))
+	(forall (INT (Lst) (Lst)) ((insort _qv_16 (cons _qv_17 _qv_18))=(cons (insort _qv_16 _qv_17) (insort _qv_16 _qv_18))))
+	(forall (INT (Lst) (Lst)) ((cons _qv_19 (insort _qv_20 _qv_21))=(insort (cons _qv_19 _qv_20) (cons _qv_19 _qv_21))))
+
+    proven by induction: ((count _t_10 (insort _t_10 _w_12))=((count _t_10 _w_12)+1))
+    rewriting done
+  }
+  adding ((_v_9=_t_10)->((count _v_9 (sort (cons _t_10 _t_11)))=((count _v_9 _t_11)+1))) to assumptions
+  proceed with (part 2/2): ((_v_9!=_t_10)->((count _v_9 (sort (cons _t_10 _t_11)))=(count _v_9 _t_11)))
+  {
+    {
+      ====================
+      | Assumptions [0]: ((sort nil)=nil)
+      | Assumptions [1]: (forall (INT INT) (((_qv_2>=0)&&(_qv_3>=0))->((less 1+_qv_2 1+_qv_3)=(less _qv_2 _qv_3))))
+      | Assumptions [2]: (forall (INT INT) (((_qv_4>=0)&&(_qv_5>=0))->((less _qv_4 _qv_5)=(_qv_4<_qv_5))))
+      | Assumptions [3]: (forall (INT) ((count _qv_6 nil)=0))
+      | Assumptions [4]: (forall (INT INT (Lst)) ((count _qv_7 (cons _qv_8 _qv_9))=ite(_qv_7=_qv_8, 1+(count _qv_7 _qv_9), (count _qv_7 _qv_9))))
+      | Assumptions [5]: (forall (INT (Lst)) ((count _qv_10 _qv_11)>=0))
+      | Assumptions [6]: (forall (INT) ((insort _qv_12 nil)=(cons _qv_12 nil)))
+      | Assumptions [7]: (forall (INT INT (Lst)) ((insort _qv_13 (cons _qv_14 _qv_15))=ite((less _qv_13 _qv_14), (cons _qv_13 (cons _qv_14 _qv_15)), (cons _qv_14 (insort _qv_13 _qv_15)))))
+      | Assumptions [8]: (forall (INT (Lst)) ((sort (cons _qv_16 _qv_17))=(insort _qv_16 (sort _qv_17))))
+      | Assumptions [9]: (forall (INT) ((count x (sort _t_11))=(count x _t_11)))
+      | Assumptions [10]: (forall (INT) ((count x _t_11)=(count x (sort _t_11))))
+      | Assumptions [11]: (!(less 0 0))
+      | Assumptions [12]: (forall (INT) ((_qv_1>=0)->(less 0 1+_qv_1)))
+      | Assumptions [13]: ((_v_9=_t_10)->((count _v_9 (sort (cons _t_10 _t_11)))=((count _v_9 _t_11)+1)))
+      | Assumptions [14]: (_v_9!=_t_10)
+      | Assumptions [15]: ((_v_9=_t_10)->((count _v_9 (insort _t_10 (sort _t_11)))=((count _v_9 _t_11)+1)))
+      | Assumptions [16]: ((_v_9=_t_10)->((count _v_9 (sort (cons _t_10 _t_11)))=((count _v_9 (sort _t_11))+1)))
+      | Assumptions [17]: ((_v_9=_t_10)->((count _v_9 (insort _t_10 (sort _t_11)))=((count _v_9 (sort _t_11))+1)))
+      ====================
+    }
+    current subgoal: ((count _v_9 (sort (cons _t_10 _t_11)))=(count _v_9 _t_11))
+    rewritten [8]: ((count _v_9 (insort _t_10 (sort _t_11)))=(count _v_9 _t_11))
+    rewritten [10]: ((count _v_9 (insort _t_10 (sort _t_11)))=(count _v_9 (sort _t_11)))
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall (INT INT) ((less _qv_14 _qv_15)=(less _qv_15 _qv_14)))
+	(forall ((Lst)) ((sort (sort _qv_16))=_qv_16))
+	(forall (INT (Lst) (Lst)) ((insort _qv_17 (cons _qv_18 _qv_19))=(cons (insort _qv_17 _qv_18) (insort _qv_17 _qv_19))))
+	(forall (INT (Lst) (Lst)) ((cons _qv_20 (insort _qv_21 _qv_22))=(insort (cons _qv_20 _qv_21) (cons _qv_20 _qv_22))))
+
+    proven by induction: ((count _v_9 (insort _t_10 _w_13))=(count _v_9 _w_13))
+    rewriting done
+  }
+  adding ((_v_9!=_t_10)->((count _v_9 (sort (cons _t_10 _t_11)))=(count _v_9 _t_11))) to assumptions
+  all subgoals are proven
+  rewriting done
+}
+
+Proved
+unsat

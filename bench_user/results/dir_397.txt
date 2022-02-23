@@ -1,0 +1,1 @@
+./ind/benchmarks-dt/hipspec/rotate-goal5.smt2

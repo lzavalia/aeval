@@ -1,0 +1,24 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+	(forall ((Nat)) (0<=(nat-to-int _qv_1)))
+	(forall ((Nat) (Nat)) ((less _qv_2 _qv_3)=(less _qv_3 _qv_2)))
+	(forall ((Lst)) ((sort (sort _qv_4))=_qv_4))
+	(forall ((Nat)) ((nat-to-int (succ _qv_5))=(nat-to-int _qv_5)))
+	(forall ((Nat) (Lst) (Lst)) ((insort _qv_6 (cons _qv_7 _qv_8))=(cons (insort _qv_6 _qv_7) (insort _qv_6 _qv_8))))
+	(forall ((Nat) (Lst) (Lst)) ((cons _qv_9 (insort _qv_10 _qv_11))=(insort (cons _qv_9 _qv_10) (cons _qv_9 _qv_11))))
+
+Simplified goal: (forall ((Lst)) (sorted (sort x)))
+
+
+Base case:       (sorted (sort nil))
+{
+  proven trivially
+}
+Inductive step:  (sorted (sort (cons _t_12 _t_13)))
+{
+  proven trivially
+}
+
+Proved
+unsat

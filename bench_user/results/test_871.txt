@@ -1,0 +1,45 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+	(forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+	(forall ((Lst)) (0<=(len _qv_5)))
+
+Simplified goal: (forall ((Lst) (Lst)) ((rotate (len x) (append x y))=(append y x)))
+
+
+Base case:       ((rotate (len nil) (append nil _v_6))=(append _v_6 nil))
+{
+  {
+    ====================
+    | Assumptions [0]: ((len nil)=0)
+    | Assumptions [1]: (forall ((Lst)) ((append nil _qv_1)=_qv_1))
+    | Assumptions [2]: (forall (INT (Lst) (Lst)) ((append (cons _qv_2 _qv_3) _qv_4)=(cons _qv_2 (append _qv_3 _qv_4))))
+    | Assumptions [3]: (forall (INT (Lst)) ((len (cons _qv_5 _qv_6))=(1+(len _qv_6))))
+    | Assumptions [4]: (forall ((Lst)) ((len _qv_7)>=0))
+    | Assumptions [5]: (forall ((Lst)) ((rotate 0 _qv_8)=_qv_8))
+    | Assumptions [6]: (forall (INT) ((_qv_9>=0)->((rotate 1+_qv_9 nil)=nil)))
+    | Assumptions [7]: (forall (INT INT (Lst)) ((_qv_10>=0)->((rotate 1+_qv_10 (cons _qv_11 _qv_12))=(rotate _qv_10 (append _qv_12 (cons _qv_11 nil))))))
+    | Assumptions [8]: (forall ((Lst) INT (Lst)) ((append (append _qv_13 (cons _qv_14 nil)) _qv_15)=(append _qv_13 (cons _qv_14 _qv_15))))
+    | Assumptions [9]: (forall ((Lst) (Lst) INT) ((append (append _qv_16 _qv_17) (cons _qv_18 nil))=(append _qv_16 (append _qv_17 (cons _qv_18 nil)))))
+    ====================
+  }
+  rewritten [0]: ((rotate 0 (append nil _v_6))=(append _v_6 nil))
+  rewritten [1]: ((rotate 0 _v_6)=(append _v_6 nil))
+  rewritten [5]: (_v_6=(append _v_6 nil))
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Lst) (Lst)) ((append _qv_7 _qv_8)=(append _qv_8 _qv_7)))
+	(forall ((Lst) (Lst) (Lst)) ((append (append _qv_9 _qv_10) _qv_11)=(append _qv_9 (append _qv_10 _qv_11))))
+	(forall ((Lst)) (0<=(len _qv_12)))
+
+  proven by induction: (_v_6=(append _v_6 nil))
+  rewriting done
+  rewriting done
+}
+Inductive step:  ((rotate (len (cons _t_7 _t_8)) (append (cons _t_7 _t_8) _v_6))=(append _v_6 (cons _t_7 _t_8)))
+{
+  proven trivially
+}
+
+Proved
+unsat

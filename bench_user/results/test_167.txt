@@ -1,0 +1,93 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+	(forall ((Nat)) (0<=(nat-to-int _qv_1)))
+	(forall ((Lst)) ((lmap (lmap _qv_2))=_qv_2))
+	(forall ((Nat)) ((nat-to-int (succ _qv_3))=(nat-to-int _qv_3)))
+
+Simplified goal: (forall ((Nat) (Lst)) ((take n (lmap xs))=(lmap (take n xs))))
+
+
+Base case:       ((take zero (lmap _v_4))=(lmap (take zero _v_4)))
+{
+  proven trivially
+}
+Inductive step:  ((take (succ _t_5) (lmap _v_4))=(lmap (take (succ _t_5) _v_4)))
+{
+  {
+    ====================
+    | Assumptions [0]: ((nat-to-int zero)=0)
+    | Assumptions [1]: ((lmap nil)=nil)
+    | Assumptions [2]: (forall ((Nat)) ((nat-to-int _qv_1)>=0))
+    | Assumptions [3]: (forall ((Nat) (Nat)) (((nat-to-int _qv_2)=(nat-to-int _qv_3))->(_qv_2=_qv_3)))
+    | Assumptions [4]: (forall ((Nat)) ((nat-to-int (succ _qv_4))=(1+(nat-to-int _qv_4))))
+    | Assumptions [5]: (forall ((Nat)) ((take _qv_5 nil)=nil))
+    | Assumptions [6]: (forall ((Lst)) ((take zero _qv_6)=nil))
+    | Assumptions [7]: (forall ((Nat) (Nat) (Lst)) ((take (succ _qv_7) (cons _qv_8 _qv_9))=(cons _qv_8 (take _qv_7 _qv_9))))
+    | Assumptions [8]: (forall ((Nat) (Lst)) ((lmap (cons _qv_10 _qv_11))=(cons (f _qv_10) (lmap _qv_11))))
+    | Assumptions [9]: (forall ((Lst)) ((take _t_5 (lmap xs))=(lmap (take _t_5 xs))))
+    | Assumptions [10]: (forall ((Lst)) ((lmap (take _t_5 xs))=(take _t_5 (lmap xs))))
+    ====================
+  }
+
+Base case:       ((take _v_6 (lmap nil))=(lmap (take _v_6 nil)))
+{
+  proven trivially
+}
+Inductive step:  ((take _v_6 (lmap (cons _t_7 _t_8)))=(lmap (take _v_6 (cons _t_7 _t_8))))
+{
+  {
+    ====================
+    | Assumptions [0]: ((nat-to-int zero)=0)
+    | Assumptions [1]: ((lmap nil)=nil)
+    | Assumptions [2]: (forall ((Nat)) ((nat-to-int _qv_1)>=0))
+    | Assumptions [3]: (forall ((Nat) (Nat)) (((nat-to-int _qv_2)=(nat-to-int _qv_3))->(_qv_2=_qv_3)))
+    | Assumptions [4]: (forall ((Nat)) ((nat-to-int (succ _qv_4))=(1+(nat-to-int _qv_4))))
+    | Assumptions [5]: (forall ((Nat)) ((take _qv_5 nil)=nil))
+    | Assumptions [6]: (forall ((Lst)) ((take zero _qv_6)=nil))
+    | Assumptions [7]: (forall ((Nat) (Nat) (Lst)) ((take (succ _qv_7) (cons _qv_8 _qv_9))=(cons _qv_8 (take _qv_7 _qv_9))))
+    | Assumptions [8]: (forall ((Nat) (Lst)) ((lmap (cons _qv_10 _qv_11))=(cons (f _qv_10) (lmap _qv_11))))
+    | Assumptions [9]: (forall ((Lst)) ((take _t_5 (lmap xs))=(lmap (take _t_5 xs))))
+    | Assumptions [10]: (forall ((Lst)) ((lmap (take _t_5 xs))=(take _t_5 (lmap xs))))
+    | Assumptions [11]: (forall ((Nat)) ((take n (lmap _t_8))=(lmap (take n _t_8))))
+    | Assumptions [12]: (forall ((Nat)) ((lmap (take n _t_8))=(take n (lmap _t_8))))
+    ====================
+  }
+  rewritten [8]: ((take _v_6 (cons (f _t_7) (lmap _t_8)))=(lmap (take _v_6 (cons _t_7 _t_8))))
+CURRENT SUBGOAL ((take _v_6 (lmap (cons _t_7 _t_8)))=(lmap (take _v_6 (cons _t_7 _t_8))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_6 (lmap (cons _t_7 _t_8)))=(lmap (take _v_6 (cons _t_7 _t_8))))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_6 (lmap (cons _t_7 _t_8)))=(lmap (take _v_6 (cons _t_7 _t_8))))
+NOW TESTING (forall ((Lst)) ((lmap (lmap _qv_2))=_qv_2))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_6 (lmap (cons _t_7 _t_8)))=(lmap (take _v_6 (cons _t_7 _t_8))))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_3))=(nat-to-int _qv_3)))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((take _v_6 (lmap (cons _t_7 _t_8)))=(lmap (take _v_6 (cons _t_7 _t_8))))
+  rewritten [8]: ((take _v_6 (cons (f _t_7) (lmap _t_8)))=(lmap (take _v_6 (cons _t_7 _t_8))))
+CURRENT SUBGOAL ((take _v_6 (lmap (cons _t_7 _t_8)))=(lmap (take _v_6 (cons _t_7 _t_8))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_6 (lmap (cons _t_7 _t_8)))=(lmap (take _v_6 (cons _t_7 _t_8))))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_6 (lmap (cons _t_7 _t_8)))=(lmap (take _v_6 (cons _t_7 _t_8))))
+NOW TESTING (forall ((Lst)) ((lmap (lmap _qv_2))=_qv_2))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((take _v_6 (lmap (cons _t_7 _t_8)))=(lmap (take _v_6 (cons _t_7 _t_8))))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_3))=(nat-to-int _qv_3)))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((take _v_6 (lmap (cons _t_7 _t_8)))=(lmap (take _v_6 (cons _t_7 _t_8))))
+Unknown
+sat

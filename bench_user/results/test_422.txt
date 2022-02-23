@@ -1,0 +1,35 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat) (Nat)) ((plus _qv_0 _qv_1)=(plus _qv_1 _qv_0)))
+	(forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_2 _qv_3) _qv_4)=(plus _qv_2 (plus _qv_3 _qv_4))))
+	(forall ((Lst) (Lst)) ((append _qv_5 _qv_6)=(append _qv_6 _qv_5)))
+	(forall ((Lst) (Lst) (Lst)) ((append (append _qv_7 _qv_8) _qv_9)=(append _qv_7 (append _qv_8 _qv_9))))
+
+Simplified goal: (forall ((Nat) (Lst) (Lst)) ((plus (count n l) (count n m))=(count n (append l m))))
+
+
+Base case:       ((plus (count zero _v_10) (count zero _v_11))=(count zero (append _v_10 _v_11)))
+{
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat)) ((plus zero _qv_1)=_qv_1))
+    | Assumptions [1]: (forall ((Nat) (Nat)) ((plus (succ _qv_2) _qv_3)=(succ (plus _qv_2 _qv_3))))
+    | Assumptions [2]: (forall ((Lst)) ((append nil _qv_4)=_qv_4))
+    | Assumptions [3]: (forall ((Nat) (Lst) (Lst)) ((append (cons _qv_5 _qv_6) _qv_7)=(cons _qv_5 (append _qv_6 _qv_7))))
+    | Assumptions [4]: (forall ((Nat)) ((count _qv_8 nil)=zero))
+    | Assumptions [5]: (forall ((Nat) (Nat) (Lst)) ((count _qv_9 (cons _qv_10 _qv_11))=ite(_qv_9=_qv_10, (succ (count _qv_9 _qv_11)), (count _qv_9 _qv_11))))
+    ====================
+  }
+}
+
+Base case:       ((plus (count _v_12 nil) (count _v_12 _v_13))=(count _v_12 (append nil _v_13)))
+{
+  proven trivially
+}
+Inductive step:  ((plus (count _v_12 (cons _t_14 _t_15)) (count _v_12 _v_13))=(count _v_12 (append (cons _t_14 _t_15) _v_13)))
+{
+  proven trivially
+}
+
+Proved
+unsat

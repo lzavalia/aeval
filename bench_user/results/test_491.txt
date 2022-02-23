@@ -1,0 +1,602 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Lst) (Lst)) ((lst-subset _qv_0 _qv_1)=(lst-subset _qv_1 _qv_0)))
+	(forall ((Lst) (Lst)) ((lst-union _qv_2 _qv_3)=(lst-union _qv_3 _qv_2)))
+	(forall ((Lst) (Lst) (Lst)) ((lst-union (lst-union _qv_4 _qv_5) _qv_6)=(lst-union _qv_4 (lst-union _qv_5 _qv_6))))
+
+Simplified goal: (forall ((Lst) (Lst)) ((lst-subset x y)->((lst-subset (lst-union x y) y)&&(lst-subset y (lst-union x y)))))
+
+
+Base case:       ((lst-subset (lst-union nil _v_7) _v_7)&&(lst-subset _v_7 (lst-union nil _v_7)))
+{
+  {
+    ====================
+    | Assumptions [0]: (forall ((Nat) (Lst)) ((lst-mem _qv_1 _qv_2)=(mem _qv_1 _qv_2)))
+    | Assumptions [1]: (forall ((Nat) (Lst) (Lst)) ((lst-subset (cons _qv_4 _qv_5) _qv_6)=((lst-subset _qv_5 _qv_6)&&(lst-mem _qv_4 _qv_6))))
+    | Assumptions [2]: (forall ((Lst) (Lst)) ((lst-eq _qv_7 _qv_8)=((lst-subset _qv_7 _qv_8)&&(lst-subset _qv_8 _qv_7))))
+    | Assumptions [3]: (forall ((Lst)) ((lst-union nil _qv_9)=_qv_9))
+    | Assumptions [4]: (forall ((Nat) (Lst) (Lst)) ((lst-union (cons _qv_10 _qv_11) _qv_12)=ite((lst-mem _qv_10 _qv_12), (lst-union _qv_11 _qv_12), (cons _qv_10 (lst-union _qv_11 _qv_12)))))
+    | Assumptions [5]: (lst-subset nil _v_7)
+    | Assumptions [6]: (forall ((Lst)) (lst-subset nil _qv_3))
+    | Assumptions [7]: ((lst-eq nil _v_7)=((lst-subset nil _v_7)&&(lst-subset _v_7 nil)))
+    | Assumptions [8]: ((lst-eq nil _v_7)=(lst-subset _v_7 nil))
+    | Assumptions [9]: ((lst-subset _v_7 nil)=((lst-subset nil _v_7)&&(lst-subset _v_7 nil)))
+    ====================
+  }
+  proceed with (part 1/2): (lst-subset (lst-union nil _v_7) _v_7)
+  {
+    rewritten [3]: (lst-subset _v_7 _v_7)
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Lst) (Lst)) ((lst-subset _qv_8 _qv_9)=(lst-subset _qv_9 _qv_8)))
+	(forall ((Lst) (Lst)) ((lst-eq _qv_10 _qv_11)=(lst-eq _qv_11 _qv_10)))
+	(forall ((Lst) (Lst)) ((lst-union _qv_12 _qv_13)=(lst-union _qv_13 _qv_12)))
+	(forall ((Lst) (Lst) (Lst)) ((lst-union (lst-union _qv_14 _qv_15) _qv_16)=(lst-union _qv_14 (lst-union _qv_15 _qv_16))))
+	(forall ((Lst) (Lst) BOOL) ((lst-eq _qv_17 (lst-subset _qv_18 _qv_19))=(lst-subset (lst-eq _qv_17 _qv_18) (lst-eq _qv_17 _qv_19))))
+	(forall ((Lst) (Lst) BOOL) ((lst-subset _qv_20 (lst-eq _qv_21 _qv_22))=(lst-eq (lst-subset _qv_20 _qv_21) (lst-subset _qv_20 _qv_22))))
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Lst) (Lst)) ((lst-subset _qv_25 _qv_26)=(lst-subset _qv_26 _qv_25)))
+	(forall ((Lst) (Lst)) ((lst-union _qv_27 _qv_28)=(lst-union _qv_28 _qv_27)))
+	(forall ((Lst) (Lst) (Lst)) ((lst-union (lst-union _qv_29 _qv_30) _qv_31)=(lst-union _qv_29 (lst-union _qv_30 _qv_31))))
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst)) ((lst-subset _qv_8 _qv_9)=(lst-subset _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst)) ((lst-eq _qv_10 _qv_11)=(lst-eq _qv_11 _qv_10)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst)) ((lst-union _qv_12 _qv_13)=(lst-union _qv_13 _qv_12)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((lst-union (lst-union _qv_14 _qv_15) _qv_16)=(lst-union _qv_14 (lst-union _qv_15 _qv_16))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst) BOOL) ((lst-eq _qv_17 (lst-subset _qv_18 _qv_19))=(lst-subset (lst-eq _qv_17 _qv_18) (lst-eq _qv_17 _qv_19))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst) BOOL) ((lst-subset _qv_20 (lst-eq _qv_21 _qv_22))=(lst-eq (lst-subset _qv_20 _qv_21) (lst-subset _qv_20 _qv_22))))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Lst) (Lst)) ((lst-subset _qv_25 _qv_26)=(lst-subset _qv_26 _qv_25)))
+	(forall ((Lst) (Lst)) ((lst-union _qv_27 _qv_28)=(lst-union _qv_28 _qv_27)))
+	(forall ((Lst) (Lst) (Lst)) ((lst-union (lst-union _qv_29 _qv_30) _qv_31)=(lst-union _qv_29 (lst-union _qv_30 _qv_31))))
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst)) ((lst-subset _qv_8 _qv_9)=(lst-subset _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst)) ((lst-eq _qv_10 _qv_11)=(lst-eq _qv_11 _qv_10)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst)) ((lst-union _qv_12 _qv_13)=(lst-union _qv_13 _qv_12)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((lst-union (lst-union _qv_14 _qv_15) _qv_16)=(lst-union _qv_14 (lst-union _qv_15 _qv_16))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst) BOOL) ((lst-eq _qv_17 (lst-subset _qv_18 _qv_19))=(lst-subset (lst-eq _qv_17 _qv_18) (lst-eq _qv_17 _qv_19))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst) BOOL) ((lst-subset _qv_20 (lst-eq _qv_21 _qv_22))=(lst-eq (lst-subset _qv_20 _qv_21) (lst-subset _qv_20 _qv_22))))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Lst) (Lst)) ((lst-subset _qv_26 _qv_27)=(lst-subset _qv_27 _qv_26)))
+	(forall ((Lst) (Lst)) ((lst-union _qv_28 _qv_29)=(lst-union _qv_29 _qv_28)))
+	(forall ((Lst) (Lst) (Lst)) ((lst-union (lst-union _qv_30 _qv_31) _qv_32)=(lst-union _qv_30 (lst-union _qv_31 _qv_32))))
+
+CURRENT SUBGOAL (lst-subset (cons _t_23 _t_24) (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst)) ((lst-subset _qv_8 _qv_9)=(lst-subset _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-subset (cons _t_23 _t_24) (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst)) ((lst-eq _qv_10 _qv_11)=(lst-eq _qv_11 _qv_10)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-subset (cons _t_23 _t_24) (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst)) ((lst-union _qv_12 _qv_13)=(lst-union _qv_13 _qv_12)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-subset (cons _t_23 _t_24) (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((lst-union (lst-union _qv_14 _qv_15) _qv_16)=(lst-union _qv_14 (lst-union _qv_15 _qv_16))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-subset (cons _t_23 _t_24) (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst) BOOL) ((lst-eq _qv_17 (lst-subset _qv_18 _qv_19))=(lst-subset (lst-eq _qv_17 _qv_18) (lst-eq _qv_17 _qv_19))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-subset (cons _t_23 _t_24) (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst) BOOL) ((lst-subset _qv_20 (lst-eq _qv_21 _qv_22))=(lst-eq (lst-subset _qv_20 _qv_21) (lst-subset _qv_20 _qv_22))))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Lst) (Lst)) ((lst-subset _qv_26 _qv_27)=(lst-subset _qv_27 _qv_26)))
+	(forall ((Lst) (Lst)) ((lst-union _qv_28 _qv_29)=(lst-union _qv_29 _qv_28)))
+	(forall ((Lst) (Lst) (Lst)) ((lst-union (lst-union _qv_30 _qv_31) _qv_32)=(lst-union _qv_30 (lst-union _qv_31 _qv_32))))
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst)) ((lst-subset _qv_8 _qv_9)=(lst-subset _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst)) ((lst-eq _qv_10 _qv_11)=(lst-eq _qv_11 _qv_10)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst)) ((lst-union _qv_12 _qv_13)=(lst-union _qv_13 _qv_12)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((lst-union (lst-union _qv_14 _qv_15) _qv_16)=(lst-union _qv_14 (lst-union _qv_15 _qv_16))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst) BOOL) ((lst-eq _qv_17 (lst-subset _qv_18 _qv_19))=(lst-subset (lst-eq _qv_17 _qv_18) (lst-eq _qv_17 _qv_19))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst) BOOL) ((lst-subset _qv_20 (lst-eq _qv_21 _qv_22))=(lst-eq (lst-subset _qv_20 _qv_21) (lst-subset _qv_20 _qv_22))))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Lst) (Lst)) ((lst-subset _qv_26 _qv_27)=(lst-subset _qv_27 _qv_26)))
+	(forall ((Lst) (Lst)) ((lst-union _qv_28 _qv_29)=(lst-union _qv_29 _qv_28)))
+	(forall ((Lst) (Lst) (Lst)) ((lst-union (lst-union _qv_30 _qv_31) _qv_32)=(lst-union _qv_30 (lst-union _qv_31 _qv_32))))
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst)) ((lst-subset _qv_8 _qv_9)=(lst-subset _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst)) ((lst-eq _qv_10 _qv_11)=(lst-eq _qv_11 _qv_10)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst)) ((lst-union _qv_12 _qv_13)=(lst-union _qv_13 _qv_12)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((lst-union (lst-union _qv_14 _qv_15) _qv_16)=(lst-union _qv_14 (lst-union _qv_15 _qv_16))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst) BOOL) ((lst-eq _qv_17 (lst-subset _qv_18 _qv_19))=(lst-subset (lst-eq _qv_17 _qv_18) (lst-eq _qv_17 _qv_19))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst) BOOL) ((lst-subset _qv_20 (lst-eq _qv_21 _qv_22))=(lst-eq (lst-subset _qv_20 _qv_21) (lst-subset _qv_20 _qv_22))))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Lst) (Lst)) ((lst-subset _qv_27 _qv_28)=(lst-subset _qv_28 _qv_27)))
+	(forall ((Lst) (Lst)) ((lst-union _qv_29 _qv_30)=(lst-union _qv_30 _qv_29)))
+	(forall ((Lst) (Lst) (Lst)) ((lst-union (lst-union _qv_31 _qv_32) _qv_33)=(lst-union _qv_31 (lst-union _qv_32 _qv_33))))
+
+CURRENT SUBGOAL (lst-subset (cons _t_23 _t_24) (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst)) ((lst-subset _qv_8 _qv_9)=(lst-subset _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-subset (cons _t_23 _t_24) (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst)) ((lst-eq _qv_10 _qv_11)=(lst-eq _qv_11 _qv_10)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-subset (cons _t_23 _t_24) (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst)) ((lst-union _qv_12 _qv_13)=(lst-union _qv_13 _qv_12)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-subset (cons _t_23 _t_24) (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((lst-union (lst-union _qv_14 _qv_15) _qv_16)=(lst-union _qv_14 (lst-union _qv_15 _qv_16))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-subset (cons _t_23 _t_24) (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst) BOOL) ((lst-eq _qv_17 (lst-subset _qv_18 _qv_19))=(lst-subset (lst-eq _qv_17 _qv_18) (lst-eq _qv_17 _qv_19))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-subset (cons _t_23 _t_24) (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst) BOOL) ((lst-subset _qv_20 (lst-eq _qv_21 _qv_22))=(lst-eq (lst-subset _qv_20 _qv_21) (lst-subset _qv_20 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-subset (lst-union nil _v_7) _v_7)
+NOW TESTING (forall ((Lst) (Lst)) ((lst-subset _qv_0 _qv_1)=(lst-subset _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-subset (lst-union nil _v_7) _v_7)
+NOW TESTING (forall ((Lst) (Lst)) ((lst-union _qv_2 _qv_3)=(lst-union _qv_3 _qv_2)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-subset (lst-union nil _v_7) _v_7)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((lst-union (lst-union _qv_4 _qv_5) _qv_6)=(lst-union _qv_4 (lst-union _qv_5 _qv_6))))
+USE ASSUMPTION FAILED
+
+    backtrack to: (lst-subset (lst-union nil _v_7) _v_7)
+    rewritten [3]: (lst-subset _v_7 _v_7)
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Lst) (Lst)) ((lst-subset _qv_8 _qv_9)=(lst-subset _qv_9 _qv_8)))
+	(forall ((Lst) (Lst)) ((lst-eq _qv_10 _qv_11)=(lst-eq _qv_11 _qv_10)))
+	(forall ((Lst) (Lst)) ((lst-union _qv_12 _qv_13)=(lst-union _qv_13 _qv_12)))
+	(forall ((Lst) (Lst) (Lst)) ((lst-union (lst-union _qv_14 _qv_15) _qv_16)=(lst-union _qv_14 (lst-union _qv_15 _qv_16))))
+	(forall ((Lst) (Lst) BOOL) ((lst-eq _qv_17 (lst-subset _qv_18 _qv_19))=(lst-subset (lst-eq _qv_17 _qv_18) (lst-eq _qv_17 _qv_19))))
+	(forall ((Lst) (Lst) BOOL) ((lst-subset _qv_20 (lst-eq _qv_21 _qv_22))=(lst-eq (lst-subset _qv_20 _qv_21) (lst-subset _qv_20 _qv_22))))
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Lst) (Lst)) ((lst-subset _qv_25 _qv_26)=(lst-subset _qv_26 _qv_25)))
+	(forall ((Lst) (Lst)) ((lst-union _qv_27 _qv_28)=(lst-union _qv_28 _qv_27)))
+	(forall ((Lst) (Lst) (Lst)) ((lst-union (lst-union _qv_29 _qv_30) _qv_31)=(lst-union _qv_29 (lst-union _qv_30 _qv_31))))
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst)) ((lst-subset _qv_8 _qv_9)=(lst-subset _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst)) ((lst-eq _qv_10 _qv_11)=(lst-eq _qv_11 _qv_10)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst)) ((lst-union _qv_12 _qv_13)=(lst-union _qv_13 _qv_12)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((lst-union (lst-union _qv_14 _qv_15) _qv_16)=(lst-union _qv_14 (lst-union _qv_15 _qv_16))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst) BOOL) ((lst-eq _qv_17 (lst-subset _qv_18 _qv_19))=(lst-subset (lst-eq _qv_17 _qv_18) (lst-eq _qv_17 _qv_19))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst) BOOL) ((lst-subset _qv_20 (lst-eq _qv_21 _qv_22))=(lst-eq (lst-subset _qv_20 _qv_21) (lst-subset _qv_20 _qv_22))))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Lst) (Lst)) ((lst-subset _qv_25 _qv_26)=(lst-subset _qv_26 _qv_25)))
+	(forall ((Lst) (Lst)) ((lst-union _qv_27 _qv_28)=(lst-union _qv_28 _qv_27)))
+	(forall ((Lst) (Lst) (Lst)) ((lst-union (lst-union _qv_29 _qv_30) _qv_31)=(lst-union _qv_29 (lst-union _qv_30 _qv_31))))
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst)) ((lst-subset _qv_8 _qv_9)=(lst-subset _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst)) ((lst-eq _qv_10 _qv_11)=(lst-eq _qv_11 _qv_10)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst)) ((lst-union _qv_12 _qv_13)=(lst-union _qv_13 _qv_12)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((lst-union (lst-union _qv_14 _qv_15) _qv_16)=(lst-union _qv_14 (lst-union _qv_15 _qv_16))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst) BOOL) ((lst-eq _qv_17 (lst-subset _qv_18 _qv_19))=(lst-subset (lst-eq _qv_17 _qv_18) (lst-eq _qv_17 _qv_19))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst) BOOL) ((lst-subset _qv_20 (lst-eq _qv_21 _qv_22))=(lst-eq (lst-subset _qv_20 _qv_21) (lst-subset _qv_20 _qv_22))))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Lst) (Lst)) ((lst-subset _qv_26 _qv_27)=(lst-subset _qv_27 _qv_26)))
+	(forall ((Lst) (Lst)) ((lst-union _qv_28 _qv_29)=(lst-union _qv_29 _qv_28)))
+	(forall ((Lst) (Lst) (Lst)) ((lst-union (lst-union _qv_30 _qv_31) _qv_32)=(lst-union _qv_30 (lst-union _qv_31 _qv_32))))
+
+CURRENT SUBGOAL (lst-subset (cons _t_23 _t_24) (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst)) ((lst-subset _qv_8 _qv_9)=(lst-subset _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-subset (cons _t_23 _t_24) (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst)) ((lst-eq _qv_10 _qv_11)=(lst-eq _qv_11 _qv_10)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-subset (cons _t_23 _t_24) (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst)) ((lst-union _qv_12 _qv_13)=(lst-union _qv_13 _qv_12)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-subset (cons _t_23 _t_24) (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((lst-union (lst-union _qv_14 _qv_15) _qv_16)=(lst-union _qv_14 (lst-union _qv_15 _qv_16))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-subset (cons _t_23 _t_24) (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst) BOOL) ((lst-eq _qv_17 (lst-subset _qv_18 _qv_19))=(lst-subset (lst-eq _qv_17 _qv_18) (lst-eq _qv_17 _qv_19))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-subset (cons _t_23 _t_24) (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst) BOOL) ((lst-subset _qv_20 (lst-eq _qv_21 _qv_22))=(lst-eq (lst-subset _qv_20 _qv_21) (lst-subset _qv_20 _qv_22))))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Lst) (Lst)) ((lst-subset _qv_26 _qv_27)=(lst-subset _qv_27 _qv_26)))
+	(forall ((Lst) (Lst)) ((lst-union _qv_28 _qv_29)=(lst-union _qv_29 _qv_28)))
+	(forall ((Lst) (Lst) (Lst)) ((lst-union (lst-union _qv_30 _qv_31) _qv_32)=(lst-union _qv_30 (lst-union _qv_31 _qv_32))))
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst)) ((lst-subset _qv_8 _qv_9)=(lst-subset _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst)) ((lst-eq _qv_10 _qv_11)=(lst-eq _qv_11 _qv_10)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst)) ((lst-union _qv_12 _qv_13)=(lst-union _qv_13 _qv_12)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((lst-union (lst-union _qv_14 _qv_15) _qv_16)=(lst-union _qv_14 (lst-union _qv_15 _qv_16))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst) BOOL) ((lst-eq _qv_17 (lst-subset _qv_18 _qv_19))=(lst-subset (lst-eq _qv_17 _qv_18) (lst-eq _qv_17 _qv_19))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst) BOOL) ((lst-subset _qv_20 (lst-eq _qv_21 _qv_22))=(lst-eq (lst-subset _qv_20 _qv_21) (lst-subset _qv_20 _qv_22))))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Lst) (Lst)) ((lst-subset _qv_26 _qv_27)=(lst-subset _qv_27 _qv_26)))
+	(forall ((Lst) (Lst)) ((lst-union _qv_28 _qv_29)=(lst-union _qv_29 _qv_28)))
+	(forall ((Lst) (Lst) (Lst)) ((lst-union (lst-union _qv_30 _qv_31) _qv_32)=(lst-union _qv_30 (lst-union _qv_31 _qv_32))))
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst)) ((lst-subset _qv_8 _qv_9)=(lst-subset _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst)) ((lst-eq _qv_10 _qv_11)=(lst-eq _qv_11 _qv_10)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst)) ((lst-union _qv_12 _qv_13)=(lst-union _qv_13 _qv_12)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((lst-union (lst-union _qv_14 _qv_15) _qv_16)=(lst-union _qv_14 (lst-union _qv_15 _qv_16))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst) BOOL) ((lst-eq _qv_17 (lst-subset _qv_18 _qv_19))=(lst-subset (lst-eq _qv_17 _qv_18) (lst-eq _qv_17 _qv_19))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst) BOOL) ((lst-subset _qv_20 (lst-eq _qv_21 _qv_22))=(lst-eq (lst-subset _qv_20 _qv_21) (lst-subset _qv_20 _qv_22))))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Lst) (Lst)) ((lst-subset _qv_27 _qv_28)=(lst-subset _qv_28 _qv_27)))
+	(forall ((Lst) (Lst)) ((lst-union _qv_29 _qv_30)=(lst-union _qv_30 _qv_29)))
+	(forall ((Lst) (Lst) (Lst)) ((lst-union (lst-union _qv_31 _qv_32) _qv_33)=(lst-union _qv_31 (lst-union _qv_32 _qv_33))))
+
+CURRENT SUBGOAL (lst-subset (cons _t_23 _t_24) (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst)) ((lst-subset _qv_8 _qv_9)=(lst-subset _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-subset (cons _t_23 _t_24) (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst)) ((lst-eq _qv_10 _qv_11)=(lst-eq _qv_11 _qv_10)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-subset (cons _t_23 _t_24) (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst)) ((lst-union _qv_12 _qv_13)=(lst-union _qv_13 _qv_12)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-subset (cons _t_23 _t_24) (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((lst-union (lst-union _qv_14 _qv_15) _qv_16)=(lst-union _qv_14 (lst-union _qv_15 _qv_16))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-subset (cons _t_23 _t_24) (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst) BOOL) ((lst-eq _qv_17 (lst-subset _qv_18 _qv_19))=(lst-subset (lst-eq _qv_17 _qv_18) (lst-eq _qv_17 _qv_19))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-subset (cons _t_23 _t_24) (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst) BOOL) ((lst-subset _qv_20 (lst-eq _qv_21 _qv_22))=(lst-eq (lst-subset _qv_20 _qv_21) (lst-subset _qv_20 _qv_22))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-subset (lst-union nil _v_7) _v_7)
+NOW TESTING (forall ((Lst) (Lst)) ((lst-subset _qv_0 _qv_1)=(lst-subset _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-subset (lst-union nil _v_7) _v_7)
+NOW TESTING (forall ((Lst) (Lst)) ((lst-union _qv_2 _qv_3)=(lst-union _qv_3 _qv_2)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-subset (lst-union nil _v_7) _v_7)
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((lst-union (lst-union _qv_4 _qv_5) _qv_6)=(lst-union _qv_4 (lst-union _qv_5 _qv_6))))
+USE ASSUMPTION FAILED
+
+    backtrack to: (lst-subset (lst-union nil _v_7) _v_7)
+  }
+  proceed with (part 2/2): (lst-subset _v_7 (lst-union nil _v_7))
+  {
+    rewritten [3]: (lst-subset _v_7 _v_7)
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Lst) (Lst)) ((lst-subset _qv_8 _qv_9)=(lst-subset _qv_9 _qv_8)))
+	(forall ((Lst) (Lst)) ((lst-eq _qv_10 _qv_11)=(lst-eq _qv_11 _qv_10)))
+	(forall ((Lst) (Lst)) ((lst-union _qv_12 _qv_13)=(lst-union _qv_13 _qv_12)))
+	(forall ((Lst) (Lst) (Lst)) ((lst-union (lst-union _qv_14 _qv_15) _qv_16)=(lst-union _qv_14 (lst-union _qv_15 _qv_16))))
+	(forall ((Lst) (Lst) BOOL) ((lst-eq _qv_17 (lst-subset _qv_18 _qv_19))=(lst-subset (lst-eq _qv_17 _qv_18) (lst-eq _qv_17 _qv_19))))
+	(forall ((Lst) (Lst) BOOL) ((lst-subset _qv_20 (lst-eq _qv_21 _qv_22))=(lst-eq (lst-subset _qv_20 _qv_21) (lst-subset _qv_20 _qv_22))))
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Lst) (Lst)) ((lst-subset _qv_25 _qv_26)=(lst-subset _qv_26 _qv_25)))
+	(forall ((Lst) (Lst)) ((lst-union _qv_27 _qv_28)=(lst-union _qv_28 _qv_27)))
+	(forall ((Lst) (Lst) (Lst)) ((lst-union (lst-union _qv_29 _qv_30) _qv_31)=(lst-union _qv_29 (lst-union _qv_30 _qv_31))))
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst)) ((lst-subset _qv_8 _qv_9)=(lst-subset _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst)) ((lst-eq _qv_10 _qv_11)=(lst-eq _qv_11 _qv_10)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst)) ((lst-union _qv_12 _qv_13)=(lst-union _qv_13 _qv_12)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((lst-union (lst-union _qv_14 _qv_15) _qv_16)=(lst-union _qv_14 (lst-union _qv_15 _qv_16))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst) BOOL) ((lst-eq _qv_17 (lst-subset _qv_18 _qv_19))=(lst-subset (lst-eq _qv_17 _qv_18) (lst-eq _qv_17 _qv_19))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst) BOOL) ((lst-subset _qv_20 (lst-eq _qv_21 _qv_22))=(lst-eq (lst-subset _qv_20 _qv_21) (lst-subset _qv_20 _qv_22))))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Lst) (Lst)) ((lst-subset _qv_25 _qv_26)=(lst-subset _qv_26 _qv_25)))
+	(forall ((Lst) (Lst)) ((lst-union _qv_27 _qv_28)=(lst-union _qv_28 _qv_27)))
+	(forall ((Lst) (Lst) (Lst)) ((lst-union (lst-union _qv_29 _qv_30) _qv_31)=(lst-union _qv_29 (lst-union _qv_30 _qv_31))))
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst)) ((lst-subset _qv_8 _qv_9)=(lst-subset _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst)) ((lst-eq _qv_10 _qv_11)=(lst-eq _qv_11 _qv_10)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst)) ((lst-union _qv_12 _qv_13)=(lst-union _qv_13 _qv_12)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((lst-union (lst-union _qv_14 _qv_15) _qv_16)=(lst-union _qv_14 (lst-union _qv_15 _qv_16))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst) BOOL) ((lst-eq _qv_17 (lst-subset _qv_18 _qv_19))=(lst-subset (lst-eq _qv_17 _qv_18) (lst-eq _qv_17 _qv_19))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst) BOOL) ((lst-subset _qv_20 (lst-eq _qv_21 _qv_22))=(lst-eq (lst-subset _qv_20 _qv_21) (lst-subset _qv_20 _qv_22))))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Lst) (Lst)) ((lst-subset _qv_26 _qv_27)=(lst-subset _qv_27 _qv_26)))
+	(forall ((Lst) (Lst)) ((lst-union _qv_28 _qv_29)=(lst-union _qv_29 _qv_28)))
+	(forall ((Lst) (Lst) (Lst)) ((lst-union (lst-union _qv_30 _qv_31) _qv_32)=(lst-union _qv_30 (lst-union _qv_31 _qv_32))))
+
+CURRENT SUBGOAL (lst-subset (cons _t_23 _t_24) (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst)) ((lst-subset _qv_8 _qv_9)=(lst-subset _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-subset (cons _t_23 _t_24) (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst)) ((lst-eq _qv_10 _qv_11)=(lst-eq _qv_11 _qv_10)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-subset (cons _t_23 _t_24) (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst)) ((lst-union _qv_12 _qv_13)=(lst-union _qv_13 _qv_12)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-subset (cons _t_23 _t_24) (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((lst-union (lst-union _qv_14 _qv_15) _qv_16)=(lst-union _qv_14 (lst-union _qv_15 _qv_16))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-subset (cons _t_23 _t_24) (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst) BOOL) ((lst-eq _qv_17 (lst-subset _qv_18 _qv_19))=(lst-subset (lst-eq _qv_17 _qv_18) (lst-eq _qv_17 _qv_19))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-subset (cons _t_23 _t_24) (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst) BOOL) ((lst-subset _qv_20 (lst-eq _qv_21 _qv_22))=(lst-eq (lst-subset _qv_20 _qv_21) (lst-subset _qv_20 _qv_22))))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Lst) (Lst)) ((lst-subset _qv_26 _qv_27)=(lst-subset _qv_27 _qv_26)))
+	(forall ((Lst) (Lst)) ((lst-union _qv_28 _qv_29)=(lst-union _qv_29 _qv_28)))
+	(forall ((Lst) (Lst) (Lst)) ((lst-union (lst-union _qv_30 _qv_31) _qv_32)=(lst-union _qv_30 (lst-union _qv_31 _qv_32))))
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst)) ((lst-subset _qv_8 _qv_9)=(lst-subset _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst)) ((lst-eq _qv_10 _qv_11)=(lst-eq _qv_11 _qv_10)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst)) ((lst-union _qv_12 _qv_13)=(lst-union _qv_13 _qv_12)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((lst-union (lst-union _qv_14 _qv_15) _qv_16)=(lst-union _qv_14 (lst-union _qv_15 _qv_16))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst) BOOL) ((lst-eq _qv_17 (lst-subset _qv_18 _qv_19))=(lst-subset (lst-eq _qv_17 _qv_18) (lst-eq _qv_17 _qv_19))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst) BOOL) ((lst-subset _qv_20 (lst-eq _qv_21 _qv_22))=(lst-eq (lst-subset _qv_20 _qv_21) (lst-subset _qv_20 _qv_22))))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Lst) (Lst)) ((lst-subset _qv_26 _qv_27)=(lst-subset _qv_27 _qv_26)))
+	(forall ((Lst) (Lst)) ((lst-union _qv_28 _qv_29)=(lst-union _qv_29 _qv_28)))
+	(forall ((Lst) (Lst) (Lst)) ((lst-union (lst-union _qv_30 _qv_31) _qv_32)=(lst-union _qv_30 (lst-union _qv_31 _qv_32))))
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst)) ((lst-subset _qv_8 _qv_9)=(lst-subset _qv_9 _qv_8)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst)) ((lst-eq _qv_10 _qv_11)=(lst-eq _qv_11 _qv_10)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst)) ((lst-union _qv_12 _qv_13)=(lst-union _qv_13 _qv_12)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((lst-union (lst-union _qv_14 _qv_15) _qv_16)=(lst-union _qv_14 (lst-union _qv_15 _qv_16))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst) BOOL) ((lst-eq _qv_17 (lst-subset _qv_18 _qv_19))=(lst-subset (lst-eq _qv_17 _qv_18) (lst-eq _qv_17 _qv_19))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (lst-mem _t_23 (cons _t_23 _t_24))
+NOW TESTING (forall ((Lst) (Lst) BOOL) ((lst-subset _qv_20 (lst-eq _qv_21 _qv_22))=(lst-eq (lst-subset _qv_20 _qv_21) (lst-subset _qv_20 _qv_22))))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Lst) (Lst)) ((lst-subset _qv_27 _qv_28)=(lst-subset _qv_28 _qv_27)))
+	(forall ((Lst) (Lst)) ((lst-union _qv_29 _qv_30)=(lst-union _qv_30 _qv_29)))
+	(forall ((Lst) (Lst) (Lst)) ((lst-union (lst-union _qv_31 _qv_32) _qv_33)=(lst-union _qv_31 (lst-union _qv_32 _qv_33))))
+

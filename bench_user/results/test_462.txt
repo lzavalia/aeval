@@ -1,0 +1,17 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+
+Simplified goal: (forall ((Nat) (Nat) (Lst)) ((drop (succ n) (cons x xs))=(drop n xs)))
+
+
+Base case:       ((drop (succ zero) (cons _v_0 _v_1))=(drop zero _v_1))
+{
+  proven trivially
+}
+Inductive step:  ((drop (succ (succ _t_2)) (cons _v_0 _v_1))=(drop (succ _t_2) _v_1))
+{
+  proven trivially
+}
+
+Proved
+unsat

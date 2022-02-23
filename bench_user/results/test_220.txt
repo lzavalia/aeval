@@ -1,0 +1,76 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+	(forall ((Nat)) (0<=(nat-to-int _qv_1)))
+	(forall ((Nat)) ((nat-to-int (succ _qv_2))=(nat-to-int _qv_2)))
+
+Simplified goal: (forall ((Nat) (Nat) (Lst)) ((drop x (drop y z))=(drop y (drop x z))))
+
+
+Base case:       ((drop zero (drop _v_3 _v_4))=(drop _v_3 (drop zero _v_4)))
+{
+  proven trivially
+}
+Inductive step:  ((drop (succ _t_5) (drop _v_3 _v_4))=(drop _v_3 (drop (succ _t_5) _v_4)))
+{
+  {
+    ====================
+    | Assumptions [0]: ((nat-to-int zero)=0)
+    | Assumptions [1]: (forall ((Nat)) ((nat-to-int _qv_1)>=0))
+    | Assumptions [2]: (forall ((Nat) (Nat)) (((nat-to-int _qv_2)=(nat-to-int _qv_3))->(_qv_2=_qv_3)))
+    | Assumptions [3]: (forall ((Nat)) ((nat-to-int (succ _qv_4))=(1+(nat-to-int _qv_4))))
+    | Assumptions [4]: (forall ((Nat)) ((drop _qv_5 nil)=nil))
+    | Assumptions [5]: (forall ((Lst)) ((drop zero _qv_6)=_qv_6))
+    | Assumptions [6]: (forall ((Nat) (Nat) (Lst)) ((drop (succ _qv_7) (cons _qv_8 _qv_9))=(drop _qv_7 _qv_9)))
+    | Assumptions [7]: (forall ((Nat) (Lst)) ((drop _t_5 (drop y z))=(drop y (drop _t_5 z))))
+    | Assumptions [8]: (forall ((Nat) (Lst)) ((drop y (drop _t_5 z))=(drop _t_5 (drop y z))))
+    ====================
+  }
+
+Base case:       ((drop _v_6 (drop zero _v_7))=(drop zero (drop _v_6 _v_7)))
+{
+  proven trivially
+}
+Inductive step:  ((drop _v_6 (drop (succ _t_8) _v_7))=(drop (succ _t_8) (drop _v_6 _v_7)))
+{
+  {
+    ====================
+    | Assumptions [0]: ((nat-to-int zero)=0)
+    | Assumptions [1]: (forall ((Nat)) ((nat-to-int _qv_1)>=0))
+    | Assumptions [2]: (forall ((Nat) (Nat)) (((nat-to-int _qv_2)=(nat-to-int _qv_3))->(_qv_2=_qv_3)))
+    | Assumptions [3]: (forall ((Nat)) ((nat-to-int (succ _qv_4))=(1+(nat-to-int _qv_4))))
+    | Assumptions [4]: (forall ((Nat)) ((drop _qv_5 nil)=nil))
+    | Assumptions [5]: (forall ((Lst)) ((drop zero _qv_6)=_qv_6))
+    | Assumptions [6]: (forall ((Nat) (Nat) (Lst)) ((drop (succ _qv_7) (cons _qv_8 _qv_9))=(drop _qv_7 _qv_9)))
+    | Assumptions [7]: (forall ((Nat) (Lst)) ((drop _t_5 (drop y z))=(drop y (drop _t_5 z))))
+    | Assumptions [8]: (forall ((Nat) (Lst)) ((drop y (drop _t_5 z))=(drop _t_5 (drop y z))))
+    | Assumptions [9]: (forall ((Nat) (Lst)) ((drop x (drop _t_8 z))=(drop _t_8 (drop x z))))
+    | Assumptions [10]: (forall ((Nat) (Lst)) ((drop _t_8 (drop x z))=(drop x (drop _t_8 z))))
+    ====================
+  }
+
+Base case:       ((drop _v_9 (drop _v_10 nil))=(drop _v_10 (drop _v_9 nil)))
+{
+  proven trivially
+}
+Inductive step:  ((drop _v_9 (drop _v_10 (cons _t_11 _t_12)))=(drop _v_10 (drop _v_9 (cons _t_11 _t_12))))
+{
+  {
+    ====================
+    | Assumptions [0]: ((nat-to-int zero)=0)
+    | Assumptions [1]: (forall ((Nat)) ((nat-to-int _qv_1)>=0))
+    | Assumptions [2]: (forall ((Nat) (Nat)) (((nat-to-int _qv_2)=(nat-to-int _qv_3))->(_qv_2=_qv_3)))
+    | Assumptions [3]: (forall ((Nat)) ((nat-to-int (succ _qv_4))=(1+(nat-to-int _qv_4))))
+    | Assumptions [4]: (forall ((Nat)) ((drop _qv_5 nil)=nil))
+    | Assumptions [5]: (forall ((Lst)) ((drop zero _qv_6)=_qv_6))
+    | Assumptions [6]: (forall ((Nat) (Nat) (Lst)) ((drop (succ _qv_7) (cons _qv_8 _qv_9))=(drop _qv_7 _qv_9)))
+    | Assumptions [7]: (forall ((Nat) (Lst)) ((drop _t_5 (drop y z))=(drop y (drop _t_5 z))))
+    | Assumptions [8]: (forall ((Nat) (Lst)) ((drop y (drop _t_5 z))=(drop _t_5 (drop y z))))
+    | Assumptions [9]: (forall ((Nat) (Lst)) ((drop x (drop _t_8 z))=(drop _t_8 (drop x z))))
+    | Assumptions [10]: (forall ((Nat) (Lst)) ((drop _t_8 (drop x z))=(drop x (drop _t_8 z))))
+    | Assumptions [11]: (forall ((Nat) (Nat)) ((drop x (drop y _t_12))=(drop y (drop x _t_12))))
+    | Assumptions [12]: (forall ((Nat) (Nat)) ((drop y (drop x _t_12))=(drop x (drop y _t_12))))
+    ====================
+  }
+Unknown
+sat

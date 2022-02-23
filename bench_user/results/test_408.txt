@@ -1,0 +1,1182 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+	(forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+	(forall ((Lst)) ((rev (rev _qv_5))=_qv_5))
+	(forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_6) (rev _qv_7))))
+	(forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_7) (rev _qv_6))))
+
+Simplified goal: (forall ((Nat) (Lst)) ((count n l)=(count n (rev l))))
+
+
+Base case:       ((count zero _v_8)=(count zero (rev _v_8)))
+{
+  {
+    ====================
+    | Assumptions [0]: ((rev nil)=nil)
+    | Assumptions [1]: (forall ((Lst)) ((append nil _qv_1)=_qv_1))
+    | Assumptions [2]: (forall ((Nat) (Lst) (Lst)) ((append (cons _qv_2 _qv_3) _qv_4)=(cons _qv_2 (append _qv_3 _qv_4))))
+    | Assumptions [3]: (forall ((Nat)) ((count _qv_5 nil)=zero))
+    | Assumptions [4]: (forall ((Nat) (Nat) (Lst)) ((count _qv_6 (cons _qv_7 _qv_8))=ite(_qv_6=_qv_7, (succ (count _qv_6 _qv_8)), (count _qv_6 _qv_8))))
+    | Assumptions [5]: (forall ((Nat) (Lst)) ((rev (cons _qv_9 _qv_10))=(append (rev _qv_10) (cons _qv_9 nil))))
+    ====================
+  }
+}
+
+Base case:       ((count _v_9 nil)=(count _v_9 (rev nil)))
+{
+  proven trivially
+}
+Inductive step:  ((count _v_9 (cons _t_10 _t_11))=(count _v_9 (rev (cons _t_10 _t_11))))
+{
+  {
+    ====================
+    | Assumptions [0]: ((rev nil)=nil)
+    | Assumptions [1]: (forall ((Lst)) ((append nil _qv_1)=_qv_1))
+    | Assumptions [2]: (forall ((Nat) (Lst) (Lst)) ((append (cons _qv_2 _qv_3) _qv_4)=(cons _qv_2 (append _qv_3 _qv_4))))
+    | Assumptions [3]: (forall ((Nat)) ((count _qv_5 nil)=zero))
+    | Assumptions [4]: (forall ((Nat) (Nat) (Lst)) ((count _qv_6 (cons _qv_7 _qv_8))=ite(_qv_6=_qv_7, (succ (count _qv_6 _qv_8)), (count _qv_6 _qv_8))))
+    | Assumptions [5]: (forall ((Nat) (Lst)) ((rev (cons _qv_9 _qv_10))=(append (rev _qv_10) (cons _qv_9 nil))))
+    | Assumptions [6]: (forall ((Nat)) ((count n _t_11)=(count n (rev _t_11))))
+    | Assumptions [7]: (forall ((Nat)) ((count n (rev _t_11))=(count n _t_11)))
+    ====================
+  }
+  rewritten [4]: (ite(_v_9=_t_10, (succ (count _v_9 _t_11)), (count _v_9 _t_11))=(count _v_9 (rev (cons _t_10 _t_11))))
+  proceed with (part 1/2): ((_v_9=_t_10)->((succ (count _v_9 _t_11))=(count _v_9 (rev (cons _t_10 _t_11)))))
+  {
+    {
+      ====================
+      | Assumptions [0]: ((rev nil)=nil)
+      | Assumptions [1]: (forall ((Lst)) ((append nil _qv_1)=_qv_1))
+      | Assumptions [2]: (forall ((Nat) (Lst) (Lst)) ((append (cons _qv_2 _qv_3) _qv_4)=(cons _qv_2 (append _qv_3 _qv_4))))
+      | Assumptions [3]: (forall ((Nat)) ((count _qv_5 nil)=zero))
+      | Assumptions [4]: (forall ((Nat) (Nat) (Lst)) ((count _qv_6 (cons _qv_7 _qv_8))=ite(_qv_6=_qv_7, (succ (count _qv_6 _qv_8)), (count _qv_6 _qv_8))))
+      | Assumptions [5]: (forall ((Nat) (Lst)) ((rev (cons _qv_9 _qv_10))=(append (rev _qv_10) (cons _qv_9 nil))))
+      | Assumptions [6]: (forall ((Nat)) ((count n _t_11)=(count n (rev _t_11))))
+      | Assumptions [7]: (forall ((Nat)) ((count n (rev _t_11))=(count n _t_11)))
+      ====================
+    }
+    current subgoal: ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+    rewritten [5]: ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+    rewritten [6]: ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_5))=_qv_5))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_6) (rev _qv_7))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_7) (rev _qv_6))))
+USE ASSUMPTION FAILED
+
+    backtrack to: ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+    rewritten [6]: ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_5))=_qv_5))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_6) (rev _qv_7))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_7) (rev _qv_6))))
+USE ASSUMPTION FAILED
+
+    backtrack to: ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_5))=_qv_5))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_6) (rev _qv_7))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_7) (rev _qv_6))))
+USE ASSUMPTION FAILED
+
+    backtrack to: ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+    rewritten [6]: ((succ (count _t_10 (rev _t_11)))=(count _t_10 (rev (cons _t_10 _t_11))))
+    rewritten [5]: ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+    rewritten [7]: ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_5))=_qv_5))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_6) (rev _qv_7))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_7) (rev _qv_6))))
+USE ASSUMPTION FAILED
+
+    backtrack to: ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+    rewritten [7]: ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_5))=_qv_5))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_6) (rev _qv_7))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_7) (rev _qv_6))))
+USE ASSUMPTION FAILED
+
+    backtrack to: ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_5))=_qv_5))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_6) (rev _qv_7))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_7) (rev _qv_6))))
+USE ASSUMPTION FAILED
+
+    backtrack to: ((succ (count _t_10 (rev _t_11)))=(count _t_10 (rev (cons _t_10 _t_11))))
+    rewritten [7]: ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+    rewritten [5]: ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+    rewritten [6]: ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_5))=_qv_5))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_6) (rev _qv_7))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_7) (rev _qv_6))))
+USE ASSUMPTION FAILED
+
+    backtrack to: ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+    rewritten [6]: ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_5))=_qv_5))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_6) (rev _qv_7))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_7) (rev _qv_6))))
+USE ASSUMPTION FAILED
+
+    backtrack to: ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_5))=_qv_5))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_6) (rev _qv_7))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_7) (rev _qv_6))))
+USE ASSUMPTION FAILED
+
+    backtrack to: ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+    rewritten [5]: ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+    rewritten [6]: ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_5))=_qv_5))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_6) (rev _qv_7))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_7) (rev _qv_6))))
+USE ASSUMPTION FAILED
+
+    backtrack to: ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+    rewritten [6]: ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_5))=_qv_5))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_6) (rev _qv_7))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_7) (rev _qv_6))))
+USE ASSUMPTION FAILED
+
+    backtrack to: ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_5))=_qv_5))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_6) (rev _qv_7))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_7) (rev _qv_6))))
+USE ASSUMPTION FAILED
+
+    backtrack to: ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_5))=_qv_5))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_6) (rev _qv_7))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_7) (rev _qv_6))))
+USE ASSUMPTION FAILED
+
+    backtrack to: ((succ (count _t_10 (rev _t_11)))=(count _t_10 (rev (cons _t_10 _t_11))))
+    rewritten [5]: ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+    rewritten [7]: ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_5))=_qv_5))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_6) (rev _qv_7))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_7) (rev _qv_6))))
+USE ASSUMPTION FAILED
+
+    backtrack to: ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+    rewritten [7]: ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_5))=_qv_5))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_6) (rev _qv_7))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_7) (rev _qv_6))))
+USE ASSUMPTION FAILED
+
+    backtrack to: ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_5))=_qv_5))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_6) (rev _qv_7))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_7) (rev _qv_6))))
+USE ASSUMPTION FAILED
+
+    backtrack to: ((succ (count _t_10 (rev _t_11)))=(count _t_10 (rev (cons _t_10 _t_11))))
+    rewritten [7]: ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+    rewritten [5]: ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+    rewritten [6]: ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_5))=_qv_5))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_6) (rev _qv_7))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_7) (rev _qv_6))))
+USE ASSUMPTION FAILED
+
+    backtrack to: ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+    rewritten [6]: ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_5))=_qv_5))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_6) (rev _qv_7))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_7) (rev _qv_6))))
+USE ASSUMPTION FAILED
+
+    backtrack to: ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_5))=_qv_5))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_6) (rev _qv_7))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_7) (rev _qv_6))))
+USE ASSUMPTION FAILED
+
+    backtrack to: ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+    rewritten [5]: ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+    rewritten [6]: ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_5))=_qv_5))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_6) (rev _qv_7))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_7) (rev _qv_6))))
+USE ASSUMPTION FAILED
+
+    backtrack to: ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+    rewritten [6]: ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_5))=_qv_5))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_6) (rev _qv_7))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_7) (rev _qv_6))))
+USE ASSUMPTION FAILED
+
+    backtrack to: ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_5))=_qv_5))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_6) (rev _qv_7))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_7) (rev _qv_6))))
+USE ASSUMPTION FAILED
+
+    backtrack to: ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_5))=_qv_5))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_6) (rev _qv_7))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_7) (rev _qv_6))))
+USE ASSUMPTION FAILED
+
+    backtrack to: ((succ (count _t_10 (rev _t_11)))=(count _t_10 (rev (cons _t_10 _t_11))))
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_5))=_qv_5))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_6) (rev _qv_7))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_7) (rev _qv_6))))
+USE ASSUMPTION FAILED
+
+    backtrack to: ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+    rewritten [5]: ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+    rewritten [6]: ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_5))=_qv_5))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_6) (rev _qv_7))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_7) (rev _qv_6))))
+USE ASSUMPTION FAILED
+
+    backtrack to: ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+    rewritten [6]: ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_5))=_qv_5))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_6) (rev _qv_7))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_7) (rev _qv_6))))
+USE ASSUMPTION FAILED
+
+    backtrack to: ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_5))=_qv_5))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_6) (rev _qv_7))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_7) (rev _qv_6))))
+USE ASSUMPTION FAILED
+
+    backtrack to: ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+    rewritten [6]: ((succ (count _t_10 (rev _t_11)))=(count _t_10 (rev (cons _t_10 _t_11))))
+    rewritten [5]: ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+    rewritten [7]: ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_5))=_qv_5))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_6) (rev _qv_7))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_7) (rev _qv_6))))
+USE ASSUMPTION FAILED
+
+    backtrack to: ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+    rewritten [7]: ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_5))=_qv_5))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_6) (rev _qv_7))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_7) (rev _qv_6))))
+USE ASSUMPTION FAILED
+
+    backtrack to: ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_5))=_qv_5))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_6) (rev _qv_7))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_7) (rev _qv_6))))
+USE ASSUMPTION FAILED
+
+    backtrack to: ((succ (count _t_10 (rev _t_11)))=(count _t_10 (rev (cons _t_10 _t_11))))
+    rewritten [7]: ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+    rewritten [5]: ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+    rewritten [6]: ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_5))=_qv_5))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_6) (rev _qv_7))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_7) (rev _qv_6))))
+USE ASSUMPTION FAILED
+
+    backtrack to: ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+    rewritten [6]: ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_5))=_qv_5))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_6) (rev _qv_7))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_7) (rev _qv_6))))
+USE ASSUMPTION FAILED
+
+    backtrack to: ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_5))=_qv_5))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_6) (rev _qv_7))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_7) (rev _qv_6))))
+USE ASSUMPTION FAILED
+
+    backtrack to: ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+    rewritten [5]: ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+    rewritten [6]: ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_5))=_qv_5))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_6) (rev _qv_7))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_7) (rev _qv_6))))
+USE ASSUMPTION FAILED
+
+    backtrack to: ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+    rewritten [6]: ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_5))=_qv_5))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_6) (rev _qv_7))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_7) (rev _qv_6))))
+USE ASSUMPTION FAILED
+
+    backtrack to: ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_5))=_qv_5))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_6) (rev _qv_7))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_7) (rev _qv_6))))
+USE ASSUMPTION FAILED
+
+    backtrack to: ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_5))=_qv_5))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_6) (rev _qv_7))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_7) (rev _qv_6))))
+USE ASSUMPTION FAILED
+
+    backtrack to: ((succ (count _t_10 (rev _t_11)))=(count _t_10 (rev (cons _t_10 _t_11))))
+    rewritten [5]: ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+    rewritten [7]: ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_5))=_qv_5))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_6) (rev _qv_7))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_7) (rev _qv_6))))
+USE ASSUMPTION FAILED
+
+    backtrack to: ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+    rewritten [7]: ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_5))=_qv_5))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_6) (rev _qv_7))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_7) (rev _qv_6))))
+USE ASSUMPTION FAILED
+
+    backtrack to: ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_5))=_qv_5))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_6) (rev _qv_7))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_7) (rev _qv_6))))
+USE ASSUMPTION FAILED
+
+    backtrack to: ((succ (count _t_10 (rev _t_11)))=(count _t_10 (rev (cons _t_10 _t_11))))
+    rewritten [7]: ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+    rewritten [5]: ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+    rewritten [6]: ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_5))=_qv_5))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_6) (rev _qv_7))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_7) (rev _qv_6))))
+USE ASSUMPTION FAILED
+
+    backtrack to: ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+    rewritten [6]: ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_5))=_qv_5))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_6) (rev _qv_7))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_7) (rev _qv_6))))
+USE ASSUMPTION FAILED
+
+    backtrack to: ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_5))=_qv_5))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_6) (rev _qv_7))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_7) (rev _qv_6))))
+USE ASSUMPTION FAILED
+
+    backtrack to: ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+    rewritten [5]: ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+    rewritten [6]: ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_5))=_qv_5))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_6) (rev _qv_7))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_7) (rev _qv_6))))
+USE ASSUMPTION FAILED
+
+    backtrack to: ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+    rewritten [6]: ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_5))=_qv_5))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_6) (rev _qv_7))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_7) (rev _qv_6))))
+USE ASSUMPTION FAILED
+
+    backtrack to: ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_5))=_qv_5))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_6) (rev _qv_7))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_7) (rev _qv_6))))
+USE ASSUMPTION FAILED
+
+    backtrack to: ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_5))=_qv_5))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_6) (rev _qv_7))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 (rev _t_11)))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_7) (rev _qv_6))))
+USE ASSUMPTION FAILED
+
+    backtrack to: ((succ (count _t_10 (rev _t_11)))=(count _t_10 (rev (cons _t_10 _t_11))))
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst)) ((rev (rev _qv_5))=_qv_5))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_6) (rev _qv_7))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+NOW TESTING (forall ((Lst) (Lst)) ((rev (append _qv_6 _qv_7))=(append (rev _qv_7) (rev _qv_6))))
+USE ASSUMPTION FAILED
+
+    backtrack to: ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+  }
+  proceed with (part 2/2): ((_v_9!=_t_10)->((count _v_9 _t_11)=(count _v_9 (rev (cons _t_10 _t_11)))))
+  {
+    {
+      ====================
+      | Assumptions [0]: ((rev nil)=nil)
+      | Assumptions [1]: (forall ((Lst)) ((append nil _qv_1)=_qv_1))
+      | Assumptions [2]: (forall ((Nat) (Lst) (Lst)) ((append (cons _qv_2 _qv_3) _qv_4)=(cons _qv_2 (append _qv_3 _qv_4))))
+      | Assumptions [3]: (forall ((Nat)) ((count _qv_5 nil)=zero))
+      | Assumptions [4]: (forall ((Nat) (Nat) (Lst)) ((count _qv_6 (cons _qv_7 _qv_8))=ite(_qv_6=_qv_7, (succ (count _qv_6 _qv_8)), (count _qv_6 _qv_8))))
+      | Assumptions [5]: (forall ((Nat) (Lst)) ((rev (cons _qv_9 _qv_10))=(append (rev _qv_10) (cons _qv_9 nil))))
+      | Assumptions [6]: (forall ((Nat)) ((count n _t_11)=(count n (rev _t_11))))
+      | Assumptions [7]: (forall ((Nat)) ((count n (rev _t_11))=(count n _t_11)))
+      | Assumptions [8]: (_v_9!=_t_10)
+      ====================
+    }
+    current subgoal: ((count _v_9 _t_11)=(count _v_9 (rev (cons _t_10 _t_11))))
+    rewritten [5]: ((count _v_9 _t_11)=(count _v_9 (append (rev _t_11) (cons _t_10 nil))))
+    rewritten [6]: ((count _v_9 (rev _t_11))=(count _v_9 (append (rev _t_11) (cons _t_10 nil))))
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Lst) (Lst)) ((append _qv_37 _qv_38)=(append _qv_38 _qv_37)))
+	(forall ((Lst) (Lst) (Lst)) ((append (append _qv_39 _qv_40) _qv_41)=(append _qv_39 (append _qv_40 _qv_41))))
+	(forall ((Lst)) ((rev (rev _qv_42))=_qv_42))
+	(forall ((Lst) (Lst)) ((rev (append _qv_43 _qv_44))=(append (rev _qv_43) (rev _qv_44))))
+	(forall ((Lst) (Lst)) ((rev (append _qv_43 _qv_44))=(append (rev _qv_44) (rev _qv_43))))
+
+    proven by induction: ((count _v_9 _w_36)=(count _v_9 (append _w_36 (cons _t_10 nil))))
+    rewriting done
+  }
+  adding ((_v_9!=_t_10)->((count _v_9 _t_11)=(count _v_9 (rev (cons _t_10 _t_11))))) to assumptions
+  will try subgoals again
+  proceed with (part 1/1): ((_v_9=_t_10)->((succ (count _v_9 _t_11))=(count _v_9 (rev (cons _t_10 _t_11)))))
+  {
+    {
+      ====================
+      | Assumptions [0]: ((rev nil)=nil)
+      | Assumptions [1]: (forall ((Lst)) ((append nil _qv_1)=_qv_1))
+      | Assumptions [2]: (forall ((Nat) (Lst) (Lst)) ((append (cons _qv_2 _qv_3) _qv_4)=(cons _qv_2 (append _qv_3 _qv_4))))
+      | Assumptions [3]: (forall ((Nat)) ((count _qv_5 nil)=zero))
+      | Assumptions [4]: (forall ((Nat) (Nat) (Lst)) ((count _qv_6 (cons _qv_7 _qv_8))=ite(_qv_6=_qv_7, (succ (count _qv_6 _qv_8)), (count _qv_6 _qv_8))))
+      | Assumptions [5]: (forall ((Nat) (Lst)) ((rev (cons _qv_9 _qv_10))=(append (rev _qv_10) (cons _qv_9 nil))))
+      | Assumptions [6]: (forall ((Nat)) ((count n _t_11)=(count n (rev _t_11))))
+      | Assumptions [7]: (forall ((Nat)) ((count n (rev _t_11))=(count n _t_11)))
+      | Assumptions [8]: ((count _t_10 _t_11)=(count _t_10 (rev (cons _t_10 _t_11))))
+      | Assumptions [9]: (false->((count _t_10 _t_11)=(count _t_10 (rev (cons _t_10 _t_11)))))
+      | Assumptions [10]: ((count _t_10 _t_11)=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+      | Assumptions [11]: ((count _t_10 (rev _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+      | Assumptions [12]: ((count _t_10 (append (rev _t_11) (cons _t_10 nil)))=(count _t_10 (rev (cons _t_10 _t_11))))
+      | Assumptions [13]: ((count _t_10 (rev _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+      | Assumptions [14]: ((count _t_10 (rev (cons _t_10 _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+      ====================
+    }
+    current subgoal: ((succ (count _t_10 _t_11))=(count _t_10 (rev (cons _t_10 _t_11))))
+    rewritten [5]: ((succ (count _t_10 _t_11))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+    rewritten [6]: ((succ (count _t_10 (rev _t_11)))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+    rewritten [11]: ((succ (count _t_10 (rev (cons _t_10 _t_11))))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+    rewritten [5]: ((succ (count _t_10 (append (rev _t_11) (cons _t_10 nil))))=(count _t_10 (append (rev _t_11) (cons _t_10 nil))))
+    sequence of rewrites only grows
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Lst) (Lst)) ((append _qv_41 _qv_42)=(append _qv_42 _qv_41)))
+	(forall ((Lst) (Lst) (Lst)) ((append (append _qv_43 _qv_44) _qv_45)=(append _qv_43 (append _qv_44 _qv_45))))
+	(forall ((Lst)) ((rev (rev _qv_46))=_qv_46))
+	(forall ((Lst) (Lst)) ((rev (append _qv_47 _qv_48))=(append (rev _qv_47) (rev _qv_48))))
+	(forall ((Lst) (Lst)) ((rev (append _qv_47 _qv_48))=(append (rev _qv_48) (rev _qv_47))))
+

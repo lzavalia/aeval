@@ -1,0 +1,5 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+
+Trivially Proved
+unsat

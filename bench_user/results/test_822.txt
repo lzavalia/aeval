@@ -1,0 +1,733 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall (INT INT) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+	(forall ((Lst)) ((sort (sort _qv_2))=_qv_2))
+	(forall (INT (Lst) (Lst)) ((insort _qv_3 (cons _qv_4 _qv_5))=(cons (insort _qv_3 _qv_4) (insort _qv_3 _qv_5))))
+	(forall (INT (Lst) (Lst)) ((cons _qv_6 (insort _qv_7 _qv_8))=(insort (cons _qv_6 _qv_7) (cons _qv_6 _qv_8))))
+
+Simplified goal: (forall (INT (Lst)) ((mem x (sort y))->(mem x y)))
+
+
+Base case:       (mem _v_9 nil)
+{
+  proven trivially
+}
+Inductive step:  (mem _v_9 (cons _t_10 _t_11))
+{
+  {
+    ====================
+    | Assumptions [0]: ((sort nil)=nil)
+    | Assumptions [1]: (forall (INT INT) (((_qv_2>=0)&&(_qv_3>=0))->((less 1+_qv_2 1+_qv_3)=(less _qv_2 _qv_3))))
+    | Assumptions [2]: (forall (INT INT) (((_qv_4>=0)&&(_qv_5>=0))->((less _qv_4 _qv_5)=(_qv_4<_qv_5))))
+    | Assumptions [3]: (forall (INT INT (Lst)) ((mem _qv_7 (cons _qv_8 _qv_9))=((_qv_7=_qv_8)||(mem _qv_7 _qv_9))))
+    | Assumptions [4]: (forall (INT) ((insort _qv_10 nil)=(cons _qv_10 nil)))
+    | Assumptions [5]: (forall (INT INT (Lst)) ((insort _qv_11 (cons _qv_12 _qv_13))=ite((less _qv_11 _qv_12), (cons _qv_11 (cons _qv_12 _qv_13)), (cons _qv_12 (insort _qv_11 _qv_13)))))
+    | Assumptions [6]: (forall (INT (Lst)) ((sort (cons _qv_14 _qv_15))=(insort _qv_14 (sort _qv_15))))
+    | Assumptions [7]: (forall (INT) ((mem x (sort _t_11))->(mem x _t_11)))
+    | Assumptions [8]: (mem _v_9 (sort (cons _t_10 _t_11)))
+    | Assumptions [9]: (!(less 0 0))
+    | Assumptions [10]: (forall (INT) ((_qv_1>=0)->(less 0 1+_qv_1)))
+    | Assumptions [11]: (forall (INT) (!(mem _qv_6 nil)))
+    | Assumptions [12]: (mem _v_9 (insort _t_10 (sort _t_11)))
+    ====================
+  }
+  rewritten [3]: ((_v_9=_t_10)||(mem _v_9 _t_11))
+  rewritten [7]: ((mem _v_9 (sort _t_11))||((_v_9+(-_t_10))=0))
+  deciding: ((_v_9+(-_t_10))=0)
+  {
+    ====================
+    | Assumptions [0]: ((sort nil)=nil)
+    | Assumptions [1]: (forall (INT INT) (((_qv_2>=0)&&(_qv_3>=0))->((less 1+_qv_2 1+_qv_3)=(less _qv_2 _qv_3))))
+    | Assumptions [2]: (forall (INT INT) (((_qv_4>=0)&&(_qv_5>=0))->((less _qv_4 _qv_5)=(_qv_4<_qv_5))))
+    | Assumptions [3]: (forall (INT INT (Lst)) ((mem _qv_7 (cons _qv_8 _qv_9))=((_qv_7=_qv_8)||(mem _qv_7 _qv_9))))
+    | Assumptions [4]: (forall (INT) ((insort _qv_10 nil)=(cons _qv_10 nil)))
+    | Assumptions [5]: (forall (INT INT (Lst)) ((insort _qv_11 (cons _qv_12 _qv_13))=ite((less _qv_11 _qv_12), (cons _qv_11 (cons _qv_12 _qv_13)), (cons _qv_12 (insort _qv_11 _qv_13)))))
+    | Assumptions [6]: (forall (INT (Lst)) ((sort (cons _qv_14 _qv_15))=(insort _qv_14 (sort _qv_15))))
+    | Assumptions [7]: (forall (INT) ((mem x (sort _t_11))->(mem x _t_11)))
+    | Assumptions [8]: (mem _v_9 (sort (cons _t_10 _t_11)))
+    | Assumptions [9]: (!(less 0 0))
+    | Assumptions [10]: (forall (INT) ((_qv_1>=0)->(less 0 1+_qv_1)))
+    | Assumptions [11]: (forall (INT) (!(mem _qv_6 nil)))
+    | Assumptions [12]: (mem _v_9 (insort _t_10 (sort _t_11)))
+    | Assumptions [13]: ((_v_9+(-_t_10))!=0)
+    ====================
+  }
+  current subgoal: (mem _v_9 (sort _t_11))
+  {
+  }
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall (INT INT) ((less _qv_12 _qv_13)=(less _qv_13 _qv_12)))
+	(forall ((Lst)) ((sort (sort _qv_14))=_qv_14))
+	(forall (INT (Lst) (Lst)) ((insort _qv_15 (cons _qv_16 _qv_17))=(cons (insort _qv_15 _qv_16) (insort _qv_15 _qv_17))))
+	(forall (INT (Lst) (Lst)) ((cons _qv_18 (insort _qv_19 _qv_20))=(insort (cons _qv_18 _qv_19) (cons _qv_18 _qv_20))))
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall (INT INT) ((less _qv_25 _qv_26)=(less _qv_26 _qv_25)))
+	(forall ((Lst)) ((sort (sort _qv_27))=_qv_27))
+	(forall (INT (Lst) (Lst)) ((insort _qv_28 (cons _qv_29 _qv_30))=(cons (insort _qv_28 _qv_29) (insort _qv_28 _qv_30))))
+	(forall (INT (Lst) (Lst)) ((cons _qv_31 (insort _qv_32 _qv_33))=(insort (cons _qv_31 _qv_32) (cons _qv_31 _qv_33))))
+
+CURRENT SUBGOAL (((_v_34+(-_v_35))=0)||(mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38)))))
+NOW TESTING (forall (INT INT) ((less _qv_25 _qv_26)=(less _qv_26 _qv_25)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_34+(-_v_35))=0)||(mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38)))))
+NOW TESTING (forall ((Lst)) ((sort (sort _qv_27))=_qv_27))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_34+(-_v_35))=0)||(mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38)))))
+NOW TESTING (forall (INT (Lst) (Lst)) ((insort _qv_28 (cons _qv_29 _qv_30))=(cons (insort _qv_28 _qv_29) (insort _qv_28 _qv_30))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_34+(-_v_35))=0)||(mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38)))))
+NOW TESTING (forall (INT (Lst) (Lst)) ((cons _qv_31 (insort _qv_32 _qv_33))=(insort (cons _qv_31 _qv_32) (cons _qv_31 _qv_33))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_34+(-_v_35))=0)||(mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38)))))
+NOW TESTING (forall (INT INT) ((less _qv_25 _qv_26)=(less _qv_26 _qv_25)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_34+(-_v_35))=0)||(mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38)))))
+NOW TESTING (forall ((Lst)) ((sort (sort _qv_27))=_qv_27))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_34+(-_v_35))=0)||(mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38)))))
+NOW TESTING (forall (INT (Lst) (Lst)) ((insort _qv_28 (cons _qv_29 _qv_30))=(cons (insort _qv_28 _qv_29) (insort _qv_28 _qv_30))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_34+(-_v_35))=0)||(mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38)))))
+NOW TESTING (forall (INT (Lst) (Lst)) ((cons _qv_31 (insort _qv_32 _qv_33))=(insort (cons _qv_31 _qv_32) (cons _qv_31 _qv_33))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38))))
+NOW TESTING (forall (INT INT) ((less _qv_25 _qv_26)=(less _qv_26 _qv_25)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38))))
+NOW TESTING (forall ((Lst)) ((sort (sort _qv_27))=_qv_27))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38))))
+NOW TESTING (forall (INT (Lst) (Lst)) ((insort _qv_28 (cons _qv_29 _qv_30))=(cons (insort _qv_28 _qv_29) (insort _qv_28 _qv_30))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38))))
+NOW TESTING (forall (INT (Lst) (Lst)) ((cons _qv_31 (insort _qv_32 _qv_33))=(insort (cons _qv_31 _qv_32) (cons _qv_31 _qv_33))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38))))
+NOW TESTING (forall (INT INT) ((less _qv_25 _qv_26)=(less _qv_26 _qv_25)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38))))
+NOW TESTING (forall ((Lst)) ((sort (sort _qv_27))=_qv_27))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38))))
+NOW TESTING (forall (INT (Lst) (Lst)) ((insort _qv_28 (cons _qv_29 _qv_30))=(cons (insort _qv_28 _qv_29) (insort _qv_28 _qv_30))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38))))
+NOW TESTING (forall (INT (Lst) (Lst)) ((cons _qv_31 (insort _qv_32 _qv_33))=(insort (cons _qv_31 _qv_32) (cons _qv_31 _qv_33))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_21+(-_v_22))=0)||(mem _v_21 (sort (cons _t_23 _t_24))))
+NOW TESTING (forall (INT INT) ((less _qv_12 _qv_13)=(less _qv_13 _qv_12)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_21+(-_v_22))=0)||(mem _v_21 (sort (cons _t_23 _t_24))))
+NOW TESTING (forall ((Lst)) ((sort (sort _qv_14))=_qv_14))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_21+(-_v_22))=0)||(mem _v_21 (sort (cons _t_23 _t_24))))
+NOW TESTING (forall (INT (Lst) (Lst)) ((insort _qv_15 (cons _qv_16 _qv_17))=(cons (insort _qv_15 _qv_16) (insort _qv_15 _qv_17))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_21+(-_v_22))=0)||(mem _v_21 (sort (cons _t_23 _t_24))))
+NOW TESTING (forall (INT (Lst) (Lst)) ((cons _qv_18 (insort _qv_19 _qv_20))=(insort (cons _qv_18 _qv_19) (cons _qv_18 _qv_20))))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall (INT INT) ((less _qv_25 _qv_26)=(less _qv_26 _qv_25)))
+	(forall ((Lst)) ((sort (sort _qv_27))=_qv_27))
+	(forall (INT (Lst) (Lst)) ((insort _qv_28 (cons _qv_29 _qv_30))=(cons (insort _qv_28 _qv_29) (insort _qv_28 _qv_30))))
+	(forall (INT (Lst) (Lst)) ((cons _qv_31 (insort _qv_32 _qv_33))=(insort (cons _qv_31 _qv_32) (cons _qv_31 _qv_33))))
+
+CURRENT SUBGOAL (((_v_34+(-_v_35))=0)||(mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38)))))
+NOW TESTING (forall (INT INT) ((less _qv_25 _qv_26)=(less _qv_26 _qv_25)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_34+(-_v_35))=0)||(mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38)))))
+NOW TESTING (forall ((Lst)) ((sort (sort _qv_27))=_qv_27))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_34+(-_v_35))=0)||(mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38)))))
+NOW TESTING (forall (INT (Lst) (Lst)) ((insort _qv_28 (cons _qv_29 _qv_30))=(cons (insort _qv_28 _qv_29) (insort _qv_28 _qv_30))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_34+(-_v_35))=0)||(mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38)))))
+NOW TESTING (forall (INT (Lst) (Lst)) ((cons _qv_31 (insort _qv_32 _qv_33))=(insort (cons _qv_31 _qv_32) (cons _qv_31 _qv_33))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_34+(-_v_35))=0)||(mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38)))))
+NOW TESTING (forall (INT INT) ((less _qv_25 _qv_26)=(less _qv_26 _qv_25)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_34+(-_v_35))=0)||(mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38)))))
+NOW TESTING (forall ((Lst)) ((sort (sort _qv_27))=_qv_27))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_34+(-_v_35))=0)||(mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38)))))
+NOW TESTING (forall (INT (Lst) (Lst)) ((insort _qv_28 (cons _qv_29 _qv_30))=(cons (insort _qv_28 _qv_29) (insort _qv_28 _qv_30))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_34+(-_v_35))=0)||(mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38)))))
+NOW TESTING (forall (INT (Lst) (Lst)) ((cons _qv_31 (insort _qv_32 _qv_33))=(insort (cons _qv_31 _qv_32) (cons _qv_31 _qv_33))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38))))
+NOW TESTING (forall (INT INT) ((less _qv_25 _qv_26)=(less _qv_26 _qv_25)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38))))
+NOW TESTING (forall ((Lst)) ((sort (sort _qv_27))=_qv_27))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38))))
+NOW TESTING (forall (INT (Lst) (Lst)) ((insort _qv_28 (cons _qv_29 _qv_30))=(cons (insort _qv_28 _qv_29) (insort _qv_28 _qv_30))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38))))
+NOW TESTING (forall (INT (Lst) (Lst)) ((cons _qv_31 (insort _qv_32 _qv_33))=(insort (cons _qv_31 _qv_32) (cons _qv_31 _qv_33))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38))))
+NOW TESTING (forall (INT INT) ((less _qv_25 _qv_26)=(less _qv_26 _qv_25)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38))))
+NOW TESTING (forall ((Lst)) ((sort (sort _qv_27))=_qv_27))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38))))
+NOW TESTING (forall (INT (Lst) (Lst)) ((insort _qv_28 (cons _qv_29 _qv_30))=(cons (insort _qv_28 _qv_29) (insort _qv_28 _qv_30))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38))))
+NOW TESTING (forall (INT (Lst) (Lst)) ((cons _qv_31 (insort _qv_32 _qv_33))=(insort (cons _qv_31 _qv_32) (cons _qv_31 _qv_33))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_21+(-_v_22))=0)||(mem _v_21 (sort (cons _t_23 _t_24))))
+NOW TESTING (forall (INT INT) ((less _qv_12 _qv_13)=(less _qv_13 _qv_12)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_21+(-_v_22))=0)||(mem _v_21 (sort (cons _t_23 _t_24))))
+NOW TESTING (forall ((Lst)) ((sort (sort _qv_14))=_qv_14))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_21+(-_v_22))=0)||(mem _v_21 (sort (cons _t_23 _t_24))))
+NOW TESTING (forall (INT (Lst) (Lst)) ((insort _qv_15 (cons _qv_16 _qv_17))=(cons (insort _qv_15 _qv_16) (insort _qv_15 _qv_17))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_21+(-_v_22))=0)||(mem _v_21 (sort (cons _t_23 _t_24))))
+NOW TESTING (forall (INT (Lst) (Lst)) ((cons _qv_18 (insort _qv_19 _qv_20))=(insort (cons _qv_18 _qv_19) (cons _qv_18 _qv_20))))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall (INT INT) ((less _qv_25 _qv_26)=(less _qv_26 _qv_25)))
+	(forall ((Lst)) ((sort (sort _qv_27))=_qv_27))
+	(forall (INT (Lst) (Lst)) ((insort _qv_28 (cons _qv_29 _qv_30))=(cons (insort _qv_28 _qv_29) (insort _qv_28 _qv_30))))
+	(forall (INT (Lst) (Lst)) ((cons _qv_31 (insort _qv_32 _qv_33))=(insort (cons _qv_31 _qv_32) (cons _qv_31 _qv_33))))
+
+CURRENT SUBGOAL (mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38))))
+NOW TESTING (forall (INT INT) ((less _qv_25 _qv_26)=(less _qv_26 _qv_25)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38))))
+NOW TESTING (forall ((Lst)) ((sort (sort _qv_27))=_qv_27))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38))))
+NOW TESTING (forall (INT (Lst) (Lst)) ((insort _qv_28 (cons _qv_29 _qv_30))=(cons (insort _qv_28 _qv_29) (insort _qv_28 _qv_30))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38))))
+NOW TESTING (forall (INT (Lst) (Lst)) ((cons _qv_31 (insort _qv_32 _qv_33))=(insort (cons _qv_31 _qv_32) (cons _qv_31 _qv_33))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38))))
+NOW TESTING (forall (INT INT) ((less _qv_25 _qv_26)=(less _qv_26 _qv_25)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38))))
+NOW TESTING (forall ((Lst)) ((sort (sort _qv_27))=_qv_27))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38))))
+NOW TESTING (forall (INT (Lst) (Lst)) ((insort _qv_28 (cons _qv_29 _qv_30))=(cons (insort _qv_28 _qv_29) (insort _qv_28 _qv_30))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38))))
+NOW TESTING (forall (INT (Lst) (Lst)) ((cons _qv_31 (insort _qv_32 _qv_33))=(insort (cons _qv_31 _qv_32) (cons _qv_31 _qv_33))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_21 (sort (cons _t_23 _t_24)))
+NOW TESTING (forall (INT INT) ((less _qv_12 _qv_13)=(less _qv_13 _qv_12)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_21 (sort (cons _t_23 _t_24)))
+NOW TESTING (forall ((Lst)) ((sort (sort _qv_14))=_qv_14))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_21 (sort (cons _t_23 _t_24)))
+NOW TESTING (forall (INT (Lst) (Lst)) ((insort _qv_15 (cons _qv_16 _qv_17))=(cons (insort _qv_15 _qv_16) (insort _qv_15 _qv_17))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_21 (sort (cons _t_23 _t_24)))
+NOW TESTING (forall (INT (Lst) (Lst)) ((cons _qv_18 (insort _qv_19 _qv_20))=(insort (cons _qv_18 _qv_19) (cons _qv_18 _qv_20))))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall (INT INT) ((less _qv_25 _qv_26)=(less _qv_26 _qv_25)))
+	(forall ((Lst)) ((sort (sort _qv_27))=_qv_27))
+	(forall (INT (Lst) (Lst)) ((insort _qv_28 (cons _qv_29 _qv_30))=(cons (insort _qv_28 _qv_29) (insort _qv_28 _qv_30))))
+	(forall (INT (Lst) (Lst)) ((cons _qv_31 (insort _qv_32 _qv_33))=(insort (cons _qv_31 _qv_32) (cons _qv_31 _qv_33))))
+
+CURRENT SUBGOAL (mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38))))
+NOW TESTING (forall (INT INT) ((less _qv_25 _qv_26)=(less _qv_26 _qv_25)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38))))
+NOW TESTING (forall ((Lst)) ((sort (sort _qv_27))=_qv_27))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38))))
+NOW TESTING (forall (INT (Lst) (Lst)) ((insort _qv_28 (cons _qv_29 _qv_30))=(cons (insort _qv_28 _qv_29) (insort _qv_28 _qv_30))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38))))
+NOW TESTING (forall (INT (Lst) (Lst)) ((cons _qv_31 (insort _qv_32 _qv_33))=(insort (cons _qv_31 _qv_32) (cons _qv_31 _qv_33))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38))))
+NOW TESTING (forall (INT INT) ((less _qv_25 _qv_26)=(less _qv_26 _qv_25)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38))))
+NOW TESTING (forall ((Lst)) ((sort (sort _qv_27))=_qv_27))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38))))
+NOW TESTING (forall (INT (Lst) (Lst)) ((insort _qv_28 (cons _qv_29 _qv_30))=(cons (insort _qv_28 _qv_29) (insort _qv_28 _qv_30))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38))))
+NOW TESTING (forall (INT (Lst) (Lst)) ((cons _qv_31 (insort _qv_32 _qv_33))=(insort (cons _qv_31 _qv_32) (cons _qv_31 _qv_33))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_21 (sort (cons _t_23 _t_24)))
+NOW TESTING (forall (INT INT) ((less _qv_12 _qv_13)=(less _qv_13 _qv_12)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_21 (sort (cons _t_23 _t_24)))
+NOW TESTING (forall ((Lst)) ((sort (sort _qv_14))=_qv_14))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_21 (sort (cons _t_23 _t_24)))
+NOW TESTING (forall (INT (Lst) (Lst)) ((insort _qv_15 (cons _qv_16 _qv_17))=(cons (insort _qv_15 _qv_16) (insort _qv_15 _qv_17))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_21 (sort (cons _t_23 _t_24)))
+NOW TESTING (forall (INT (Lst) (Lst)) ((cons _qv_18 (insort _qv_19 _qv_20))=(insort (cons _qv_18 _qv_19) (cons _qv_18 _qv_20))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((mem _v_9 _t_11)||((_v_9+(-_t_10))=0))
+NOW TESTING (forall (INT INT) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((mem _v_9 _t_11)||((_v_9+(-_t_10))=0))
+NOW TESTING (forall ((Lst)) ((sort (sort _qv_2))=_qv_2))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((mem _v_9 _t_11)||((_v_9+(-_t_10))=0))
+NOW TESTING (forall (INT (Lst) (Lst)) ((insort _qv_3 (cons _qv_4 _qv_5))=(cons (insort _qv_3 _qv_4) (insort _qv_3 _qv_5))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((mem _v_9 _t_11)||((_v_9+(-_t_10))=0))
+NOW TESTING (forall (INT (Lst) (Lst)) ((cons _qv_6 (insort _qv_7 _qv_8))=(insort (cons _qv_6 _qv_7) (cons _qv_6 _qv_8))))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((mem _v_9 _t_11)||((_v_9+(-_t_10))=0))
+  rewritten [7]: ((mem _v_9 (sort _t_11))||((_v_9+(-_t_10))=0))
+  deciding: ((_v_9+(-_t_10))=0)
+  {
+    ====================
+    | Assumptions [0]: ((sort nil)=nil)
+    | Assumptions [1]: (forall (INT INT) (((_qv_2>=0)&&(_qv_3>=0))->((less 1+_qv_2 1+_qv_3)=(less _qv_2 _qv_3))))
+    | Assumptions [2]: (forall (INT INT) (((_qv_4>=0)&&(_qv_5>=0))->((less _qv_4 _qv_5)=(_qv_4<_qv_5))))
+    | Assumptions [3]: (forall (INT INT (Lst)) ((mem _qv_7 (cons _qv_8 _qv_9))=((_qv_7=_qv_8)||(mem _qv_7 _qv_9))))
+    | Assumptions [4]: (forall (INT) ((insort _qv_10 nil)=(cons _qv_10 nil)))
+    | Assumptions [5]: (forall (INT INT (Lst)) ((insort _qv_11 (cons _qv_12 _qv_13))=ite((less _qv_11 _qv_12), (cons _qv_11 (cons _qv_12 _qv_13)), (cons _qv_12 (insort _qv_11 _qv_13)))))
+    | Assumptions [6]: (forall (INT (Lst)) ((sort (cons _qv_14 _qv_15))=(insort _qv_14 (sort _qv_15))))
+    | Assumptions [7]: (forall (INT) ((mem x (sort _t_11))->(mem x _t_11)))
+    | Assumptions [8]: (mem _v_9 (sort (cons _t_10 _t_11)))
+    | Assumptions [9]: (!(less 0 0))
+    | Assumptions [10]: (forall (INT) ((_qv_1>=0)->(less 0 1+_qv_1)))
+    | Assumptions [11]: (forall (INT) (!(mem _qv_6 nil)))
+    | Assumptions [12]: (mem _v_9 (insort _t_10 (sort _t_11)))
+    | Assumptions [13]: ((_v_9+(-_t_10))!=0)
+    ====================
+  }
+  current subgoal: (mem _v_9 (sort _t_11))
+  {
+  }
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall (INT INT) ((less _qv_12 _qv_13)=(less _qv_13 _qv_12)))
+	(forall ((Lst)) ((sort (sort _qv_14))=_qv_14))
+	(forall (INT (Lst) (Lst)) ((insort _qv_15 (cons _qv_16 _qv_17))=(cons (insort _qv_15 _qv_16) (insort _qv_15 _qv_17))))
+	(forall (INT (Lst) (Lst)) ((cons _qv_18 (insort _qv_19 _qv_20))=(insort (cons _qv_18 _qv_19) (cons _qv_18 _qv_20))))
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall (INT INT) ((less _qv_25 _qv_26)=(less _qv_26 _qv_25)))
+	(forall ((Lst)) ((sort (sort _qv_27))=_qv_27))
+	(forall (INT (Lst) (Lst)) ((insort _qv_28 (cons _qv_29 _qv_30))=(cons (insort _qv_28 _qv_29) (insort _qv_28 _qv_30))))
+	(forall (INT (Lst) (Lst)) ((cons _qv_31 (insort _qv_32 _qv_33))=(insort (cons _qv_31 _qv_32) (cons _qv_31 _qv_33))))
+
+CURRENT SUBGOAL (((_v_34+(-_v_35))=0)||(mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38)))))
+NOW TESTING (forall (INT INT) ((less _qv_25 _qv_26)=(less _qv_26 _qv_25)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_34+(-_v_35))=0)||(mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38)))))
+NOW TESTING (forall ((Lst)) ((sort (sort _qv_27))=_qv_27))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_34+(-_v_35))=0)||(mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38)))))
+NOW TESTING (forall (INT (Lst) (Lst)) ((insort _qv_28 (cons _qv_29 _qv_30))=(cons (insort _qv_28 _qv_29) (insort _qv_28 _qv_30))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_34+(-_v_35))=0)||(mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38)))))
+NOW TESTING (forall (INT (Lst) (Lst)) ((cons _qv_31 (insort _qv_32 _qv_33))=(insort (cons _qv_31 _qv_32) (cons _qv_31 _qv_33))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_34+(-_v_35))=0)||(mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38)))))
+NOW TESTING (forall (INT INT) ((less _qv_25 _qv_26)=(less _qv_26 _qv_25)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_34+(-_v_35))=0)||(mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38)))))
+NOW TESTING (forall ((Lst)) ((sort (sort _qv_27))=_qv_27))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_34+(-_v_35))=0)||(mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38)))))
+NOW TESTING (forall (INT (Lst) (Lst)) ((insort _qv_28 (cons _qv_29 _qv_30))=(cons (insort _qv_28 _qv_29) (insort _qv_28 _qv_30))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_34+(-_v_35))=0)||(mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38)))))
+NOW TESTING (forall (INT (Lst) (Lst)) ((cons _qv_31 (insort _qv_32 _qv_33))=(insort (cons _qv_31 _qv_32) (cons _qv_31 _qv_33))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38))))
+NOW TESTING (forall (INT INT) ((less _qv_25 _qv_26)=(less _qv_26 _qv_25)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38))))
+NOW TESTING (forall ((Lst)) ((sort (sort _qv_27))=_qv_27))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38))))
+NOW TESTING (forall (INT (Lst) (Lst)) ((insort _qv_28 (cons _qv_29 _qv_30))=(cons (insort _qv_28 _qv_29) (insort _qv_28 _qv_30))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38))))
+NOW TESTING (forall (INT (Lst) (Lst)) ((cons _qv_31 (insort _qv_32 _qv_33))=(insort (cons _qv_31 _qv_32) (cons _qv_31 _qv_33))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38))))
+NOW TESTING (forall (INT INT) ((less _qv_25 _qv_26)=(less _qv_26 _qv_25)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38))))
+NOW TESTING (forall ((Lst)) ((sort (sort _qv_27))=_qv_27))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38))))
+NOW TESTING (forall (INT (Lst) (Lst)) ((insort _qv_28 (cons _qv_29 _qv_30))=(cons (insort _qv_28 _qv_29) (insort _qv_28 _qv_30))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38))))
+NOW TESTING (forall (INT (Lst) (Lst)) ((cons _qv_31 (insort _qv_32 _qv_33))=(insort (cons _qv_31 _qv_32) (cons _qv_31 _qv_33))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_21+(-_v_22))=0)||(mem _v_21 (sort (cons _t_23 _t_24))))
+NOW TESTING (forall (INT INT) ((less _qv_12 _qv_13)=(less _qv_13 _qv_12)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_21+(-_v_22))=0)||(mem _v_21 (sort (cons _t_23 _t_24))))
+NOW TESTING (forall ((Lst)) ((sort (sort _qv_14))=_qv_14))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_21+(-_v_22))=0)||(mem _v_21 (sort (cons _t_23 _t_24))))
+NOW TESTING (forall (INT (Lst) (Lst)) ((insort _qv_15 (cons _qv_16 _qv_17))=(cons (insort _qv_15 _qv_16) (insort _qv_15 _qv_17))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_21+(-_v_22))=0)||(mem _v_21 (sort (cons _t_23 _t_24))))
+NOW TESTING (forall (INT (Lst) (Lst)) ((cons _qv_18 (insort _qv_19 _qv_20))=(insort (cons _qv_18 _qv_19) (cons _qv_18 _qv_20))))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall (INT INT) ((less _qv_25 _qv_26)=(less _qv_26 _qv_25)))
+	(forall ((Lst)) ((sort (sort _qv_27))=_qv_27))
+	(forall (INT (Lst) (Lst)) ((insort _qv_28 (cons _qv_29 _qv_30))=(cons (insort _qv_28 _qv_29) (insort _qv_28 _qv_30))))
+	(forall (INT (Lst) (Lst)) ((cons _qv_31 (insort _qv_32 _qv_33))=(insort (cons _qv_31 _qv_32) (cons _qv_31 _qv_33))))
+
+CURRENT SUBGOAL (((_v_34+(-_v_35))=0)||(mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38)))))
+NOW TESTING (forall (INT INT) ((less _qv_25 _qv_26)=(less _qv_26 _qv_25)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_34+(-_v_35))=0)||(mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38)))))
+NOW TESTING (forall ((Lst)) ((sort (sort _qv_27))=_qv_27))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_34+(-_v_35))=0)||(mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38)))))
+NOW TESTING (forall (INT (Lst) (Lst)) ((insort _qv_28 (cons _qv_29 _qv_30))=(cons (insort _qv_28 _qv_29) (insort _qv_28 _qv_30))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_34+(-_v_35))=0)||(mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38)))))
+NOW TESTING (forall (INT (Lst) (Lst)) ((cons _qv_31 (insort _qv_32 _qv_33))=(insort (cons _qv_31 _qv_32) (cons _qv_31 _qv_33))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_34+(-_v_35))=0)||(mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38)))))
+NOW TESTING (forall (INT INT) ((less _qv_25 _qv_26)=(less _qv_26 _qv_25)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_34+(-_v_35))=0)||(mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38)))))
+NOW TESTING (forall ((Lst)) ((sort (sort _qv_27))=_qv_27))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_34+(-_v_35))=0)||(mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38)))))
+NOW TESTING (forall (INT (Lst) (Lst)) ((insort _qv_28 (cons _qv_29 _qv_30))=(cons (insort _qv_28 _qv_29) (insort _qv_28 _qv_30))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_34+(-_v_35))=0)||(mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38)))))
+NOW TESTING (forall (INT (Lst) (Lst)) ((cons _qv_31 (insort _qv_32 _qv_33))=(insort (cons _qv_31 _qv_32) (cons _qv_31 _qv_33))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38))))
+NOW TESTING (forall (INT INT) ((less _qv_25 _qv_26)=(less _qv_26 _qv_25)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38))))
+NOW TESTING (forall ((Lst)) ((sort (sort _qv_27))=_qv_27))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38))))
+NOW TESTING (forall (INT (Lst) (Lst)) ((insort _qv_28 (cons _qv_29 _qv_30))=(cons (insort _qv_28 _qv_29) (insort _qv_28 _qv_30))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38))))
+NOW TESTING (forall (INT (Lst) (Lst)) ((cons _qv_31 (insort _qv_32 _qv_33))=(insort (cons _qv_31 _qv_32) (cons _qv_31 _qv_33))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38))))
+NOW TESTING (forall (INT INT) ((less _qv_25 _qv_26)=(less _qv_26 _qv_25)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38))))
+NOW TESTING (forall ((Lst)) ((sort (sort _qv_27))=_qv_27))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38))))
+NOW TESTING (forall (INT (Lst) (Lst)) ((insort _qv_28 (cons _qv_29 _qv_30))=(cons (insort _qv_28 _qv_29) (insort _qv_28 _qv_30))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38))))
+NOW TESTING (forall (INT (Lst) (Lst)) ((cons _qv_31 (insort _qv_32 _qv_33))=(insort (cons _qv_31 _qv_32) (cons _qv_31 _qv_33))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_21+(-_v_22))=0)||(mem _v_21 (sort (cons _t_23 _t_24))))
+NOW TESTING (forall (INT INT) ((less _qv_12 _qv_13)=(less _qv_13 _qv_12)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_21+(-_v_22))=0)||(mem _v_21 (sort (cons _t_23 _t_24))))
+NOW TESTING (forall ((Lst)) ((sort (sort _qv_14))=_qv_14))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_21+(-_v_22))=0)||(mem _v_21 (sort (cons _t_23 _t_24))))
+NOW TESTING (forall (INT (Lst) (Lst)) ((insort _qv_15 (cons _qv_16 _qv_17))=(cons (insort _qv_15 _qv_16) (insort _qv_15 _qv_17))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (((_v_21+(-_v_22))=0)||(mem _v_21 (sort (cons _t_23 _t_24))))
+NOW TESTING (forall (INT (Lst) (Lst)) ((cons _qv_18 (insort _qv_19 _qv_20))=(insort (cons _qv_18 _qv_19) (cons _qv_18 _qv_20))))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall (INT INT) ((less _qv_25 _qv_26)=(less _qv_26 _qv_25)))
+	(forall ((Lst)) ((sort (sort _qv_27))=_qv_27))
+	(forall (INT (Lst) (Lst)) ((insort _qv_28 (cons _qv_29 _qv_30))=(cons (insort _qv_28 _qv_29) (insort _qv_28 _qv_30))))
+	(forall (INT (Lst) (Lst)) ((cons _qv_31 (insort _qv_32 _qv_33))=(insort (cons _qv_31 _qv_32) (cons _qv_31 _qv_33))))
+
+CURRENT SUBGOAL (mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38))))
+NOW TESTING (forall (INT INT) ((less _qv_25 _qv_26)=(less _qv_26 _qv_25)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38))))
+NOW TESTING (forall ((Lst)) ((sort (sort _qv_27))=_qv_27))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38))))
+NOW TESTING (forall (INT (Lst) (Lst)) ((insort _qv_28 (cons _qv_29 _qv_30))=(cons (insort _qv_28 _qv_29) (insort _qv_28 _qv_30))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38))))
+NOW TESTING (forall (INT (Lst) (Lst)) ((cons _qv_31 (insort _qv_32 _qv_33))=(insort (cons _qv_31 _qv_32) (cons _qv_31 _qv_33))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38))))
+NOW TESTING (forall (INT INT) ((less _qv_25 _qv_26)=(less _qv_26 _qv_25)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38))))
+NOW TESTING (forall ((Lst)) ((sort (sort _qv_27))=_qv_27))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38))))
+NOW TESTING (forall (INT (Lst) (Lst)) ((insort _qv_28 (cons _qv_29 _qv_30))=(cons (insort _qv_28 _qv_29) (insort _qv_28 _qv_30))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38))))
+NOW TESTING (forall (INT (Lst) (Lst)) ((cons _qv_31 (insort _qv_32 _qv_33))=(insort (cons _qv_31 _qv_32) (cons _qv_31 _qv_33))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_21 (sort (cons _t_23 _t_24)))
+NOW TESTING (forall (INT INT) ((less _qv_12 _qv_13)=(less _qv_13 _qv_12)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_21 (sort (cons _t_23 _t_24)))
+NOW TESTING (forall ((Lst)) ((sort (sort _qv_14))=_qv_14))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_21 (sort (cons _t_23 _t_24)))
+NOW TESTING (forall (INT (Lst) (Lst)) ((insort _qv_15 (cons _qv_16 _qv_17))=(cons (insort _qv_15 _qv_16) (insort _qv_15 _qv_17))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_21 (sort (cons _t_23 _t_24)))
+NOW TESTING (forall (INT (Lst) (Lst)) ((cons _qv_18 (insort _qv_19 _qv_20))=(insort (cons _qv_18 _qv_19) (cons _qv_18 _qv_20))))
+USE ASSUMPTION FAILED
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall (INT INT) ((less _qv_25 _qv_26)=(less _qv_26 _qv_25)))
+	(forall ((Lst)) ((sort (sort _qv_27))=_qv_27))
+	(forall (INT (Lst) (Lst)) ((insort _qv_28 (cons _qv_29 _qv_30))=(cons (insort _qv_28 _qv_29) (insort _qv_28 _qv_30))))
+	(forall (INT (Lst) (Lst)) ((cons _qv_31 (insort _qv_32 _qv_33))=(insort (cons _qv_31 _qv_32) (cons _qv_31 _qv_33))))
+
+CURRENT SUBGOAL (mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38))))
+NOW TESTING (forall (INT INT) ((less _qv_25 _qv_26)=(less _qv_26 _qv_25)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38))))
+NOW TESTING (forall ((Lst)) ((sort (sort _qv_27))=_qv_27))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38))))
+NOW TESTING (forall (INT (Lst) (Lst)) ((insort _qv_28 (cons _qv_29 _qv_30))=(cons (insort _qv_28 _qv_29) (insort _qv_28 _qv_30))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38))))
+NOW TESTING (forall (INT (Lst) (Lst)) ((cons _qv_31 (insort _qv_32 _qv_33))=(insort (cons _qv_31 _qv_32) (cons _qv_31 _qv_33))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38))))
+NOW TESTING (forall (INT INT) ((less _qv_25 _qv_26)=(less _qv_26 _qv_25)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38))))
+NOW TESTING (forall ((Lst)) ((sort (sort _qv_27))=_qv_27))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38))))
+NOW TESTING (forall (INT (Lst) (Lst)) ((insort _qv_28 (cons _qv_29 _qv_30))=(cons (insort _qv_28 _qv_29) (insort _qv_28 _qv_30))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_34 (insort _v_36 (sort (cons _t_37 _t_38))))
+NOW TESTING (forall (INT (Lst) (Lst)) ((cons _qv_31 (insort _qv_32 _qv_33))=(insort (cons _qv_31 _qv_32) (cons _qv_31 _qv_33))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_21 (sort (cons _t_23 _t_24)))
+NOW TESTING (forall (INT INT) ((less _qv_12 _qv_13)=(less _qv_13 _qv_12)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_21 (sort (cons _t_23 _t_24)))
+NOW TESTING (forall ((Lst)) ((sort (sort _qv_14))=_qv_14))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_21 (sort (cons _t_23 _t_24)))
+NOW TESTING (forall (INT (Lst) (Lst)) ((insort _qv_15 (cons _qv_16 _qv_17))=(cons (insort _qv_15 _qv_16) (insort _qv_15 _qv_17))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL (mem _v_21 (sort (cons _t_23 _t_24)))
+NOW TESTING (forall (INT (Lst) (Lst)) ((cons _qv_18 (insort _qv_19 _qv_20))=(insort (cons _qv_18 _qv_19) (cons _qv_18 _qv_20))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((mem _v_9 _t_11)||((_v_9+(-_t_10))=0))
+NOW TESTING (forall (INT INT) ((less _qv_0 _qv_1)=(less _qv_1 _qv_0)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((mem _v_9 _t_11)||((_v_9+(-_t_10))=0))
+NOW TESTING (forall ((Lst)) ((sort (sort _qv_2))=_qv_2))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((mem _v_9 _t_11)||((_v_9+(-_t_10))=0))
+NOW TESTING (forall (INT (Lst) (Lst)) ((insort _qv_3 (cons _qv_4 _qv_5))=(cons (insort _qv_3 _qv_4) (insort _qv_3 _qv_5))))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((mem _v_9 _t_11)||((_v_9+(-_t_10))=0))
+NOW TESTING (forall (INT (Lst) (Lst)) ((cons _qv_6 (insort _qv_7 _qv_8))=(insort (cons _qv_6 _qv_7) (cons _qv_6 _qv_8))))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((mem _v_9 _t_11)||((_v_9+(-_t_10))=0))
+  deciding: (mem _v_9 _t_11)
+  {
+    ====================
+    | Assumptions [0]: ((sort nil)=nil)
+    | Assumptions [1]: (forall (INT INT) (((_qv_2>=0)&&(_qv_3>=0))->((less 1+_qv_2 1+_qv_3)=(less _qv_2 _qv_3))))
+    | Assumptions [2]: (forall (INT INT) (((_qv_4>=0)&&(_qv_5>=0))->((less _qv_4 _qv_5)=(_qv_4<_qv_5))))
+    | Assumptions [3]: (forall (INT INT (Lst)) ((mem _qv_7 (cons _qv_8 _qv_9))=((_qv_7=_qv_8)||(mem _qv_7 _qv_9))))
+    | Assumptions [4]: (forall (INT) ((insort _qv_10 nil)=(cons _qv_10 nil)))
+    | Assumptions [5]: (forall (INT INT (Lst)) ((insort _qv_11 (cons _qv_12 _qv_13))=ite((less _qv_11 _qv_12), (cons _qv_11 (cons _qv_12 _qv_13)), (cons _qv_12 (insort _qv_11 _qv_13)))))
+    | Assumptions [6]: (forall (INT (Lst)) ((sort (cons _qv_14 _qv_15))=(insort _qv_14 (sort _qv_15))))
+    | Assumptions [7]: (forall (INT) ((mem x (sort _t_11))->(mem x _t_11)))
+    | Assumptions [8]: (mem _v_9 (sort (cons _t_10 _t_11)))
+    | Assumptions [9]: (!(less 0 0))
+    | Assumptions [10]: (forall (INT) ((_qv_1>=0)->(less 0 1+_qv_1)))
+    | Assumptions [11]: (forall (INT) (!(mem _qv_6 nil)))
+    | Assumptions [12]: (mem _v_9 (insort _t_10 (sort _t_11)))
+    | Assumptions [13]: (!(mem _v_9 _t_11))
+    | Assumptions [14]: (!(mem _v_9 nil))
+    ====================
+  }
+  current subgoal: ((_v_9+(-_t_10))=0)
+  {
+  }
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall (INT INT) ((less _qv_12 _qv_13)=(less _qv_13 _qv_12)))
+	(forall ((Lst)) ((sort (sort _qv_14))=_qv_14))
+	(forall (INT (Lst) (Lst)) ((insort _qv_15 (cons _qv_16 _qv_17))=(cons (insort _qv_15 _qv_16) (insort _qv_15 _qv_17))))
+	(forall (INT (Lst) (Lst)) ((cons _qv_18 (insort _qv_19 _qv_20))=(insort (cons _qv_18 _qv_19) (cons _qv_18 _qv_20))))
+
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall (INT INT) ((less _qv_25 _qv_26)=(less _qv_26 _qv_25)))
+	(forall ((Lst)) ((sort (sort _qv_27))=_qv_27))
+	(forall (INT (Lst) (Lst)) ((insort _qv_28 (cons _qv_29 _qv_30))=(cons (insort _qv_28 _qv_29) (insort _qv_28 _qv_30))))
+	(forall (INT (Lst) (Lst)) ((cons _qv_31 (insort _qv_32 _qv_33))=(insort (cons _qv_31 _qv_32) (cons _qv_31 _qv_33))))
+

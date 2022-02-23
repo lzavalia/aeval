@@ -1,0 +1,34 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Lst) (Lst)) ((append _qv_0 _qv_1)=(append _qv_1 _qv_0)))
+	(forall ((Lst) (Lst) (Lst)) ((append (append _qv_2 _qv_3) _qv_4)=(append _qv_2 (append _qv_3 _qv_4))))
+
+Simplified goal: (forall ((Lst) (Lst)) ((len (append x y))=(len (append y x))))
+
+
+Base case:       ((len (append nil _v_5))=(len (append _v_5 nil)))
+{
+  {
+    ====================
+    | Assumptions [0]: ((len nil)=zero)
+    | Assumptions [1]: (forall ((Lst)) ((append nil _qv_1)=_qv_1))
+    | Assumptions [2]: (forall ((Nat) (Lst) (Lst)) ((append (cons _qv_2 _qv_3) _qv_4)=(cons _qv_2 (append _qv_3 _qv_4))))
+    | Assumptions [3]: (forall ((Nat) (Lst)) ((len (cons _qv_5 _qv_6))=(succ (len _qv_6))))
+    | Assumptions [4]: (forall ((Lst) (Nat) (Lst)) ((len (append _qv_7 (cons _qv_8 _qv_9)))=(succ (len (append _qv_7 _qv_9)))))
+    ====================
+  }
+  rewritten [1]: ((len _v_5)=(len (append _v_5 nil)))
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Lst) (Lst)) ((append _qv_6 _qv_7)=(append _qv_7 _qv_6)))
+	(forall ((Lst) (Lst) (Lst)) ((append (append _qv_8 _qv_9) _qv_10)=(append _qv_8 (append _qv_9 _qv_10))))
+
+  proven by induction: ((len _v_5)=(len (append _v_5 nil)))
+}
+Inductive step:  ((len (append (cons _t_6 _t_7) _v_5))=(len (append _v_5 (cons _t_6 _t_7))))
+{
+  proven trivially
+}
+
+Proved
+unsat

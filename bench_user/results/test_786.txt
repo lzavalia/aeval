@@ -1,0 +1,18 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Lst)) ((dropWhile (dropWhile _qv_0))=_qv_0))
+
+Simplified goal: (forall ((Lst)) ((forall (INT) (!(P x)))->((dropWhile xs)=xs)))
+
+
+Base case:       ((dropWhile nil)=nil)
+{
+  proven trivially
+}
+Inductive step:  ((dropWhile (cons _t_1 _t_2))=(cons _t_1 _t_2))
+{
+  proven trivially
+}
+
+Proved
+unsat

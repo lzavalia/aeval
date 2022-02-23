@@ -1,0 +1,17 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+
+Simplified goal: (forall (INT INT (Lst)) ((n>=0)->((take 1+n (cons x xs))=(cons x (take n xs)))))
+
+
+Base case:       ((take 1+_v_0 (cons _v_1 nil))=(cons _v_1 (take _v_0 nil)))
+{
+  proven trivially
+}
+Inductive step:  ((take 1+_v_0 (cons _v_1 (cons _t_2 _t_3)))=(cons _v_1 (take _v_0 (cons _t_2 _t_3))))
+{
+  proven trivially
+}
+
+Proved
+unsat

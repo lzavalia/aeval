@@ -1,0 +1,20 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall (INT INT) ((minus _qv_0 _qv_1)=(minus _qv_1 _qv_0)))
+	(forall (INT INT INT) ((minus (minus _qv_2 _qv_3) _qv_4)=(minus _qv_2 (minus _qv_3 _qv_4))))
+	(forall ((Lst)) (0<=(len _qv_5)))
+
+Simplified goal: (forall (INT (Lst)) ((n>=0)->((len (drop n xs))=(minus (len xs) n))))
+
+
+Base case:       ((len (drop _v_6 nil))=(minus (len nil) _v_6))
+{
+  proven trivially
+}
+Inductive step:  ((len (drop _v_6 (cons _t_7 _t_8)))=(minus (len (cons _t_7 _t_8)) _v_6))
+{
+  proven trivially
+}
+
+Proved
+unsat

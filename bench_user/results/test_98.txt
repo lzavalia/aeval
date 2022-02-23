@@ -1,0 +1,3 @@
+Cannot unmarshal: (head (:var 0))
+ind: /home/lucas/Desktop/aeval/include/ufo/Smt/ZExprConverter.hpp:32: static expr::Expr ufo::FailUnmarshal::unmarshal(const z3::ast&, expr::ExprFactory&, C&, ufo::ast_expr_map&) [with C = boost::bimaps::views::unordered_map_view<boost::bimaps::relation::member_at::right, boost::bimaps::detail::bimap_core<boost::bimaps::unordered_set_of<boost::intrusive_ptr<expr::ENode> >, boost::bimaps::unordered_set_of<z3::ast, z3::ast_ptr_hash, z3::ast_ptr_equal_to>, mpl_::na, mpl_::na, mpl_::na> >; expr::Expr = boost::intrusive_ptr<expr::ENode>; ufo::ast_expr_map = std::unordered_map<z3::ast, boost::intrusive_ptr<expr::ENode>, z3::ast_ptr_hash, z3::ast_ptr_equal_to>]: Assertion `0' failed.
+timeout: the monitored command dumped core

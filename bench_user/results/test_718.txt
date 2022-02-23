@@ -1,0 +1,44 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall (INT INT) ((minus _qv_0 _qv_1)=(minus _qv_1 _qv_0)))
+	(forall (INT INT INT) ((minus (minus _qv_2 _qv_3) _qv_4)=(minus _qv_2 (minus _qv_3 _qv_4))))
+	(forall (INT (Lst) (Lst)) ((take _qv_5 (drop _qv_6 _qv_7))=(drop (take _qv_5 _qv_6) (take _qv_5 _qv_7))))
+	(forall (INT (Lst) (Lst)) ((drop _qv_8 (take _qv_9 _qv_10))=(take (drop _qv_8 _qv_9) (drop _qv_8 _qv_10))))
+
+Simplified goal: (forall (INT INT (Lst)) (((n>=0)&&(m>=0))->((drop n (take m xs))=(take (minus m n) (drop n xs)))))
+
+
+Base case:       ((drop _v_11 (take _v_12 nil))=(take (minus _v_12 _v_11) (drop _v_11 nil)))
+{
+  proven trivially
+}
+Inductive step:  ((drop _v_11 (take _v_12 (cons _t_13 _t_14)))=(take (minus _v_12 _v_11) (drop _v_11 (cons _t_13 _t_14))))
+{
+  {
+    ====================
+    | Assumptions [0]: (forall (INT) ((_qv_1>=0)->((minus 0 _qv_1)=0)))
+    | Assumptions [1]: (forall (INT) ((_qv_2>=0)->((minus _qv_2 0)=_qv_2)))
+    | Assumptions [2]: (forall (INT INT) (((_qv_3>=0)&&(_qv_4>=0))->((minus 1+_qv_3 1+_qv_4)=(minus _qv_3 _qv_4))))
+    | Assumptions [3]: (forall (INT INT) (((_qv_5>=0)&&(_qv_6>=0))->((minus _qv_5 _qv_6)=ite(_qv_5<_qv_6, 0, _qv_5-_qv_6))))
+    | Assumptions [4]: (forall (INT) ((drop _qv_7 nil)=nil))
+    | Assumptions [5]: (forall ((Lst)) ((drop 0 _qv_8)=_qv_8))
+    | Assumptions [6]: (forall (INT INT (Lst)) ((_qv_9>=0)->((drop _qv_9+1 (cons _qv_10 _qv_11))=(drop _qv_9 _qv_11))))
+    | Assumptions [7]: (forall (INT) ((take _qv_12 nil)=nil))
+    | Assumptions [8]: (forall ((Lst)) ((take 0 _qv_13)=nil))
+    | Assumptions [9]: (forall (INT INT (Lst)) ((_qv_14>=0)->((take _qv_14+1 (cons _qv_15 _qv_16))=(cons _qv_15 (take _qv_14 _qv_16)))))
+    | Assumptions [10]: (_v_11>=0)
+    | Assumptions [11]: (_v_12>=0)
+    | Assumptions [12]: (forall (INT INT) (((n>=0)&&(m>=0))->((drop n (take m _t_14))=(take (minus m n) (drop n _t_14)))))
+    | Assumptions [13]: ((minus 0 _v_11)=0)
+    | Assumptions [14]: ((minus _v_11 0)=_v_11)
+    | Assumptions [15]: ((minus _v_11+1 _v_12+1)=(minus _v_11 _v_12))
+    | Assumptions [16]: ((minus _v_11 _v_12)=ite(_v_11<_v_12, 0, _v_11+(-_v_12)))
+    | Assumptions [17]: (forall (INT (Lst)) ((drop _v_11+1 (cons _qv_10 _qv_11))=(drop _v_11 _qv_11)))
+    | Assumptions [18]: (forall (INT (Lst)) ((take _v_11+1 (cons _qv_15 _qv_16))=(cons _qv_15 (take _v_11 _qv_16))))
+    | Assumptions [19]: ((drop _v_11 (take _v_12 _t_14))=(take (minus _v_12 _v_11) (drop _v_11 _t_14)))
+    | Assumptions [20]: ((minus _v_11+1 _v_12+1)=ite(_v_11<_v_12, 0, _v_11+(-_v_12)))
+    | Assumptions [21]: (ite(_v_11<_v_12, 0, _v_11+(-_v_12))=(minus _v_11 _v_12))
+    ====================
+  }
+Unknown
+sat

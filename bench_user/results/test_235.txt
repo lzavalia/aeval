@@ -1,0 +1,27 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+	(forall ((Nat)) (0<=(nat-to-int _qv_1)))
+	(forall ((Nat) (Nat)) ((plus _qv_2 _qv_3)=(plus _qv_3 _qv_2)))
+	(forall ((Nat) (Nat) (Nat)) ((plus (plus _qv_4 _qv_5) _qv_6)=(plus _qv_4 (plus _qv_5 _qv_6))))
+	(forall ((Lst) (Lst)) ((append _qv_7 _qv_8)=(append _qv_8 _qv_7)))
+	(forall ((Lst) (Lst) (Lst)) ((append (append _qv_9 _qv_10) _qv_11)=(append _qv_9 (append _qv_10 _qv_11))))
+	(forall ((Nat)) ((nat-to-int (succ _qv_12))=(nat-to-int _qv_12)))
+	(forall ((Lst)) ((nat-to-int (len _qv_13))=(nat-to-int _qv_13)))
+	(forall ((Nat) (Nat)) ((succ (plus _qv_14 _qv_15))=(plus (succ _qv_14) (succ _qv_15))))
+	(forall ((Nat) (Nat)) ((succ (plus _qv_14 _qv_15))=(plus (succ _qv_15) (succ _qv_14))))
+
+Simplified goal: (forall ((Lst) (Lst)) ((len (append x y))=(plus (len x) (len y))))
+
+
+Base case:       ((len (append nil _v_16))=(plus (len nil) (len _v_16)))
+{
+  proven trivially
+}
+Inductive step:  ((len (append (cons _t_17 _t_18) _v_16))=(plus (len (cons _t_17 _t_18)) (len _v_16)))
+{
+  proven trivially
+}
+
+Proved
+unsat

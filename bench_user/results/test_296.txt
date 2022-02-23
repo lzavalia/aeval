@@ -1,0 +1,674 @@
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+	(forall ((Nat)) (0<=(nat-to-int _qv_1)))
+	(forall ((Nat)) ((nat-to-int (succ _qv_2))=(nat-to-int _qv_2)))
+
+Simplified goal: (forall ((Nat) (Nat) (Nat) (Lst)) ((drop w (drop x (drop y z)))=(drop y (drop x (drop w z)))))
+
+
+Base case:       ((drop _v_4 (drop zero (drop _v_3 _v_5)))=(drop _v_3 (drop zero (drop _v_4 _v_5))))
+{
+  {
+    ====================
+    | Assumptions [0]: ((nat-to-int zero)=0)
+    | Assumptions [1]: (forall ((Nat)) ((nat-to-int _qv_1)>=0))
+    | Assumptions [2]: (forall ((Nat) (Nat)) (((nat-to-int _qv_2)=(nat-to-int _qv_3))->(_qv_2=_qv_3)))
+    | Assumptions [3]: (forall ((Nat)) ((nat-to-int (succ _qv_4))=(1+(nat-to-int _qv_4))))
+    | Assumptions [4]: (forall ((Nat)) ((drop _qv_5 nil)=nil))
+    | Assumptions [5]: (forall ((Lst)) ((drop zero _qv_6)=_qv_6))
+    | Assumptions [6]: (forall ((Nat) (Nat) (Lst)) ((drop (succ _qv_7) (cons _qv_8 _qv_9))=(drop _qv_7 _qv_9)))
+    ====================
+  }
+  rewritten [5]: ((drop _v_4 (drop _v_3 _v_5))=(drop _v_3 (drop zero (drop _v_4 _v_5))))
+  rewritten [5]: ((drop _v_4 (drop _v_3 _v_5))=(drop _v_3 (drop _v_4 _v_5)))
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_6))=_qv_6))
+	(forall ((Nat)) (0<=(nat-to-int _qv_7)))
+	(forall ((Nat)) ((nat-to-int (succ _qv_8))=(nat-to-int _qv_8)))
+
+CURRENT SUBGOAL ((drop _v_4 (drop _v_3 _v_5))=(drop _v_3 (drop zero (drop _v_4 _v_5))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop _v_4 (drop _v_3 _v_5))=(drop _v_3 (drop zero (drop _v_4 _v_5))))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop _v_4 (drop _v_3 _v_5))=(drop _v_3 (drop zero (drop _v_4 _v_5))))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_2))=(nat-to-int _qv_2)))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((drop _v_4 (drop _v_3 _v_5))=(drop _v_3 (drop zero (drop _v_4 _v_5))))
+  rewritten [5]: ((drop _v_4 (drop _v_3 _v_5))=(drop _v_3 (drop _v_4 _v_5)))
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_6))=_qv_6))
+	(forall ((Nat)) (0<=(nat-to-int _qv_7)))
+	(forall ((Nat)) ((nat-to-int (succ _qv_8))=(nat-to-int _qv_8)))
+
+CURRENT SUBGOAL ((drop _v_4 (drop _v_3 _v_5))=(drop _v_3 (drop zero (drop _v_4 _v_5))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop _v_4 (drop _v_3 _v_5))=(drop _v_3 (drop zero (drop _v_4 _v_5))))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop _v_4 (drop _v_3 _v_5))=(drop _v_3 (drop zero (drop _v_4 _v_5))))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_2))=(nat-to-int _qv_2)))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((drop _v_4 (drop _v_3 _v_5))=(drop _v_3 (drop zero (drop _v_4 _v_5))))
+CURRENT SUBGOAL ((drop _v_4 (drop zero (drop _v_3 _v_5)))=(drop _v_3 (drop zero (drop _v_4 _v_5))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop _v_4 (drop zero (drop _v_3 _v_5)))=(drop _v_3 (drop zero (drop _v_4 _v_5))))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop _v_4 (drop zero (drop _v_3 _v_5)))=(drop _v_3 (drop zero (drop _v_4 _v_5))))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_2))=(nat-to-int _qv_2)))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((drop _v_4 (drop zero (drop _v_3 _v_5)))=(drop _v_3 (drop zero (drop _v_4 _v_5))))
+  rewritten [5]: ((drop _v_4 (drop zero (drop _v_3 _v_5)))=(drop _v_3 (drop _v_4 _v_5)))
+  rewritten [5]: ((drop _v_4 (drop _v_3 _v_5))=(drop _v_3 (drop _v_4 _v_5)))
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_6))=_qv_6))
+	(forall ((Nat)) (0<=(nat-to-int _qv_7)))
+	(forall ((Nat)) ((nat-to-int (succ _qv_8))=(nat-to-int _qv_8)))
+
+CURRENT SUBGOAL ((drop _v_4 (drop zero (drop _v_3 _v_5)))=(drop _v_3 (drop _v_4 _v_5)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop _v_4 (drop zero (drop _v_3 _v_5)))=(drop _v_3 (drop _v_4 _v_5)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop _v_4 (drop zero (drop _v_3 _v_5)))=(drop _v_3 (drop _v_4 _v_5)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_2))=(nat-to-int _qv_2)))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((drop _v_4 (drop zero (drop _v_3 _v_5)))=(drop _v_3 (drop _v_4 _v_5)))
+  rewritten [5]: ((drop _v_4 (drop _v_3 _v_5))=(drop _v_3 (drop _v_4 _v_5)))
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_6))=_qv_6))
+	(forall ((Nat)) (0<=(nat-to-int _qv_7)))
+	(forall ((Nat)) ((nat-to-int (succ _qv_8))=(nat-to-int _qv_8)))
+
+CURRENT SUBGOAL ((drop _v_4 (drop zero (drop _v_3 _v_5)))=(drop _v_3 (drop _v_4 _v_5)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop _v_4 (drop zero (drop _v_3 _v_5)))=(drop _v_3 (drop _v_4 _v_5)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop _v_4 (drop zero (drop _v_3 _v_5)))=(drop _v_3 (drop _v_4 _v_5)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_2))=(nat-to-int _qv_2)))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((drop _v_4 (drop zero (drop _v_3 _v_5)))=(drop _v_3 (drop _v_4 _v_5)))
+CURRENT SUBGOAL ((drop _v_4 (drop zero (drop _v_3 _v_5)))=(drop _v_3 (drop zero (drop _v_4 _v_5))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop _v_4 (drop zero (drop _v_3 _v_5)))=(drop _v_3 (drop zero (drop _v_4 _v_5))))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop _v_4 (drop zero (drop _v_3 _v_5)))=(drop _v_3 (drop zero (drop _v_4 _v_5))))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_2))=(nat-to-int _qv_2)))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((drop _v_4 (drop zero (drop _v_3 _v_5)))=(drop _v_3 (drop zero (drop _v_4 _v_5))))
+  rewritten [5]: ((drop _v_4 (drop _v_3 _v_5))=(drop _v_3 (drop zero (drop _v_4 _v_5))))
+  rewritten [5]: ((drop _v_4 (drop _v_3 _v_5))=(drop _v_3 (drop _v_4 _v_5)))
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_6))=_qv_6))
+	(forall ((Nat)) (0<=(nat-to-int _qv_7)))
+	(forall ((Nat)) ((nat-to-int (succ _qv_8))=(nat-to-int _qv_8)))
+
+CURRENT SUBGOAL ((drop _v_4 (drop _v_3 _v_5))=(drop _v_3 (drop zero (drop _v_4 _v_5))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop _v_4 (drop _v_3 _v_5))=(drop _v_3 (drop zero (drop _v_4 _v_5))))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop _v_4 (drop _v_3 _v_5))=(drop _v_3 (drop zero (drop _v_4 _v_5))))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_2))=(nat-to-int _qv_2)))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((drop _v_4 (drop _v_3 _v_5))=(drop _v_3 (drop zero (drop _v_4 _v_5))))
+  rewritten [5]: ((drop _v_4 (drop _v_3 _v_5))=(drop _v_3 (drop _v_4 _v_5)))
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_6))=_qv_6))
+	(forall ((Nat)) (0<=(nat-to-int _qv_7)))
+	(forall ((Nat)) ((nat-to-int (succ _qv_8))=(nat-to-int _qv_8)))
+
+CURRENT SUBGOAL ((drop _v_4 (drop _v_3 _v_5))=(drop _v_3 (drop zero (drop _v_4 _v_5))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop _v_4 (drop _v_3 _v_5))=(drop _v_3 (drop zero (drop _v_4 _v_5))))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop _v_4 (drop _v_3 _v_5))=(drop _v_3 (drop zero (drop _v_4 _v_5))))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_2))=(nat-to-int _qv_2)))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((drop _v_4 (drop _v_3 _v_5))=(drop _v_3 (drop zero (drop _v_4 _v_5))))
+CURRENT SUBGOAL ((drop _v_4 (drop zero (drop _v_3 _v_5)))=(drop _v_3 (drop zero (drop _v_4 _v_5))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop _v_4 (drop zero (drop _v_3 _v_5)))=(drop _v_3 (drop zero (drop _v_4 _v_5))))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop _v_4 (drop zero (drop _v_3 _v_5)))=(drop _v_3 (drop zero (drop _v_4 _v_5))))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_2))=(nat-to-int _qv_2)))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((drop _v_4 (drop zero (drop _v_3 _v_5)))=(drop _v_3 (drop zero (drop _v_4 _v_5))))
+  rewritten [5]: ((drop _v_4 (drop zero (drop _v_3 _v_5)))=(drop _v_3 (drop _v_4 _v_5)))
+  rewritten [5]: ((drop _v_4 (drop _v_3 _v_5))=(drop _v_3 (drop _v_4 _v_5)))
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_6))=_qv_6))
+	(forall ((Nat)) (0<=(nat-to-int _qv_7)))
+	(forall ((Nat)) ((nat-to-int (succ _qv_8))=(nat-to-int _qv_8)))
+
+CURRENT SUBGOAL ((drop _v_4 (drop zero (drop _v_3 _v_5)))=(drop _v_3 (drop _v_4 _v_5)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop _v_4 (drop zero (drop _v_3 _v_5)))=(drop _v_3 (drop _v_4 _v_5)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop _v_4 (drop zero (drop _v_3 _v_5)))=(drop _v_3 (drop _v_4 _v_5)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_2))=(nat-to-int _qv_2)))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((drop _v_4 (drop zero (drop _v_3 _v_5)))=(drop _v_3 (drop _v_4 _v_5)))
+  rewritten [5]: ((drop _v_4 (drop _v_3 _v_5))=(drop _v_3 (drop _v_4 _v_5)))
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_6))=_qv_6))
+	(forall ((Nat)) (0<=(nat-to-int _qv_7)))
+	(forall ((Nat)) ((nat-to-int (succ _qv_8))=(nat-to-int _qv_8)))
+
+CURRENT SUBGOAL ((drop _v_4 (drop zero (drop _v_3 _v_5)))=(drop _v_3 (drop _v_4 _v_5)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop _v_4 (drop zero (drop _v_3 _v_5)))=(drop _v_3 (drop _v_4 _v_5)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop _v_4 (drop zero (drop _v_3 _v_5)))=(drop _v_3 (drop _v_4 _v_5)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_2))=(nat-to-int _qv_2)))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((drop _v_4 (drop zero (drop _v_3 _v_5)))=(drop _v_3 (drop _v_4 _v_5)))
+CURRENT SUBGOAL ((drop _v_4 (drop zero (drop _v_3 _v_5)))=(drop _v_3 (drop zero (drop _v_4 _v_5))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop _v_4 (drop zero (drop _v_3 _v_5)))=(drop _v_3 (drop zero (drop _v_4 _v_5))))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop _v_4 (drop zero (drop _v_3 _v_5)))=(drop _v_3 (drop zero (drop _v_4 _v_5))))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_2))=(nat-to-int _qv_2)))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((drop _v_4 (drop zero (drop _v_3 _v_5)))=(drop _v_3 (drop zero (drop _v_4 _v_5))))
+}
+
+Base case:       ((drop _v_7 (drop _v_6 (drop zero _v_8)))=(drop zero (drop _v_6 (drop _v_7 _v_8))))
+{
+  {
+    ====================
+    | Assumptions [0]: ((nat-to-int zero)=0)
+    | Assumptions [1]: (forall ((Nat)) ((nat-to-int _qv_1)>=0))
+    | Assumptions [2]: (forall ((Nat) (Nat)) (((nat-to-int _qv_2)=(nat-to-int _qv_3))->(_qv_2=_qv_3)))
+    | Assumptions [3]: (forall ((Nat)) ((nat-to-int (succ _qv_4))=(1+(nat-to-int _qv_4))))
+    | Assumptions [4]: (forall ((Nat)) ((drop _qv_5 nil)=nil))
+    | Assumptions [5]: (forall ((Lst)) ((drop zero _qv_6)=_qv_6))
+    | Assumptions [6]: (forall ((Nat) (Nat) (Lst)) ((drop (succ _qv_7) (cons _qv_8 _qv_9))=(drop _qv_7 _qv_9)))
+    ====================
+  }
+  rewritten [5]: ((drop _v_7 (drop _v_6 _v_8))=(drop zero (drop _v_6 (drop _v_7 _v_8))))
+  rewritten [5]: ((drop _v_7 (drop _v_6 _v_8))=(drop _v_6 (drop _v_7 _v_8)))
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_9))=_qv_9))
+	(forall ((Nat)) (0<=(nat-to-int _qv_10)))
+	(forall ((Nat)) ((nat-to-int (succ _qv_11))=(nat-to-int _qv_11)))
+
+CURRENT SUBGOAL ((drop _v_7 (drop _v_6 _v_8))=(drop zero (drop _v_6 (drop _v_7 _v_8))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop _v_7 (drop _v_6 _v_8))=(drop zero (drop _v_6 (drop _v_7 _v_8))))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop _v_7 (drop _v_6 _v_8))=(drop zero (drop _v_6 (drop _v_7 _v_8))))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_2))=(nat-to-int _qv_2)))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((drop _v_7 (drop _v_6 _v_8))=(drop zero (drop _v_6 (drop _v_7 _v_8))))
+  rewritten [5]: ((drop _v_7 (drop _v_6 _v_8))=(drop _v_6 (drop _v_7 _v_8)))
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_9))=_qv_9))
+	(forall ((Nat)) (0<=(nat-to-int _qv_10)))
+	(forall ((Nat)) ((nat-to-int (succ _qv_11))=(nat-to-int _qv_11)))
+
+CURRENT SUBGOAL ((drop _v_7 (drop _v_6 _v_8))=(drop zero (drop _v_6 (drop _v_7 _v_8))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop _v_7 (drop _v_6 _v_8))=(drop zero (drop _v_6 (drop _v_7 _v_8))))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop _v_7 (drop _v_6 _v_8))=(drop zero (drop _v_6 (drop _v_7 _v_8))))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_2))=(nat-to-int _qv_2)))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((drop _v_7 (drop _v_6 _v_8))=(drop zero (drop _v_6 (drop _v_7 _v_8))))
+CURRENT SUBGOAL ((drop _v_7 (drop _v_6 (drop zero _v_8)))=(drop zero (drop _v_6 (drop _v_7 _v_8))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop _v_7 (drop _v_6 (drop zero _v_8)))=(drop zero (drop _v_6 (drop _v_7 _v_8))))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop _v_7 (drop _v_6 (drop zero _v_8)))=(drop zero (drop _v_6 (drop _v_7 _v_8))))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_2))=(nat-to-int _qv_2)))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((drop _v_7 (drop _v_6 (drop zero _v_8)))=(drop zero (drop _v_6 (drop _v_7 _v_8))))
+  rewritten [5]: ((drop _v_7 (drop _v_6 (drop zero _v_8)))=(drop _v_6 (drop _v_7 _v_8)))
+  rewritten [5]: ((drop _v_7 (drop _v_6 _v_8))=(drop _v_6 (drop _v_7 _v_8)))
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_9))=_qv_9))
+	(forall ((Nat)) (0<=(nat-to-int _qv_10)))
+	(forall ((Nat)) ((nat-to-int (succ _qv_11))=(nat-to-int _qv_11)))
+
+CURRENT SUBGOAL ((drop _v_7 (drop _v_6 (drop zero _v_8)))=(drop _v_6 (drop _v_7 _v_8)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop _v_7 (drop _v_6 (drop zero _v_8)))=(drop _v_6 (drop _v_7 _v_8)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop _v_7 (drop _v_6 (drop zero _v_8)))=(drop _v_6 (drop _v_7 _v_8)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_2))=(nat-to-int _qv_2)))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((drop _v_7 (drop _v_6 (drop zero _v_8)))=(drop _v_6 (drop _v_7 _v_8)))
+  rewritten [5]: ((drop _v_7 (drop _v_6 _v_8))=(drop _v_6 (drop _v_7 _v_8)))
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_9))=_qv_9))
+	(forall ((Nat)) (0<=(nat-to-int _qv_10)))
+	(forall ((Nat)) ((nat-to-int (succ _qv_11))=(nat-to-int _qv_11)))
+
+CURRENT SUBGOAL ((drop _v_7 (drop _v_6 (drop zero _v_8)))=(drop _v_6 (drop _v_7 _v_8)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop _v_7 (drop _v_6 (drop zero _v_8)))=(drop _v_6 (drop _v_7 _v_8)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop _v_7 (drop _v_6 (drop zero _v_8)))=(drop _v_6 (drop _v_7 _v_8)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_2))=(nat-to-int _qv_2)))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((drop _v_7 (drop _v_6 (drop zero _v_8)))=(drop _v_6 (drop _v_7 _v_8)))
+CURRENT SUBGOAL ((drop _v_7 (drop _v_6 (drop zero _v_8)))=(drop zero (drop _v_6 (drop _v_7 _v_8))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop _v_7 (drop _v_6 (drop zero _v_8)))=(drop zero (drop _v_6 (drop _v_7 _v_8))))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop _v_7 (drop _v_6 (drop zero _v_8)))=(drop zero (drop _v_6 (drop _v_7 _v_8))))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_2))=(nat-to-int _qv_2)))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((drop _v_7 (drop _v_6 (drop zero _v_8)))=(drop zero (drop _v_6 (drop _v_7 _v_8))))
+  rewritten [5]: ((drop _v_7 (drop _v_6 _v_8))=(drop zero (drop _v_6 (drop _v_7 _v_8))))
+  rewritten [5]: ((drop _v_7 (drop _v_6 _v_8))=(drop _v_6 (drop _v_7 _v_8)))
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_9))=_qv_9))
+	(forall ((Nat)) (0<=(nat-to-int _qv_10)))
+	(forall ((Nat)) ((nat-to-int (succ _qv_11))=(nat-to-int _qv_11)))
+
+CURRENT SUBGOAL ((drop _v_7 (drop _v_6 _v_8))=(drop zero (drop _v_6 (drop _v_7 _v_8))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop _v_7 (drop _v_6 _v_8))=(drop zero (drop _v_6 (drop _v_7 _v_8))))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop _v_7 (drop _v_6 _v_8))=(drop zero (drop _v_6 (drop _v_7 _v_8))))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_2))=(nat-to-int _qv_2)))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((drop _v_7 (drop _v_6 _v_8))=(drop zero (drop _v_6 (drop _v_7 _v_8))))
+  rewritten [5]: ((drop _v_7 (drop _v_6 _v_8))=(drop _v_6 (drop _v_7 _v_8)))
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_9))=_qv_9))
+	(forall ((Nat)) (0<=(nat-to-int _qv_10)))
+	(forall ((Nat)) ((nat-to-int (succ _qv_11))=(nat-to-int _qv_11)))
+
+CURRENT SUBGOAL ((drop _v_7 (drop _v_6 _v_8))=(drop zero (drop _v_6 (drop _v_7 _v_8))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop _v_7 (drop _v_6 _v_8))=(drop zero (drop _v_6 (drop _v_7 _v_8))))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop _v_7 (drop _v_6 _v_8))=(drop zero (drop _v_6 (drop _v_7 _v_8))))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_2))=(nat-to-int _qv_2)))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((drop _v_7 (drop _v_6 _v_8))=(drop zero (drop _v_6 (drop _v_7 _v_8))))
+CURRENT SUBGOAL ((drop _v_7 (drop _v_6 (drop zero _v_8)))=(drop zero (drop _v_6 (drop _v_7 _v_8))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop _v_7 (drop _v_6 (drop zero _v_8)))=(drop zero (drop _v_6 (drop _v_7 _v_8))))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop _v_7 (drop _v_6 (drop zero _v_8)))=(drop zero (drop _v_6 (drop _v_7 _v_8))))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_2))=(nat-to-int _qv_2)))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((drop _v_7 (drop _v_6 (drop zero _v_8)))=(drop zero (drop _v_6 (drop _v_7 _v_8))))
+  rewritten [5]: ((drop _v_7 (drop _v_6 (drop zero _v_8)))=(drop _v_6 (drop _v_7 _v_8)))
+  rewritten [5]: ((drop _v_7 (drop _v_6 _v_8))=(drop _v_6 (drop _v_7 _v_8)))
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_9))=_qv_9))
+	(forall ((Nat)) (0<=(nat-to-int _qv_10)))
+	(forall ((Nat)) ((nat-to-int (succ _qv_11))=(nat-to-int _qv_11)))
+
+CURRENT SUBGOAL ((drop _v_7 (drop _v_6 (drop zero _v_8)))=(drop _v_6 (drop _v_7 _v_8)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop _v_7 (drop _v_6 (drop zero _v_8)))=(drop _v_6 (drop _v_7 _v_8)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop _v_7 (drop _v_6 (drop zero _v_8)))=(drop _v_6 (drop _v_7 _v_8)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_2))=(nat-to-int _qv_2)))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((drop _v_7 (drop _v_6 (drop zero _v_8)))=(drop _v_6 (drop _v_7 _v_8)))
+  rewritten [5]: ((drop _v_7 (drop _v_6 _v_8))=(drop _v_6 (drop _v_7 _v_8)))
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_9))=_qv_9))
+	(forall ((Nat)) (0<=(nat-to-int _qv_10)))
+	(forall ((Nat)) ((nat-to-int (succ _qv_11))=(nat-to-int _qv_11)))
+
+CURRENT SUBGOAL ((drop _v_7 (drop _v_6 (drop zero _v_8)))=(drop _v_6 (drop _v_7 _v_8)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop _v_7 (drop _v_6 (drop zero _v_8)))=(drop _v_6 (drop _v_7 _v_8)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop _v_7 (drop _v_6 (drop zero _v_8)))=(drop _v_6 (drop _v_7 _v_8)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_2))=(nat-to-int _qv_2)))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((drop _v_7 (drop _v_6 (drop zero _v_8)))=(drop _v_6 (drop _v_7 _v_8)))
+CURRENT SUBGOAL ((drop _v_7 (drop _v_6 (drop zero _v_8)))=(drop zero (drop _v_6 (drop _v_7 _v_8))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop _v_7 (drop _v_6 (drop zero _v_8)))=(drop zero (drop _v_6 (drop _v_7 _v_8))))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop _v_7 (drop _v_6 (drop zero _v_8)))=(drop zero (drop _v_6 (drop _v_7 _v_8))))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_2))=(nat-to-int _qv_2)))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((drop _v_7 (drop _v_6 (drop zero _v_8)))=(drop zero (drop _v_6 (drop _v_7 _v_8))))
+}
+
+Base case:       ((drop zero (drop _v_9 (drop _v_10 _v_11)))=(drop _v_10 (drop _v_9 (drop zero _v_11))))
+{
+  {
+    ====================
+    | Assumptions [0]: ((nat-to-int zero)=0)
+    | Assumptions [1]: (forall ((Nat)) ((nat-to-int _qv_1)>=0))
+    | Assumptions [2]: (forall ((Nat) (Nat)) (((nat-to-int _qv_2)=(nat-to-int _qv_3))->(_qv_2=_qv_3)))
+    | Assumptions [3]: (forall ((Nat)) ((nat-to-int (succ _qv_4))=(1+(nat-to-int _qv_4))))
+    | Assumptions [4]: (forall ((Nat)) ((drop _qv_5 nil)=nil))
+    | Assumptions [5]: (forall ((Lst)) ((drop zero _qv_6)=_qv_6))
+    | Assumptions [6]: (forall ((Nat) (Nat) (Lst)) ((drop (succ _qv_7) (cons _qv_8 _qv_9))=(drop _qv_7 _qv_9)))
+    ====================
+  }
+  rewritten [5]: ((drop zero (drop _v_9 (drop _v_10 _v_11)))=(drop _v_10 (drop _v_9 _v_11)))
+  rewritten [5]: ((drop _v_9 (drop _v_10 _v_11))=(drop _v_10 (drop _v_9 _v_11)))
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_12))=_qv_12))
+	(forall ((Nat)) (0<=(nat-to-int _qv_13)))
+	(forall ((Nat)) ((nat-to-int (succ _qv_14))=(nat-to-int _qv_14)))
+
+CURRENT SUBGOAL ((drop zero (drop _v_9 (drop _v_10 _v_11)))=(drop _v_10 (drop _v_9 _v_11)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop zero (drop _v_9 (drop _v_10 _v_11)))=(drop _v_10 (drop _v_9 _v_11)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop zero (drop _v_9 (drop _v_10 _v_11)))=(drop _v_10 (drop _v_9 _v_11)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_2))=(nat-to-int _qv_2)))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((drop zero (drop _v_9 (drop _v_10 _v_11)))=(drop _v_10 (drop _v_9 _v_11)))
+  rewritten [5]: ((drop _v_9 (drop _v_10 _v_11))=(drop _v_10 (drop _v_9 _v_11)))
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_12))=_qv_12))
+	(forall ((Nat)) (0<=(nat-to-int _qv_13)))
+	(forall ((Nat)) ((nat-to-int (succ _qv_14))=(nat-to-int _qv_14)))
+
+CURRENT SUBGOAL ((drop zero (drop _v_9 (drop _v_10 _v_11)))=(drop _v_10 (drop _v_9 _v_11)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop zero (drop _v_9 (drop _v_10 _v_11)))=(drop _v_10 (drop _v_9 _v_11)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop zero (drop _v_9 (drop _v_10 _v_11)))=(drop _v_10 (drop _v_9 _v_11)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_2))=(nat-to-int _qv_2)))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((drop zero (drop _v_9 (drop _v_10 _v_11)))=(drop _v_10 (drop _v_9 _v_11)))
+CURRENT SUBGOAL ((drop zero (drop _v_9 (drop _v_10 _v_11)))=(drop _v_10 (drop _v_9 (drop zero _v_11))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop zero (drop _v_9 (drop _v_10 _v_11)))=(drop _v_10 (drop _v_9 (drop zero _v_11))))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop zero (drop _v_9 (drop _v_10 _v_11)))=(drop _v_10 (drop _v_9 (drop zero _v_11))))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_2))=(nat-to-int _qv_2)))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((drop zero (drop _v_9 (drop _v_10 _v_11)))=(drop _v_10 (drop _v_9 (drop zero _v_11))))
+  rewritten [5]: ((drop _v_9 (drop _v_10 _v_11))=(drop _v_10 (drop _v_9 (drop zero _v_11))))
+  rewritten [5]: ((drop _v_9 (drop _v_10 _v_11))=(drop _v_10 (drop _v_9 _v_11)))
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_12))=_qv_12))
+	(forall ((Nat)) (0<=(nat-to-int _qv_13)))
+	(forall ((Nat)) ((nat-to-int (succ _qv_14))=(nat-to-int _qv_14)))
+
+CURRENT SUBGOAL ((drop _v_9 (drop _v_10 _v_11))=(drop _v_10 (drop _v_9 (drop zero _v_11))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop _v_9 (drop _v_10 _v_11))=(drop _v_10 (drop _v_9 (drop zero _v_11))))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop _v_9 (drop _v_10 _v_11))=(drop _v_10 (drop _v_9 (drop zero _v_11))))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_2))=(nat-to-int _qv_2)))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((drop _v_9 (drop _v_10 _v_11))=(drop _v_10 (drop _v_9 (drop zero _v_11))))
+  rewritten [5]: ((drop _v_9 (drop _v_10 _v_11))=(drop _v_10 (drop _v_9 _v_11)))
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_12))=_qv_12))
+	(forall ((Nat)) (0<=(nat-to-int _qv_13)))
+	(forall ((Nat)) ((nat-to-int (succ _qv_14))=(nat-to-int _qv_14)))
+
+CURRENT SUBGOAL ((drop _v_9 (drop _v_10 _v_11))=(drop _v_10 (drop _v_9 (drop zero _v_11))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop _v_9 (drop _v_10 _v_11))=(drop _v_10 (drop _v_9 (drop zero _v_11))))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop _v_9 (drop _v_10 _v_11))=(drop _v_10 (drop _v_9 (drop zero _v_11))))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_2))=(nat-to-int _qv_2)))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((drop _v_9 (drop _v_10 _v_11))=(drop _v_10 (drop _v_9 (drop zero _v_11))))
+CURRENT SUBGOAL ((drop zero (drop _v_9 (drop _v_10 _v_11)))=(drop _v_10 (drop _v_9 (drop zero _v_11))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop zero (drop _v_9 (drop _v_10 _v_11)))=(drop _v_10 (drop _v_9 (drop zero _v_11))))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop zero (drop _v_9 (drop _v_10 _v_11)))=(drop _v_10 (drop _v_9 (drop zero _v_11))))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_2))=(nat-to-int _qv_2)))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((drop zero (drop _v_9 (drop _v_10 _v_11)))=(drop _v_10 (drop _v_9 (drop zero _v_11))))
+  rewritten [5]: ((drop zero (drop _v_9 (drop _v_10 _v_11)))=(drop _v_10 (drop _v_9 _v_11)))
+  rewritten [5]: ((drop _v_9 (drop _v_10 _v_11))=(drop _v_10 (drop _v_9 _v_11)))
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_12))=_qv_12))
+	(forall ((Nat)) (0<=(nat-to-int _qv_13)))
+	(forall ((Nat)) ((nat-to-int (succ _qv_14))=(nat-to-int _qv_14)))
+
+CURRENT SUBGOAL ((drop zero (drop _v_9 (drop _v_10 _v_11)))=(drop _v_10 (drop _v_9 _v_11)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop zero (drop _v_9 (drop _v_10 _v_11)))=(drop _v_10 (drop _v_9 _v_11)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop zero (drop _v_9 (drop _v_10 _v_11)))=(drop _v_10 (drop _v_9 _v_11)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_2))=(nat-to-int _qv_2)))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((drop zero (drop _v_9 (drop _v_10 _v_11)))=(drop _v_10 (drop _v_9 _v_11)))
+  rewritten [5]: ((drop _v_9 (drop _v_10 _v_11))=(drop _v_10 (drop _v_9 _v_11)))
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_12))=_qv_12))
+	(forall ((Nat)) (0<=(nat-to-int _qv_13)))
+	(forall ((Nat)) ((nat-to-int (succ _qv_14))=(nat-to-int _qv_14)))
+
+CURRENT SUBGOAL ((drop zero (drop _v_9 (drop _v_10 _v_11)))=(drop _v_10 (drop _v_9 _v_11)))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop zero (drop _v_9 (drop _v_10 _v_11)))=(drop _v_10 (drop _v_9 _v_11)))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop zero (drop _v_9 (drop _v_10 _v_11)))=(drop _v_10 (drop _v_9 _v_11)))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_2))=(nat-to-int _qv_2)))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((drop zero (drop _v_9 (drop _v_10 _v_11)))=(drop _v_10 (drop _v_9 _v_11)))
+CURRENT SUBGOAL ((drop zero (drop _v_9 (drop _v_10 _v_11)))=(drop _v_10 (drop _v_9 (drop zero _v_11))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop zero (drop _v_9 (drop _v_10 _v_11)))=(drop _v_10 (drop _v_9 (drop zero _v_11))))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop zero (drop _v_9 (drop _v_10 _v_11)))=(drop _v_10 (drop _v_9 (drop zero _v_11))))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_2))=(nat-to-int _qv_2)))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((drop zero (drop _v_9 (drop _v_10 _v_11)))=(drop _v_10 (drop _v_9 (drop zero _v_11))))
+  rewritten [5]: ((drop _v_9 (drop _v_10 _v_11))=(drop _v_10 (drop _v_9 (drop zero _v_11))))
+  rewritten [5]: ((drop _v_9 (drop _v_10 _v_11))=(drop _v_10 (drop _v_9 _v_11)))
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_12))=_qv_12))
+	(forall ((Nat)) (0<=(nat-to-int _qv_13)))
+	(forall ((Nat)) ((nat-to-int (succ _qv_14))=(nat-to-int _qv_14)))
+
+CURRENT SUBGOAL ((drop _v_9 (drop _v_10 _v_11))=(drop _v_10 (drop _v_9 (drop zero _v_11))))
+NOW TESTING (forall ((Nat)) ((succ (succ _qv_0))=_qv_0))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop _v_9 (drop _v_10 _v_11))=(drop _v_10 (drop _v_9 (drop zero _v_11))))
+NOW TESTING (forall ((Nat)) (0<=(nat-to-int _qv_1)))
+USE ASSUMPTION FAILED
+
+CURRENT SUBGOAL ((drop _v_9 (drop _v_10 _v_11))=(drop _v_10 (drop _v_9 (drop zero _v_11))))
+NOW TESTING (forall ((Nat)) ((nat-to-int (succ _qv_2))=(nat-to-int _qv_2)))
+USE ASSUMPTION FAILED
+
+  backtrack to: ((drop _v_9 (drop _v_10 _v_11))=(drop _v_10 (drop _v_9 (drop zero _v_11))))
+  rewritten [5]: ((drop _v_9 (drop _v_10 _v_11))=(drop _v_10 (drop _v_9 _v_11)))
+
+The Knowledge Scheme currently contains the following lemmas:
+	(forall ((Nat)) ((succ (succ _qv_12))=_qv_12))
+	(forall ((Nat)) (0<=(nat-to-int _qv_13)))
+	(forall ((Nat)) ((nat-to-int (succ _qv_14))=(nat-to-int _qv_14)))
+
