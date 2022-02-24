@@ -1003,6 +1003,9 @@ namespace ufo
             rewriteSequence.pop_back();
           }
 
+          //consult knowledge scheme
+          //if (useKS) consultKnowledgeScheme(subgoal);
+
           if (subgoal != exp && lev < 1 /* max meta-induction level, hardcoded for now */)
           {
             map<Expr, int> occs;
@@ -1051,6 +1054,9 @@ namespace ufo
               }
             }
           }
+
+          //consult knowledge scheme
+          if (useKS) consultKnowledgeScheme(subgoal);
 
           // backtrack:
           if (verbose) outs () << string(sp, ' ') << "backtrack to: " << *subgoal << "\n";
@@ -1113,7 +1119,7 @@ namespace ufo
       //otherwise move to the next KS entry
       if (checkLemma == false) {return;}
       if (knowledgeScheme.empty()) {outs() << "knowledge scheme empty\n"; return;}
-      for (auto ks : knowledgeScheme)
+      for (auto ks : knowledgeScheme) //use iterator instead of auto, leave third argument blank, inc iterator in body
       {
         outs() << "CURRENT SUBGOAL " << newGoal << "\n";
         outs() << "NOW TESTING " << ks << "\n";
@@ -1148,7 +1154,7 @@ namespace ufo
         if ((*it)->arity() == 3)
         {
           //TEST FOR POSITIVE DEFINITIVENESS
-          if (isOpX<INT_TY>((*it)->last()))
+          if (isOpX<INT_TY>((*it)->last()) || isOpX<MPZ>((*it)->last()))
           {
             Expr fappArg = bind::mkConst(mkTerm<string>("_qv_" + to_string(glob_ind), efac), (*it)->arg(1));
             glob_ind++;
@@ -1170,9 +1176,9 @@ namespace ufo
       }
       arity1FDECLs.push_back((*it));
     }
-    //analyze functions with arity 2
-    if ((*it)->arity() == 4)
-    {
+        //analyze functions with arity 2
+        if ((*it)->arity() == 4)
+        {
       //TEST FOR IDENTITY
       /*if ((*it)->arg(1) == (*it)->arg(2))
       {
@@ -1269,9 +1275,9 @@ namespace ufo
       }
       arity2FDECLs.push_back((*it));
     }
-  }
-  if (arity1FDECLs.size() > 1)
-  {
+      }
+      if (arity1FDECLs.size() > 1)
+      {
     for (auto a = arity1FDECLs.begin(); a != arity1FDECLs.end(); a++)
     {
       //TEST FOR LENGTH INVARIANCE
@@ -1294,8 +1300,8 @@ namespace ufo
       }
     }
   }
-  if (arity2FDECLs.size() > 1)
-  {
+      if (arity2FDECLs.size() > 1)
+      {
     for (auto at1 = arity2FDECLs.begin(); at1 != arity2FDECLs.end(); at1++)
     {
       for (auto at2 = arity2FDECLs.begin(); at2 != arity2FDECLs.end(); at2++)
@@ -1355,8 +1361,8 @@ namespace ufo
       }
     }
   }
-  if (arity1FDECLs.size() > 0 && arity2FDECLs.size() > 0)
-  {
+      if (arity1FDECLs.size() > 0 && arity2FDECLs.size() > 0)
+      {
     for (auto at1 = arity1FDECLs.begin(); at1 != arity1FDECLs.end(); at1++)
     {
       for (auto at2 = arity2FDECLs.begin(); at2 != arity2FDECLs.end(); at2++)
@@ -1409,7 +1415,8 @@ namespace ufo
         }
       }
     }
-  }}
+  }
+    }
 
     void printKnowledgeScheme()
     {
