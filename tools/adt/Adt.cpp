@@ -52,7 +52,7 @@ int main (int argc, char ** argv)
   bool useKS = !getBoolValue("--no-ks", false, argc, argv);
   unsigned to = atoi(getStrValue("--to", "1000", argc, argv));
   Expr e = z3_from_smtlib_file (z3, infile);
-  adtSolve(z3, e, maxDepth, maxGrow, mergingIts, earlySplit, true, useZ3, useKS, true, to);
+  adtSolve(z3, e, maxDepth, maxGrow, mergingIts, earlySplit, true, useZ3, useKS, to);
 
   return 0;
 }
