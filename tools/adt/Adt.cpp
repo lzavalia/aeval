@@ -45,7 +45,7 @@ int main (int argc, char ** argv)
   EZ3 z3(efac);
   char *infile = getSmtFileName(1, argc, argv);
   int maxDepth = atoi(getStrValue("--max-depth", "7", argc, argv));
-  int maxGrow = atoi(getStrValue("--max-grow", "3", argc, argv));
+  int maxGrow = atoi(getStrValue("--max-grow", "4", argc, argv));
   int mergingIts = atoi(getStrValue("--merge-assms", "3", argc, argv));
   int earlySplit = atoi(getStrValue("--early-split", "1", argc, argv));
   bool useZ3 = !getBoolValue("--no-z3", false, argc, argv);
