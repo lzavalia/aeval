@@ -898,7 +898,7 @@ namespace ufo
         Expr a = assumptions[i];
         ExprVector result;
         if (useAssumption(subgoal, a, result)) {
-//          if (verbose) outs () << string(sp, ' ') << "found " << result.size() << " substitution(s) for assumption " << i << "\n";
+          if (verbose) outs () << string(sp, ' ') << "found " << result.size() << " substitution(s) for assumption " << i << "\n";
           for (auto & it : result) {
             if (u.isTrue(it))
             {
@@ -910,6 +910,11 @@ namespace ufo
             if (find (rewriteHistory.begin(), rewriteHistory.end(), it) == rewriteHistory.end())
               allAttempts[i].push_back(it);
         }
+      }
+      if (tryRewriting(allAttempts, subgoal))
+      {
+        if (toRem) assumptions = assumptionsTmp;
+        return true;
       }
       {
       // vector<int> orderedAttempts1;
@@ -954,10 +959,52 @@ namespace ufo
       }
 
       /* test site 2 */
-      /*bool res = false;
+      bool res = false;
       if (useKS) res = useKnowledgeScheme(subgoal);
+      /*outs() << string(sp, ' ') << "New assumption list is:\n";
+      printAssumptions();*/
       if (res) {
         for (int i = 0; i < assumptions.size(); i++)
+        {
+          Expr a = assumptions[i];
+          ExprVector result;
+          if (useAssumption(subgoal, a, result)) {
+            for (auto & it : result) {
+              if (u.isTrue(it))
+              {
+                if (verbose) outs () << string(sp, ' ') << "applied [" << i << "]\n";
+                return true;
+              }
+            }
+            for (auto & it : result)
+              if (find (rewriteHistory.begin(), rewriteHistory.end(), it) == rewriteHistory.end())
+                allAttempts[i].push_back(it);
+          }
+        }
+      }
+      if (tryRewriting(allAttempts, subgoal))
+      {
+        if (toRem) assumptions = assumptionsTmp;
+        return true;
+      }
+
+      if (splitDisjAssumptions(subgoal)) return true;
+
+      //bool res = false;
+
+      if (isOpX<OR>(subgoal)) res = splitByGoal(subgoal);
+      if (!res) res = proveByContradiction(subgoal);
+      if (!res) res = similarityHeuristic(subgoal);
+      if (toRem) assumptions = assumptionsTmp;
+      if (res) return true;
+
+      if (lemmaGen(subgoal)) return true;
+
+      //apply knowledge scheme heuristic
+      /*res = false;
+      if (useKS) res = useKnowledgeScheme(subgoal);
+      if (res) {
+        for (int i = assumptions.size()-1; i >= 0; i--)
         {
           Expr a = assumptions[i];
           ExprVector result;
@@ -975,47 +1022,6 @@ namespace ufo
           }
         }
       }*/
-
-      if (tryRewriting(allAttempts, subgoal))
-      {
-        if (toRem) assumptions = assumptionsTmp;
-        return true;
-      }
-
-      if (splitDisjAssumptions(subgoal)) return true;
-
-      bool res = false;
-
-      if (isOpX<OR>(subgoal)) res = splitByGoal(subgoal);
-//      if (!res) res = proveByContradiction(subgoal);
-//      if (!res) res = similarityHeuristic(subgoal);
-      if (toRem) assumptions = assumptionsTmp;
-      if (res) return true;
-
-      if (lemmaGen(subgoal)) return true;
-
-      //apply knowledge scheme heuristic
-      res = false;
-      if (useKS) res = useKnowledgeScheme(subgoal);
-      if (res) {
-        for (int i = 0; i < assumptions.size(); i++)
-        {
-          Expr a = assumptions[i];
-          ExprVector result;
-          if (useAssumption(subgoal, a, result)) {
-            for (auto & it : result) {
-              if (u.isTrue(it))
-              {
-                if (verbose) outs () << string(sp, ' ') << "applied [" << i << "]\n";
-                return true;
-              }
-            }
-            for (auto & it : result)
-              if (find (rewriteHistory.begin(), rewriteHistory.end(), it) == rewriteHistory.end())
-                allAttempts[i].push_back(it);
-          }
-        }
-      }
 
       // backtrack:
       if (verbose) outs () << string(sp, ' ') << "backtrack to: " << *subgoal << "\n";
@@ -1162,17 +1168,24 @@ namespace ufo
           //outs() << "  Current lemma is: " << (*is) << "\n\n";
           useAssumption(subgoal, (*is), res);
           if (!res.empty()) {
-            //test if (*is) is in blockedAssms
-	    for (auto ba = blockedAssms.begin(); ba != blockedAssms.end(); ba++) {
+	    /*outs() << "RESULTS FROM USEASSUMPTIONS\n";
+	    for (auto temp = res.begin(); temp != res.end(); temp++) {
+                outs() << "\t" << *temp << "\n";
+	    }*/
+            //test if (*is) is in assumptions
+	    for (auto ba = assumptions.begin(); ba != assumptions.end(); ba++) {
                if (testIsomorphism((*ba), (*is))) return false;
+	       if (testIsomorphism(mirrorLemma(*ba), (*is))) return false;
 	    }
             //printKnowledgeScheme();
-            //outs() << "  Attempting to prove " << (*is) << "\n";
+	    //add disproof code here
+            if (disproof(*is)) continue;
+            outs() << "  Attempting to prove " << (*is) << "\n";
             ADTSolver sol ((*is), assumptions, constructors, glob_ind, lev+1,
-                           maxDepth, maxGrow, mergingIts, earlySplit, true, useZ3, false, to);
+                           maxDepth, maxGrow, mergingIts, earlySplit, false, useZ3, false, to);
             if (sol.solve()) {
+	      outs() << "  Using " << (*is) << "\n";
               assumptions.push_back((*is));
-	      blockedAssms.push_back((*is));
 	      knowledgeScheme.clear();
               return true;
             }
@@ -1180,17 +1193,19 @@ namespace ufo
 	  else {
              useAssumption(subgoal, mirrorLemma((*is)), res);
 	     if (!res.empty()) {
-		//test if (*is) is in blockedAssms
-	        for (auto ba = blockedAssms.begin(); ba != blockedAssms.end(); ba++) {
+		//test if (*is) is in assumptions
+	        for (auto ba = assumptions.begin(); ba != assumptions.end(); ba++) {
                   if (testIsomorphism((*ba), (*is))) return false;
+		  if (testIsomorphism(mirrorLemma(*ba), (*is))) return false;
 	        }
             	//printKnowledgeScheme();
-            	//outs() << "  Attempting to prove " << (*is) << "\n";
+		if (disproof(*is)) continue;
+            	outs() << "  Attempting to prove " << (*is) << "\n";
             	ADTSolver sol ((*is), assumptions, constructors, glob_ind, lev+1,
                               maxDepth, maxGrow, mergingIts, earlySplit, true, useZ3, false, to);
             	if (sol.solve()) {
+	           outs() << "  Using " << (*is) << "\n";
                    assumptions.push_back((*is));
-		   blockedAssms.push_back((*is));
 		   knowledgeScheme.clear();
               	   return true;
             	}
@@ -1206,10 +1221,101 @@ namespace ufo
        ExprMap matching;
        filter(exp1, bind::IsConst(), inserter(vars, vars.begin()));
        if (findMatching(exp1, exp2, vars, matching)) {
-          //outs() << "expressions are isomorphic\n";
+          outs() << "  expressions are isomorphic\n";
 	  return true;
        }
        return false;
+    }
+
+    bool disproof(Expr exp) {
+       outs() << "  Attempting to disprove: " << exp << '\n';
+       outs() << "  {\n";
+       ExprVector vars;
+       Expr newExpr;
+       //remove quantifier
+       if (isOpX<FORALL>(exp) || isOpX<EXISTS>(exp)) {newExpr = exp->last();}
+       else {newExpr = exp;}
+       //newExpr = mk<NEG>(newExpr);
+       //newExpr = mk<NEQ>(newExpr->left(), newExpr->right());
+       //collect variables and remove constants
+       filter(newExpr, bind::IsConst(), inserter(vars, vars.begin()));
+       Expr base =  mk<FAPP>(*find_if(constructors.begin(), constructors.end(), [](Expr x){return x->arity() == 2;}));
+       for (auto it = vars.begin(); it != vars.end(); ) {
+         if (*it == base) {vars.erase(it);}
+	 else it++;
+       }
+       //collect finalTerms
+       ExprSet finalTerms = generateTerms(newExpr, vars, 5);
+       for (auto it = finalTerms.begin(); it != finalTerms.end(); it++) {
+	  Expr temp = *it;
+	  Expr old = temp;
+          while (true) {
+             ExprVector results;
+             for (auto is = assumptions.begin(); is != assumptions.end(); is++) {
+		//locate specific function definitions
+		//when reading file, extract definitions
+		//pattern match for two assumptions, one will have base cons the other will be ind
+		//
+                useAssumption(temp, *is, results);
+                if (!results.empty()) {
+		   temp = results[0];
+		   //outs() << "  temp is: " << temp << '\n';
+		   //outs() << "  old is: " << old << '\n';
+		}
+	     }
+	     if (old == temp) {break;}
+	     else {old = temp;}
+	     //if (isOpX<TRUE>(temp)) break;
+	  }
+          outs() << "    unrolled term: " << temp << '\n';
+	  auto res = u.isTrue(temp);
+	  if (!res) {
+	    outs() << "    Disproven with Z3.\n";
+	    outs() << "  }\n";
+	    return true;
+	  }
+       }
+       outs() << "    Disproof failed.\n";
+       outs() << "  }\n";
+       //experiment here with useAssumption, run on an infinite loop that replaces each rev2 instance one at a time
+       return false;
+    }
+    
+    //extend this for arbitrary combinations using dynamic programming
+    ExprSet generateTerms(Expr exp, ExprVector vars, int length) {
+       ExprSet ret;
+       ExprVector args;
+       Expr base = mk<FAPP>(*find_if(constructors.begin(), constructors.end(), [](Expr x){return x->arity() == 2;}));
+       Expr cons = *find_if(constructors.begin(), constructors.end(), [](Expr x){return x->arity() != 2;});
+       Expr type = cons->arg(1);
+       Expr temp = base;
+       Expr newExpr = exp;
+       int counter = 0;
+       //handle base case
+       for (int i = 0; i < vars.size(); i++) newExpr = replaceAll(newExpr, vars[i], base);
+       ret.insert(newExpr);
+       for (int i = 0; i < length; i++) {
+          //loop over variables
+          ret.insert(newExpr);
+	  newExpr = exp;
+	  for (int j = 0; j < vars.size(); j++) {
+             //generate list of length i
+	     for (int k = 0; k < i; k++) {
+                Expr var = bind::mkConst(mkTerm<string>("_t_" + to_string(counter), efac), type);
+		counter++;
+		args.insert(args.end(), {cons, var, temp});
+		temp = mknary<FAPP>(args);
+		args.clear();
+	     }
+	     newExpr = replaceAll(newExpr, vars[j], temp);
+	     temp = base;
+	  }
+       }
+       //print
+       for (auto it = ret.begin(); it != ret.end(); it++) {
+          outs() << "    generated term is: " << *it << '\n';
+       }
+       return ret;
     }
 
     Expr mirrorLemma(Expr origin) {
@@ -1296,7 +1402,7 @@ namespace ufo
       for (auto it = catas.begin(); it != catas.end(); it++) {
          //positive definiteness property
          if (subgoal->arity() == 3 && isOpX<INT_TY>(subgoal->last())) {
-            Expr var = bind::mkConst(mkTerm<string>("_qv_" + to_string(glob_ind), efac), subgoal->arg(1));
+            Expr var = bind::mkConst(mkTerm<string>("_ksqv_" + to_string(glob_ind), efac), subgoal->arg(1));
             glob_ind++;
             vars.push_back(var);
             expGen = mkQFla(mk<LEQ>(mkMPZ(0,efac), mk<FAPP>(subgoal, var)), vars);
@@ -1304,25 +1410,17 @@ namespace ufo
 	    vars.clear();
          }
       }
-      //test nonsense
-      Expr tempVar1 = bind::mkConst(mkTerm<string>("_qv_" + to_string(glob_ind), efac), travs.back()->last());
-      glob_ind++;
-      Expr tempVar2 = bind::mkConst(mkTerm<string>("_qv_" + to_string(glob_ind), efac), travs.back()->last());
-      glob_ind++;
-      Expr temp1 = mk<EQ>(tempVar1, tempVar1);
-      Expr temp2 = mk<EQ>(tempVar2, tempVar2);
-      bool resTemp = testIsomorphism(temp1, temp2);
       //traversal lemmas
       for (auto it = travs.begin(); it != travs.end(); it++) {
        	 if ((*it)->arity() == 4) {
             //associativity property
-            Expr var1 = bind::mkConst(mkTerm<string>("_qv_" + to_string(glob_ind), efac), (*it)->arg(1));
+            Expr var1 = bind::mkConst(mkTerm<string>("_ksqv_" + to_string(glob_ind), efac), (*it)->arg(1));
             glob_ind++;
             vars.push_back(var1);
-            Expr var2 = bind::mkConst(mkTerm<string>("_qv_" + to_string(glob_ind), efac), (*it)->arg(1));
+            Expr var2 = bind::mkConst(mkTerm<string>("_ksqv_" + to_string(glob_ind), efac), (*it)->arg(1));
             glob_ind++;
             vars.push_back(var2);
-            Expr var3 = bind::mkConst(mkTerm<string>("_qv_" + to_string(glob_ind), efac), (*it)->arg(1));
+            Expr var3 = bind::mkConst(mkTerm<string>("_ksqv_" + to_string(glob_ind), efac), (*it)->arg(1));
             glob_ind++;
             vars.push_back(var3);
             expGen = mkQFla(mk<EQ>(mk<FAPP>((*it), mk<FAPP>((*it), var1, var2), var3), mk<FAPP>((*it), var1, mk<FAPP>((*it), var2, var3))),vars);
@@ -1334,10 +1432,10 @@ namespace ufo
             //trav1(trav2(x, y)) = trav2(trav1(x), trav1(y))
             for (auto is = travs.begin(); is != travs.end(); is++) {
                if ((*is)->arity() == 3 && (*it)->arity() == 4) {
-                  Expr var4 = bind::mkConst(mkTerm<string>("_qv_" + to_string(glob_ind), efac), (*it)->arg(1));
+                  Expr var4 = bind::mkConst(mkTerm<string>("_ksqv_" + to_string(glob_ind), efac), (*it)->arg(1));
                   glob_ind++;
                   vars.push_back(var4);
-                  Expr var5 = bind::mkConst(mkTerm<string>("_qv_" + to_string(glob_ind), efac), (*it)->arg(1));
+                  Expr var5 = bind::mkConst(mkTerm<string>("_ksqv_" + to_string(glob_ind), efac), (*it)->arg(1));
                   glob_ind++;
                   vars.push_back(var5);
                   expGen = mkQFla(mk<EQ>(mk<FAPP>((*is), mk<FAPP>((*it), var4, var5)), mk<FAPP>((*it), mk<FAPP>((*is), var4), mk<FAPP>((*is), var5))), vars);
@@ -1353,10 +1451,10 @@ namespace ufo
 	    //trav2(x,y) = trav1(trav2(x,nil),y)
 	    for (auto is = travs.begin(); is != travs.end(); is++) {
                if ((*is)->arity() == 4 && (*it)->arity() == 4) {
-                  Expr var6 = bind::mkConst(mkTerm<string>("_qv_" + to_string(glob_ind), efac), (*it)->arg(1));
+                  Expr var6 = bind::mkConst(mkTerm<string>("_ksqv_" + to_string(glob_ind), efac), (*it)->arg(1));
                   glob_ind++;
                   vars.push_back(var6);
-                  Expr var7 = bind::mkConst(mkTerm<string>("_qv_" + to_string(glob_ind), efac), (*it)->arg(1));
+                  Expr var7 = bind::mkConst(mkTerm<string>("_ksqv_" + to_string(glob_ind), efac), (*it)->arg(1));
                   glob_ind++;
                   vars.push_back(var7);
 		  auto nil = find_if(constructors.begin(), constructors.end(), [](Expr x){ return x->arity() == 2; }); 
@@ -1373,10 +1471,10 @@ namespace ufo
             for (auto is = catas.begin(); is != catas.end(); is++) {
                if ((*is)->arity() == 3 && isOpX<INT_TY>((*is)->last())) {
                   //cata(trav(x, y)) = cata(x) +  cata(y)
-                  Expr var1 = bind::mkConst(mkTerm<string>("_qv_" + to_string(glob_ind), efac), (*it)->arg(1));
+                  Expr var1 = bind::mkConst(mkTerm<string>("_ksqv_" + to_string(glob_ind), efac), (*it)->arg(1));
                   glob_ind++;
                   vars.push_back(var1);
-                  Expr var2 = bind::mkConst(mkTerm<string>("_qv_" + to_string(glob_ind), efac), (*it)->arg(1));
+                  Expr var2 = bind::mkConst(mkTerm<string>("_ksqv_" + to_string(glob_ind), efac), (*it)->arg(1));
                   glob_ind++;
                   vars.push_back(var2);
                   expGen = mkQFla(mk<EQ>(mk<FAPP>((*is), mk<FAPP>((*it), var1, var2)), mk<PLUS>(mk<FAPP>((*is), var1), mk<FAPP>((*is), var2))), vars);
@@ -2193,6 +2291,7 @@ namespace ufo
     }
   };
 
+  //s is the content of the file
   void adtSolve(EZ3& z3, Expr s, int maxDepth,
                 int maxGrow, int mergingIts, int earlySplit, bool verbose, int useZ3, bool useKS, int to)
   {
@@ -2201,7 +2300,7 @@ namespace ufo
 
     ExprVector assumptions;
     Expr goal;
-
+    //s is split into its conjuncts
     ExprSet cnjs;
     getConj(s, cnjs);
     for (auto c : cnjs)
@@ -2231,11 +2330,16 @@ namespace ufo
       outs () << "Unable to detect the goal\n";
       return;
     }
-
+    //assumptions here contain only data from file
     ADTSolver sol (goal, assumptions, constructors, 0, 0, maxDepth, maxGrow, mergingIts, earlySplit, verbose, useZ3, useKS, to);
     tribool res = isOpX<FORALL>(goal) ? sol.solve() : sol.solveNoind();
+    /*outs () << "Final list of assumptions is\n";
+    sol.printAssumptions();*/
     outs () << (res ? "unsat\n" : (!res ? "sat\n" : "unknown\n"));
   }
 }
+
+//read SMTlib docs about define-fun-rec
+//definition/lemma annotations can workaround z3's failure
 
 #endif
