@@ -774,6 +774,9 @@ namespace ufo
         }
       }
 
+      //look for assumption that was used two times in a row
+      //
+
       /* test site 1 */
 
       auto assumptionsTmp = assumptions;
@@ -893,8 +896,42 @@ namespace ufo
 
       map<int, ExprVector> allAttempts;
 
+      /* test site 3 */
+      /*bool resKS = false;
+      if (useKS) resKS = useKnowledgeScheme(subgoal);
+      if (resKS) {
+	  outs() << "  applying lemma from knowledge scheme\n";
+          Expr a = assumptions.back();
+	  int i = assumptions.size() - 1;
+          ExprVector result;
+          if (useAssumption(subgoal, a, result)) {
+            for (auto & it : result) {
+              if (u.isTrue(it))
+              {
+                if (verbose) outs () << string(sp, ' ') << "applied [" <<  i << "]\n";
+                return true;
+              }
+            }
+            for (auto & it : result)
+              if (find (rewriteHistory.begin(), rewriteHistory.end(), it) == rewriteHistory.end())
+                allAttempts[i].push_back(it);
+          }
+        }
+      if (tryRewriting(allAttempts, subgoal))
+      {
+        if (toRem) assumptions = assumptionsTmp;
+        return true;
+      }
+
+      allAttempts.clear();*/
+
       for (int i = 0; i < assumptions.size(); i++)
       {
+	//print
+        if (!rewriteSequence.empty()) {
+	   outs() << string(sp, ' ') << " i is " << i << "  rewrite sequence: " << rewriteSequence.back() << '\n';
+	   if (i == rewriteSequence.back()) continue;
+	}
         Expr a = assumptions[i];
         ExprVector result;
         if (useAssumption(subgoal, a, result)) {
@@ -916,6 +953,7 @@ namespace ufo
         if (toRem) assumptions = assumptionsTmp;
         return true;
       }
+
       {
       // vector<int> orderedAttempts1;
       // vector<int> orderedAttempts2;
@@ -958,21 +996,21 @@ namespace ufo
       // }
       }
 
+      //look at where this code goes in depth
+
       /* test site 2 */
-      bool res = false;
-      if (useKS) res = useKnowledgeScheme(subgoal);
-      /*outs() << string(sp, ' ') << "New assumption list is:\n";
-      printAssumptions();*/
-      if (res) {
-        for (int i = 0; i < assumptions.size(); i++)
-        {
-          Expr a = assumptions[i];
+      bool resKS = false;
+      if (useKS) {resKS = useKnowledgeScheme(subgoal); assumptionsTmp = assumptions; allAttempts.clear();}
+      if (resKS) {
+	  outs() << "  applying lemma from knowledge scheme\n";
+          Expr a = assumptions.back();
+	  int i = assumptions.size() - 1;
           ExprVector result;
           if (useAssumption(subgoal, a, result)) {
             for (auto & it : result) {
               if (u.isTrue(it))
               {
-                if (verbose) outs () << string(sp, ' ') << "applied [" << i << "]\n";
+                if (verbose) outs () << string(sp, ' ') << "applied [" <<  i << "]\n";
                 return true;
               }
             }
@@ -981,7 +1019,6 @@ namespace ufo
                 allAttempts[i].push_back(it);
           }
         }
-      }
       if (tryRewriting(allAttempts, subgoal))
       {
         if (toRem) assumptions = assumptionsTmp;
@@ -990,7 +1027,7 @@ namespace ufo
 
       if (splitDisjAssumptions(subgoal)) return true;
 
-      //bool res = false;
+      bool res = false;
 
       if (isOpX<OR>(subgoal)) res = splitByGoal(subgoal);
       if (!res) res = proveByContradiction(subgoal);
@@ -1107,6 +1144,8 @@ namespace ufo
       return false;
     }
 
+    //TRY TO MAKE BENCHMARK GOAL INCORRECT AND SEE WHAT HAPPENS
+
     // try rewriting in a particular order
     bool tryRewriting(map<int, ExprVector>& allAttempts, Expr subgoal)
     {
@@ -1186,6 +1225,8 @@ namespace ufo
             if (sol.solve()) {
 	      outs() << "  Using " << (*is) << "\n";
               assumptions.push_back((*is));
+	      outs() << "  Assumptions are now:\n";
+	      printAssumptions();
 	      knowledgeScheme.clear();
               return true;
             }
@@ -1202,10 +1243,12 @@ namespace ufo
 		if (disproof(*is)) continue;
             	outs() << "  Attempting to prove " << (*is) << "\n";
             	ADTSolver sol ((*is), assumptions, constructors, glob_ind, lev+1,
-                              maxDepth, maxGrow, mergingIts, earlySplit, true, useZ3, false, to);
+                              maxDepth, maxGrow, mergingIts, earlySplit, false, useZ3, false, to);
             	if (sol.solve()) {
 	           outs() << "  Using " << (*is) << "\n";
                    assumptions.push_back((*is));
+		   outs() << "  Assumptions are now:\n";
+		   printAssumptions();
 		   knowledgeScheme.clear();
               	   return true;
             	}
@@ -1246,6 +1289,9 @@ namespace ufo
        }
        //collect finalTerms
        ExprSet finalTerms = generateTerms(newExpr, vars, 5);
+       outs() << "    generated " << finalTerms.size() << " terms\n";
+       outs() << "    unrolling terms\n";
+       int counter = 0;
        for (auto it = finalTerms.begin(); it != finalTerms.end(); it++) {
 	  Expr temp = *it;
 	  Expr old = temp;
@@ -1267,13 +1313,20 @@ namespace ufo
 	     else {old = temp;}
 	     //if (isOpX<TRUE>(temp)) break;
 	  }
-          outs() << "    unrolled term: " << temp << '\n';
+          //outs() << "    unrolled term: " << temp << '\n';
+	  //outs() << "    counter: " << counter << '\n';
+	  counter++;
 	  auto res = u.isTrue(temp);
 	  if (!res) {
 	    outs() << "    Disproven with Z3.\n";
 	    outs() << "  }\n";
 	    return true;
 	  }
+	  if (counter == 50 || counter == finalTerms.size() - 1) {
+	    outs() << "    Tested maximum number of terms\n";
+            outs() << "  }\n";
+            return false;	    
+	  };
        }
        outs() << "    Disproof failed.\n";
        outs() << "  }\n";
@@ -1282,7 +1335,7 @@ namespace ufo
     }
     
     //extend this for arbitrary combinations using dynamic programming
-    ExprSet generateTerms(Expr exp, ExprVector vars, int length) {
+    /*ExprSet generateTerms(Expr exp, ExprVector vars, int length) {
        ExprSet ret;
        ExprVector args;
        Expr base = mk<FAPP>(*find_if(constructors.begin(), constructors.end(), [](Expr x){return x->arity() == 2;}));
@@ -1316,6 +1369,56 @@ namespace ufo
           outs() << "    generated term is: " << *it << '\n';
        }
        return ret;
+    }*/
+
+
+    ExprSet generateTerms(Expr exp, ExprVector vars, int length) {
+       ExprSet result;
+       ExprSet startSet;
+       startSet.insert(exp);
+       ExprSet generatedTerms = generateLists(vars.size(), length);
+       //for (auto it = generatedTerms.begin(); it != generatedTerms.end(); it++) {outs() << "  generated list: " << *it << '\n';}
+       generateTermsMemoize(startSet, vars, generatedTerms, result);
+       return result;
+    }
+
+    void generateTermsMemoize(ExprSet start, ExprVector vars, ExprSet newTerms, ExprSet & result) {
+       if (vars.empty()) {
+	 result = start;      
+         return;
+       }
+       ExprSet newSet;
+       Expr curVar = vars.back();
+       vars.pop_back();
+       for (auto it = start.begin(); it != start.end(); it++) {
+          for (auto is = newTerms.begin(); is != newTerms.end(); is++) {
+             Expr temp = replaceAll(*it, curVar, *is);
+             newSet.insert(temp);
+	  }
+       }
+       generateTermsMemoize(newSet, vars, newTerms, result);  
+    }
+
+    ExprSet generateLists(int numCopies, int length) {
+       ExprSet retVal;
+       ExprVector args;
+       Expr cons = *find_if(constructors.begin(), constructors.end(), [](Expr x){return x->arity() != 2;});
+       Expr base = mk<FAPP>(*find_if(constructors.begin(), constructors.end(), [](Expr x){return x->arity() == 2;}));
+       Expr temp = base;
+       Expr type = cons->arg(1);
+       int counter = 0;
+          for (int j = 0; j < length; j++) {
+             for (int k = 0; k < j; k++) {
+                Expr var = bind::mkConst(mkTerm<string>("_t_" + to_string(counter), efac), type);
+		counter++;
+		args.insert(args.end(), {cons, var, temp});
+		temp = mknary<FAPP>(args);
+		args.clear();
+	     }
+	     retVal.insert(temp);
+	     temp = base;
+	  }
+       return retVal;
     }
 
     Expr mirrorLemma(Expr origin) {
