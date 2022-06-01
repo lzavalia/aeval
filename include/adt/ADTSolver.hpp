@@ -2,6 +2,7 @@
 #define ADTSOLVER__HPP__
 #include <assert.h>
 #include <string.h>
+#include <queue>
 
 #include "ae/AeValSolver.hpp"
 #include "ae/SMTUtils.hpp"
@@ -32,6 +33,7 @@ namespace ufo
 
     ExprVector rewriteHistory;
     vector<int> rewriteSequence;
+    queue<Expr> consecutives;
     int maxDepth;
     int maxGrow;
     int mergingIts;
@@ -43,7 +45,6 @@ namespace ufo
     bool useZ3 = false;
     bool useKS = false;
     unsigned to;
-    ExprSet knowledgeScheme;
     ExprVector blockedAssms;
     int nestedLevel;
 
@@ -755,7 +756,7 @@ namespace ufo
       }
 
       // check consecutive applications of the same assumption
-      if (rewriteSequence.size() > maxGrow)
+      /*if (rewriteSequence.size() > maxGrow)
       {
         bool incr = true;
         for (int i = 1; i < maxGrow + 1; i++)
@@ -772,7 +773,7 @@ namespace ufo
           if (verbose) outs() << string(sp, ' ') << "sequence of rewrites only grows\n";
           return false;
         }
-      }
+      }*/
 
       //look for assumption that was used two times in a row
       //
@@ -924,15 +925,19 @@ namespace ufo
       }
 
       allAttempts.clear();*/
-
+      ExprVector defered;
+      //write function that scans list of assumptions and returns index
+      //make vector for indices assumptions already scanned
+      //push index to scanned list
+      //in the next iteration, return new index
+      //(think about what it means for an assumption to be best)
       for (int i = 0; i < assumptions.size(); i++)
       {
-	//print
-        if (!rewriteSequence.empty()) {
+        /*if (!rewriteSequence.empty()) {
 	   outs() << string(sp, ' ') << " i is " << i << "  rewrite sequence: " << rewriteSequence.back() << '\n';
 	   if (i == rewriteSequence.back()) continue;
-	}
-        Expr a = assumptions[i];
+	}*/
+	Expr a = assumptions[i];
         ExprVector result;
         if (useAssumption(subgoal, a, result)) {
           if (verbose) outs () << string(sp, ' ') << "found " << result.size() << " substitution(s) for assumption " << i << "\n";
@@ -999,12 +1004,16 @@ namespace ufo
       //look at where this code goes in depth
 
       /* test site 2 */
-      bool resKS = false;
-      if (useKS) {resKS = useKnowledgeScheme(subgoal); assumptionsTmp = assumptions; allAttempts.clear();}
-      if (resKS) {
-	  outs() << "  applying lemma from knowledge scheme\n";
-          Expr a = assumptions.back();
-	  int i = assumptions.size() - 1;
+      //keep track of finished lemmas
+      Expr resKS = NULL;
+      if (useKS) {
+         resKS = useKnowledgeScheme(subgoal); 
+	 assumptionsTmp = assumptions; 
+	 allAttempts.clear();
+      if (resKS != NULL) {
+	  outs() << "  applying lemma from knowledge scheme to subgoal " << subgoal << "\n";
+          Expr a = resKS;
+	  int i = -1;
           ExprVector result;
           if (useAssumption(subgoal, a, result)) {
             for (auto & it : result) {
@@ -1023,6 +1032,7 @@ namespace ufo
       {
         if (toRem) assumptions = assumptionsTmp;
         return true;
+      }
       }
 
       if (splitDisjAssumptions(subgoal)) return true;
@@ -1156,6 +1166,15 @@ namespace ufo
 
           // save history
           rewriteHistory.push_back(exp);
+	  if (!rewriteSequence.empty()) {
+	     if (rewriteSequence.back() == i) {
+	        consecutives.push(exp);
+	     }
+	  }
+	  else {
+            queue<Expr> emptyTemp;
+	    swap(consecutives, emptyTemp);
+	  }
           rewriteSequence.push_back(i);
 
           if (rewriteAssumptions(exp))
@@ -1196,11 +1215,25 @@ namespace ufo
       return expGen;
     }
 
-    bool useKnowledgeScheme(Expr subgoal) {
+    bool classifyRewrite(Expr assm) {
+       Expr newExpr;
+       if (isOpX<FORALL>(assm) || isOpX<EXISTS>(assm)) newExpr = assm->last();
+       if (isOpX<EQ>(newExpr)) {
+          if (treeSize(newExpr->left()) < treeSize(newExpr->right())) return false;
+	  return true;
+       }
+       else {return true;}
+    }
+
+    Expr useKnowledgeScheme(Expr subgoal) {
 	//not null
-        if (subgoal == NULL) return false;
-        buildKnowledgeScheme(subgoal);
-        printKnowledgeScheme();
+        if (subgoal == NULL) return NULL;
+	/*if (consecutives.empty()) {outs() << "  no consecutive rewrites found\n";}
+	else if (!consecutives.empty()) {outs() << "  new subgoal will be " << consecutives.front() << '\n';}
+	subgoal = consecutives.front();*/
+	ExprSet knowledgeScheme;
+        buildKnowledgeScheme(subgoal, knowledgeScheme);
+        printKnowledgeScheme(knowledgeScheme);
         ExprVector res;
         for (auto is = knowledgeScheme.begin(); is != knowledgeScheme.end(); is++) {
           //outs() << "  Current subgoal is: " << subgoal << "\n";
@@ -1213,8 +1246,8 @@ namespace ufo
 	    }*/
             //test if (*is) is in assumptions
 	    for (auto ba = assumptions.begin(); ba != assumptions.end(); ba++) {
-               if (testIsomorphism((*ba), (*is))) return false;
-	       if (testIsomorphism(mirrorLemma(*ba), (*is))) return false;
+               if (testIsomorphism((*ba), (*is))) return NULL;
+	       if (testIsomorphism(mirrorLemma(*ba), (*is))) return NULL;
 	    }
             //printKnowledgeScheme();
 	    //add disproof code here
@@ -1224,11 +1257,7 @@ namespace ufo
                            maxDepth, maxGrow, mergingIts, earlySplit, false, useZ3, false, to);
             if (sol.solve()) {
 	      outs() << "  Using " << (*is) << "\n";
-              assumptions.push_back((*is));
-	      outs() << "  Assumptions are now:\n";
-	      printAssumptions();
-	      knowledgeScheme.clear();
-              return true;
+              return (*is);
             }
           }
 	  else {
@@ -1236,8 +1265,8 @@ namespace ufo
 	     if (!res.empty()) {
 		//test if (*is) is in assumptions
 	        for (auto ba = assumptions.begin(); ba != assumptions.end(); ba++) {
-                  if (testIsomorphism((*ba), (*is))) return false;
-		  if (testIsomorphism(mirrorLemma(*ba), (*is))) return false;
+                  if (testIsomorphism((*ba), (*is))) return NULL;
+		  if (testIsomorphism(mirrorLemma(*ba), (*is))) return NULL;
 	        }
             	//printKnowledgeScheme();
 		if (disproof(*is)) continue;
@@ -1246,17 +1275,13 @@ namespace ufo
                               maxDepth, maxGrow, mergingIts, earlySplit, false, useZ3, false, to);
             	if (sol.solve()) {
 	           outs() << "  Using " << (*is) << "\n";
-                   assumptions.push_back((*is));
-		   outs() << "  Assumptions are now:\n";
-		   printAssumptions();
-		   knowledgeScheme.clear();
-              	   return true;
+              	   return (*is);
             	}
 	     }
 	  }
        }
        knowledgeScheme.clear();
-       return false;
+       return NULL;
     }
 
     bool testIsomorphism(Expr exp1, Expr exp2) {
@@ -1288,7 +1313,7 @@ namespace ufo
 	 else it++;
        }
        //collect finalTerms
-       ExprSet finalTerms = generateTerms(newExpr, vars, 5);
+       ExprSet finalTerms = generateTerms(newExpr, vars, 3);
        outs() << "    generated " << finalTerms.size() << " terms\n";
        outs() << "    unrolling terms\n";
        int counter = 0;
@@ -1457,9 +1482,8 @@ namespace ufo
     /*
      * use the findMatching function to implement alpha-conversion
      */
-    void buildKnowledgeScheme(Expr subgoal) {
+    void buildKnowledgeScheme(Expr subgoal, ExprSet & knowledgeScheme) {
       if (subgoal == NULL) return;
-      auto res = knowledgeScheme.find(subgoal);
       ExprMap matching;
       ExprVector vars;
       ExprVector catas;  // catamorphism: ADT -> primitive type
@@ -1505,7 +1529,7 @@ namespace ufo
       for (auto it = catas.begin(); it != catas.end(); it++) {
          //positive definiteness property
          if (subgoal->arity() == 3 && isOpX<INT_TY>(subgoal->last())) {
-            Expr var = bind::mkConst(mkTerm<string>("_ksqv_" + to_string(glob_ind), efac), subgoal->arg(1));
+            Expr var = bind::mkConst(mkTerm<string>("_ks_qv_" + to_string(glob_ind), efac), subgoal->arg(1));
             glob_ind++;
             vars.push_back(var);
             expGen = mkQFla(mk<LEQ>(mkMPZ(0,efac), mk<FAPP>(subgoal, var)), vars);
@@ -1517,13 +1541,13 @@ namespace ufo
       for (auto it = travs.begin(); it != travs.end(); it++) {
        	 if ((*it)->arity() == 4) {
             //associativity property
-            Expr var1 = bind::mkConst(mkTerm<string>("_ksqv_" + to_string(glob_ind), efac), (*it)->arg(1));
+            Expr var1 = bind::mkConst(mkTerm<string>("_ks_qv_" + to_string(glob_ind), efac), (*it)->arg(1));
             glob_ind++;
             vars.push_back(var1);
-            Expr var2 = bind::mkConst(mkTerm<string>("_ksqv_" + to_string(glob_ind), efac), (*it)->arg(1));
+            Expr var2 = bind::mkConst(mkTerm<string>("_ks_qv_" + to_string(glob_ind), efac), (*it)->arg(1));
             glob_ind++;
             vars.push_back(var2);
-            Expr var3 = bind::mkConst(mkTerm<string>("_ksqv_" + to_string(glob_ind), efac), (*it)->arg(1));
+            Expr var3 = bind::mkConst(mkTerm<string>("_ks_qv_" + to_string(glob_ind), efac), (*it)->arg(1));
             glob_ind++;
             vars.push_back(var3);
             expGen = mkQFla(mk<EQ>(mk<FAPP>((*it), mk<FAPP>((*it), var1, var2), var3), mk<FAPP>((*it), var1, mk<FAPP>((*it), var2, var3))),vars);
@@ -1535,10 +1559,10 @@ namespace ufo
             //trav1(trav2(x, y)) = trav2(trav1(x), trav1(y))
             for (auto is = travs.begin(); is != travs.end(); is++) {
                if ((*is)->arity() == 3 && (*it)->arity() == 4) {
-                  Expr var4 = bind::mkConst(mkTerm<string>("_ksqv_" + to_string(glob_ind), efac), (*it)->arg(1));
+                  Expr var4 = bind::mkConst(mkTerm<string>("_ks_qv_" + to_string(glob_ind), efac), (*it)->arg(1));
                   glob_ind++;
                   vars.push_back(var4);
-                  Expr var5 = bind::mkConst(mkTerm<string>("_ksqv_" + to_string(glob_ind), efac), (*it)->arg(1));
+                  Expr var5 = bind::mkConst(mkTerm<string>("_ks_qv_" + to_string(glob_ind), efac), (*it)->arg(1));
                   glob_ind++;
                   vars.push_back(var5);
                   expGen = mkQFla(mk<EQ>(mk<FAPP>((*is), mk<FAPP>((*it), var4, var5)), mk<FAPP>((*it), mk<FAPP>((*is), var4), mk<FAPP>((*is), var5))), vars);
@@ -1554,10 +1578,10 @@ namespace ufo
 	    //trav2(x,y) = trav1(trav2(x,nil),y)
 	    for (auto is = travs.begin(); is != travs.end(); is++) {
                if ((*is)->arity() == 4 && (*it)->arity() == 4) {
-                  Expr var6 = bind::mkConst(mkTerm<string>("_ksqv_" + to_string(glob_ind), efac), (*it)->arg(1));
+                  Expr var6 = bind::mkConst(mkTerm<string>("_ks_qv_" + to_string(glob_ind), efac), (*it)->arg(1));
                   glob_ind++;
                   vars.push_back(var6);
-                  Expr var7 = bind::mkConst(mkTerm<string>("_ksqv_" + to_string(glob_ind), efac), (*it)->arg(1));
+                  Expr var7 = bind::mkConst(mkTerm<string>("_ks_qv_" + to_string(glob_ind), efac), (*it)->arg(1));
                   glob_ind++;
                   vars.push_back(var7);
 		  auto nil = find_if(constructors.begin(), constructors.end(), [](Expr x){ return x->arity() == 2; }); 
@@ -1574,10 +1598,10 @@ namespace ufo
             for (auto is = catas.begin(); is != catas.end(); is++) {
                if ((*is)->arity() == 3 && isOpX<INT_TY>((*is)->last())) {
                   //cata(trav(x, y)) = cata(x) +  cata(y)
-                  Expr var1 = bind::mkConst(mkTerm<string>("_ksqv_" + to_string(glob_ind), efac), (*it)->arg(1));
+                  Expr var1 = bind::mkConst(mkTerm<string>("_ks_qv_" + to_string(glob_ind), efac), (*it)->arg(1));
                   glob_ind++;
                   vars.push_back(var1);
-                  Expr var2 = bind::mkConst(mkTerm<string>("_ksqv_" + to_string(glob_ind), efac), (*it)->arg(1));
+                  Expr var2 = bind::mkConst(mkTerm<string>("_ks_qv_" + to_string(glob_ind), efac), (*it)->arg(1));
                   glob_ind++;
                   vars.push_back(var2);
                   expGen = mkQFla(mk<EQ>(mk<FAPP>((*is), mk<FAPP>((*it), var1, var2)), mk<PLUS>(mk<FAPP>((*is), var1), mk<FAPP>((*is), var2))), vars);
@@ -1589,7 +1613,7 @@ namespace ufo
       }
     }
 
-    void printKnowledgeScheme() {
+    void printKnowledgeScheme(ExprSet & knowledgeScheme) {
       outs() << "  Knowledge scheme contains:\n";
       outs() << "  {\n";
       outs() << "    ==============\n";
