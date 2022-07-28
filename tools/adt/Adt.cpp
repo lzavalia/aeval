@@ -18,6 +18,7 @@ char * getStrValue(const char * opt, const char * defValue, int argc, char ** ar
   {
     if (strcmp(argv[i], opt) == 0)
     {
+      //outs() << "ARGV IS: " << argv[i+1] << "\n";
       return argv[i+1];
     }
   }
@@ -39,6 +40,13 @@ char * getSmtFileName(int num, int argc, char ** argv)
   return NULL;
 }
 
+Expr extractDefinitions(EZ3 z3, char * infile) {
+   //extract all lines with define-fun-rec
+   //replace the string with assert
+   //turn selected assert statements into Expr
+   return NULL;
+}
+
 int main (int argc, char ** argv)
 {
   ExprFactory efac;
@@ -48,11 +56,11 @@ int main (int argc, char ** argv)
   int maxGrow = atoi(getStrValue("--max-grow", "4", argc, argv));
   int mergingIts = atoi(getStrValue("--merge-assms", "3", argc, argv));
   int earlySplit = atoi(getStrValue("--early-split", "1", argc, argv));
+  int disproofDepth = atoi(getStrValue("--disproof", "0", argc, argv));
   bool useZ3 = !getBoolValue("--no-z3", false, argc, argv);
   bool useKS = !getBoolValue("--no-ks", false, argc, argv);
   unsigned to = atoi(getStrValue("--to", "1000", argc, argv));
   Expr e = z3_from_smtlib_file (z3, infile);
-  adtSolve(z3, e, maxDepth, maxGrow, mergingIts, earlySplit, true, useZ3, useKS, to);
-
+  adtSolve(z3, e, maxDepth, maxGrow, mergingIts, earlySplit, true, useZ3, useKS, disproofDepth, to);
   return 0;
 }

@@ -50,8 +50,10 @@ namespace ufo
     int sp = 2;
     int glob_ind = 0;
     int lev = 0;
+    int disproofDepth = 0;
     bool useZ3 = false;
     bool useKS = false;
+    int uselessKS = 0;
     unsigned to;
     ExprVector blockedAssms;
     ExprVector provedLemmas;
@@ -63,12 +65,12 @@ namespace ufo
     ADTSolver(Expr _goal, ExprVector& _assumptions, ExprVector& _constructors,
       int _glob_ind = 0, int _lev = 0, int _maxDepth = 5, int _maxGrow = 3,
       int _mergingIts = 3, int _earlySplit = 1, bool _verbose = false,
-      bool _useZ3 = true, bool _useKS = true, unsigned _to = 1000, unsigned _l = 0) :
+      int _disproofDepth = 0, bool _useZ3 = true, bool _useKS = true, unsigned _to = 1000, unsigned _l = 0) :
         goal(_goal), assumptions(_assumptions), constructors(_constructors),
         glob_ind(_glob_ind), lev(_lev), efac(_goal->getFactory()),
         u(_goal->getFactory(), _to), maxDepth(_maxDepth), maxGrow(_maxGrow),
         mergingIts(_mergingIts), earlySplit(_earlySplit), verbose(_verbose),
-        useZ3(_useZ3), useKS(_useKS), to (_to), nestedLevel(_l)
+        disproofDepth(_disproofDepth), useZ3(_useZ3), useKS(_useKS), to (_to), nestedLevel(_l)
     {
       // for convenience, rename assumptions (to have unique quantified variables)
       renameAssumptions();
@@ -941,8 +943,9 @@ namespace ufo
       //in the next iteration, return new index
       //(think about what it means for an assumption to be best)
       //revert back to normal
-      vector<int> deferrals;
-      vector<int> dontuse;
+      //useNewKnowledgeScheme();
+      //ExprSet thing;
+      //generateAdts(thing, 3);
       for (int i = 0; i < assumptions.size(); i++)
       {
 	Expr a = assumptions[i];
@@ -950,8 +953,8 @@ namespace ufo
 	if (testIsomorphism(a, mirrorLemma(indHyp)) && useIH == false) {continue;}
 	ExprVector result;
         if (useAssumption(subgoal, a, result)) {
-          if (verbose) outs () << string(sp, ' ') << "found " << result.size() << " substitution(s) for assumption " << i << "\n";
-	  if (verbose) outs () << string(sp, ' ') << "assumption " << i << " has rank " << getRank(assumptions[i]) << "\n";
+          //if (verbose) outs () << string(sp, ' ') << "found " << result.size() << " substitution(s) for assumption " << i << "\n";
+	  //if (verbose) outs () << string(sp, ' ') << "assumption " << i << " has rank " << getRank(assumptions[i]) << "\n";
           for (auto & it : result) {
             if (u.isTrue(it))
             {
@@ -1008,7 +1011,7 @@ namespace ufo
       //int nonsense = selectAssumption(subgoal);
 
       Expr resKS = NULL;
-      if (useKS) {
+      if (useKS && uselessKS < 3) {
 	 assumptionsTmp = assumptions;
          Expr indHypTmp = indHyp;	    
          resKS = useKnowledgeScheme(subgoal);
@@ -1143,7 +1146,7 @@ namespace ufo
                 else it = assumptionsNst.erase(it);
 
             ADTSolver sol (mkQFla(expGen, vars), assumptionsNst, constructors, glob_ind, lev + 1,
-                           maxDepth, maxGrow, mergingIts, earlySplit, false, useZ3, useKS, to);
+                           maxDepth, maxGrow, mergingIts, earlySplit, false, disproofDepth, useZ3, useKS, to);
 
             toCont = bool(sol.solve());
           }
@@ -1316,31 +1319,99 @@ namespace ufo
     }
 
     //place at beginning
-    /*void useNewKnowledgeScheme() {
+    void useNewKnowledgeScheme() {
        ExprSet fdecls;
+       ExprSet knowledgeScheme;
        for (int i = 0; i < assumptions.size(); i++) {
           getFDECLS(assumptions[i], fdecls);
        }
-       
+       generateLeftIdentities(fdecls, knowledgeScheme);
+       generateRightIdentities(fdecls, knowledgeScheme);
+       generateAssociativity(fdecls, knowledgeScheme);
+       generateCommutativity(fdecls, knowledgeScheme);
+       for (auto it = knowledgeScheme.begin(); it != knowledgeScheme.end(); ) {
+          if (disproof(*it)) {knowledgeScheme.erase(it);}
+	  else {it++;}
+       }
+       printKnowledgeScheme(knowledgeScheme);
+       //apply refutation to all KS entries
+       //prove the remainders
+       //add to assumptions
+       //return
     }
 
-    void getFDECLS (Expr exp, ExprSet fdecls) {
+    void getFDECLS (Expr exp, ExprSet & fdecls) {
        if (exp == NULL) {return;}
-       if (isOpX<FDECL>(exp)) {fdecls.insert(exp);}
+       if (isOpX<FDECL>(exp) && exp->arity() >= 3) {fdecls.insert(exp);}
        for (int i = 0; i < exp->arity(); i++) {getFDECLS(exp->arg(i), fdecls);} 
     }
 
-    void generateIdentities(ExprSet fdecls, ExprSet knowledgeScheme) {
+    void generateLeftIdentities(ExprSet & fdecls, ExprSet & knowledgeScheme) {
        //consider functions of the form f(nil,...,nil,x,nil,...,nil)=x
        //filter those fapps that are already in assumptions
+       ExprVector vars;
+       for (auto & it : fdecls) {
+	  outs() << "function arity: " << it->arity() << "\n";
+          if (it->arity() == 4 && it->arg(1) == it->arg(2) && it->arg(2) == it->arg(3)) {
+             Expr temp = bind::mkConst(mkTerm<string>("_ks1qv_" + to_string(0), efac), it->arg(1));
+             vars.push_back(temp);
+             Expr expGen = mkQFla(mk<EQ>(mk<FAPP>(it, *baseconstrapps.begin(), temp), temp), vars);
+	     outs() << "generated expression: " << expGen << "\n";
+	     if (!isInAssm(expGen)) knowledgeScheme.insert(expGen);
+	     vars.clear();
+	  }
+       }
     }
 
-    void generateAssociativity(ExprSet fdecls, ExprSet knowledgeScheme) {
-
+    void generateRightIdentities(ExprSet & fdecls, ExprSet & knowledgeScheme) {
+       ExprVector vars;
+       for (auto & it : fdecls) {
+	  outs() << "function arity: " << it->arity() << "\n";
+          if (it->arity() == 4 && it->arg(1) == it->arg(2) && it->arg(2) == it->arg(3)) {
+             Expr temp = bind::mkConst(mkTerm<string>("_ks1qv_" + to_string(0), efac), it->arg(1));
+             vars.push_back(temp);
+             Expr expGen = mkQFla(mk<EQ>(mk<FAPP>(it, temp, *baseconstrapps.begin()), temp), vars);
+	     outs() << "generated expression: " << expGen << "\n";
+	     if (!isInAssm(expGen)) knowledgeScheme.insert(expGen);           
+	     vars.clear();
+	  }
+       }
     }
 
-    void generateCommutativity(ExprSet fdecls, ExprSet knowledgeScheme) {
+    void generateAssociativity(ExprSet & fdecls, ExprSet & knowledgeScheme) {
+       int count = 0;
+       ExprVector vars;
+       for (auto & it : fdecls) {
+          if (it->arity() == 4 && it->arg(1) == it->arg(2) && it->arg(2) == it->arg(3)) {
+             for (int i = 0; i < 3; i++) {
+                Expr temp = bind::mkConst(mkTerm<string>("_ks1qv_" + to_string(count), efac), it->arg(1));
+		count++;
+                vars.push_back(temp);
+             }
+             Expr expGen = mkQFla(mk<EQ>(mk<FAPP>(it, mk<FAPP>(it, vars[0], vars[1]), vars[2]), mk<FAPP>(it, vars[0], mk<FAPP>(it, vars[1], vars[2]))), vars);
+	     outs() << "generated expression: " << expGen << "\n";
+	     if (!isInAssm(expGen)) knowledgeScheme.insert(expGen);
+	     vars.clear();
+	  }
+       }
+    }
 
+    void generateCommutativity(ExprSet & fdecls, ExprSet & knowledgeScheme) {
+       int count = 0;
+       ExprVector vars;
+       for (auto & it : fdecls) {
+          if (it->arity() == 4 && it->arg(1) == it->arg(2)) {
+             for (int i = 0; i < 2; i++) {
+                Expr temp = bind::mkConst(mkTerm<string>("_ks1qv_" + to_string(count), efac), it->arg(1));
+		count++;
+                vars.push_back(temp);
+	     }
+	     Expr expGen = mkQFla(mk<EQ>(mk<FAPP>(it, vars[0], vars[1]), mk<FAPP>(it, vars[1], vars[0])), vars);
+	     outs() << "generated expression: " << expGen << "\n";
+	     if (!isInAssm(expGen)) knowledgeScheme.insert(expGen);
+	     vars.clear();
+	  }
+       }
     }
 
     bool isInAssm(Expr exp) {
@@ -1348,7 +1419,7 @@ namespace ufo
           if (testIsomorphism(exp, assumptions[i])) {return true;}
        }
        return false;
-    }*/
+    }
 
     Expr useKnowledgeScheme(Expr subgoal) {
 	if (subgoal == NULL) return NULL;
@@ -1356,6 +1427,7 @@ namespace ufo
 	buildKnowledgeScheme(subgoal, knowledgeScheme);
 	if (knowledgeScheme.empty()) {
            outs() << string(sp, ' ') << "Knowledge Scheme will not be useful\n";
+	   uselessKS++;
 	   return NULL;
 	}
 	printKnowledgeScheme(knowledgeScheme);
@@ -1382,7 +1454,7 @@ namespace ufo
 	   //call solver
            outs() << "  Attempting to prove " << temp << "\n";
            ADTSolver sol (temp, assumptions, constructors, glob_ind, lev+1,
-                          maxDepth, maxGrow, mergingIts, earlySplit, false, useZ3, false, to);
+                          maxDepth, maxGrow, mergingIts, earlySplit, false, disproofDepth, useZ3, false, to);
             if (sol.solve()) {
 	      outs() << "  Using " << temp << "\n";
 	      provedLemmas.push_back(temp);
@@ -1397,15 +1469,17 @@ namespace ufo
 	return NULL;
     }
 
-
-    bool disproof(Expr exp) {
-       //outs() << "  Attempting to disprove: " << exp << '\n';
-       //outs() << "  {\n";
+    //make this top level and add flag to call this method and only this method
+    //allow user to specify depth
+    tribool disproof(Expr exp) {
+       outs() << "Attempting to disprove: " << exp << '\n';
+       outs() << "  {\n";
        ExprVector vars;
        Expr newExpr;
        //remove quantifier
        if (isOpX<FORALL>(exp) || isOpX<EXISTS>(exp)) {newExpr = exp->last();}
        else {newExpr = exp;}
+       //outs() << "disproof value: " << exp << "\n";
        //newExpr = mk<NEG>(newExpr);
        //newExpr = mk<NEQ>(newExpr->left(), newExpr->right());
        //collect variables and remove constants
@@ -1416,9 +1490,11 @@ namespace ufo
 	 else it++;
        }
        //collect finalTerms
-       ExprSet finalTerms = generateTerms(newExpr, vars, 3);
-       //outs() << "    generated " << finalTerms.size() << " terms\n";
-       //outs() << "    unrolling terms\n";
+       ExprSet finalTerms = generateTerms(newExpr, vars, disproofDepth);
+       outs() << "    generated " << finalTerms.size() << " terms {\n";
+       for (auto & it : finalTerms){outs() << "      " << it << "\n";}
+       outs() << "    }\n";
+       outs() << "    unfolding terms\n";
        int counter = 0;
        for (auto it = finalTerms.begin(); it != finalTerms.end(); it++) {
 	  Expr temp = *it;
@@ -1441,32 +1517,36 @@ namespace ufo
 	     else {old = temp;}
 	     //if (isOpX<TRUE>(temp)) break;
 	  }
-          //outs() << "    unrolled term: " << temp << '\n';
+          outs() << "    unfolded term: " << temp << '\n';
 	  //outs() << "    counter: " << counter << '\n';
 	  counter++;
 	  auto res = u.isTrue(temp);
 	  if (!res) {
-	    //outs() << "    Disproven with Z3.\n";
-	    //outs() << "  }\n";
+	    outs() << "    Disproven with Z3.\n";
+	    outs() << "  }\n";
 	    return true;
 	  }
-	  if (counter == 50 || counter == finalTerms.size() - 1) {
-	    //outs() << "    Tested maximum number of terms\n";
-            //outs() << "  }\n";
-            return false;	    
+	  if (counter == 1000 || counter == finalTerms.size() - 1) {
+	    outs() << "    Tested maximum number of terms\n";
+            outs() << "  }\n";
+            return indeterminate;	    
 	  };
        }
-       //outs() << "    Disproof failed.\n";
-       //outs() << "  }\n";
+       outs() << "    Disproof failed.\n";
+       outs() << "  }\n";
        //experiment here with useAssumption, run on an infinite loop that replaces each rev2 instance one at a time
-       return false;
+       return indeterminate;
     }
 
     ExprSet generateTerms(Expr exp, ExprVector vars, int length) {
        ExprSet result;
        ExprSet startSet;
+       ExprSet generatedTerms;
+       Expr cons = *find_if(constructors.begin(), constructors.end(), [](Expr x){return x->arity() != 2;});
+       Expr base = mk<FAPP>(*find_if(constructors.begin(), constructors.end(), [](Expr x){return x->arity() == 2;}));
+       generatedTerms.insert(base);
        startSet.insert(exp);
-       ExprSet generatedTerms = generateLists(vars.size(), length);
+       generateADTs(cons, generatedTerms, length);
        //for (auto it = generatedTerms.begin(); it != generatedTerms.end(); it++) {outs() << "  generated list: " << *it << '\n';}
        generateTermsMemoize(startSet, vars, generatedTerms, result);
        return result;
@@ -1489,7 +1569,64 @@ namespace ufo
        generateTermsMemoize(newSet, vars, newTerms, result);  
     }
 
-    ExprSet generateLists(int numCopies, int length) {
+    void generateADTs(Expr templateExp, ExprSet & newTerms, int depth) {
+       //templateExp should be FDECL of ind cons
+       //newTerms should only contain FAPP of base cons
+       //outs() << "DEPTH IS: " << depth << "\n";
+       if (depth == 0) {return;}
+       static int counter = 0;
+       ExprVector fappArgs;
+       fappArgs.push_back(templateExp);
+       vector<ExprVector> memo;
+       memo.push_back(fappArgs);
+       vector<ExprVector> newMemo;
+       for (int i = 1; i < templateExp->arity()-1; i++) {
+          for (auto & it : memo) {
+	     //current arg has ADT type
+	     if (isADTType(templateExp->arg(i))) {
+                for (auto & is : newTerms) {
+                   ExprVector temp(it.begin(), it.end());
+                   temp.push_back(is);
+		   newMemo.push_back(temp);
+		   //outs() << "RESULT OF CASE 1: " << mknary<FAPP>(temp) << "\n";
+		}
+	     }
+	     //otherwise
+	     else {
+		ExprVector temp(it.begin(), it.end());
+                Expr var = bind::mkConst(mkTerm<string>("_t_" + to_string(counter), efac), templateExp->arg(i));
+		counter++;
+                temp.push_back(var);
+		newMemo.push_back(temp);
+		//outs() << "RESULT OF CASE 2: " << mknary<FAPP>(temp) << "\n";
+	     }
+	  }
+	  memo.clear();
+	  memo.insert(memo.end(), newMemo.begin(), newMemo.end());
+	  newMemo.clear();
+       }
+       //turn each element of memo to FAPP
+       for (auto & it : memo) {
+          Expr temp = mknary<FAPP>(it);
+	  newTerms.insert(temp);
+	  //outs() << "NEW TERM IS:  " << temp << "\n";
+       }
+       generateADTs(templateExp, newTerms, depth-1);
+
+    }
+
+    bool isADTType(Expr exp) {
+       ExprSet es;
+       for (auto & it : constructors) {
+          es.insert(it->last());
+       }
+       auto res = es.find(exp);
+       return (res != es.end());
+    }
+
+    //find real example with more inductive constructors
+    //may not be super usable
+    /*ExprSet generateLists(int numCopies, int length) {
        ExprSet retVal;
        ExprVector args;
        Expr cons = *find_if(constructors.begin(), constructors.end(), [](Expr x){return x->arity() != 2;});
@@ -1509,10 +1646,79 @@ namespace ufo
 	     temp = base;
 	  }
        return retVal;
+    }*/
+
+    /*void buildTerms(Expr templateExp, ExprSet newTerms, int depth) {
+       //template should be fdecl of inductive constructor
+       //newTerms should initially contain only the fapp of base constructor
+       if (depth <= 0) {return;}
+       static int counter = 0;
+       ExprSet generatedTerms;
+       vector<ExprVector> results;
+       Expr adtType = templateExp->last();
+       for (int i = 1; i < templateExp->arity(); i++) {
+	  //we should call the generateADTs function when we encounter the adt type
+          if (templateExp->arg(i) == adtType) {
+             if (results.empty()) {
+                ExprVector newVect;
+		auto temp = generateADTs(newVect, newTerms);
+                results.insert(results.end(), temp.begin(), temp.end());
+	     }
+	     else {
+		vector<ExprVector> newResults;
+                for (auto & it : results) {
+                   auto temp = generateADTs(it, newTerms);
+                   newResults.insert(newResults.end(), temp.begin(), temp.end());
+		}
+		results = newResults;
+	     }
+	  }
+	  //otherwise we should spawn a new variable and append to all elements of the results vector
+	  else {
+             if (results.empty()) {
+                ExprVector newVect;
+                Expr var = bind::mkConst(mkTerm<string>("_t_" + to_string(counter), efac), templateExp->arg(i));
+		counter++;
+		newVect.push_back(var);
+		results.push_back(newVect);
+	     }
+	     else {
+                Expr var = bind::mkConst(mkTerm<string>("_t_" + to_string(counter), efac), templateExp->arg(i));
+                counter++;
+		for (auto it : results) {it.push_back(var);}
+	     }
+	  }
+       }
+       //transform all vectors in results to fapps
+       for (auto & it : results) {
+          ExprVector tempVect;
+	  tempVect.push_back(templateExp);
+	  tempVect.insert(tempVect.end(), it.begin(), it.end());
+	  auto temp = mknary<FAPP>(tempVect);
+	  outs() << string(sp+2, ' ') << "new FAPP is: " << temp << "\n";
+	  newTerms.insert(temp);
+       }
+       buildTerms(templateExp, newTerms, depth-1);
     }
+
+    vector<ExprVector> generateADTs(ExprVector ev, ExprSet es) {
+       vector<ExprVector> ret;
+       //for (auto & it : ev) { outs() << "  ev before: " << it << "\n";}
+       for (auto & it : es) {
+          ev.push_back(it);
+	  ret.push_back(ev);
+	  ev.pop_back();
+       }
+       //for (auto & it : ret) {for (auto & is : it) {outs() << "  ret value is: " << is << "\n";}}
+       //outs() << "\n";
+       return ret;
+    }*/
+
+    
 
     //be smarter about this function, it looks gross
     Expr mirrorLemma(Expr origin) {
+	if (origin == NULL) {return NULL;}
         Expr expGen;
         if (isOpX<FORALL>(origin)) {
            ExprVector vars;
@@ -1743,6 +1949,8 @@ namespace ufo
     }
 
     bool testIsomorphism(Expr exp1, Expr exp2) {
+       if (exp1 == nullptr && exp2 == nullptr) {return true;}
+       if (exp1 == nullptr || exp2 == nullptr) {return false;}
        ExprVector vars;
        ExprMap matching;
        filter(exp1, bind::IsConst(), inserter(vars, vars.begin()));
@@ -2661,7 +2869,7 @@ namespace ufo
 
   //s is the content of the file
   void adtSolve(EZ3& z3, Expr s, int maxDepth,
-                int maxGrow, int mergingIts, int earlySplit, bool verbose, int useZ3, bool useKS, int to)
+                int maxGrow, int mergingIts, int earlySplit, bool verbose, int useZ3, bool useKS, int disproofDepth, int to)
   {
     ExprVector constructors;
     for (auto & a : z3.getAdtConstructors()) constructors.push_back(regularizeQF(a));
@@ -2698,8 +2906,15 @@ namespace ufo
       outs () << "Unable to detect the goal\n";
       return;
     }
+
+    if (disproofDepth != 0) {
+       ADTSolver sol (goal, assumptions, constructors, 0, 0, maxDepth, maxGrow, mergingIts, earlySplit, verbose, disproofDepth, useZ3, useKS, to);
+       auto res = sol.disproof(goal);
+       outs () << (res ? "sat\n" : (!res ? "unsat\n" : "unknown\n")); 
+       return;
+    }
     //assumptions here contain only data from file
-    ADTSolver sol (goal, assumptions, constructors, 0, 0, maxDepth, maxGrow, mergingIts, earlySplit, verbose, useZ3, useKS, to);
+    ADTSolver sol (goal, assumptions, constructors, 0, 0, maxDepth, maxGrow, mergingIts, earlySplit, verbose, disproofDepth, useZ3, useKS, to);
     tribool res = isOpX<FORALL>(goal) ? sol.solve() : sol.solveNoind();
     /*outs () << "Final list of assumptions is\n";
     sol.printAssumptions();*/
