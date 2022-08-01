@@ -1542,11 +1542,16 @@ namespace ufo
        ExprSet result;
        ExprSet startSet;
        ExprSet generatedTerms;
-       Expr cons = *find_if(constructors.begin(), constructors.end(), [](Expr x){return x->arity() != 2;});
-       Expr base = mk<FAPP>(*find_if(constructors.begin(), constructors.end(), [](Expr x){return x->arity() == 2;}));
-       generatedTerms.insert(base);
+       for (auto & it : constructors) {
+          if (it->arity() > 2) {
+             auto base = mk<FAPP>(*find_if(constructors.begin(), constructors.end(), [it](Expr x){return (x->arity() == 2 && x->last() == it->last());}));
+             ExprSet tempSet;
+	     tempSet.insert(base);
+	     generateADTs(it, tempSet, length);
+             generatedTerms.insert(tempSet.begin(), tempSet.end());
+	  }
+       }
        startSet.insert(exp);
-       generateADTs(cons, generatedTerms, length);
        //for (auto it = generatedTerms.begin(); it != generatedTerms.end(); it++) {outs() << "  generated list: " << *it << '\n';}
        generateTermsMemoize(startSet, vars, generatedTerms, result);
        return result;
@@ -1560,10 +1565,13 @@ namespace ufo
        ExprSet newSet;
        Expr curVar = vars.back();
        vars.pop_back();
+       auto curVarType = curVar->last()->last();
        for (auto it = start.begin(); it != start.end(); it++) {
           for (auto is = newTerms.begin(); is != newTerms.end(); is++) {
-             Expr temp = replaceAll(*it, curVar, *is);
-             newSet.insert(temp);
+             if (curVarType == getADTType(*is)) {
+                Expr temp = replaceAll(*it, curVar, *is);
+                newSet.insert(temp);
+	     }
 	  }
        }
        generateTermsMemoize(newSet, vars, newTerms, result);  
@@ -1583,7 +1591,7 @@ namespace ufo
        for (int i = 1; i < templateExp->arity()-1; i++) {
           for (auto & it : memo) {
 	     //current arg has ADT type
-	     if (isADTType(templateExp->arg(i))) {
+	     if (templateExp->arg(i) == templateExp->last()) {
                 for (auto & is : newTerms) {
                    ExprVector temp(it.begin(), it.end());
                    temp.push_back(is);
@@ -1609,20 +1617,22 @@ namespace ufo
        for (auto & it : memo) {
           Expr temp = mknary<FAPP>(it);
 	  newTerms.insert(temp);
-	  //outs() << "NEW TERM IS:  " << temp << "\n";
        }
        generateADTs(templateExp, newTerms, depth-1);
 
     }
 
-    bool isADTType(Expr exp) {
-       ExprSet es;
-       for (auto & it : constructors) {
-          es.insert(it->last());
+    Expr getADTType(Expr exp) {
+       Expr temp = exp; //exp should be FAPP of constructor
+       while (temp != NULL) {
+          temp = temp->last();
+	  if (isOpX<FDECL>(temp)) {
+             return temp->last();
+	  }
        }
-       auto res = es.find(exp);
-       return (res != es.end());
+       return NULL;
     }
+
 
     //find real example with more inductive constructors
     //may not be super usable
