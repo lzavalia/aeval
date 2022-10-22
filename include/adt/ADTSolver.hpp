@@ -2,6 +2,7 @@
 #define ADTSOLVER__HPP__
 #include <assert.h>
 #include <string.h>
+#include <fstream>
 
 #include "ae/AeValSolver.hpp"
 #include "ae/SMTUtils.hpp"
@@ -25,6 +26,14 @@ namespace ufo
     ExprFactory &efac;
     SMTUtils u;
 
+    // DS for lemma gen
+    ExprVector baseconstrapps;
+    ExprVector negativeLemmas;
+    ExprVector positiveLemmas;
+
+    //DS for disproof
+    ExprSet compositeConstructors;
+
     ExprVector rewriteHistory;
     vector<int> rewriteSequence;
     int maxDepth;
@@ -37,17 +46,80 @@ namespace ufo
     int lev = 0;
     bool useZ3 = false;
     unsigned to;
+    int disproofDepth = 0;
     ExprVector blockedAssms;
     int nestedLevel;
 
     public:
 
-    ADTSolver(Expr _goal, ExprVector& _assumptions, ExprVector& _constructors, int _glob_ind = 0, int _lev = 0, int _maxDepth = 5, int _maxGrow = 3, int _mergingIts = 3, int _earlySplit = 1, bool _verbose = false, bool _useZ3 = true, unsigned _to = 1000, unsigned _l = 0) :
-        goal(_goal), assumptions(_assumptions), constructors(_constructors), glob_ind(_glob_ind), lev(_lev), efac(_goal->getFactory()), u(_goal->getFactory(), _to), maxDepth(_maxDepth), maxGrow(_maxGrow), mergingIts(_mergingIts), earlySplit(_earlySplit), verbose(_verbose), useZ3(_useZ3), to (_to), nestedLevel(_l)
+    ADTSolver(Expr _goal, ExprVector& _assumptions, ExprVector& _constructors,
+      int _glob_ind = 0, int _lev = 0, int _maxDepth = 5, int _maxGrow = 3,
+      int _mergingIts = 3, int _earlySplit = 1, bool _verbose = true,
+      bool _useZ3 = true, unsigned _to = 1000, int _disproofDepth = 0, unsigned _l = 0) :
+        goal(_goal), assumptions(_assumptions), constructors(_constructors),
+        glob_ind(_glob_ind), lev(_lev), efac(_goal->getFactory()),
+        u(_goal->getFactory(), _to), maxDepth(_maxDepth), maxGrow(_maxGrow),
+        mergingIts(_mergingIts), earlySplit(_earlySplit), verbose(_verbose),
+        useZ3(_useZ3), to (_to), disproofDepth(_disproofDepth), nestedLevel(_l)
     {
       // for convenience, rename assumptions (to have unique quantified variables)
       renameAssumptions();
     }
+
+/*    void dumpToFile(Expr newGoal, ExprVector newAssms) {
+       ofstream outputFile;
+       outputFile.open("output.smt2", ofstream::out | ofstream::app);
+       static bool didtypes = false;
+       if (!didtypes) {
+          serializeTypes(outputFile);
+	  didtypes = true;
+       }
+       //for (auto & it : newAssms) {u.serialize_to_stream(it, outputFile);}
+       u.serialize_to_stream(newGoal, outputFile);
+       outputFile.close();
+    }
+
+    void serializeTypes(ostream & out = outs()) {
+       //step 1, collect adt types and constructors
+       map<Expr, ExprVector> newConstructors; //should have form <type, constructors>
+       ExprVector typeVect;
+       typeVect.resize(constructors.size());
+       transform(constructors.begin(), constructors.end(), typeVect.begin(), [](Expr x){ return x->last(); });
+       unique(typeVect.begin(), typeVect.end());
+       for (auto & it : typeVect) {
+          ExprVector tempCons;
+	  tempCons.resize(constructors.size());
+	  copy_if(constructors.begin(), constructors.end(), tempCons.begin(), [it](Expr x){return (x->last() == it);});
+	  newConstructors.emplace(it, tempCons);
+       }
+       //step 2, iterate over newConstructors map and print info
+       for (auto it : newConstructors) {
+          out << "(declare-datatypes ";
+	  out << "((" << it.first->arg(0); 
+          out << " 0)) ";
+	  out << "((";
+	  for (auto is : it.second) {
+	     out << "(" << is->arg(0);
+	     if (is->arity() > 2) {out << " ";}
+             for (int i = 1; i < is->arity() - 1; i++) {
+                auto temp = is->arg(i);
+		if (isOpX<AD_TY>(temp)) {
+                   out <<  " (param" << i << " ";
+		   out << temp->arg(0);
+		   out << ")";
+		}
+		else {
+                   out << "(param" << i << " ";
+		   u.print(temp, out);
+		   out << ")";
+		}
+	     }
+	     out << ")";
+	  }
+	  out << "))";
+	  out << ")\n";
+       }
+    }*/
 
     void renameAssumptions()
     {
@@ -84,8 +156,12 @@ namespace ufo
     bool simplifyGoal()
     {
       Expr goalQF = goal->last();
-      goalQF = liftITEs(goalQF);
-      goalQF = u.simplifyITE(goalQF);   // TODO: more simplification passes
+      if (containsOp<ITE>(goalQF)) // TODO: support IMPL/IFF
+      {
+        ExprVector disjs, vars;
+        u.flatten(goalQF, disjs, false, vars, [](Expr a, ExprVector& b){return a;});
+        goalQF = simplifyBool(disjoin(disjs, efac));
+      }
       if (u.isEquiv(goalQF, mk<TRUE>(efac))) return true;
 
       ExprVector args;
@@ -338,7 +414,7 @@ namespace ufo
                 }
               }
               if (!args.empty()) repl = createQuantifiedFormulaRestr(repl, args, false);
-  
+
               result.push_back(repl);
               return true;
             }
@@ -418,7 +494,7 @@ namespace ufo
               replaced = replaceAll(subgoal, auxRepl, mk<TRUE>(efac));
             }
 
-            if (subgoal != replaced) 
+            if (subgoal != replaced)
             {
               result.push_back(replaced);
               return true;
@@ -465,11 +541,11 @@ namespace ufo
           if (findMatching (assmQF->left(), subgoal->left(), args, matching))
           {
             repl = replaceAll(assmQF, matching);
-            if (fwd && !u.isSat(repl, subgoal)) 
+            if (fwd && !u.isSat(repl, subgoal))
             {
               result.push_back(mk<FALSE>(efac));
               return true;
-            }            
+            }
             if (fwd)
             {
               if (((isOpX<LEQ>(repl) && isOpX<GEQ>(subgoal)) || (isOpX<GEQ>(repl) && isOpX<LEQ>(subgoal))) &&
@@ -567,7 +643,7 @@ namespace ufo
             isNumeric(subgoal->left()) && isNumeric(assm->left()))
         {
           Expr tryAbd = abduce(subgoal, assm);
-          if (tryAbd != NULL)
+          if (tryAbd != NULL && tryAbd != subgoal)
           {
             result.push_back(tryAbd);
             return true;
@@ -782,13 +858,10 @@ namespace ufo
         return handleExists(subgoal);
       }
 
-      subgoal = liftITEs(subgoal);
-      subgoal = u.simplifyITE(subgoal);
       subgoal = simplifyExists(subgoal);
       subgoal = simplifyArr(subgoal);
       subgoal = simplifyArithm(subgoal);
       subgoal = simplifyBool(subgoal);
-
 
       ExprSet subgoals;
       if (isOpX<ITE>(subgoal))
@@ -816,7 +889,7 @@ namespace ufo
               part++;
             }
 
-            bool tmpres = simpleSMTcheck(s);
+            tribool tmpres = simpleSMTcheck(s);
             if (tmpres)
             {
               if (verbose) outs() << string(sp, ' ') << "{\n" << string(sp+2, ' ') <<
@@ -830,7 +903,7 @@ namespace ufo
 
               if (verbose) outs() << string(sp, ' ') << "{\n";
               sp += 2;
-              tmpres= rewriteAssumptions(s);   // recursive call
+              tmpres = rewriteAssumptions(s);   // recursive call
               sp -= 2;
               if (verbose) outs() << string(sp, ' ') << "}\n";
 
@@ -889,10 +962,9 @@ namespace ufo
               return true;
             }
           }
-          for (auto & it : result) {
+          for (auto & it : result)
             if (find (rewriteHistory.begin(), rewriteHistory.end(), it) == rewriteHistory.end())
-            allAttempts[i].push_back(it);
-          }
+              allAttempts[i].push_back(it);
         }
       }
       {
@@ -937,7 +1009,6 @@ namespace ufo
       // }
       }
 
-      // first, try easier rewrites
       if (tryRewriting(allAttempts, subgoal))
       {
         if (toRem) assumptions = assumptionsTmp;
@@ -946,28 +1017,120 @@ namespace ufo
 
       if (splitDisjAssumptions(subgoal)) return true;
 
-      // second, try harder rewrites
-      if (tryRewriting(allAttempts, subgoal))
-      {
-        if (toRem) assumptions = assumptionsTmp;
-        return true;
-      }
-
       bool res = false;
 
       if (isOpX<OR>(subgoal)) res = splitByGoal(subgoal);
 //      if (!res) res = proveByContradiction(subgoal);
 //      if (!res) res = similarityHeuristic(subgoal);
       if (toRem) assumptions = assumptionsTmp;
+      if (res) return true;
 
+      if (lemmaGen(subgoal)) return true;
+
+      // backtrack:
+      if (verbose) outs () << string(sp, ' ') << "backtrack to: " << *subgoal << "\n";
       return res;
+    }
+
+    bool lemmaGen(Expr subgoal)
+    {
+      if (lev < 1 /* max meta-induction level, hardcoded for now */)
+      {
+        map<Expr, int> occs;
+        getCommonSubterms(subgoal, occs);   // get common subterms in `exp` to further replace by fresh symbols
+        auto it = occs.begin();
+        for (int i = 0; i < occs.size() + 1; i++)
+        {
+          Expr expGen = subgoal;
+          if (it != occs.end()) // try generalizing based on the current subterm from occs
+          {
+            expGen = generalizeGoal(subgoal, it->first, it->second);
+            ++it;
+            if (expGen == NULL) continue;
+          }
+          else
+          {
+            // if nothing worked, try to prove it as is (exactly once, but if not very large)
+            if (getMonotDegree(expGen) > 2 || countFuns(expGen) > 3) //  hand-selected heuristics
+              continue;
+          }
+
+          ExprVector vars;
+          filter (expGen, IsConst (), inserter(vars, vars.begin()));
+          for (auto it = vars.begin(); it != vars.end();)
+            if (find(baseconstrapps.begin(), baseconstrapps.end(), *it) == baseconstrapps.end()) ++it;
+              else it = vars.erase(it);
+
+          bool toCont = false;
+          for (auto & l : negativeLemmas)
+          {
+            ExprMap matching;
+            if (findMatching(expGen, l, vars, matching))
+            {
+              toCont = true;
+              break;
+            }
+          }
+          if (toCont) continue;
+
+          for (auto & l : positiveLemmas)
+          {
+            ExprMap matching;
+            if (findMatching(expGen, l, vars, matching))
+            {
+              toCont = true;
+              break;
+            }
+          }
+
+          if (!toCont)
+          {
+            auto assumptionsNst = assumptions;
+            for (auto it = assumptionsNst.begin(); it != assumptionsNst.end();)
+              if (hasOnlyVars(*it, baseconstrapps)) ++it;
+                else it = assumptionsNst.erase(it);
+	    
+	    //try to disprove lemma
+	    int tempDepth = disproofDepth;
+	    disproofDepth = 2;
+            auto newExp = mkQFla(expGen, vars);
+	    if (bool(disproof(newExp))) {
+                disproofDepth = tempDepth;
+		outs() << "Unknown\n";
+		continue;
+	    }
+	    disproofDepth = tempDepth;
+
+	    //auto newExp = mkQFla(expGen, vars);
+            ADTSolver sol (newExp, assumptionsNst, constructors, glob_ind, lev + 1,
+                           maxDepth, maxGrow, mergingIts, earlySplit, false, useZ3, to, disproofDepth);
+            toCont = bool(sol.solve());
+	  }
+          if (toCont)
+          {
+            if (verbose) outs () << string(sp, ' ')  << "proven by induction: " << *expGen << "\n";
+            positiveLemmas.push_back(expGen);
+            return true;
+          }
+          else
+          {
+            if (verbose) outs () << string(sp, ' ')  << "nested induction failed\n";
+            negativeLemmas.push_back(expGen);
+          }
+	  /*auto newExp = mkQFla(expGen, vars);
+	  if (bool(disproof(newExp))) {
+             outs() << "Unknown\n";
+	     exit(1);
+	  }*/
+        }
+      }
+      return false;
     }
 
     // try rewriting in a particular order
     bool tryRewriting(map<int, ExprVector>& allAttempts, Expr subgoal)
     {
       for (auto & a : allAttempts) {
-//        outs() << string(sp, ' ') << allAttempts.size() << "\n";
         int i = a.first;
         for (auto & exp : a.second) {
           if (verbose) outs() << string(sp, ' ') << "rewritten [" << i << "]: " << *exp << "\n";
@@ -987,42 +1150,6 @@ namespace ufo
             rewriteHistory.pop_back();
             rewriteSequence.pop_back();
           }
-
-          if (subgoal != exp && lev < 2 /* max meta-induction level, hardcoded for now */)
-          {
-            map<Expr, int> occs;
-            getCommonSubterms(exp, occs);   // get common subterms in `exp` to further replace by fresh symbols
-            auto it = occs.begin();
-            for (int i = 0; i < occs.size() + 1; i++)
-            {
-              Expr expGen = exp;
-              if (it != occs.end()) // try generalizing based on the current subterm from occs
-              {
-                expGen = generalizeGoal(exp, it->first, it->second);
-                ++it;
-                if (expGen == NULL) continue;
-              }
-              else
-              {
-                // if nothing worked, try to prove it as is (exactly once, but if not very large)
-                if (getMonotDegree(expGen) > 2 || countFuns(expGen) > 3) //  hand-selected heuristics
-                  continue;
-              }
-
-              auto assumptionsTmp = assumptions;
-              // nested induction
-              ADTSolver sol (expGen, assumptionsTmp, constructors, glob_ind, lev+1,
-                             maxDepth, maxGrow, mergingIts, earlySplit, false, useZ3, to);
-
-              if (sol.solveNoind(false))
-              {
-                if (verbose) if (exp) outs () << string(sp, ' ')  << "proven by induction: " << *expGen << "\n";
-                return true;
-              }
-            }
-          }
-          // backtrack:
-          if (verbose) outs () << string(sp, ' ') << "backtrack to: " << *subgoal << "\n";
         }
       }
       return false;
@@ -1031,19 +1158,345 @@ namespace ufo
     // a particular heuristic, to be extended
     Expr generalizeGoal(Expr e, Expr subterm, int occs /* how often `subterm` occurs in `e` */)
     {
-      if (occs < 2) return NULL;                          // `subterm` should occur at least twice
-      if (subterm->arity() == 0) return NULL;             // it should not be a constant
+      if (occs < 1) return NULL;
+      if (subterm->arity() == 0 && !isOpX<MPZ>(subterm))
+        return NULL;                                      // it should not be a (non-integer) constant
       if (isOpX<FAPP>(subterm) &&
           subterm->left()->arity() == 2) return NULL;     // it should not be a variable
       Expr expGen = e;
       Expr s = bind::mkConst(mkTerm<string> ("_w_" + to_string(glob_ind), efac), typeOf(subterm));
       glob_ind++;                                         // create a fresh symmbol
       expGen = replaceAll(expGen, subterm, s);
+      if (isOpX<MPZ>(subterm))                            // replace negative consts
+        expGen = replaceAll(expGen, mkMPZ(-lexical_cast<cpp_int>(subterm), efac),
+                                    mk<UN_MINUS>(s));;
       if (!emptyIntersect(expGen, subterm)) return NULL;  // there should not be any leftovers after replacement
       int cnt = countFuns(expGen);                        // check the result
       if (cnt == 0 || cnt > 3) return NULL;
       if (getMonotDegree(expGen) > 2) return NULL;        // if it is still "too complex", scratch it
       return expGen;
+    }
+
+    //test this function with more rigor before rerunning experiments
+    bool disproofFilter2(Expr & exp) {
+       //outs() << "expression head is: " << exp->arg(0) << '\n';
+       if (!isOpX<FAPP>(exp)) {
+	  ExprSet fdecls;
+	  //outs() << "PING\n";
+          filter(exp, [](Expr & x){return (isOpX<FDECL>(x) && x->arity() > 2);}, inserter(fdecls, fdecls.begin()));
+	  //collect all non-variable fdecls in exp
+	  //outs() << "fdecls are: ";
+	  //for (auto & it : fdecls) {outs() << it << ' ';}
+	  //outs() << '\n';
+	  //if there are no fdecls, send to z3 (might be arithmetic term)
+	  if (fdecls.empty()) {return true;}
+	  //test if each fdecl is in constructors 
+	  bool isSubset = true;
+	  for (auto & it : fdecls) {
+             if (find(constructors.begin(), constructors.end(), it) == constructors.end()) {isSubset = false;}
+	  }
+	  return isSubset;
+       }
+       outs() << string(sp, ' ') << "filter failed\n";
+       return false;
+    }
+
+    tribool disproof(Expr exp) {
+       outs() << string(sp, ' ') << "Attempting to disprove: " << exp << '\n';
+       outs() << string(sp, ' ') << "{\n";
+       ExprVector vars;
+       Expr newExpr;
+       //remove quantifier
+       if (isOpX<FORALL>(exp) || isOpX<EXISTS>(exp)) {newExpr = exp->last();}
+       else {newExpr = exp;}
+       //collect variables and remove constants
+       filter(newExpr, bind::IsConst(), inserter(vars, vars.begin()));
+       Expr base =  mk<FAPP>(*find_if(constructors.begin(), constructors.end(), [](Expr x){return x->arity() == 2;}));
+       for (auto it = vars.begin(); it != vars.end(); ) {
+         if (*it == base) {vars.erase(it);}
+         else it++;
+       }
+       //collect finalTerms
+       ExprSet finalTerms = generateTerms(newExpr, vars, disproofDepth);
+       outs() << string(sp + 2, ' ') << "generated " << finalTerms.size() << " terms {\n";
+       for (auto & it : finalTerms){outs() << string(sp + 4, ' ') << it << "\n";}
+       outs() << string(sp + 2, ' ')<< "}\n";
+       outs() << string(sp + 2, ' ') << "unfolding terms\n";
+       int counter = 0;
+       int breaker = 0;
+       for (auto it = finalTerms.begin(); it != finalTerms.end(); it++) {
+          Expr temp = *it;
+          Expr old = temp;
+          while (true) { // this portion will need to be a recursive function (for completeness, not as important)
+             ExprVector results;
+             for (auto is = assumptions.begin(); is != assumptions.end(); is++) {
+                //locate specific function definitions
+                //when reading file, extract definitions
+                //pattern match for two assumptions, one will have base cons the other will be ind
+                //
+                useAssumption(temp, *is, results);
+                if (!results.empty()) {
+                   temp = results[0];
+                }
+             }
+	     //make a filter to keep nonsense from going to z3 (more important)
+             if (old == temp) {break;}
+             else {old = temp;}
+             //if (isOpX<TRUE>(temp)) break;
+          }
+	  //dumpToFile(constructors, assumptions, temp, true);
+          outs() << string(sp + 2, ' ') << "unfolded term: " << temp << '\n';
+          //outs() << "    counter: " << counter << '\n';
+          counter++;
+	  if (!disproofFilter2(temp)) {
+	     outs() << string(sp + 2, ' ') << "unfolding failed at term " << temp << '\n';
+             continue;
+	  }
+          auto res = u.isTrue(temp);
+
+          if (!res) {
+            outs() << string(sp + 2, ' ') << "Disproven with Z3.\n";
+            outs() << string(sp, ' ') << "}\n";
+            return true;
+          }
+          if (counter == 20 || counter == finalTerms.size() - 1) {
+            outs() << string(sp + 2, ' ') << "Tested maximum number of terms\n";
+            outs() << string(sp, ' ') << "}\n";
+            return indeterminate;
+          };
+       }
+       outs() << string(sp + 2, ' ') << "Disproof failed.\n";
+       outs() << string(sp, ' ') << "}\n";
+       //experiment here with useAssumption, run on an infinite loop that replaces each rev2 instance one at a time
+       return indeterminate;
+    }
+
+    ExprSet generateTerms(Expr exp, ExprVector vars, int length) {
+       ExprSet result;
+       ExprSet startSet;
+       ExprSet generatedTerms;
+       for (auto & it : constructors) {
+          if (it->arity() > 2) {
+             auto base = mk<FAPP>(*find_if(constructors.begin(), constructors.end(), [it](Expr x){return (x->arity() == 2 && x->last() == it->last());}));
+             ExprSet tempSet;
+             tempSet.insert(base);
+             generateADTs(it, tempSet, length);
+             generatedTerms.insert(tempSet.begin(), tempSet.end());
+          }
+       }
+       startSet.insert(exp);
+       //for (auto it = generatedTerms.begin(); it != generatedTerms.end(); it++) {outs() << "  generated list: " << *it << '\n';}
+       generateTermsMemoize(startSet, vars, generatedTerms, result);
+       return result;
+    }
+
+    void generateTermsMemoize(ExprSet start, ExprVector vars, ExprSet newTerms, ExprSet & result) {
+       if (vars.empty()) {
+         result = start;
+         return;
+       }
+       ExprSet newSet;
+       Expr curVar = vars.back();
+       vars.pop_back();
+       auto curVarType = curVar->last()->last();
+       for (auto it = start.begin(); it != start.end(); it++) {
+          for (auto is = newTerms.begin(); is != newTerms.end(); is++) {
+             if (curVarType == getADTType(*is)) {
+                Expr temp = replaceAll(*it, curVar, *is);
+                newSet.insert(temp);
+             }
+          }
+       }
+       generateTermsMemoize(newSet, vars, newTerms, result);
+    }
+
+    void generateADTs(Expr templateExp, ExprSet & newTerms, int depth) {
+       //templateExp should be FDECL of ind cons
+       //newTerms should only contain FAPP of base cons
+       //outs() << "DEPTH IS: " << depth << "\n";
+       if (depth == 0) {return;}
+       //is not a composite ADT
+       /*getComposites();
+       if (!compositeConstructors.empty()) {
+          auto pos = compositeConstructors.find(templateExp);
+	  if (pos != compositeConstructors.end()) {return;}
+       }*/
+       static int counter = 0;
+       ExprVector fappArgs;
+       fappArgs.push_back(templateExp);
+       vector<ExprVector> memo;
+       memo.push_back(fappArgs);
+       vector<ExprVector> newMemo;
+       for (int i = 1; i < templateExp->arity()-1; i++) {
+          for (auto & it : memo) {
+             //current arg has ADT type
+             if (templateExp->arg(i) == templateExp->last()) {
+                for (auto & is : newTerms) {
+                   ExprVector temp(it.begin(), it.end());
+                   temp.push_back(is);
+                   newMemo.push_back(temp);
+                   //outs() << "RESULT OF CASE 1: " << mknary<FAPP>(temp) << "\n";
+                }
+             }
+             //otherwise
+             else {
+                ExprVector temp(it.begin(), it.end());
+                Expr var = bind::mkConst(mkTerm<string>("_t_" + to_string(counter), efac), templateExp->arg(i));
+                counter++;
+                temp.push_back(var);
+                newMemo.push_back(temp);
+                //outs() << "RESULT OF CASE 2: " << mknary<FAPP>(temp) << "\n";
+             }
+          }
+          memo.clear();
+          memo.insert(memo.end(), newMemo.begin(), newMemo.end());
+          newMemo.clear();
+       }
+       //turn each element of memo to FAPP
+       for (auto & it : memo) {
+          Expr temp = mknary<FAPP>(it);
+          newTerms.insert(temp);
+       }
+       generateADTs(templateExp, newTerms, depth-1);
+
+    }
+
+    Expr getADTType(Expr exp) {
+       Expr temp = exp; //exp should be FAPP of constructor
+       while (temp != NULL) {
+          temp = temp->last();
+	  if (temp == NULL) {return NULL;}
+          if (isOpX<FDECL>(temp)) {
+	     return temp->last();
+          }
+       }
+       return NULL;
+    }
+
+   void dumpToFile(ExprVector consList, ExprVector assms, Expr goal, bool saveDump = true) {
+       ofstream outputFile;
+       static int i = 0;
+       outs() << "whatever\n";
+       if (!saveDump) {outputFile.open("output.smt2", ofstream::out | ofstream::app);}
+       else {
+          string filename = "output" + to_string(i) + ".smt2";
+          outputFile.open(filename, ofstream::out | ofstream::app);
+          i++;
+       }
+       static bool didtypes = false;
+       if (!didtypes) {
+          serializeTypes(consList, outputFile);
+          //didtypes = true;
+       }
+       static bool didfuns = false;
+       if (!didfuns) {
+          serializeFDecls(consList, assms, goal, outputFile);
+          //didfuns = true;
+       }
+       for (auto & it : assms) {u.serialize_to_stream(it, outputFile);}
+       u.serialize_to_stream(mk<NEG>(goal), outputFile);
+       outputFile << "(check-sat)";
+       outputFile.close();
+    }
+
+
+    void serializeTypes(ExprVector consList, ostream& out = outs()) {
+       //step 1, collect adt types and constructors
+       map<Expr, ExprVector> newConstructors; //should have form <type, constructors>
+       ExprVector typeVect;
+       typeVect.resize(consList.size());
+       transform(consList.begin(), consList.end(), typeVect.begin(), [](Expr x){ return x->last(); });
+       unique(typeVect.begin(), typeVect.end());
+       for (auto & it : typeVect) {
+          if (it == NULL) {continue;}
+          ExprVector tempCons;
+          tempCons.resize(consList.size());
+          copy_if(consList.begin(), consList.end(), tempCons.begin(), [it](Expr x){return (x->last() == it);});
+          newConstructors.emplace(it, tempCons);
+       }
+       /*for (auto & is : newConstructors) {
+          outs() << "First is: " << is.first << '\n';
+          for (auto & iu : is.second) {
+             outs() << "Second is: " << iu << '\n';
+          }
+          outs() << '\n';
+       }*/
+       //step 2, iterate over newConstructors map and print info
+       for (auto it : newConstructors) {
+          out << "(declare-datatypes ";
+          out << "((" << it.first->arg(0);
+          out << " 0)) ";
+          out << "((";
+          static int counter = 0;
+          for (auto is : it.second) {
+             if (is == NULL) {continue;}
+             out << "(" << is->arg(0);
+             if (is->arity() > 2) {out << " ";}
+             for (int i = 1; i < is->arity() - 1; i++) {
+                auto temp = is->arg(i);
+                if (isOpX<AD_TY>(temp)) {
+                   out <<  " (param" << counter << " ";
+                   out << temp->arg(0);
+                   out << ")";
+                   counter++;
+                }
+                else {
+                   out << "(param" << counter << " ";
+                   u.print(temp, out);
+                   out << ")";
+                   counter++;
+                }
+             }
+             out << ")";
+          }
+          out << "))";
+          out << ")\n";
+       }
+    }
+
+    void serializeFDecls(ExprVector consList, ExprVector assm, Expr goal, ostream& out = outs()) {
+       //step 1, collect all fdecls
+       assm.push_back(goal);
+       ExprSet fdeclSet;
+       for (auto & it : assumptions) filter(it, [consList, it](Expr x){return isOpX<FDECL>(x) && x->arity() > 2 && find(consList.begin(), consList.end(), it) == consList.end();}, inserter(fdeclSet, fdeclSet.begin()));
+       filter(goal, [consList](Expr x){return isOpX<FDECL>(x) && x->arity() > 2 && find(consList.begin(), consList.end(), x) == consList.end();}, inserter(fdeclSet, fdeclSet.begin()));
+
+       //step 2, loop over fdecls and print info
+       for (auto is : fdeclSet) {
+          out << "(declare-fun ";
+          out << is->arg(0);
+          out << " (";
+          for (int i = 1; i < is->arity() - 1; i++) {
+             auto temp = is->arg(i);
+             if (isOpX<AD_TY>(temp)) {out << temp->arg(0) << " ";}
+             else {
+                u.print(temp, out);
+                out << " ";
+             }
+          }
+          out << ") ";
+          auto temp = is->last();
+          if (isOpX<AD_TY>(temp)) {out << temp->arg(0);}
+          else {u.print(temp, out);}
+          out << ")\n";
+       }
+    }
+
+    void getComposites() {
+       //pass 1, collect types
+       ExprSet es;
+       for (auto & it : constructors) {es.insert(it->last());}
+       //pass 2 compare input types to output types
+       //if a type is an ADT that is not a recursive call then add to composites
+       for (auto & it : constructors) {
+	  auto output_type = it->last();
+          for (int i = 1; i < it->arity() - 1; i++) {
+             auto input_type = it->arg(i);
+	     if (input_type == output_type) {continue;}
+	     auto res = es.find(input_type);
+	     if (res != es.end()) {compositeConstructors.insert(it);}
+	  }
+       }
     }
 
     bool proveByContradiction (Expr subgoal)
@@ -1063,7 +1516,7 @@ namespace ufo
 
     bool splitByGoal (Expr subgoal)
     {
-      // heuristically pick a split (currently, one one predicate)
+      // heuristically pick a split (currently, one predicate)
       ExprSet dsjs;
       getDisj(subgoal, dsjs);
       if (dsjs.size() < 2) return false;
@@ -1293,9 +1746,7 @@ namespace ufo
       }
     }
 
-    // preprocessing of the main goal:
-    //   - classify constructors for all ADTs that appear in the goal
-    //   - replace all non-inductive ADTs
+    // preprocessing of the main goal
     void unfoldGoal()
     {
       ExprVector goalArgs;
@@ -1303,6 +1754,7 @@ namespace ufo
       bool toRebuild = false;
       for (int i = 0; i < goal->arity() - 1; i++)
       {
+        //   - classify constructors for all ADTs that appear in the goal
         Expr type = goal->arg(i)->last();
         for (auto & a : constructors)
         {
@@ -1330,9 +1782,12 @@ namespace ufo
                 exit(1);
               }
               baseConstructors[type] = a;
+              baseconstrapps.push_back(fapp(a));
             }
           }
         }
+
+        //   - replace all non-inductive ADTs
         if (baseConstructors[type] != NULL && indConstructors[type] == NULL)
         {
           toRebuild = true;
@@ -1342,7 +1797,7 @@ namespace ufo
           {
             // TODO: make sure the name is unique
             Expr s = bind::mkConst(mkTerm<string>
-                         ("_b_" + to_string(goalArgs.size()), efac),
+                         ("_b_" + to_string(glob_ind++), efac),
                          baseConstructors[type]->arg(i));
             goalArgs.push_back(s->last());
             args.push_back(s);
@@ -1356,12 +1811,40 @@ namespace ufo
         }
       }
 
+      // classify functions; TODO: avoid repetitions
+
+      map<Expr, int> occs;
+      getCommonSubterms(conjoin(assumptions, efac), occs);
+      ExprSet funs;
+      for (auto & m : occs)
+        if (isOpX<FAPP>(m.first) && m.first->left()->arity() > 2 &&
+          find(constructors.begin(), constructors.end(), m.first->left()) == constructors.end())
+            funs.insert(m.first->left());
+
+      for (auto & f : funs)
+      {
+        ExprVector assmsWith;
+        for (auto & a : assumptions)
+          if (contains(a, f))
+            assmsWith.push_back(a);
+
+        if (assmsWith.size() != 1) continue;
+        // replace all non-recursive functions
+
+        ExprVector result;
+        if (useAssumption(unfoldedGoalQF, assmsWith[0], result, true))
+        {
+          unfoldedGoalQF = result[0];
+          toRebuild = true;
+        }
+      }
+
       if (toRebuild)
       {
         goalArgs.push_back(unfoldedGoalQF);
         goal = mknary<FORALL>(goalArgs);
 
-        // continue recursively, because newly introduced vars may again need unfolding
+        // continue recursively, because newly introduced vars/funs may again need unfolding
         unfoldGoal();
       }
     }
@@ -1389,8 +1872,8 @@ namespace ufo
       outs () << string(sp+2, ' ') << string(20, '=') << "\n";
       for (int i = 0; i < assumptions.size(); i++)
       {
-        outs () << string(sp+2, ' ') << "| Assumptions [" << i << "]: "
-                << *assumptions[i] << "\n";
+        outs () << string(sp+2, ' ') << "| Assumptions [" << i << "]: ";
+        pprint(assumptions[i]);
       }
       outs () << string(sp+2, ' ') << string(20, '=') << "\n";
       outs () << string(sp, ' ') << "}\n";
@@ -1425,8 +1908,14 @@ namespace ufo
         baseSubgoal = baseSubgoal->right();
       }
 
-      if (verbose) outs() << "\nBase case:       " << *baseSubgoal << "\n{\n";
-      bool baseres = simpleSMTcheck(baseSubgoal);
+      if (verbose)
+      {
+        outs() << "\nBase case:       ";
+        pprint(baseSubgoal);
+        outs() << "\n{\n";
+      }
+
+      tribool baseres = simpleSMTcheck(baseSubgoal);
       if (baseres)
       {
         if (verbose) outs() << "  proven trivially\n";
@@ -1536,11 +2025,17 @@ namespace ufo
       eliminateEqualities(indSubgoal);
       if (mergeAssumptions()) return true;
       splitAssumptions();
-      if (verbose) outs() << "Inductive step:  " << * indSubgoal << "\n{\n";
+      if (verbose)
+      {
+        outs() << "\nInductive step:       ";
+        pprint(indSubgoal);
+        outs() << "\n{\n";
+      }
+
       rewriteHistory.clear();
       rewriteSequence.clear();
 
-      bool indres = simpleSMTcheck(indSubgoal);
+      tribool indres = simpleSMTcheck(indSubgoal);
       if (indres)
       {
         if (verbose) outs() << "  proven trivially\n}\n";
@@ -1702,7 +2197,7 @@ namespace ufo
       return NULL;
     }
 
-    bool solveNoind(int do_rewrite = true, int rounds = 2)
+    tribool solveNoind(int do_rewrite = true, int rounds = 2)
     {
       if (do_rewrite)
       {
@@ -1728,7 +2223,6 @@ namespace ufo
       }
 
       ExprSet qFreeAssms;
-      Expr newGoal = NULL;
       for (auto it = assumptions.begin(); it != assumptions.end(); )
       {
         if (!isOpX<FORALL>(*it))
@@ -1747,28 +2241,32 @@ namespace ufo
       else return false;
     }
 
-    bool solve()
+    tribool solve()
     {
-      unfoldGoal();
-      rewriteHistory.push_back(goal);
+      Expr goalPre = goal;
       for (int i = 0; i < 5; i++)
       {
+        unfoldGoal();
         if (simplifyGoal())
         {
           if (verbose) outs () << "Trivially Proved\n";
           return true;
         }
+        if (goalPre == goal) break;
+        goalPre = goal;
+      }
+      rewriteHistory.push_back(goal);
+
+      if (verbose)
+      {
+        outs () << "Simplified goal: ";
+        pprint(goal);
       }
 
-      // simple heuristic: if the result of every rewriting made the goal larger, we rollback
-      bool toRollback = true;
-      for (int i = 1; i < rewriteHistory.size(); i++)
-        toRollback = toRollback &&
-            (treeSize(rewriteHistory[i-1]) < treeSize(rewriteHistory[i]));
+      //if disproof flag enabled
+      if (disproofDepth > 0) {return disproof(goal);}
 
-      if (toRollback) goal = rewriteHistory[0];
-
-      if (verbose) outs () << "Simplified goal: " << *goal << "\n\n";
+      //dumpToFile(goal, assumptions);
 
       for (int i = 0; i < goal->arity() - 1; i++)
       {
@@ -1782,24 +2280,25 @@ namespace ufo
           }
         }
       }
-      bool res = simpleSMTcheck(goal);
+      tribool res = simpleSMTcheck(goal);
       if (verbose)
       {
         if (res) outs () << "Proved (with Z3)\n";
-        else outs () << "Unknown\n";
+        else return indeterminate;
       }
       return res;
     }
 
-    bool simpleSMTcheck(Expr goal)
+    tribool simpleSMTcheck(Expr goal)
     {
       if (!useZ3) return false;
-      return (bool)u.implies(conjoin(assumptions, efac), goal);
+      return u.implies(conjoin(assumptions, efac), goal);
     }
   };
 
+
   void adtSolve(EZ3& z3, Expr s, int maxDepth,
-                int maxGrow, int mergingIts, int earlySplit, bool verbose, int useZ3, int to)
+                int maxGrow, int mergingIts, int earlySplit, bool verbose, int useZ3, int to, int disproofDepth)
   {
     ExprVector constructors;
     for (auto & a : z3.getAdtConstructors()) constructors.push_back(regularizeQF(a));
@@ -1809,28 +2308,38 @@ namespace ufo
 
     ExprSet cnjs;
     getConj(s, cnjs);
-    for (auto & c : cnjs)
+    for (auto c : cnjs)
     {
-      if (isOpX<NEG>(c))
+      bool possibleGoal = false;
+      if (isOpX<NEG>(c) || isOpX<EXISTS>(c))
+        possibleGoal = true;
+
+      if (possibleGoal)
       {
-        if (goal != NULL) assert (0 && "cannot identify goal (two asserts with negged formulas)");
-        goal = regularizeQF(c->left());
+        if (goal != NULL)
+        {
+          errs() << "WARNING: two (or more) asserts that qualify to be a goal."
+                 << "\nUsing one of those.\n";
+          if (isOpX<FORALL>(goal)) possibleGoal = false;
+        }
       }
+
+      if (possibleGoal)
+        goal = regularizeQF(mkNeg(c));
       else
-      {
         assumptions.push_back(regularizeQF(c));
-      }
     }
 
     if (goal == NULL)
     {
-      outs () << "Unable to parse the query\n";
+      outs () << "Unable to detect the goal\n";
       return;
     }
 
-    ADTSolver sol (goal, assumptions, constructors, 0, 0, maxDepth, maxGrow, mergingIts, earlySplit, verbose, useZ3, to);
-    bool res = isOpX<FORALL>(goal) ? sol.solve() : sol.solveNoind();
-    outs () << (res ? "unsat\n" : "sat\n");
+    ADTSolver sol (goal, assumptions, constructors, 0, 0, maxDepth, maxGrow, mergingIts, earlySplit, verbose, useZ3, to, disproofDepth);
+    //sol.dumpToFile(goal, assumptions);
+    tribool res = isOpX<FORALL>(goal) ? sol.solve() : sol.solveNoind();
+    outs () << (res ? "unsat\n" : (!res ? "sat\n" : "unknown\n"));
   }
 }
 
